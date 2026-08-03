@@ -156,7 +156,7 @@ export default function AdminPage() {
     try {
       const id = form.id.trim() || toId(form.name);
       if (!editing && records.some((skin) => skin.id === id)) throw new Error("Такий ID уже є. Змініть назву або ID.");
-      const image = photo ? `skin/${toId(photo.name.replace(/\.[^.]+$/, ""))}.${photo.name.split(".").pop()?.toLowerCase() || "png"}` : editing!.image;
+      const image = photo ? `skin/${id}.${photo.name.split(".").pop()?.toLowerCase() || "png"}` : editing!.image;
       const record: Skin = { id, name: form.name.trim(), method: form.category === "Донат на банку" ? "Донат на банку" : form.category === "Підписка" ? "Підписка Base" : form.category === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: form.category === "Недоступні" ? "Недоступний" : "Доступний", minimumValue: Number(form.minimumValue) || 0, date: form.date, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured };
       const next = editing ? records.map((skin) => skin.id === editing.id ? record : skin) : [record, ...records];
       const files = photo ? [{ path: `public/${image}`, content: await fileBase64(photo) }] : [];
