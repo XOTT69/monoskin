@@ -53,6 +53,11 @@ function formatFileSize(bytes: number) {
   return `${(bytes / (1024 * 1024)).toLocaleString("uk-UA", { maximumFractionDigits: 1 })} МБ`;
 }
 
+function imageFromClipboard(items: DataTransferItemList) {
+  const item = Array.from(items).find((entry) => entry.kind === "file" && entry.type.startsWith("image/"));
+  return item?.getAsFile() ?? null;
+}
+
 function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
@@ -76,7 +81,7 @@ export default function Home() {
   const [showQr, setShowQr] = useState(false);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
-  const [suggestionPhoto, setSuggestionPhoto] = useState<{ name: string; size: number } | null>(null);
+  const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -183,7 +188,7 @@ export default function Home() {
 
     const form = event.currentTarget;
     const payload = new FormData(form);
-    const photo = payload.get("photo");
+    const photo = suggestionPhoto ?? payload.get("photo");
     if (!(photo instanceof File) || !photo.size) {
       setSubmissionState("error");
       setSubmissionMessage("Додай зображення скіна.");
@@ -195,6 +200,7 @@ export default function Home() {
       return;
     }
 
+    payload.set("photo", photo);
     payload.set("turnstileToken", turnstileToken.current);
     setSubmissionState("sending");
     setSubmissionMessage("");
@@ -256,7 +262,7 @@ export default function Home() {
           <label>Категорія<select name="category" required defaultValue=""><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
           <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} placeholder="https://…" /></label>
           <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={1500} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
-          <label className="form-full file-field"><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => { const file = event.target.files?.[0]; setSuggestionPhoto(file ? { name: file.name, size: file.size } : null); }} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ</small></>}</label>
+          <label className="form-full file-field" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); setSuggestionPhoto(file); } }}><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => setSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
           <div className="turnstile-slot form-full" ref={turnstileSlot} />
           {turnstileSiteKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onLoad={renderTurnstile} />}
           {submissionState !== "idle" && <p className={`submission-message ${submissionState}`} role="status">{submissionMessage}</p>}
