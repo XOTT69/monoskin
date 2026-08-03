@@ -83,13 +83,14 @@
     "name": "Муза Ругодобі",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 99,
     "date": "2025-01-01",
     "description": "Скін «Муза Ругодобі» для підписників Base. Інформацію про актуальні умови та рівень підписки варто перевірити на сторінці Base.",
-    "sourceUrl": "https://base.monobank.ua/",
+    "sourceUrl": "https://base.monobank.ua/olenamandziuk#subscriptions",
     "image": "skin/olenamandziuk.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "featured": false
   },
   {
     "id": "monitor-base",
