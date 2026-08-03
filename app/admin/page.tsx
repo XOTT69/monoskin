@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 
 type Method = "Безкоштовний" | "За дію" | "Доступні всім" | "Донат на банку" | "Підписка Base";
 type Status = "Доступний" | "Недоступний";
@@ -15,6 +15,7 @@ type ContentFile = { content: string };
 const owner = "XOTT69";
 const repo = "monoskin";
 const branch = "main";
+const adminSessionTokenKey = "monoskin-admin-token";
 const today = new Date().toISOString().slice(0, 10);
 const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", date: today, description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
 
@@ -104,7 +105,35 @@ export default function AdminPage() {
     setRecords(JSON.parse(fromBase64(file.content)) as Skin[]);
   };
 
+  useEffect(() => {
+    const accessToken = window.sessionStorage.getItem(adminSessionTokenKey);
+    if (!accessToken) return;
+    let active = true;
+    const restoreSession = async () => {
+      setBusy(true); setError("");
+      try {
+        const [profile, file] = await Promise.all([
+          github<{ login: string }>("/user", accessToken),
+          github<ContentFile>(`/repos/${owner}/${repo}/contents/data/skins.json?ref=${branch}`, accessToken),
+        ]);
+        if (profile.login.toLowerCase() !== owner.toLowerCase()) throw new Error("Ця адмінка дозволена лише для акаунта XOTT69.");
+        if (!active) return;
+        setToken(accessToken); setLogin(profile.login);
+        setRecords(JSON.parse(fromBase64(file.content)) as Skin[]);
+        setNotice("Сеанс відновлено.");
+      } catch {
+        window.sessionStorage.removeItem(adminSessionTokenKey);
+        if (active) setError("Сеанс завершено. Встав token ще раз.");
+      } finally {
+        if (active) setBusy(false);
+      }
+    };
+    void restoreSession();
+    return () => { active = false; };
+  }, []);
+
   const signOut = () => {
+    window.sessionStorage.removeItem(adminSessionTokenKey);
     setToken(""); setLogin(""); setRecords([]); setNotice("Ви вийшли з адмінки.");
   };
 
@@ -115,8 +144,9 @@ export default function AdminPage() {
     try {
       const profile = await github<{ login: string }>("/user", accessToken);
       if (profile.login.toLowerCase() !== owner.toLowerCase()) throw new Error("Ця адмінка дозволена лише для акаунта XOTT69.");
-      setToken(accessToken); setLogin(profile.login); setTokenDraft("");
       await loadCatalog(accessToken);
+      window.sessionStorage.setItem(adminSessionTokenKey, accessToken);
+      setToken(accessToken); setLogin(profile.login); setTokenDraft("");
       setNotice("Підключено до GitHub. Каталог завантажено.");
     } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося підключитися до GitHub."); }
     finally { setBusy(false); }
