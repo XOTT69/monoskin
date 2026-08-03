@@ -21,7 +21,7 @@
     "date": "2025-09-23",
     "description": "Monobank представив дизайн картки «Фламінго», натхненний ракетою FP-5 «Фламінго»",
     "sourceUrl": "https://base.monobank.ua/ds/4oq1pM492x5wDA",
-    "image": "skin/flaminho-fp-16.png",
+    "image": "skin/flaminho-fp-5.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -62,6 +62,19 @@
     "sourceUrl": "",
     "image": "skin/hroshi-vdoma.png",
     "isVisaOnly": true,
+    "isAdultOnly": false
+  },
+  {
+    "id": "olena-mandziuk-muza-rugodobi",
+    "name": "Муза Ругодобі",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "date": "2025-01-01",
+    "description": "Скін «Муза Ругодобі» для підписників Base. Інформацію про актуальні умови та рівень підписки варто перевірити на сторінці Base.",
+    "sourceUrl": "https://base.monobank.ua/",
+    "image": "skin/olenamandziuk.png",
+    "isVisaOnly": false,
     "isAdultOnly": false
   },
   {
@@ -122,7 +135,7 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-23",
+    "date": "2025-08-31",
     "description": "Скін картки monobank, випущений 31 серпня 2025 року до Дня міста Рівного",
     "sourceUrl": "https://base.monobank.ua/ds/4DEGSopcs6oGvy",
     "image": "skin/rivne.png",
@@ -138,7 +151,7 @@
     "date": "2025-09-02",
     "description": "Скін картки monobank, випущений до Дня міста Одеси. Кумедний дизайн із мідіями відсилає до локальної гастрономічної асоціації",
     "sourceUrl": "https://base.monobank.ua/ds/EpJ3ehQkXXbQ5n",
-    "image": "skin/odesa-2.png",
+    "image": "skin/odesa-1.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -151,7 +164,7 @@
     "date": "2025-09-02",
     "description": "Естетичний скін картки monobank, присвячений Дню міста Одеси. Дизайн із видом узбережжя Чорного моря, ймовірно району Ланжерону",
     "sourceUrl": "https://base.monobank.ua/ds/BRwpEHw9FZsncq",
-    "image": "skin/odesa-1.png",
+    "image": "skin/odesa-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -413,7 +426,8 @@
     "sourceUrl": "https://base.monobank.ua/ds/E2TKqDSUY69ac6",
     "image": "skin/urban-cat-black.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "featured": true
   },
   {
     "id": "urban-cat-white",
@@ -520,7 +534,7 @@
     "isAdultOnly": false
   },
   {
-    "id": "ukrposhta-stamp",
+    "id": "ukrposhta-stamp-ship",
     "name": "Укрпошта. Марка",
     "method": "Донат на банку",
     "status": "Недоступний",
@@ -587,7 +601,7 @@
   {
     "id": "vms",
     "name": "ВМС ЗС України",
-    "method": "За дію",
+    "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
     "date": "2026-07-04",
@@ -730,11 +744,11 @@
   {
     "id": "mono-7",
     "name": "Метальник донатів",
-    "method": "За дію",
+    "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
     "date": "2024-11-22",
-    "description": "Скін картки monobank, випущений 22 листопада 2024 року на сьомий день народження банку. Дизайн обіграє «Метальника квітів» — відоме трафаретне графіті Бенксі, де протестувальник у хустці замахується не коктейлем Молотова, а букетом. У версії mono на його місці кіт, а в руці — банка.\n\nСкін видавали за донат від 77 грн на спільний збір monobank і Фонду Притули.\n\nЗбір давно завершився, але скін і досі можна встановити безоплатно за прямим посиланням — схоже, це внутрішнє посилання monobank, яке потрапило в мережу",
+    "description": "Скін картки monobank, випущений 22 листопада 2024 року на сьомий день народження банку. Дизайн обіграє «Метальника квітів» — відоме трафаретне графіті Бенксі, де протестувальник у хустці замахується не коктейлем Молотова, а букетом. У версії mono на його місці кіт, а в руці — банка.\n\nСпочатку скін видавали за донат від 77 грн на спільний збір monobank і Фонду Притули. Збір завершився, але скін досі можна встановити безоплатно за прямим посиланням.",
     "sourceUrl": "https://base.monobank.ua/ds/EYAHKEJnSXDBb1",
     "image": "skin/mono-7.png",
     "isVisaOnly": false,
