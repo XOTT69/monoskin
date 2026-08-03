@@ -134,17 +134,29 @@ export default function AdminPage() {
   };
   const choosePhoto = (event: ChangeEvent<HTMLInputElement>) => setChosenPhoto(event.target.files?.[0] ?? null);
 
+  const currentHead = async () => {
+    const [ref, branchCommit] = await Promise.all([
+      github<{ object: { sha: string } }>(`/repos/${owner}/${repo}/git/ref/heads/${branch}`, token),
+      github<{ sha: string; commit: { tree: { sha: string } } }>(`/repos/${owner}/${repo}/commits/${branch}`, token),
+    ]);
+    if (ref.object.sha === branchCommit.sha) return { sha: ref.object.sha, tree: branchCommit.commit.tree.sha };
+    const commit = await github<{ tree: { sha: string } }>(`/repos/${owner}/${repo}/git/commits/${ref.object.sha}`, token);
+    return { sha: ref.object.sha, tree: commit.tree.sha };
+  };
+
   const commit = async (message: string, nextRecords: Skin[], files: Array<{ path: string; content?: string; delete?: boolean }>) => {
-    const ref = await github<{ object: { sha: string } }>(`/repos/${owner}/${repo}/git/ref/heads/${branch}`, token);
-    const currentCommit = await github<{ tree: { sha: string } }>(`/repos/${owner}/${repo}/git/commits/${ref.object.sha}`, token);
+    setNotice(files.length ? "Завантажуємо фото та готуємо зміни…" : "Готуємо зміни…");
+    const head = await currentHead();
     const changedFiles = files.concat({ path: "data/skins.json", content: toBase64(`${JSON.stringify(nextRecords, null, 2)}\n`) });
     const tree = await Promise.all(changedFiles.map(async (file) => {
       if (file.delete) return { path: file.path, mode: "100644", type: "blob", sha: null };
       const blob = await github<{ sha: string }>(`/repos/${owner}/${repo}/git/blobs`, token, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: file.content, encoding: "base64" }) });
       return { path: file.path, mode: "100644", type: "blob", sha: blob.sha };
     }));
-    const nextTree = await github<{ sha: string }>(`/repos/${owner}/${repo}/git/trees`, token, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ base_tree: currentCommit.tree.sha, tree }) });
-    const nextCommit = await github<{ sha: string }>(`/repos/${owner}/${repo}/git/commits`, token, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message, tree: nextTree.sha, parents: [ref.object.sha] }) });
+    setNotice("Зберігаємо зміни в GitHub…");
+    const nextTree = await github<{ sha: string }>(`/repos/${owner}/${repo}/git/trees`, token, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ base_tree: head.tree, tree }) });
+    const nextCommit = await github<{ sha: string }>(`/repos/${owner}/${repo}/git/commits`, token, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message, tree: nextTree.sha, parents: [head.sha] }) });
+    setNotice("Запускаємо оновлення каталогу…");
     await github(`/repos/${owner}/${repo}/git/refs/heads/${branch}`, token, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sha: nextCommit.sha, force: false }) });
   };
 
@@ -152,7 +164,7 @@ export default function AdminPage() {
     event.preventDefault(); setError(""); setNotice("");
     if (!form.name.trim()) { setError("Вкажіть назву скіна."); return; }
     if (!editing && !photo) { setError("Додайте фото скіна."); return; }
-    setBusy(true);
+    setBusy(true); setNotice(photo ? "Готуємо фото…" : "Готуємо зміни…");
     try {
       const id = form.id.trim() || toId(form.name);
       if (!editing && records.some((skin) => skin.id === id)) throw new Error("Такий ID уже є. Змініть назву або ID.");
@@ -168,7 +180,7 @@ export default function AdminPage() {
 
   const remove = async (skin: Skin) => {
     if (!window.confirm(`Вилучити «${skin.name}» з каталогу?`)) return;
-    setBusy(true); setError(""); setNotice("");
+    setBusy(true); setError(""); setNotice("Готуємо видалення…");
     try {
       const next = records.filter((record) => record.id !== skin.id);
       const sharedImage = next.some((record) => record.image === skin.image);
