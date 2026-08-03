@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import rawSkins from "@/data/skins.json";
 
-type Method = "Безкоштовний" | "За дію" | "Донат на банку" | "Підписка Base";
+type Method = "Безкоштовний" | "За дію" | "Доступні всім" | "Донат на банку" | "Підписка Base";
 type Status = "Доступний" | "Недоступний";
-type DisplayMethod = "Безкоштовно" | "Донат на банку" | "Підписка";
+type DisplayMethod = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка";
 type Category = "Усі" | DisplayMethod | "Недоступні";
 type Skin = {
   id: string;
@@ -24,9 +24,10 @@ type Skin = {
 };
 
 const skins = rawSkins as Skin[];
-const categories: Category[] = ["Усі", "Безкоштовно", "Донат на банку", "Підписка", "Недоступні"];
+const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
 const methodClass: Record<DisplayMethod, string> = {
   "Безкоштовно": "free",
+  "Доступні всім": "everyone",
   "Донат на банку": "donate",
   "Підписка": "base",
 };
@@ -46,6 +47,7 @@ function skinImage(skin: Skin) {
 function displayMethod(skin: Skin): DisplayMethod {
   if (skin.method === "Донат на банку") return "Донат на банку";
   if (skin.method === "Підписка Base") return "Підписка";
+  if (skin.method === "Доступні всім") return "Доступні всім";
   return "Безкоштовно";
 }
 
@@ -151,7 +153,7 @@ export default function Home() {
       <section className="guide container" id="guide"><div><p className="eyebrow"><span /> Як це працює</p><h2>Обери, перевір<br />і додай у гаманець</h2><p>Каталог відкритий для всіх. У кожній картці є стан доступності, спосіб отримання та посилання на джерело.</p></div><div className="guide-steps"><div><b>01</b><span>Обери скін або скористайся пошуком</span></div><div><b>02</b><span>Перевір умову та обмеження в деталях</span></div><div><b>03</b><span>Відкрий посилання, якщо скін доступний</span></div></div><div className="guide-update"><strong>Є новий скін або уточнення?</strong><p>Каталог оновлюється через відкритий репозиторій — записи й зображення зберігаються окремо від дизайну.</p></div><a className="text-link" href="https://github.com/XOTT69/monoskin/blob/main/data/README.md" target="_blank" rel="noreferrer">Як додати або оновити скін <span>↗</span></a></section>
       <footer className="container footer"><span className="brand"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></span><div><a href="https://github.com/XOTT69/monoskin" target="_blank" rel="noreferrer">GitHub</a><span>Відкритий каталог · 2026</span></div></footer>
 
-      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}><section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-describedby="details-description" onMouseDown={(event) => event.stopPropagation()}><button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button><div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 410px" priority />{selected.status === "Доступний" && <span className={`method ${methodClass[displayMethod(selected)]}`}>{displayMethod(selected)}</span>}</div><div className="detail-body"><p className="eyebrow"><span /> {selected.status}</p><h2 id="details-title">{selected.name}</h2><p className="detail-description" id="details-description">{selected.status === "Недоступний" ? "Цей скін залишено в каталозі як частину колекції." : "Перевір умову нижче перед переходом за посиланням."}</p><div className="detail-meta"><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div><div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div><div className="detail-actions">{selected.sourceUrl ? <a className="primary-button detail-button" href={selected.sourceUrl} target="_blank" rel="noreferrer">Відкрити посилання <span>↗</span></a> : <span className="disabled-button">Посилання недоступне</span>}<button className="share-button" onClick={shareSkin}>{copied ? "Посилання скопійовано" : "Поділитися"}</button></div></div></section></div>}
+      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}><section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-describedby="details-description" onMouseDown={(event) => event.stopPropagation()}><button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button><div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 410px" priority />{selected.status === "Доступний" && <span className={`method ${methodClass[displayMethod(selected)]}`}>{displayMethod(selected)}</span>}</div><div className="detail-body"><p className="eyebrow"><span /> {selected.status}</p><h2 id="details-title">{selected.name}</h2><p className="detail-description" id="details-description">{selected.status === "Недоступний" ? "Цей скін залишено в каталозі як частину колекції." : selected.method === "Доступні всім" ? "Банк видає цей скін автоматично — посилання не потрібне." : "Перевір умову нижче перед переходом за посиланням."}</p><div className="detail-meta"><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div><div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div><div className="detail-actions">{selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <a className="primary-button detail-button" href={selected.sourceUrl} target="_blank" rel="noreferrer">Відкрити посилання <span>↗</span></a> : <span className="disabled-button">Посилання недоступне</span>}<button className="share-button" onClick={shareSkin}>{copied ? "Посилання скопійовано" : "Поділитися"}</button></div></div></section></div>}
     </main>
   );
 }
