@@ -8,6 +8,7 @@ type Method = "Безкоштовний" | "За дію" | "Доступні в�
 type Status = "Доступний" | "Недоступний";
 type DisplayMethod = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка";
 type Category = "Усі" | DisplayMethod | "Недоступні";
+type Theme = "dark" | "light";
 type Skin = {
   id: string;
   name: string;
@@ -57,6 +58,7 @@ function categoryOf(skin: Skin): Exclude<Category, "Усі"> {
 
 export default function Home() {
   const [query, setQuery] = useState("");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
   const [selected, setSelected] = useState<Skin | null>(null);
   const [copied, setCopied] = useState(false);
@@ -121,11 +123,11 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, #090909 0%, rgba(9,9,9,.93) 35%, rgba(9,9,9,.14) 73%), url('${skinImage(heroSkin)}')` }}>
+    <main className={`site ${theme}`}>
+      <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
         <nav className="nav container" aria-label="Головна навігація">
           <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark">m</span><span>mono<span className="brand-light">skin</span></span></a>
-          <div className="nav-actions"><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
+          <div className="nav-actions"><button className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
         </nav>
         <div className="hero-content container">
           <p className="eyebrow"><span /> Відкритий каталог скінів</p>
