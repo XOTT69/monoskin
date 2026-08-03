@@ -48,6 +48,11 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("uk-UA", { month: "short", year: "numeric" }).format(new Date(value));
 }
 
+function formatFileSize(bytes: number) {
+  if (bytes < 1024 * 1024) return `${Math.ceil(bytes / 1024)} КБ`;
+  return `${(bytes / (1024 * 1024)).toLocaleString("uk-UA", { maximumFractionDigits: 1 })} МБ`;
+}
+
 function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
@@ -71,6 +76,7 @@ export default function Home() {
   const [showQr, setShowQr] = useState(false);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const [suggestionPhoto, setSuggestionPhoto] = useState<{ name: string; size: number } | null>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -197,6 +203,7 @@ export default function Home() {
       const result = await response.json().catch(() => ({})) as { error?: string };
       if (!response.ok) throw new Error(result.error || "Не вдалося надіслати форму.");
       form.reset();
+      setSuggestionPhoto(null);
       turnstileToken.current = "";
       window.turnstile?.reset(turnstileWidgetId.current);
       setSubmissionState("success");
@@ -249,7 +256,7 @@ export default function Home() {
           <label>Категорія<select name="category" required defaultValue=""><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
           <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} placeholder="https://…" /></label>
           <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={1500} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
-          <label className="form-full file-field"><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required /><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ</small></label>
+          <label className="form-full file-field"><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => { const file = event.target.files?.[0]; setSuggestionPhoto(file ? { name: file.name, size: file.size } : null); }} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ</small></>}</label>
           <div className="turnstile-slot form-full" ref={turnstileSlot} />
           {turnstileSiteKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onLoad={renderTurnstile} />}
           {submissionState !== "idle" && <p className={`submission-message ${submissionState}`} role="status">{submissionMessage}</p>}
