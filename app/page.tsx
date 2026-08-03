@@ -37,12 +37,6 @@ type Skin = {
 
 const skins = rawSkins as Skin[];
 const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
-const methodClass: Record<DisplayMethod, string> = {
-  "Безкоштовно": "free",
-  "Доступні всім": "everyone",
-  "Донат на банку": "donate",
-  "Підписка": "base",
-};
 const submissionApiUrl = process.env.NEXT_PUBLIC_SUBMISSION_API_URL ?? "";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
@@ -74,7 +68,6 @@ export default function Home() {
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
   const [selected, setSelected] = useState<Skin | null>(null);
-  const [copied, setCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
@@ -124,22 +117,6 @@ export default function Home() {
       lastFocused.current?.focus();
     };
   }, [selected]);
-
-  const shareSkin = async () => {
-    if (!selected) return;
-    const url = selected.sourceUrl || window.location.href;
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: `${selected.name} — MONOSKIN`, text: "Скін картки mono", url });
-        return;
-      }
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      // The share sheet may be dismissed by the user; this does not need an error message.
-    }
-  };
 
   const renderTurnstile = () => {
     if (!turnstileSiteKey || !turnstileSlot.current || !window.turnstile || turnstileWidgetId.current) return;
@@ -220,7 +197,7 @@ export default function Home() {
 
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }} aria-label={`Деталі: ${skin.name}`}>
-            <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Доступний" && <span className={`method ${methodClass[displayMethod(skin)]}`}>{displayMethod(skin)}</span>}{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
+            <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
             <div className="skin-info"><div><h3>{skin.name}</h3><p>{formatDate(skin.date)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
           </button>)}
         </div>
@@ -249,7 +226,7 @@ export default function Home() {
 
       <footer className="container footer"><span className="brand"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
 
-      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}><section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-describedby="details-description" onMouseDown={(event) => event.stopPropagation()}><button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button><div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 410px" priority />{selected.status === "Доступний" && <span className={`method ${methodClass[displayMethod(selected)]}`}>{displayMethod(selected)}</span>}</div><div className="detail-body"><p className="eyebrow"><span /> {selected.status}</p><h2 id="details-title">{selected.name}</h2><p className="detail-description" id="details-description">{selected.status === "Недоступний" ? "Цей скін залишено в каталозі як частину колекції." : selected.method === "Доступні всім" ? "Банк видає цей скін автоматично — посилання не потрібне." : "Відкрий QR-код, щоб отримати скін на телефоні, або перейди за посиланням."}</p><div className="detail-meta"><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div><div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div><div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <button className="primary-button detail-button" type="button" onClick={() => setShowQr((current) => !current)} aria-expanded={showQr}>{showQr ? "Сховати QR-код" : "Отримати скін"}<span>→</span></button> : <span className="disabled-button">Посилання недоступне</span>}<button className="share-button" onClick={shareSkin}>{copied ? "Посилання скопійовано" : "Поділитися"}</button></div>{showQr && selected.status === "Доступний" && selected.sourceUrl && <div className="qr-panel"><QRCodeSVG value={selected.sourceUrl} level="M" size={176} marginSize={2} bgColor="#ffffff" fgColor="#111111" title={`QR-код для скіна ${selected.name}`} /><a className="primary-button qr-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a></div>}</div></section></div>}
+      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}><section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-describedby="details-description" onMouseDown={(event) => event.stopPropagation()}><button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button><div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 410px" priority /></div><div className="detail-body"><p className="eyebrow"><span /> {selected.status}</p><h2 id="details-title">{selected.name}</h2><p className="detail-description" id="details-description">{selected.status === "Недоступний" ? "Цей скін залишено в каталозі як частину колекції." : selected.method === "Доступні всім" ? "Банк видає цей скін автоматично — посилання не потрібне." : "Відкрий QR-код, щоб отримати скін на телефоні, або перейди за посиланням."}</p><div className="detail-meta"><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div><div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div><div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <button className="primary-button detail-button" type="button" onClick={() => setShowQr((current) => !current)} aria-expanded={showQr}>{showQr ? "Сховати QR-код" : "Отримати скін"}<span>→</span></button> : <span className="disabled-button">Посилання недоступне</span>}{selected.status === "Доступний" && selected.method !== "Доступні всім" && selected.sourceUrl && !showQr && <a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a>}</div>{showQr && selected.status === "Доступний" && selected.sourceUrl && <div className="qr-panel"><QRCodeSVG value={selected.sourceUrl} level="M" size={176} marginSize={2} bgColor="#ffffff" fgColor="#111111" title={`QR-код для скіна ${selected.name}`} /><a className="primary-button qr-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a></div>}</div></section></div>}
     </main>
   );
 }
