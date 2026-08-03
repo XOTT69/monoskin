@@ -1,19 +1,5 @@
 [
   {
-    "id": "gta-vi-gta-vi",
-    "name": "GTA VI до старту предзамовлень GTA VI",
-    "method": "Доступні всім",
-    "status": "Доступний",
-    "minimumValue": 0,
-    "date": "2026-08-03",
-    "description": "Щоб отримати скін, потрібно:\n1. Натиснути на картку\n2. Відкрити Налаштування Google/Apple Pay → Скін для гаманця\n3. Обрати скін з першої категорії",
-    "sourceUrl": "",
-    "image": "skin/gta-vi-gta-vi.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "featured": false
-  },
-  {
     "id": "skin-1785789433744",
     "name": "СВО идет по плану до удару по Москві",
     "method": "Доступні всім",
