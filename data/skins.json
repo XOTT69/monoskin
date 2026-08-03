@@ -1,5 +1,19 @@
 [
   {
+    "id": "2006",
+    "name": "ЧС 2006 р. зі збірною України з футболу *Наші гоооловні моменти*",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-07-10",
+    "description": "За донат від 100 грн.",
+    "sourceUrl": "https://send.monobank.ua/jar/6yLdfqtCXu",
+    "image": "skin/image.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "spilne",
     "name": "Новий скін на картку монобанк від артплатформи SPILNE",
     "method": "Безкоштовний",
