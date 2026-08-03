@@ -30,6 +30,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+telegram-worker/.dev.vars
+telegram-worker/node_modules/
+telegram-worker/.wrangler/
+telegram-worker/.mf/
+telegram-worker/worker-configuration.d.ts
 
 # vercel
 .vercel

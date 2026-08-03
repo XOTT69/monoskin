@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "next-env.d.ts",
+    "telegram-worker/worker-configuration.d.ts",
   ]),
 ]);
 
