@@ -72,6 +72,8 @@ export default function Home() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const closeButton = useRef<HTMLButtonElement>(null);
+  const qrCloseButton = useRef<HTMLButtonElement>(null);
+  const showQrRef = useRef(false);
   const lastFocused = useRef<HTMLElement | null>(null);
   const turnstileSlot = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
@@ -90,12 +92,20 @@ export default function Home() {
     .sort((left, right) => +new Date(right.date) - +new Date(left.date)), [categoryFilter, query]);
 
   useEffect(() => {
+    showQrRef.current = showQr;
+  }, [showQr]);
+
+  useEffect(() => {
     if (!selected) return;
     lastFocused.current = document.activeElement as HTMLElement;
     closeButton.current?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelected(null);
+      if (event.key === "Escape") {
+        if (showQrRef.current) setShowQr(false);
+        else setSelected(null);
+      }
+      if (showQrRef.current) return;
       if (event.key !== "Tab") return;
       const dialog = closeButton.current?.closest<HTMLElement>("[role='dialog']");
       const focusable = dialog?.querySelectorAll<HTMLElement>("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])");
@@ -117,6 +127,29 @@ export default function Home() {
       lastFocused.current?.focus();
     };
   }, [selected]);
+
+  useEffect(() => {
+    if (!showQr) return;
+    qrCloseButton.current?.focus();
+    const handleQrKeys = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setShowQr(false);
+      if (event.key !== "Tab") return;
+      const dialog = qrCloseButton.current?.closest<HTMLElement>("[role='dialog']");
+      const focusable = dialog?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", handleQrKeys);
+    return () => window.removeEventListener("keydown", handleQrKeys);
+  }, [showQr]);
 
   const renderTurnstile = () => {
     if (!turnstileSiteKey || !turnstileSlot.current || !window.turnstile || turnstileWidgetId.current) return;
@@ -226,7 +259,29 @@ export default function Home() {
 
       <footer className="container footer"><span className="brand"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
 
-      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}><section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" aria-describedby="details-description" onMouseDown={(event) => event.stopPropagation()}><button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button><div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 410px" priority /></div><div className="detail-body"><p className="eyebrow"><span /> {selected.status}</p><h2 id="details-title">{selected.name}</h2><p className="detail-description" id="details-description">{selected.status === "Недоступний" ? "Цей скін залишено в каталозі як частину колекції." : selected.method === "Доступні всім" ? "Банк видає цей скін автоматично — посилання не потрібне." : "Відкрий QR-код, щоб отримати скін на телефоні, або перейди за посиланням."}</p><div className="detail-meta"><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div><div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div><div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <button className="primary-button detail-button" type="button" onClick={() => setShowQr((current) => !current)} aria-expanded={showQr}>{showQr ? "Сховати QR-код" : "Отримати скін"}<span>→</span></button> : <span className="disabled-button">Посилання недоступне</span>}{selected.status === "Доступний" && selected.method !== "Доступні всім" && selected.sourceUrl && !showQr && <a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a>}</div>{showQr && selected.status === "Доступний" && selected.sourceUrl && <div className="qr-panel"><QRCodeSVG value={selected.sourceUrl} level="M" size={176} marginSize={2} bgColor="#ffffff" fgColor="#111111" title={`QR-код для скіна ${selected.name}`} /><a className="primary-button qr-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a></div>}</div></section></div>}
+      {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}>
+        <section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" onMouseDown={(event) => event.stopPropagation()}>
+          <button className="close" ref={closeButton} onClick={() => setSelected(null)} aria-label="Закрити деталі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+          <div className="detail-body">
+            <p className="eyebrow"><span /> {selected.status}</p>
+            <h2 id="details-title">{selected.name}</h2>
+            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
+            <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
+            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button> : <span className="disabled-button">Посилання недоступне</span>}</div>
+          </div>
+          <div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority /></div>
+        </section>
+      </div>}
+      {showQr && selected?.status === "Доступний" && selected.sourceUrl && <div className="qr-overlay" role="presentation" onMouseDown={() => setShowQr(false)}>
+        <section className="qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qr-title" onMouseDown={(event) => event.stopPropagation()}>
+          <button className="qr-close" ref={qrCloseButton} onClick={() => setShowQr(false)} aria-label="Закрити QR-код"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+          <p className="eyebrow"><span /> Отримання</p>
+          <h2 id="qr-title">Відскануйте QR-код</h2>
+          <p>Або відкрийте посилання на цьому пристрої.</p>
+          <div className="qr-code"><QRCodeSVG value={selected.sourceUrl} level="M" size={224} marginSize={2} bgColor="#ffffff" fgColor="#111111" title={`QR-код для скіна ${selected.name}`} /></div>
+          <a className="primary-button qr-link" href={selected.sourceUrl}>Перейти за посиланням <span>↗</span></a>
+        </section>
+      </div>}
     </main>
   );
 }
