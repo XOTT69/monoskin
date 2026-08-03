@@ -35,7 +35,7 @@
     "date": "2025-09-23",
     "description": "Monobank представив дизайн картки «Фламінго», натхненний ракетою FP-5 «Фламінго»",
     "sourceUrl": "https://base.monobank.ua/ds/4oq1pM492x5wDA",
-    "image": "skin/flaminho-fp-5.png",
+    "image": "skin/flaminho-fp-16.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -79,14 +79,14 @@
     "isAdultOnly": false
   },
   {
-    "id": "olena-mandziuk-muza-rugodobi",
-    "name": "Муза Ругодобі",
+    "id": "olenamandziuk",
+    "name": "Олена Мандзюк. Муза Русофобії",
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 99,
-    "date": "2025-01-01",
-    "description": "Скін «Муза Ругодобі» для підписників Base. Інформацію про актуальні умови та рівень підписки варто перевірити на сторінці Base.",
-    "sourceUrl": "https://base.monobank.ua/olenamandziuk#subscriptions",
+    "date": "2026-06-09",
+    "description": "Скін «Муза Русофобії» — дизайн картки monobank для підписників монобази Олени Мандзюк. За основу взято класичне полотно із жінкою, що читає в саду, поверх якого накладені рожеві піксельні блоки у вигляді вишиванкового орнаменту.\n\nСкін став доступним 9 червня 2026 року й надається за підписку від 99 грн на місяць",
+    "sourceUrl": "https://base.monobank.ua/olenamandziuk",
     "image": "skin/olenamandziuk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -166,7 +166,7 @@
     "date": "2025-09-02",
     "description": "Скін картки monobank, випущений до Дня міста Одеси. Кумедний дизайн із мідіями відсилає до локальної гастрономічної асоціації",
     "sourceUrl": "https://base.monobank.ua/ds/EpJ3ehQkXXbQ5n",
-    "image": "skin/odesa-1.png",
+    "image": "skin/odesa-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -179,7 +179,7 @@
     "date": "2025-09-02",
     "description": "Естетичний скін картки monobank, присвячений Дню міста Одеси. Дизайн із видом узбережжя Чорного моря, ймовірно району Ланжерону",
     "sourceUrl": "https://base.monobank.ua/ds/BRwpEHw9FZsncq",
-    "image": "skin/odesa-2.png",
+    "image": "skin/odesa-1.png",
     "isVisaOnly": false,
     "isAdultOnly": false
   },
@@ -549,7 +549,7 @@
     "isAdultOnly": false
   },
   {
-    "id": "ukrposhta-stamp-ship",
+    "id": "ukrposhta-stamp",
     "name": "Укрпошта. Марка",
     "method": "Донат на банку",
     "status": "Недоступний",
@@ -759,12 +759,12 @@
   {
     "id": "mono-7",
     "name": "Метальник донатів",
-    "method": "Безкоштовний",
-    "status": "Доступний",
-    "minimumValue": 0,
+    "method": "Донат на банку",
+    "status": "Недоступний",
+    "minimumValue": 77,
     "date": "2024-11-22",
-    "description": "Скін картки monobank, випущений 22 листопада 2024 року на сьомий день народження банку. Дизайн обіграє «Метальника квітів» — відоме трафаретне графіті Бенксі, де протестувальник у хустці замахується не коктейлем Молотова, а букетом. У версії mono на його місці кіт, а в руці — банка.\n\nСпочатку скін видавали за донат від 77 грн на спільний збір monobank і Фонду Притули. Збір завершився, але скін досі можна встановити безоплатно за прямим посиланням.",
-    "sourceUrl": "https://base.monobank.ua/ds/EYAHKEJnSXDBb1",
+    "description": "Скін картки monobank, випущений 22 листопада 2024 року на сьомий день народження банку. Дизайн обіграє «Метальника квітів» — відоме трафаретне графіті Бенксі, де протестувальник у хустці замахується не коктейлем Молотова, а букетом. У версії mono на його місці кіт, а в руці — банка.\n\nСкін видавали за донат від 77 грн на спільний збір monobank і Фонду Притули.",
+    "sourceUrl": "",
     "image": "skin/mono-7.png",
     "isVisaOnly": false,
     "isAdultOnly": false
