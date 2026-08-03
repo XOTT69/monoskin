@@ -1,5 +1,19 @@
 [
   {
+    "id": "spilne",
+    "name": "Новий скін на картку монобанк від артплатформи SPILNE",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-05-20",
+    "description": "Скін доступний за донат від 100грн",
+    "sourceUrl": "https://send.monobank.ua/jar/5RjDXQ2d9X",
+    "image": "skin/12.jpg",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kurgan-agregat-ukhodysh",
     "name": "Курган & Agregat. Уходиш? Ну й",
     "method": "Донат на банку",
