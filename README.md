@@ -41,11 +41,16 @@ Token не записується у репозиторій і не зберіг
    cd telegram-worker
    npm install
    npx wrangler login
-   npm run deploy
-   npx wrangler secret put TELEGRAM_BOT_TOKEN
-   npx wrangler secret put TELEGRAM_CHAT_ID
-   npx wrangler secret put TURNSTILE_SECRET_KEY
+   cp .dev.vars.example .secrets
    ```
+
+   Відкрийте `.secrets`, замініть три значення на токен бота, ID чату й Secret key Turnstile, а потім виконайте:
+
+   ```bash
+   npx wrangler deploy --secrets-file .secrets
+   ```
+
+   Після першої публікації файл `.secrets` можна прибрати з комп’ютера. Для подальшої заміни окремого значення використовуйте `npx wrangler secret put НАЗВА_СЕКРЕТУ`.
 
    Worker виведе URL формату `https://monoskin-telegram.<account>.workers.dev`; для форми використовується адреса з `/submit` у кінці.
 4. У GitHub відкрийте **Settings → Secrets and variables → Actions → Variables** і створіть дві змінні:

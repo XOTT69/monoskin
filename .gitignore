@@ -31,6 +31,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 telegram-worker/.dev.vars
+telegram-worker/.secrets
 telegram-worker/node_modules/
 telegram-worker/.wrangler/
 telegram-worker/.mf/
