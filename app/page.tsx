@@ -6,8 +6,8 @@ import rawSkins from "@/data/skins.json";
 
 type Method = "Безкоштовний" | "За дію" | "Донат на банку" | "Підписка Base";
 type Status = "Доступний" | "Недоступний";
-type DisplayMethod = "Безкоштовний" | "Донат на банку" | "Підписка Base";
-type Sort = "newest" | "oldest" | "price-low" | "price-high" | "name";
+type DisplayMethod = "Безкоштовно" | "Донат на банку" | "Підписка";
+type Category = "Усі" | DisplayMethod | "Недоступні";
 type Skin = {
   id: string;
   name: string;
@@ -24,12 +24,11 @@ type Skin = {
 };
 
 const skins = rawSkins as Skin[];
-const methods: Array<DisplayMethod | "Усі"> = ["Усі", "Безкоштовний", "Донат на банку", "Підписка Base"];
-const statuses: Array<Status | "Усі"> = ["Усі", "Доступний", "Недоступний"];
+const categories: Category[] = ["Усі", "Безкоштовно", "Донат на банку", "Підписка", "Недоступні"];
 const methodClass: Record<DisplayMethod, string> = {
-  "Безкоштовний": "free",
+  "Безкоштовно": "free",
   "Донат на банку": "donate",
-  "Підписка Base": "base",
+  "Підписка": "base",
 };
 
 function money(value: number) {
@@ -45,24 +44,18 @@ function skinImage(skin: Skin) {
 }
 
 function displayMethod(skin: Skin): DisplayMethod {
-  return skin.method === "Донат на банку" || skin.method === "Підписка Base"
-    ? skin.method
-    : "Безкоштовний";
+  if (skin.method === "Донат на банку") return "Донат на банку";
+  if (skin.method === "Підписка Base") return "Підписка";
+  return "Безкоштовно";
 }
 
-function compareSkins(left: Skin, right: Skin, sort: Sort) {
-  if (sort === "newest") return +new Date(right.date) - +new Date(left.date);
-  if (sort === "oldest") return +new Date(left.date) - +new Date(right.date);
-  if (sort === "price-low") return left.minimumValue - right.minimumValue;
-  if (sort === "price-high") return right.minimumValue - left.minimumValue;
-  return left.name.localeCompare(right.name, "uk");
+function categoryOf(skin: Skin): Exclude<Category, "Усі"> {
+  return skin.status === "Недоступний" ? "Недоступні" : displayMethod(skin);
 }
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const [methodFilter, setMethodFilter] = useState<DisplayMethod | "Усі">("Усі");
-  const [statusFilter, setStatusFilter] = useState<Status | "Усі">("Усі");
-  const [sort, setSort] = useState<Sort>("newest");
+  const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
   const [selected, setSelected] = useState<Skin | null>(null);
   const [copied, setCopied] = useState(false);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -76,18 +69,9 @@ export default function Home() {
     .filter((skin) => {
       const searchable = `${skin.name} ${skin.method} ${skin.status} ${skin.description}`.toLocaleLowerCase("uk");
       return searchable.includes(query.toLocaleLowerCase("uk"))
-        && (methodFilter === "Усі" || (skin.status === "Доступний" && displayMethod(skin) === methodFilter))
-        && (statusFilter === "Усі" || skin.status === statusFilter);
+        && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter);
     })
-    .sort((left, right) => compareSkins(left, right, sort)), [methodFilter, query, sort, statusFilter]);
-
-  const hasActiveFilters = query || methodFilter !== "Усі" || statusFilter !== "Усі" || sort !== "newest";
-  const resetFilters = () => {
-    setQuery("");
-    setMethodFilter("Усі");
-    setStatusFilter("Усі");
-    setSort("newest");
-  };
+    .sort((left, right) => +new Date(right.date) - +new Date(left.date)), [categoryFilter, query]);
 
   useEffect(() => {
     if (!selected) return;
@@ -153,15 +137,7 @@ export default function Home() {
 
       <section className="catalog container" id="catalog">
         <div className="section-heading"><div><p className="eyebrow"><span /> Колекція</p><h2>Знайди свій скін</h2></div><p className="catalog-note">{filtered.length} з {skins.length} скінів</p></div>
-        <div className="search-row">
-          <label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label>
-          <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)} aria-label="Сортування скінів"><option value="newest">Спочатку нові</option><option value="oldest">Спочатку старі</option><option value="price-low">Від дешевших</option><option value="price-high">Від дорожчих</option><option value="name">За назвою</option></select></label>
-        </div>
-        <div className="filter-groups">
-          <div className="filter-group"><span className="filter-label">Спосіб отримання</span><div className="filters" aria-label="Фільтр за способом отримання">{methods.map((item) => <button className={methodFilter === item ? "active" : ""} key={item} onClick={() => setMethodFilter(item)}>{item}</button>)}</div></div>
-          <div className="filter-group"><span className="filter-label">Доступність</span><div className="filters" aria-label="Фільтр за доступністю">{statuses.map((item) => <button className={statusFilter === item ? "active" : ""} key={item} onClick={() => setStatusFilter(item)}>{item}</button>)}</div></div>
-          {hasActiveFilters && <button className="reset-button" onClick={resetFilters}>Скинути все</button>}
-        </div>
+        <div className="catalog-controls"><label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label><div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div></div>
 
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => setSelected(skin)} aria-label={`Деталі: ${skin.name}`}>
@@ -169,7 +145,7 @@ export default function Home() {
             <div className="skin-info"><div><h3>{skin.name}</h3><p>{formatDate(skin.date)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
           </button>)}
         </div>
-        {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або скинь фільтри.</p>{hasActiveFilters && <button className="reset-button" onClick={resetFilters}>Скинути фільтри</button>}</div>}
+        {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або категорію.</p></div>}
       </section>
 
       <section className="guide container" id="guide"><div><p className="eyebrow"><span /> Як це працює</p><h2>Обери, перевір<br />і додай у гаманець</h2><p>Каталог відкритий для всіх. У кожній картці є стан доступності, спосіб отримання та посилання на джерело.</p></div><div className="guide-steps"><div><b>01</b><span>Обери скін або скористайся пошуком</span></div><div><b>02</b><span>Перевір умову та обмеження в деталях</span></div><div><b>03</b><span>Відкрий посилання, якщо скін доступний</span></div></div><div className="guide-update"><strong>Є новий скін або уточнення?</strong><p>Каталог оновлюється через відкритий репозиторій — записи й зображення зберігаються окремо від дизайну.</p></div><a className="text-link" href="https://github.com/XOTT69/monoskin/blob/main/data/README.md" target="_blank" rel="noreferrer">Як додати або оновити скін <span>↗</span></a></section>
