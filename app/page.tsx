@@ -58,6 +58,21 @@ function imageFromClipboard(items: DataTransferItemList) {
   return item?.getAsFile() ?? null;
 }
 
+async function imageFromSystemClipboard() {
+  if (!navigator.clipboard?.read) return null;
+  try {
+    for (const clipboardItem of await navigator.clipboard.read()) {
+      const type = clipboardItem.types.find((entry) => entry.startsWith("image/"));
+      if (!type) continue;
+      const blob = await clipboardItem.getType(type);
+      return new File([blob], `вставлене-зображення.${type.split("/")[1] || "png"}`, { type });
+    }
+  } catch {
+    // Some browsers deny clipboard.read(); the standard paste payload still works there.
+  }
+  return null;
+}
+
 function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
@@ -257,12 +272,12 @@ export default function Home() {
           <p>Надішли назву, коротку умову та зображення. Ми перевіримо інформацію й додамо скін до каталогу.</p>
           <small>Не додавай персональні дані, банківські реквізити чи приватні посилання.</small>
         </div>
-        <form className="suggestion-form" onSubmit={submitSuggestion}>
+        <form className="suggestion-form" onSubmit={submitSuggestion} onPaste={async (event) => { const directImage = imageFromClipboard(event.clipboardData.items); if (directImage) { event.preventDefault(); setSuggestionPhoto(directImage); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) setSuggestionPhoto(systemImage); }}>
           <label>Назва скіна<input name="name" required maxLength={90} placeholder="Наприклад, mono котик" /></label>
           <label>Категорія<select name="category" required defaultValue=""><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
           <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} placeholder="https://…" /></label>
           <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={1500} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
-          <label className="form-full file-field" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); setSuggestionPhoto(file); } }}><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => setSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
+          <label className="form-full file-field" tabIndex={0}><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => setSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
           <div className="turnstile-slot form-full" ref={turnstileSlot} />
           {turnstileSiteKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onLoad={renderTurnstile} />}
           {submissionState !== "idle" && <p className={`submission-message ${submissionState}`} role="status">{submissionMessage}</p>}
