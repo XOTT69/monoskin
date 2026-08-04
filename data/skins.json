@@ -1,5 +1,19 @@
 [
   {
+    "id": "2-0",
+    "name": "Скін на картку монобанк Секретний Русоріз 2.0",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-05-20",
+    "description": "Скін доступний за донат від 100грн\n\n⚠️ Після закриття банки скін вже не отримати",
+    "sourceUrl": "https://send.monobank.ua/jar/4p5njwQqiy",
+    "image": "skin/2-0.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785855840516",
     "name": "Скін на картку монобанк «Клатч Трійки»🔥",
     "method": "Безкоштовний",
