@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785855840516",
+    "name": "Скін на картку монобанк «Клатч Трійки»🔥",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 200,
+    "date": "2026-05-27",
+    "description": "Скін доступний за донат від 200грн",
+    "sourceUrl": "https://send.monobank.ua/jar/59CYfTCmkA",
+    "image": "skin/skin-1785855840516.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "30",
     "name": "Скін на картку монобанк від 30го Корпусу Морської Піхоти ВМС ЗСУ",
     "method": "Донат на банку",
