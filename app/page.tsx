@@ -41,23 +41,9 @@ const skins = rawSkins as Skin[];
 const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
 const submissionApiUrl = process.env.NEXT_PUBLIC_SUBMISSION_API_URL ?? "";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
-const visualHashWidth = 48;
-const visualHashHeight = 30;
-const exactImageMatchThreshold = .95;
-const likelyImageMatchThreshold = .8;
+const visualHashWidth = 20;
+const visualHashHeight = 12;
 const themePreferenceKey = "monoskin-theme-preference";
-
-type ImageFingerprint = { shape: number[]; color: number[] };
-type VisualMatch = { skin: Skin; similarity: number };
-
-const fingerprintCrops = [
-  { x: 0, y: 0, width: 1, height: 1 },
-  { x: .06, y: .06, width: .88, height: .88 },
-  { x: 0, y: .06, width: .88, height: .88 },
-  { x: .12, y: .06, width: .88, height: .88 },
-  { x: .06, y: 0, width: .88, height: .88 },
-  { x: .06, y: .12, width: .88, height: .88 },
-] as const;
 
 function money(value: number) {
   return value ? `від ${value.toLocaleString("uk-UA")} ₴` : "Безкоштовно";
@@ -92,7 +78,7 @@ async function imageFromSystemClipboard() {
   return null;
 }
 
-async function imageFingerprints(source: File | string) {
+async function imageFingerprint(source: File | string) {
   const objectUrl = source instanceof File ? URL.createObjectURL(source) : source;
   try {
     const image = await new Promise<HTMLImageElement>((resolve, reject) => {
@@ -101,48 +87,27 @@ async function imageFingerprints(source: File | string) {
       element.onerror = () => reject(new Error("Не вдалося прочитати зображення."));
       element.src = objectUrl;
     });
-    return fingerprintCrops.map((crop) => {
-      const canvas = document.createElement("canvas");
-      canvas.width = visualHashWidth;
-      canvas.height = visualHashHeight;
-      const context = canvas.getContext("2d", { willReadFrequently: true });
-      if (!context) throw new Error("Браузер не підтримує пошук за фото.");
-      context.drawImage(
-        image,
-        image.width * crop.x,
-        image.height * crop.y,
-        image.width * crop.width,
-        image.height * crop.height,
-        0,
-        0,
-        visualHashWidth,
-        visualHashHeight,
-      );
-      const pixels = context.getImageData(0, 0, visualHashWidth, visualHashHeight).data;
-      const luminance = Array.from({ length: visualHashWidth * visualHashHeight }, (_, index) => {
-        const offset = index * 4;
-        return pixels[offset] * .2126 + pixels[offset + 1] * .7152 + pixels[offset + 2] * .0722;
-      });
-      const average = luminance.reduce((sum, value) => sum + value, 0) / luminance.length;
-      return {
-        shape: luminance.map((value) => value > average ? 1 : 0),
-        // Quantized RGB distinguishes different cards that happen to have a similar silhouette.
-        color: Array.from({ length: visualHashWidth * visualHashHeight * 3 }, (_, index) => Math.round(pixels[Math.floor(index / 3) * 4 + index % 3] / 17)),
-      };
+    const canvas = document.createElement("canvas");
+    canvas.width = visualHashWidth;
+    canvas.height = visualHashHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) throw new Error("Браузер не підтримує пошук за фото.");
+    context.drawImage(image, 0, 0, visualHashWidth, visualHashHeight);
+    const pixels = context.getImageData(0, 0, visualHashWidth, visualHashHeight).data;
+    const luminance = Array.from({ length: visualHashWidth * visualHashHeight }, (_, index) => {
+      const offset = index * 4;
+      return pixels[offset] * .2126 + pixels[offset + 1] * .7152 + pixels[offset + 2] * .0722;
     });
+    const average = luminance.reduce((sum, value) => sum + value, 0) / luminance.length;
+    return luminance.map((value) => value > average ? 1 : 0);
   } finally {
     if (source instanceof File) URL.revokeObjectURL(objectUrl);
   }
 }
 
-function fingerprintSimilarity(left: ImageFingerprint, right: ImageFingerprint) {
-  const shape = left.shape.reduce((sum, value, index) => sum + Number(value === right.shape[index]), 0) / left.shape.length;
-  const color = left.color.reduce((sum, value, index) => sum + Math.abs(value - right.color[index]), 0) / (left.color.length * 15);
-  return shape * .72 + (1 - color) * .28;
-}
-
-function bestFingerprintSimilarity(left: ImageFingerprint[], right: ImageFingerprint[]) {
-  return Math.max(...left.flatMap((leftVariant) => right.map((rightVariant) => fingerprintSimilarity(leftVariant, rightVariant))));
+function fingerprintSimilarity(left: number[], right: number[]) {
+  const equal = left.reduce((sum, value, index) => sum + Number(value === right[index]), 0);
+  return equal / left.length;
 }
 
 function skinImage(skin: Skin) {
@@ -174,7 +139,7 @@ export default function Home() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
-  const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "likely" | "missing" | "error"; skin?: Skin; matches?: VisualMatch[] }>({ state: "idle" });
+  const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number; matches?: Array<{ skin: Skin; similarity: number }> }>({ state: "idle" });
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -182,7 +147,7 @@ export default function Home() {
   const turnstileSlot = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
   const turnstileToken = useRef("");
-  const visualHashCache = useRef(new Map<string, Promise<ImageFingerprint[]>>());
+  const visualHashCache = useRef(new Map<string, Promise<number[]>>());
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
@@ -353,32 +318,15 @@ export default function Home() {
     if (!file) return;
     setVisualSearch({ state: "searching" });
     try {
-      const queryHashes = await imageFingerprints(file);
+      const queryHash = await imageFingerprint(file);
       const candidates = await Promise.all(skins.map(async (skin) => {
-        const existing = visualHashCache.current.get(skin.id) ?? imageFingerprints(skinImage(skin));
+        const existing = visualHashCache.current.get(skin.id) ?? imageFingerprint(skinImage(skin));
         visualHashCache.current.set(skin.id, existing);
-        const catalogHashes = await existing;
-        return {
-          skin,
-          exactSimilarity: fingerprintSimilarity(queryHashes[0], catalogHashes[0]),
-          similarity: bestFingerprintSimilarity(queryHashes, catalogHashes),
-        };
+        return { skin, similarity: fingerprintSimilarity(queryHash, await existing) };
       }));
-      const ranked = candidates.sort((left, right) => right.similarity - left.similarity);
-      const [closest] = ranked;
-      const exact = candidates.slice().sort((left, right) => right.exactSimilarity - left.exactSimilarity);
-      const exactIsUnique = !exact[1] || exact[0].exactSimilarity - exact[1].exactSimilarity >= .025;
-      if (exact[0].exactSimilarity >= exactImageMatchThreshold && exactIsUnique) {
-        setVisualSearch({ state: "found", skin: exact[0].skin });
-      } else if (closest.similarity >= likelyImageMatchThreshold) {
-        const matches = ranked
-          .filter((candidate) => candidate.similarity >= likelyImageMatchThreshold && candidate.similarity >= closest.similarity - .075)
-          .slice(0, 3)
-          .map(({ skin, similarity }) => ({ skin, similarity }));
-        setVisualSearch({ state: "likely", matches });
-      } else {
-        setVisualSearch({ state: "missing" });
-      }
+      const matches = candidates.sort((left, right) => right.similarity - left.similarity).slice(0, 3);
+      const closest = matches[0];
+      setVisualSearch(closest.similarity >= .72 ? { state: "found", ...closest, matches } : { state: "missing", similarity: closest.similarity, matches });
     } catch {
       setVisualSearch({ state: "error" });
     }
@@ -412,10 +360,10 @@ export default function Home() {
           <div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
             {visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}
-            {visualSearch.state === "found" && <><span>Точний збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}
-            {visualSearch.state === "likely" && <><span>Можливі збіги з обрізаного фото або фото з водяним знаком — перевір зображення:</span><div className="visual-matches">{visualSearch.matches?.map((match) => <button type="button" key={match.skin.id} onClick={() => { setSelected(match.skin); setShowQr(false); }}>{match.skin.name} <small>{Math.round(match.similarity * 100)}%</small></button>)}</div></>}
-            {visualSearch.state === "missing" && "Збігу не знайдено. Спробуй фото самої картки: повне або обрізане, з водяним знаком чи без нього."}
+            {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}
+            {visualSearch.state === "missing" && "Точного збігу не знайдено. Спробуй обрізати скрін до самої картки."}
             {visualSearch.state === "error" && "Не вдалося прочитати зображення. Спробуй PNG, JPG або WebP."}
+            {visualSearch.matches && visualSearch.state !== "searching" && <div className="visual-matches">{visualSearch.matches.map(({ skin, similarity }) => <button type="button" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }}>{skin.name} <small>{Math.round(similarity * 100)}%</small></button>)}</div>}
           </div>}
         </div>
 
