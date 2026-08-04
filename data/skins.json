@@ -1,7 +1,21 @@
 [
   {
+    "id": "skin-1785853916464",
+    "name": "Скін на картку монобанк від Левів на джипі",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "date": "2026-07-02",
+    "description": "Скін доступний за донат від 300грн",
+    "sourceUrl": "https://send.monobank.ua/jar/9kdgEDhnZH",
+    "image": "skin/skin-1785853916464.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785853726469",
-    "name": "Скін на картку монобанк від Руслана Ігоровича",
+    "name": "скін на картку монобанк від Руслана Ігоровича",
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
