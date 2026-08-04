@@ -39,6 +39,8 @@ const skins = rawSkins as Skin[];
 const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
 const submissionApiUrl = process.env.NEXT_PUBLIC_SUBMISSION_API_URL ?? "";
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
+const visualHashWidth = 20;
+const visualHashHeight = 12;
 
 function money(value: number) {
   return value ? `від ${value.toLocaleString("uk-UA")} ₴` : "Безкоштовно";
@@ -73,6 +75,38 @@ async function imageFromSystemClipboard() {
   return null;
 }
 
+async function imageFingerprint(source: File | string) {
+  const objectUrl = source instanceof File ? URL.createObjectURL(source) : source;
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new window.Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("Не вдалося прочитати зображення."));
+      element.src = objectUrl;
+    });
+    const canvas = document.createElement("canvas");
+    canvas.width = visualHashWidth;
+    canvas.height = visualHashHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) throw new Error("Браузер не підтримує пошук за фото.");
+    context.drawImage(image, 0, 0, visualHashWidth, visualHashHeight);
+    const pixels = context.getImageData(0, 0, visualHashWidth, visualHashHeight).data;
+    const luminance = Array.from({ length: visualHashWidth * visualHashHeight }, (_, index) => {
+      const offset = index * 4;
+      return pixels[offset] * .2126 + pixels[offset + 1] * .7152 + pixels[offset + 2] * .0722;
+    });
+    const average = luminance.reduce((sum, value) => sum + value, 0) / luminance.length;
+    return luminance.map((value) => value > average ? 1 : 0);
+  } finally {
+    if (source instanceof File) URL.revokeObjectURL(objectUrl);
+  }
+}
+
+function fingerprintSimilarity(left: number[], right: number[]) {
+  const equal = left.reduce((sum, value, index) => sum + Number(value === right[index]), 0);
+  return equal / left.length;
+}
+
 function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
@@ -97,6 +131,7 @@ export default function Home() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
+  const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number }>({ state: "idle" });
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -104,6 +139,7 @@ export default function Home() {
   const turnstileSlot = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
   const turnstileToken = useRef("");
+  const visualHashCache = useRef(new Map<string, Promise<number[]>>());
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
@@ -235,6 +271,23 @@ export default function Home() {
     }
   };
 
+  const findSkinByImage = async (file: File | null) => {
+    if (!file) return;
+    setVisualSearch({ state: "searching" });
+    try {
+      const queryHash = await imageFingerprint(file);
+      const candidates = await Promise.all(skins.map(async (skin) => {
+        const existing = visualHashCache.current.get(skin.id) ?? imageFingerprint(skinImage(skin));
+        visualHashCache.current.set(skin.id, existing);
+        return { skin, similarity: fingerprintSimilarity(queryHash, await existing) };
+      }));
+      const closest = candidates.reduce((best, candidate) => candidate.similarity > best.similarity ? candidate : best);
+      setVisualSearch(closest.similarity >= .72 ? { state: "found", ...closest } : { state: "missing", similarity: closest.similarity });
+    } catch {
+      setVisualSearch({ state: "error" });
+    }
+  };
+
   return (
     <main className={`site ${theme}`}>
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
@@ -254,7 +307,7 @@ export default function Home() {
 
       <section className="catalog container" id="catalog">
         <div className="section-heading"><div><p className="eyebrow"><span /> Колекція</p><h2>Знайди свій скін</h2></div><p className="catalog-note">{filtered.length} з {skins.length} скінів</p></div>
-        <div className="catalog-controls"><label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label><div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div></div>
+        <div className="catalog-controls"><div className="search-row"><label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label><label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label></div><div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>{visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">{visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}{visualSearch.state === "found" && <><span>Знайдено: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}{visualSearch.state === "missing" && "Схожого скіна в каталозі не знайдено. Спробуй обрізати скрін до самої картки."}{visualSearch.state === "error" && "Не вдалося прочитати зображення. Спробуй PNG, JPG або WebP."}</div>}</div>
 
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }} aria-label={`Деталі: ${skin.name}`}>
