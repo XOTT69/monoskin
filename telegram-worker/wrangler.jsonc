@@ -8,8 +8,19 @@
     "head_sampling_rate": 1
   },
   "vars": {
-    "ALLOWED_ORIGIN": "https://xott69.github.io"
+    "ALLOWED_ORIGIN": "https://xott69.github.io",
+    "TURNSTILE_HOSTNAME": "xott69.github.io"
   },
+  "ratelimits": [
+    {
+      "name": "SUBMISSION_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 3,
+        "period": 60
+      }
+    }
+  ],
   "secrets": {
     "required": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "TURNSTILE_SECRET_KEY"]
   }

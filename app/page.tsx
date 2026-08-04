@@ -33,7 +33,9 @@ type Skin = {
   isVisaOnly: boolean;
   isAdultOnly: boolean;
   featured?: boolean;
+  lastVerifiedAt?: string;
 };
+type Sort = "newest" | "oldest" | "name" | "price";
 
 const skins = rawSkins as Skin[];
 const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
@@ -111,6 +113,10 @@ function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
 
+function isSecureUrl(value: string) {
+  try { return new URL(value).protocol === "https:"; } catch { return false; }
+}
+
 function displayMethod(skin: Skin): DisplayMethod {
   if (skin.method === "Донат на банку") return "Донат на банку";
   if (skin.method === "Підписка Base") return "Підписка";
@@ -126,12 +132,13 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
+  const [sort, setSort] = useState<Sort>("newest");
   const [selected, setSelected] = useState<Skin | null>(null);
   const [showQr, setShowQr] = useState(false);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
-  const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number }>({ state: "idle" });
+  const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number; matches?: Array<{ skin: Skin; similarity: number }> }>({ state: "idle" });
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -151,7 +158,42 @@ export default function Home() {
       return searchable.includes(query.toLocaleLowerCase("uk"))
         && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter);
     })
-    .sort((left, right) => +new Date(right.date) - +new Date(left.date)), [categoryFilter, query]);
+    .sort((left, right) => {
+      if (sort === "name") return left.name.localeCompare(right.name, "uk");
+      if (sort === "price") return left.minimumValue - right.minimumValue;
+      return sort === "oldest" ? +new Date(left.date) - +new Date(right.date) : +new Date(right.date) - +new Date(left.date);
+    }), [categoryFilter, query, sort]);
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("monoskin-theme") as Theme | null;
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    const skinId = new URLSearchParams(window.location.search).get("skin");
+    const skin = skinId ? skins.find((item) => item.id === skinId) : null;
+    const frame = window.requestAnimationFrame(() => {
+      setTheme(storedTheme === "light" || storedTheme === "dark" ? storedTheme : preferredTheme);
+      if (skin) setSelected(skin);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("monoskin-theme", theme);
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (selected) url.searchParams.set("skin", selected.id);
+    else url.searchParams.delete("skin");
+    window.history.replaceState(null, "", url);
+  }, [selected]);
+
+  useEffect(() => {
+    if (!selected && !showQr) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, [selected, showQr]);
 
   useEffect(() => {
     showQrRef.current = showQr;
@@ -281,8 +323,9 @@ export default function Home() {
         visualHashCache.current.set(skin.id, existing);
         return { skin, similarity: fingerprintSimilarity(queryHash, await existing) };
       }));
-      const closest = candidates.reduce((best, candidate) => candidate.similarity > best.similarity ? candidate : best);
-      setVisualSearch(closest.similarity >= .72 ? { state: "found", ...closest } : { state: "missing", similarity: closest.similarity });
+      const matches = candidates.sort((left, right) => right.similarity - left.similarity).slice(0, 3);
+      const closest = matches[0];
+      setVisualSearch(closest.similarity >= .72 ? { state: "found", ...closest, matches } : { state: "missing", similarity: closest.similarity, matches });
     } catch {
       setVisualSearch({ state: "error" });
     }
@@ -293,7 +336,7 @@ export default function Home() {
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
         <nav className="nav container" aria-label="Головна навігація">
           <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark">m</span><span>mono<span className="brand-light">skin</span></span></a>
-          <div className="nav-actions"><button className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest">Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
+          <div className="nav-actions"><button type="button" className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest">Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
         </nav>
         <div className="hero-content container">
           <p className="eyebrow"><span /> Відкритий каталог скінів</p>
@@ -307,7 +350,7 @@ export default function Home() {
 
       <section className="catalog container" id="catalog">
         <div className="section-heading"><div><p className="eyebrow"><span /> Колекція</p><h2>Знайди свій скін</h2></div><p className="catalog-note">{filtered.length} з {skins.length} скінів</p></div>
-        <div className="catalog-controls"><div className="search-row"><label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label><label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label></div><div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>{visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">{visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}{visualSearch.state === "found" && <><span>Знайдено: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}{visualSearch.state === "missing" && "Схожого скіна в каталозі не знайдено. Спробуй обрізати скрін до самої картки."}{visualSearch.state === "error" && "Не вдалося прочитати зображення. Спробуй PNG, JPG або WebP."}</div>}</div>
+        <div className="catalog-controls"><div className="search-row"><label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label><label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label><label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Спочатку нові</option><option value="oldest">Спочатку старі</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label></div><div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>{visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">{visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}{visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}{visualSearch.state === "missing" && "Точного збігу не знайдено. Спробуй обрізати скрін до самої картки."}{visualSearch.state === "error" && "Не вдалося прочитати зображення. Спробуй PNG, JPG або WebP."}{visualSearch.matches && visualSearch.state !== "searching" && <div className="visual-matches">{visualSearch.matches.map(({ skin, similarity }) => <button type="button" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }}>{skin.name} <small>{Math.round(similarity * 100)}%</small></button>)}</div>}</div>}</div>
 
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }} aria-label={`Деталі: ${skin.name}`}>
@@ -323,13 +366,13 @@ export default function Home() {
           <p className="eyebrow"><span /> Доповнити каталог</p>
           <h2 id="suggest-title">Знаєш про новий скін?</h2>
           <p>Надішли назву, коротку умову та зображення. Ми перевіримо інформацію й додамо скін до каталогу.</p>
-          <small>Не додавай персональні дані, банківські реквізити чи приватні посилання.</small>
+          <small>Не додавай персональні дані, банківські реквізити чи приватні посилання. Фото й текст заявки надсилаються в Telegram для модерації.</small>
         </div>
         <form className="suggestion-form" onSubmit={submitSuggestion} onPaste={async (event) => { const directImage = imageFromClipboard(event.clipboardData.items); if (directImage) { event.preventDefault(); setSuggestionPhoto(directImage); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) setSuggestionPhoto(systemImage); }}>
           <label>Назва скіна<input name="name" required maxLength={90} placeholder="Наприклад, mono котик" /></label>
           <label>Категорія<select name="category" required defaultValue=""><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
           <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} placeholder="https://…" /></label>
-          <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={1500} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
+          <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={800} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
           <label className="form-full file-field" tabIndex={0}><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => setSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
           <div className="turnstile-slot form-full" ref={turnstileSlot} />
           {turnstileSiteKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onLoad={renderTurnstile} />}
@@ -346,9 +389,9 @@ export default function Home() {
           <div className="detail-body">
             <p className="eyebrow"><span /> {selected.status}</p>
             <h2 id="details-title">{selected.name}</h2>
-            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
+            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
-            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : selected.sourceUrl ? <button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button> : <span className="disabled-button">Посилання недоступне</span>}</div>
+            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}</div>
           </div>
           <div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority /></div>
         </section>
@@ -360,7 +403,7 @@ export default function Home() {
           <h2 id="qr-title">Відскануйте QR-код</h2>
           <p>Або відкрийте посилання на цьому пристрої.</p>
           <div className="qr-code"><QRCodeSVG value={selected.sourceUrl} level="M" size={224} marginSize={2} bgColor="#ffffff" fgColor="#111111" title={`QR-код для скіна ${selected.name}`} /></div>
-          <a className="primary-button qr-link" href={selected.sourceUrl}>Перейти за посиланням <span>↗</span></a>
+          <a className="primary-button qr-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням <span>↗</span></a>
         </section>
       </div>}
     </main>

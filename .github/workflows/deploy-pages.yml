@@ -27,6 +27,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run lint
+      - run: npm run validate
       - run: BASE_PATH=/monoskin npm run build
         env:
           NEXT_PUBLIC_SUBMISSION_API_URL: ${{ vars.NEXT_PUBLIC_SUBMISSION_API_URL }}

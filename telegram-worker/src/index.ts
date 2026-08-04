@@ -2,7 +2,7 @@ const MAX_PHOTO_BYTES = 8 * 1024 * 1024;
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
 type TelegramResult = { ok: boolean; description?: string };
-type TurnstileResult = { success: boolean };
+type TurnstileResult = { success: boolean; hostname?: string };
 
 function corsHeaders(origin: string | null, env: Env): Record<string, string> {
   if (origin !== env.ALLOWED_ORIGIN) return {};
@@ -48,7 +48,13 @@ function messageText(data: { name: string; category: string; sourceUrl: string; 
     `Категорія: ${data.category}`,
     `Умова / опис: ${data.description}`,
     `Джерело: ${source}`,
-  ].join("\n").slice(0, 4000);
+  ].join("\n").slice(0, 900);
+}
+
+async function rateLimitKey(request: Request) {
+  const value = request.headers.get("CF-Connecting-IP") || "unknown";
+  const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(hash), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 export default {
@@ -62,6 +68,8 @@ export default {
     const contentLength = Number(request.headers.get("Content-Length") || 0);
     if (contentLength > MAX_PHOTO_BYTES + 80_000) return json({ error: "Фото має бути меншим за 8 МБ." }, 413, headers);
     if (!request.headers.get("Content-Type")?.includes("multipart/form-data")) return json({ error: "Некоректний формат форми." }, 415, headers);
+    const rate = await env.SUBMISSION_RATE_LIMITER.limit({ key: await rateLimitKey(request) });
+    if (!rate.success) return json({ error: "Забагато заявок. Спробуй ще раз через кілька хвилин." }, 429, headers);
 
     let form: FormData;
     try {
@@ -72,7 +80,7 @@ export default {
 
     const name = field(form, "name", 90);
     const category = field(form, "category", 40);
-    const description = field(form, "description", 1500);
+    const description = field(form, "description", 800);
     const sourceUrl = field(form, "sourceUrl", 500);
     const turnstileToken = field(form, "turnstileToken", 4096);
     const photo = form.get("photo");
@@ -81,7 +89,7 @@ export default {
     if (sourceUrl) {
       try {
         const url = new URL(sourceUrl);
-        if (url.protocol !== "https:" && url.protocol !== "http:") throw new Error();
+        if (url.protocol !== "https:") throw new Error();
       } catch {
         return json({ error: "Посилання має бути коректним URL." }, 400, headers);
       }
@@ -93,19 +101,13 @@ export default {
 
     try {
       const verification = await verifyTurnstile(turnstileToken, request, env);
-      if (!verification.success) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
+      if (!verification.success || verification.hostname !== env.TURNSTILE_HOSTNAME) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
 
       const photoPayload = new FormData();
       photoPayload.set("chat_id", env.TELEGRAM_CHAT_ID);
       photoPayload.set("photo", photo, photo.name || "monoskin-upload");
-      photoPayload.set("caption", `Нова пропозиція: ${name}`.slice(0, 950));
+      photoPayload.set("caption", messageText({ name, category, description, sourceUrl }));
       await telegram("sendPhoto", photoPayload, env);
-
-      const messagePayload = new FormData();
-      messagePayload.set("chat_id", env.TELEGRAM_CHAT_ID);
-      messagePayload.set("text", messageText({ name, category, description, sourceUrl }));
-      messagePayload.set("disable_web_page_preview", "true");
-      await telegram("sendMessage", messagePayload, env);
       return json({ ok: true }, 200, headers);
     } catch (error) {
       console.error("Submission delivery failed", error);
