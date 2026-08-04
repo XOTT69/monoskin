@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785853726469",
+    "name": "скін на картку монобанк від Руслана Ігоровича",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-12",
+    "description": "За донат від 100 грн забирайте новий скін для вашої картки у налаштуваннях🫡",
+    "sourceUrl": "https://send.monobank.ua/jar/27ESgQt42X",
+    "image": "skin/skin-1785853726469.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "gta-vi-gta-vi",
     "name": "Скін GTA VI до старту предзамовлень GTA VI",
     "method": "Доступні всім",
