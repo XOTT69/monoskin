@@ -1,5 +1,19 @@
 [
   {
+    "id": "30",
+    "name": "Скін на картку монобанк від 30го Корпусу Морської Піхоти ВМС ЗСУ",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 230,
+    "date": "2026-06-04",
+    "description": "Скін доступний за донат від 230грн\n⚠️ Після закриття банки скін вже не отримати",
+    "sourceUrl": "https://send.monobank.ua/jar/AT5r6fW4Lx",
+    "image": "skin/30.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785855179107",
     "name": "Скін на картку монобанк від підрозділу ССО \"Баліста\"",
     "method": "Донат на банку",
