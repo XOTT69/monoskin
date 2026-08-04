@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785855179107",
+    "name": "Скін на картку монобанк від підрозділу ССО \"Баліста\"",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "date": "2026-06-30",
+    "description": "Скін доступний за донат від 500 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3XKSbcYfd2",
+    "image": "skin/skin-1785855179107.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785853916464",
     "name": "Скін на картку монобанк від Левів на джипі",
     "method": "Донат на банку",
