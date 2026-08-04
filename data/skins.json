@@ -1,5 +1,19 @@
 [
   {
+    "id": "swu-heroes-3",
+    "name": "Скін на картку монобанк від SWU Heroes 3",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-05-13",
+    "description": "Скін доступний за донат від 100грн\n\n⚠️ Після закриття банки скін вже не отримати",
+    "sourceUrl": "https://send.monobank.ua/jar/V8tfap88j",
+    "image": "skin/swu-heroes-3.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "2-0",
     "name": "Скін на картку монобанк Секретний Русоріз 2.0",
     "method": "Безкоштовний",
