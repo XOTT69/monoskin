@@ -1,5 +1,19 @@
 [
   {
+    "id": "faine-misto",
+    "name": "Скін на картку монобанк від Faine Misto",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "date": "2026-05-13",
+    "description": "Скін доступний за донат від 300грн\n\n⚠️ Після закриття банки скін вже не отримати",
+    "sourceUrl": "https://send.monobank.ua/jar/2WAAauzPf2",
+    "image": "skin/faine-misto.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "swu-heroes-3",
     "name": "Скін на картку монобанк від SWU Heroes 3",
     "method": "Безкоштовний",
