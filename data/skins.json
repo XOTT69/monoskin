@@ -1,5 +1,19 @@
 [
   {
+    "id": "68",
+    "name": "Для бійців 68 ОАеМБр",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Лише для бійців 68 ОАеМБр",
+    "sourceUrl": "",
+    "image": "skin/68.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "multiplex",
     "name": "Для працівників Multiplex",
     "method": "Безкоштовний",
