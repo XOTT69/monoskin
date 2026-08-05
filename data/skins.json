@@ -1,5 +1,19 @@
 [
   {
+    "id": "8-den-narodzhennya-mono",
+    "name": "8 день народження mono",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 88,
+    "date": "2026-08-05",
+    "description": "",
+    "sourceUrl": "",
+    "image": "skin/8-den-narodzhennya-mono.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya",
     "name": "Скін до Дня прикордонника України 30 квітня",
     "method": "Безкоштовний",
