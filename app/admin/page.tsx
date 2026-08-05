@@ -5,8 +5,8 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 type Method = "Безкоштовний" | "За дію" | "Доступні всім" | "Донат на банку" | "Підписка Base";
 type Status = "Доступний" | "Недоступний";
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
-type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; date: string; description: string; sourceUrl: string; image: string; images?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string };
-type FormValues = { id: string; name: string; category: Category; minimumValue: string; date: string; lastVerifiedAt: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
+type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; addedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string };
+type FormValues = { id: string; name: string; category: Category; minimumValue: string; lastVerifiedAt: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
 type ContentFile = { content: string };
 type Editor = { skin: Skin; draft: boolean };
 type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; date?: string; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
@@ -19,7 +19,7 @@ const today = new Date().toISOString().slice(0, 10);
 const allowedImageTypes = new Set(["image/png", "image/jpeg", "image/webp"]);
 const maxImageBytes = 4 * 1024 * 1024;
 const maxImagesPerSkin = 6;
-const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", date: today, lastVerifiedAt: "", description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
+const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", lastVerifiedAt: "", description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
 
 function categoryOf(skin: Skin): Category {
   if (skin.status === "Недоступний") return "Недоступні";
@@ -129,8 +129,8 @@ export default function AdminPage() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const sorted = useMemo(() => [...records].sort((a, b) => +new Date(b.date) - +new Date(a.date)), [records]);
-  const sortedDrafts = useMemo(() => [...drafts].sort((a, b) => +new Date(b.date) - +new Date(a.date)), [drafts]);
+  const sorted = useMemo(() => [...records].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [records]);
+  const sortedDrafts = useMemo(() => [...drafts].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [drafts]);
   const setField = <K extends keyof FormValues>(key: K, value: FormValues[K]) => setForm((current) => ({ ...current, [key]: value }));
 
   const loadCatalog = async (accessToken: string) => {
@@ -188,7 +188,7 @@ export default function AdminPage() {
 
   const edit = (skin: Skin, draft = false) => {
     clearSelectedPhotos(); setEditing({ skin, draft }); setError("");
-    setForm({ id: skin.id, name: skin.name, category: categoryOf(skin), minimumValue: String(skin.minimumValue), date: skin.date, lastVerifiedAt: skin.lastVerifiedAt ?? "", description: skin.description, sourceUrl: skin.sourceUrl, isVisaOnly: skin.isVisaOnly, isAdultOnly: skin.isAdultOnly, featured: Boolean(skin.featured) });
+    setForm({ id: skin.id, name: skin.name, category: categoryOf(skin), minimumValue: String(skin.minimumValue), lastVerifiedAt: skin.lastVerifiedAt ?? "", description: skin.description, sourceUrl: skin.sourceUrl, isVisaOnly: skin.isVisaOnly, isAdultOnly: skin.isAdultOnly, featured: Boolean(skin.featured) });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const cancelEdit = () => { clearSelectedPhotos(); setEditing(null); setForm(emptyForm()); setError(""); };
@@ -243,8 +243,8 @@ export default function AdminPage() {
     setError(message);
   };
 
-  const recordFromForm = (image: string, images: string[]): Skin => ({
-    id: form.id.trim() || toId(form.name), name: form.name.trim(), method: form.category === "Донат на банку" ? "Донат на банку" : form.category === "Підписка" ? "Підписка Base" : form.category === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: form.category === "Недоступні" ? "Недоступний" : "Доступний", minimumValue: Number(form.minimumValue) || 0, date: form.date, lastVerifiedAt: form.lastVerifiedAt || undefined, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
+  const recordFromForm = (image: string, images: string[], addedAt: string): Skin => ({
+    id: form.id.trim() || toId(form.name), name: form.name.trim(), method: form.category === "Донат на банку" ? "Донат на банку" : form.category === "Підписка" ? "Підписка Base" : form.category === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: form.category === "Недоступні" ? "Недоступний" : "Доступний", minimumValue: Number(form.minimumValue) || 0, addedAt, lastVerifiedAt: form.lastVerifiedAt || undefined, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
   });
 
   const assertForm = (forDraft: boolean) => {
@@ -265,7 +265,7 @@ export default function AdminPage() {
       const existingImages = editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : [];
       const images = photos.length ? photos.map((photo, index) => `skin/${id}${index ? `-${index + 1}` : ""}.${photo.name.split(".").pop()?.toLowerCase() || "png"}`) : existingImages;
       const image = images[0] || "";
-      const record = recordFromForm(image, images);
+      const record = recordFromForm(image, images, editing?.skin.addedAt ?? new Date().toISOString());
       const adjustedRecords = record.featured && !asDraft ? records.map((skin) => ({ ...skin, featured: false })) : records;
       const adjustedDrafts = record.featured && asDraft ? drafts.map((skin) => ({ ...skin, featured: false })) : drafts;
       let nextRecords = adjustedRecords;
@@ -332,7 +332,7 @@ export default function AdminPage() {
         const file = await optimizeImage(sourceFile);
         const extension = file.name.split(".").pop()?.toLowerCase() || "png";
         const image = `skin/${item.id}.${extension}`;
-        nextDrafts.push({ id: item.id!, name: item.name!, method: item.method === "Донат на банку" ? "Донат на банку" : item.method === "Підписка" ? "Підписка Base" : item.method === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: item.status === "Недоступний" ? "Недоступний" : "Доступний", minimumValue: Number(item.minimumValue) || 0, date: item.date || today, description: item.description || "", sourceUrl: isSecureUrl(item.sourceUrl || "") ? item.sourceUrl || "" : "", image, isVisaOnly: Boolean(item.isVisaOnly), isAdultOnly: Boolean(item.isAdultOnly), featured: false });
+        nextDrafts.push({ id: item.id!, name: item.name!, method: item.method === "Донат на банку" ? "Донат на банку" : item.method === "Підписка" ? "Підписка Base" : item.method === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: item.status === "Недоступний" ? "Недоступний" : "Доступний", minimumValue: Number(item.minimumValue) || 0, addedAt: new Date().toISOString(), description: item.description || "", sourceUrl: isSecureUrl(item.sourceUrl || "") ? item.sourceUrl || "" : "", image, isVisaOnly: Boolean(item.isVisaOnly), isAdultOnly: Boolean(item.isAdultOnly), featured: false });
         files.push({ path: `public/${image}`, content: await fileBase64(file) });
       }
       if (!files.length) throw new Error("Фото мають бути PNG, JPG або WebP до 4 МБ.");
@@ -349,9 +349,8 @@ export default function AdminPage() {
       <label>Назва<input value={form.name} onChange={(event) => setField("name", event.target.value)} placeholder="Наприклад, Київ. Каштан" required /></label>
       <label>Категорія<select value={form.category} onChange={(event) => setField("category", event.target.value as Category)}><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
       <label>Мінімальна сума, ₴<input type="number" min="0" value={form.minimumValue} onChange={(event) => setField("minimumValue", event.target.value)} /></label>
-      <label>Дата появи<input type="date" value={form.date} onChange={(event) => setField("date", event.target.value)} required /></label>
       <label>Перевірено<input type="date" value={form.lastVerifiedAt} onChange={(event) => setField("lastVerifiedAt", event.target.value)} /></label>
-      <label className="verify-help">Порожньо — ще не перевірено. Дата не показує строк дії скіна.</label>
+      <label className="verify-help">Час додавання формується автоматично. Дата перевірки не показує строк дії скіна.</label>
       <label className="full">Опис / умова отримання<textarea value={form.description} onChange={(event) => setField("description", event.target.value)} placeholder="Коротко поясни, як отримати цей скін" rows={5} /></label>
       <label className="full">Посилання на скін<input type="url" value={form.sourceUrl} onChange={(event) => setField("sourceUrl", event.target.value)} placeholder="https://…" /></label>
       <label className="full upload-field" tabIndex={0}>Фото скіна
@@ -364,7 +363,7 @@ export default function AdminPage() {
       <div className="form-actions"><button className="primary-button" type="submit" disabled={busy}>{busy ? "Зберігаю…" : editing?.draft ? "Опублікувати скін" : editing ? "Зберегти зміни" : "Додати скін"}</button><button className="secondary-button" type="button" disabled={busy} onClick={() => void save(true)}>Зберегти чернетку</button>{editing && <button className="secondary-button" type="button" onClick={cancelEdit}>Скасувати</button>}</div>
     </form>
     <section className="admin-import"><div><p className="eyebrow"><span /> Масовий імпорт</p><h2>Чернетки з фото</h2><p>Обери `missing-skins.json`, а потім усі чисті зображення. Файли зі збігом назви буде додано в чернетки, не одразу на сайт.</p></div><label>Файл списку<input type="file" accept="application/json" onChange={selectImport} /></label><label>Чисті фото<input type="file" multiple accept="image/png,image/jpeg,image/webp" onChange={(event) => setImportPhotos(Array.from(event.target.files ?? []))} /></label><button className="secondary-button" type="button" disabled={busy || !importRecords.length} onClick={() => void importAsDrafts}>Імпортувати {importRecords.length ? `${importRecords.length} записів` : "чернетки"}</button></section>
-    {sortedDrafts.length > 0 && <section className="admin-list drafts-list"><div><p className="eyebrow"><span /> Не опубліковано</p><h2>Чернетки</h2></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('/monoskin/${skin.image}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · {skin.date}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
-    <section className="admin-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни</h2></div><div className="admin-grid">{sorted.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · {skin.date}{skin.lastVerifiedAt ? ` · перевірено ${skin.lastVerifiedAt}` : " · не перевірено"}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div></section>
+    {sortedDrafts.length > 0 && <section className="admin-list drafts-list"><div><p className="eyebrow"><span /> Не опубліковано</p><h2>Чернетки</h2></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('/monoskin/${skin.image}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
+    <section className="admin-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни</h2></div><div className="admin-grid">{sorted.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{skin.lastVerifiedAt ? ` · перевірено ${skin.lastVerifiedAt}` : " · не перевірено"}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div></section>
   </section></main>;
 }

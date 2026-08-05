@@ -26,7 +26,7 @@ type Skin = {
   method: Method;
   status: Status;
   minimumValue: number;
-  date: string;
+  addedAt: string;
   description: string;
   sourceUrl: string;
   image: string;
@@ -173,7 +173,7 @@ export default function Home() {
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
-    ?? skins.filter((skin) => skin.status === "Доступний").sort((a, b) => +new Date(b.date) - +new Date(a.date))[0]
+    ?? skins.filter((skin) => skin.status === "Доступний").sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt))[0]
     ?? skins[0], []);
   const filtered = useMemo(() => skins
     .filter((skin) => {
@@ -184,7 +184,7 @@ export default function Home() {
     .sort((left, right) => {
       if (sort === "name") return left.name.localeCompare(right.name, "uk");
       if (sort === "price") return left.minimumValue - right.minimumValue;
-      return sort === "oldest" ? +new Date(left.date) - +new Date(right.date) : +new Date(right.date) - +new Date(left.date);
+      return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
     }), [categoryFilter, query, sort]);
 
   useEffect(() => {
@@ -384,7 +384,7 @@ export default function Home() {
           <div className="search-row">
             <label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Шукай за назвою, темою або умовою" aria-label="Пошук скінів" /></label>
             <label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label>
-            <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Спочатку нові</option><option value="oldest">Спочатку старі</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label>
+            <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Нещодавно додані</option><option value="oldest">Додані раніше</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label>
           </div>
           <div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
@@ -399,7 +399,7 @@ export default function Home() {
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
             <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
-            <div className="skin-info"><div><h3>{skin.name}</h3><p>{formatDate(skin.date)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
+            <div className="skin-info"><div><h3>{skin.name}</h3><p>{categoryOf(skin)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
           </button>)}
         </div>
         {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або категорію.</p></div>}
@@ -433,7 +433,7 @@ export default function Home() {
           <div className="detail-body">
             <p className="eyebrow"><span /> {selected.status}</p>
             <h2 id="details-title">{selected.name}</h2>
-            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span><span>{formatDate(selected.date)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
+            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
             <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}</div>
           </div>

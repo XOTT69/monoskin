@@ -17,12 +17,12 @@ for (const [index, skin] of skins.entries()) {
   requiredString(skin.id, `${label}.id`);
   requiredString(skin.name, `${label}.name`);
   requiredString(skin.image, `${label}.image`);
-  requiredString(skin.date, `${label}.date`);
+  requiredString(skin.addedAt, `${label}.addedAt`);
   if (ids.has(skin.id)) fail(`${label}: дубльований id «${skin.id}».`);
   ids.add(skin.id);
   if (!allowedMethods.has(skin.method)) fail(`${label}: некоректний method «${skin.method}».`);
   if (!allowedStatuses.has(skin.status)) fail(`${label}: некоректний status «${skin.status}».`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(skin.date) || Number.isNaN(Date.parse(skin.date))) fail(`${label}: некоректна дата «${skin.date}».`);
+  if (Number.isNaN(Date.parse(skin.addedAt))) fail(`${label}: некоректна дата додавання.`);
   if (skin.lastVerifiedAt && (!/^\d{4}-\d{2}-\d{2}$/.test(skin.lastVerifiedAt) || Number.isNaN(Date.parse(skin.lastVerifiedAt)))) fail(`${label}: некоректна дата перевірки.`);
   if (!Number.isFinite(skin.minimumValue) || skin.minimumValue < 0) fail(`${label}: minimumValue має бути числом від 0.`);
   if (skin.sourceUrl && !isSecureUrl(skin.sourceUrl)) fail(`${label}: sourceUrl має починатися з https://.`);
@@ -45,10 +45,12 @@ if (featured.length > 1) fail(`У hero може бути лише один ск�
 for (const [index, draft] of drafts.entries()) {
   const label = `drafts.json[${index}]`;
   requiredString(draft.id, `${label}.id`);
+  requiredString(draft.addedAt, `${label}.addedAt`);
   if (ids.has(draft.id)) fail(`${label}: id «${draft.id}» уже опублікований.`);
   ids.add(draft.id);
   if (!allowedMethods.has(draft.method)) fail(`${label}: некоректний method.`);
   if (!allowedStatuses.has(draft.status)) fail(`${label}: некоректний status.`);
+  if (Number.isNaN(Date.parse(draft.addedAt))) fail(`${label}: некоректна дата додавання.`);
   if (draft.sourceUrl && !isSecureUrl(draft.sourceUrl)) fail(`${label}: sourceUrl має починатися з https://.`);
 }
 
