@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785934784953",
+    "name": "БО \"БФ \"ДОМІВКА ВРЯТОВАНИХ ТВАРИН\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "date": "2026-08-05",
+    "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 1 скін",
+    "sourceUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg#subscriptions",
+    "image": "skin/skin-1785934784953.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785934549915",
     "name": "БО \"МБФ\"ТВОЄ МАЙБУТНЄ\"",
     "method": "Підписка Base",
