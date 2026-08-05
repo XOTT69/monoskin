@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785963428236",
+    "name": "Скін абсолютного чемпіону світу у двох вагових категоріях Олександра Усика",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Скін видавався всім після перемоги Усика в бою 19.07.2025",
+    "sourceUrl": "",
+    "image": "skin/skin-1785963428236.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "mono",
     "name": "Я працюю в mono",
     "method": "Безкоштовний",
