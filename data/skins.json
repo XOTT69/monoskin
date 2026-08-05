@@ -1,5 +1,23 @@
 [
   {
+    "id": "fond-serhiya-prytuly",
+    "name": "Фонд Сергія Притули",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 1,
+    "date": "2026-08-05",
+    "description": "отримати можна за донат на будь-яку суму. Скін надійде протягом 24 годин.",
+    "sourceUrl": "https://send.monobank.ua/jar/2AwsVyDJ6Q",
+    "image": "skin/fond-serhiya-prytuly.png",
+    "images": [
+      "skin/fond-serhiya-prytuly.png",
+      "skin/fond-serhiya-prytuly-2.webp"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "fond-povernys-zhyvym",
     "name": "Фонд Повернись Живим",
     "method": "Донат на банку",
