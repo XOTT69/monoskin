@@ -27,12 +27,17 @@ for (const [index, skin] of skins.entries()) {
   if (!Number.isFinite(skin.minimumValue) || skin.minimumValue < 0) fail(`${label}: minimumValue має бути числом від 0.`);
   if (skin.status === "Доступний" && skin.method !== "Доступні всім" && !isSecureUrl(skin.sourceUrl)) fail(`${label}: доступному скіну потрібне HTTPS-посилання.`);
   if (skin.sourceUrl && !isSecureUrl(skin.sourceUrl)) fail(`${label}: sourceUrl має починатися з https://.`);
-  if (!skin.image.startsWith("skin/") || skin.image.includes("..")) fail(`${label}: некоректний шлях до зображення.`);
-  const path = resolve(root, "public", skin.image);
-  if (!existsSync(path)) fail(`${label}: не знайдено ${skin.image}.`);
-  const shared = images.get(skin.image) ?? [];
-  shared.push(skin.name);
-  images.set(skin.image, shared);
+  const skinImages = skin.images?.length ? skin.images : [skin.image];
+  if (skin.images && (!Array.isArray(skin.images) || !skin.images.length || !skin.images.every((image) => typeof image === "string"))) fail(`${label}: images має бути непорожнім масивом шляхів.`);
+  if (!skinImages.includes(skin.image)) fail(`${label}: image має бути першим фото з images.`);
+  for (const image of skinImages) {
+    if (!image.startsWith("skin/") || image.includes("..")) fail(`${label}: некоректний шлях до зображення.`);
+    const path = resolve(root, "public", image);
+    if (!existsSync(path)) fail(`${label}: не знайдено ${image}.`);
+    const shared = images.get(image) ?? [];
+    shared.push(skin.name);
+    images.set(image, shared);
+  }
 }
 
 const featured = skins.filter((skin) => skin.featured);

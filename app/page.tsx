@@ -30,6 +30,7 @@ type Skin = {
   description: string;
   sourceUrl: string;
   image: string;
+  images?: string[];
   isVisaOnly: boolean;
   isAdultOnly: boolean;
   featured?: boolean;
@@ -114,6 +115,10 @@ function skinImage(skin: Skin) {
   return `/monoskin/${skin.image}`;
 }
 
+function skinImages(skin: Skin) {
+  return skin.images?.length ? skin.images : [skin.image];
+}
+
 function isSecureUrl(value: string) {
   try { return new URL(value).protocol === "https:"; } catch { return false; }
 }
@@ -135,6 +140,7 @@ export default function Home() {
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
   const [sort, setSort] = useState<Sort>("newest");
   const [selected, setSelected] = useState<Skin | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [showQr, setShowQr] = useState(false);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
@@ -172,7 +178,7 @@ export default function Home() {
     const skin = skinId ? skins.find((item) => item.id === skinId) : null;
     const frame = window.requestAnimationFrame(() => {
       setTheme(storedTheme === "light" || storedTheme === "dark" ? storedTheme : preferredTheme);
-      if (skin) setSelected(skin);
+      if (skin) { setSelected(skin); setSelectedImageIndex(0); }
     });
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -332,6 +338,12 @@ export default function Home() {
     }
   };
 
+  const openSkin = (skin: Skin) => {
+    setSelected(skin);
+    setSelectedImageIndex(0);
+    setShowQr(false);
+  };
+
   return (
     <main className={`site ${theme}`}>
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
@@ -360,15 +372,15 @@ export default function Home() {
           <div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
             {visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}
-            {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) { setSelected(visualSearch.skin); setShowQr(false); } }}>Відкрити скін →</button></>}
+            {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) openSkin(visualSearch.skin); }}>Відкрити скін →</button></>}
             {visualSearch.state === "missing" && "Точного збігу не знайдено. Спробуй обрізати скрін до самої картки."}
             {visualSearch.state === "error" && "Не вдалося прочитати зображення. Спробуй PNG, JPG або WebP."}
-            {visualSearch.matches && visualSearch.state !== "searching" && <div className="visual-matches">{visualSearch.matches.map(({ skin, similarity }) => <button type="button" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }}>{skin.name} <small>{Math.round(similarity * 100)}%</small></button>)}</div>}
+            {visualSearch.matches && visualSearch.state !== "searching" && <div className="visual-matches">{visualSearch.matches.map(({ skin, similarity }) => <button type="button" key={skin.id} onClick={() => openSkin(skin)}>{skin.name} <small>{Math.round(similarity * 100)}%</small></button>)}</div>}
           </div>}
         </div>
 
         <div className="skin-grid">
-          {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => { setSelected(skin); setShowQr(false); }} aria-label={`Деталі: ${skin.name}`}>
+          {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
             <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
             <div className="skin-info"><div><h3>{skin.name}</h3><p>{formatDate(skin.date)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
           </button>)}
@@ -408,7 +420,7 @@ export default function Home() {
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
             <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}</div>
           </div>
-          <div className="detail-art"><Image src={skinImage(selected)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority /></div>
+          <div className="detail-art"><Image src={`/monoskin/${skinImages(selected)[selectedImageIndex] ?? selected.image}`} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority />{skinImages(selected).length > 1 && <div className="detail-gallery" aria-label="Варіанти скіна">{skinImages(selected).map((image, index) => <button type="button" key={image} className={selectedImageIndex === index ? "active" : ""} aria-label={`Показати варіант ${index + 1}`} onClick={() => setSelectedImageIndex(index)}><Image src={`/monoskin/${image}`} alt="" fill sizes="72px" /></button>)}</div>}</div>
         </section>
       </div>}
       {showQr && selected?.status === "Доступний" && selected.sourceUrl && <div className="qr-overlay" role="presentation" onMouseDown={() => setShowQr(false)}>
