@@ -39,8 +39,13 @@ function fromBase64(value: string) {
   return new TextDecoder().decode(bytes);
 }
 
+const ukrainianTransliteration: Record<string, string> = {
+  а: "a", б: "b", в: "v", г: "h", ґ: "g", д: "d", е: "e", є: "ye", ж: "zh", з: "z", и: "y", і: "i", ї: "yi", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "kh", ц: "ts", ч: "ch", ш: "sh", щ: "shch", ь: "", ю: "yu", я: "ya",
+};
+
 function toId(value: string) {
-  return value.toLocaleLowerCase("uk").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || `skin-${Date.now()}`;
+  const transliterated = Array.from(value.toLocaleLowerCase("uk"), (letter) => ukrainianTransliteration[letter] ?? letter).join("");
+  return transliterated.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || `skin-${Date.now()}`;
 }
 
 function isSecureUrl(value: string) {
@@ -255,7 +260,8 @@ export default function AdminPage() {
       setBusy(true); setNotice(photos.length ? "Готуємо фото…" : "Готуємо зміни…");
       const id = form.id.trim() || toId(form.name);
       const sameEditor = editing?.skin.id === id;
-      if (!sameEditor && [...records, ...drafts].some((skin) => skin.id === id)) throw new Error("Такий ID уже існує. Змініть назву або ID.");
+      const duplicate = [...records, ...drafts].find((skin) => skin.id === id);
+      if (!sameEditor && duplicate) throw new Error(`У каталозі вже є запис «${duplicate.name}» з технічним ID ${id}.`);
       const existingImages = editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : [];
       const images = photos.length ? photos.map((photo, index) => `skin/${id}${index ? `-${index + 1}` : ""}.${photo.name.split(".").pop()?.toLowerCase() || "png"}`) : existingImages;
       const image = images[0] || "";
