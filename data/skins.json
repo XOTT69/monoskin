@@ -1,5 +1,19 @@
 [
   {
+    "id": "ghostik-largo",
+    "name": "Ghostik Largo",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "банка закрита",
+    "sourceUrl": "",
+    "image": "skin/ghostik-largo.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785943371600",
     "name": "Хартія",
     "method": "Донат на банку",
