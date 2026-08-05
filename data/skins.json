@@ -1,5 +1,20 @@
 [
   {
+    "id": "skin-kolo",
+    "name": "Скін KOLO",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "date": "2026-08-05",
+    "lastVerifiedAt": "2026-08-05",
+    "description": "Донат від 300 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
+    "image": "skin/skin-kolo.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "klimanutyy",
     "name": "Кліманутий",
     "method": "Донат на банку",
