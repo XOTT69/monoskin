@@ -1,5 +1,19 @@
 [
   {
+    "id": "505",
+    "name": "505 ОБМП",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "date": "2026-08-05",
+    "description": "За донат від 200",
+    "sourceUrl": "https://send.monobank.ua/jar/4aDXGeyHKi",
+    "image": "skin/505.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "1",
     "name": "Скін 1-го корпусу НГУ «Азов»",
     "method": "Донат на банку",
