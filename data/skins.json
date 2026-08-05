@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785932696332",
+    "name": "Опора Спільноти",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 10,
+    "date": "2026-08-05",
+    "description": "Від 10 грн/місяць 1 скін, Мін: 1000 грн/міс. Макс: 99 999 грн/міс. 2 скіна",
+    "sourceUrl": "https://base.monobank.ua/sternenkofund#subscriptions",
+    "image": "skin/skin-1785932696332.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "faine-misto",
     "name": "Скін на картку монобанк від Faine Misto",
     "method": "Донат на банку",
