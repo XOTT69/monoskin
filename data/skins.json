@@ -1,5 +1,19 @@
 [
   {
+    "id": "kavitech",
+    "name": "Скін працівника kavitech",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "",
+    "sourceUrl": "",
+    "image": "skin/kavitech.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785964267085",
     "name": "Ефективне управління фінансами",
     "method": "Безкоштовний",
