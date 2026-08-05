@@ -1,5 +1,19 @@
 [
   {
+    "id": "1",
+    "name": "Скін 1-го корпусу НГУ «Азов»",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/2aB4ckTXgp",
+    "image": "skin/1.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "12",
     "name": "12-річчя НГУ",
     "method": "Донат на банку",
