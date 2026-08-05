@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785936054797",
+    "name": "Орест Мурій",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 10,
+    "date": "2026-08-05",
+    "description": "Мін: 10 грн/міс. Макс: 3000 грн/міс. 1 скін",
+    "sourceUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA#subscriptions",
+    "image": "skin/skin-1785936054797.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kraken",
     "name": "ПОЛК БЕЗПІЛОТНИХ СИСТЕМ KRAKEN¹⁶⁵⁴",
     "method": "Підписка Base",
