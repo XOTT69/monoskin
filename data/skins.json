@@ -1,5 +1,23 @@
 [
   {
+    "id": "kraken",
+    "name": "ПОЛК БЕЗПІЛОТНИХ СИСТЕМ KRAKEN¹⁶⁵⁴",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "date": "2026-08-05",
+    "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 2 скіна",
+    "sourceUrl": "https://base.monobank.ua/kraken#subscriptions",
+    "image": "skin/kraken.webp",
+    "images": [
+      "skin/kraken.webp",
+      "skin/kraken-2.webp"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785934784953",
     "name": "БО \"БФ \"ДОМІВКА ВРЯТОВАНИХ ТВАРИН\"",
     "method": "Підписка Base",
