@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-uanimals-ta-ukrposhty",
+    "name": "Скін UAnimals та УкрПошти",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "Донат 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3E4KYm3Un5",
+    "image": "skin/skin-uanimals-ta-ukrposhty.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ghostik",
     "name": "Скін на картку від Ghostik-а",
     "method": "Безкоштовний",
