@@ -1,5 +1,20 @@
 [
   {
+    "id": "skin-1785934549915",
+    "name": "БО \"МБФ\"ТВОЄ МАЙБУТНЄ\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "date": "2026-08-05",
+    "lastVerifiedAt": "2026-08-05",
+    "description": "Мін: 50 грн/міс. Макс: 5000 грн/міс. 1 скін",
+    "sourceUrl": "https://base.monobank.ua/4kY1gWoR91PxRp#subscriptions",
+    "image": "skin/skin-1785934549915.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785934107317",
     "name": "Товариство Чорних Сердець",
     "method": "Підписка Base",
