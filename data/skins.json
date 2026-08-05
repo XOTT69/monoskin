@@ -1,14 +1,14 @@
 [
   {
-    "id": "miratech",
-    "name": "Скін працівників miratech",
+    "id": "unit-travel",
+    "name": "Скін працівників unit travel",
     "method": "Безкоштовний",
-    "status": "Недоступний",
+    "status": "Доступний",
     "minimumValue": 0,
     "date": "2026-08-05",
     "description": "",
     "sourceUrl": "",
-    "image": "skin/miratech.png",
+    "image": "skin/unit-travel.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false
