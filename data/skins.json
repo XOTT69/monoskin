@@ -1,5 +1,19 @@
 [
   {
+    "id": "multiplex",
+    "name": "Для працівників Multiplex",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Для працівників Multiplex",
+    "sourceUrl": "",
+    "image": "skin/multiplex.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785938125226",
     "name": "Бригадний скін - корпус Хартія",
     "method": "Безкоштовний",
