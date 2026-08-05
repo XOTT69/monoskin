@@ -1,5 +1,19 @@
 [
   {
+    "id": "20-2",
+    "name": "Скін військових 20 ОББС «К-2»",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Тільки для військових 20 ОББС «К-2» по зарплатному проекту.",
+    "sourceUrl": "",
+    "image": "skin/20-2.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "68",
     "name": "Для бійців 68 ОАеМБр",
     "method": "Безкоштовний",
