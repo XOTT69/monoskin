@@ -1,5 +1,19 @@
 [
   {
+    "id": "uanimals",
+    "name": "UAnimals",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2025-03-25",
+    "description": "Отримати можна було лише за підписку на кешбек UAnimals з 25 березня до 1 травня 2025 р.",
+    "sourceUrl": "",
+    "image": "skin/uanimals.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785963731436",
     "name": "Кришка-Брелок",
     "method": "Безкоштовний",
