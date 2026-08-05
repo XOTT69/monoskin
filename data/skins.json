@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785946188136",
+    "name": "НАШЕБАЧЕННЯ х РУСОРІЗ",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 6,
+    "date": "2026-08-05",
+    "description": "за донат від 6 грн. Треба віддати голос одному з учасників",
+    "sourceUrl": "https://base.monobank.ua/nashebachennia",
+    "image": "skin/skin-1785946188136.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "505",
     "name": "505 ОБМП",
     "method": "Донат на банку",
