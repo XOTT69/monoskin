@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785943082076",
+    "name": "Книгарня Сенс х Русоріз",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/8QSgsttWUk",
+    "image": "skin/skin-1785943082076.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "3",
     "name": "Штаб 3 армійського корпусу",
     "method": "Безкоштовний",
