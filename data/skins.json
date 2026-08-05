@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya",
+    "name": "Скін до Дня прикордонника України 30 квітня",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 95,
+    "date": "2026-04-30",
+    "description": "Можна було отримати у 2025 році за донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/89eRpMCUpn",
+    "image": "skin/skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-uanimals-ta-ukrposhty",
     "name": "Скін UAnimals та УкрПошти",
     "method": "Безкоштовний",
