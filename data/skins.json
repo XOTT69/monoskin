@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785941419187",
+    "name": "Бойові пінгвіни",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3LeVTKkqKj",
+    "image": "skin/skin-1785941419187.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "20-2",
     "name": "Скін військових 20 ОББС «К-2»",
     "method": "Безкоштовний",
