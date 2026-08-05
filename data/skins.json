@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785938125226",
+    "name": "Бригадний скін - корпус Хартія",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Отримати можуть лише військовслужбовці з  - корпусу Хартія",
+    "sourceUrl": "",
+    "image": "skin/skin-1785938125226.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "95",
     "name": "Бригадний скін -  95 ОДШБр",
     "method": "Безкоштовний",
