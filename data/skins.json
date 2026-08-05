@@ -1,5 +1,19 @@
 [
   {
+    "id": "klimanutyy",
+    "name": "Кліманутий",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 77,
+    "date": "2026-08-05",
+    "description": "За донат від 77 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6saXm571hL",
+    "image": "skin/klimanutyy.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "fond-serhiya-prytuly",
     "name": "Фонд Сергія Притули",
     "method": "Донат на банку",
