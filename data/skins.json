@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785943371600",
+    "name": "Хартія",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "date": "2026-08-05",
+    "description": "за донат від 500 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/7r7v7wVLJv",
+    "image": "skin/skin-1785943371600.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785943082076",
     "name": "Книгарня Сенс х Русоріз",
     "method": "Донат на банку",
