@@ -1,5 +1,19 @@
 [
   {
+    "id": "otoy",
+    "name": "OTOY",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат 100 грн",
+    "sourceUrl": "",
+    "image": "skin/otoy.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785941888336",
     "name": "БФ Сергій Притула х Владислав Гераскевич",
     "method": "Донат на банку",
