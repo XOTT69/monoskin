@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785944792766",
+    "name": "Синя форма Збірної України",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3VcrE6HNKU",
+    "image": "skin/skin-1785944792766.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ghostik-largo",
     "name": "Ghostik Largo",
     "method": "Безкоштовний",
