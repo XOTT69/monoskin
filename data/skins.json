@@ -1,5 +1,19 @@
 [
   {
+    "id": "ivr",
+    "name": "Для працівників IVR",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Отримати можуть лише працівники IVR",
+    "sourceUrl": "",
+    "image": "skin/ivr.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "boosta-ukraine",
     "name": "Boosta Ukraine",
     "method": "Безкоштовний",
