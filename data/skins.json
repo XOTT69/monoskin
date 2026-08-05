@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785936525404",
+    "name": "Громадська організація \"СОЦІАЛЬНИЙ ДРОН\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 55,
+    "date": "2026-08-05",
+    "description": "Мін: 55 грн/міс. Макс: 7000 грн/міс. 1 скін",
+    "sourceUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ#subscriptions",
+    "image": "skin/skin-1785936525403.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785936054797",
     "name": "Орест Мурій",
     "method": "Підписка Base",
