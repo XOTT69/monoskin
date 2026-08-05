@@ -1,5 +1,19 @@
 [
   {
+    "id": "95",
+    "name": "Бригадний скін -  95 ОДШБр",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Видається військовослужбовцям бригади  -  95 ОДШБр",
+    "sourceUrl": "",
+    "image": "skin/95.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ivr",
     "name": "Для працівників IVR",
     "method": "Безкоштовний",
