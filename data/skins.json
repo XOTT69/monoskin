@@ -1,5 +1,19 @@
 [
   {
+    "id": "mono",
+    "name": "Я працюю в mono",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Видається працівникам mono",
+    "sourceUrl": "",
+    "image": "skin/mono.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "visa-monobank",
     "name": "Скін Visa для карти Monobank",
     "method": "Безкоштовний",
