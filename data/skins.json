@@ -1,5 +1,19 @@
 [
   {
+    "id": "boosta-ukraine",
+    "name": "Boosta Ukraine",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "видається лише працівникам Boosta.",
+    "sourceUrl": "",
+    "image": "skin/boosta-ukraine.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785936525404",
     "name": "Громадська організація \"СОЦІАЛЬНИЙ ДРОН\"",
     "method": "Підписка Base",
