@@ -1,5 +1,19 @@
 [
   {
+    "id": "12",
+    "name": "12-річчя НГУ",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "date": "2026-08-05",
+    "description": "За донат від 50 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6NRXAcLbXs",
+    "image": "skin/12.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785944792766",
     "name": "Синя форма Збірної України",
     "method": "Донат на банку",
