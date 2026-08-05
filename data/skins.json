@@ -1,5 +1,19 @@
 [
   {
+    "id": "miratech",
+    "name": "Скін працівників miratech",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "",
+    "sourceUrl": "",
+    "image": "skin/miratech.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kavitech",
     "name": "Скін працівника kavitech",
     "method": "Безкоштовний",
