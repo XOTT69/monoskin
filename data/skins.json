@@ -1,5 +1,19 @@
 [
   {
+    "id": "x-mono",
+    "name": "НАУ x mono",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Скін для студентів НАУ, котрі отримують стипендію на картку mono.",
+    "sourceUrl": "",
+    "image": "skin/x-mono.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "uanimals",
     "name": "UAnimals",
     "method": "Безкоштовний",
