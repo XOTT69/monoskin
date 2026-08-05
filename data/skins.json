@@ -1,5 +1,25 @@
 [
   {
+    "id": "skin-1785934107317",
+    "name": "Товариство Чорних Сердець",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "date": "2026-08-05",
+    "lastVerifiedAt": "2026-08-05",
+    "description": "Мін: 500 грн/міс. Макс 99 999 грн/міс. Отримує 3 скіни",
+    "sourceUrl": "https://base.monobank.ua/cba#subscriptions",
+    "image": "skin/skin-1785934107317.png",
+    "images": [
+      "skin/skin-1785934107317.png",
+      "skin/skin-1785934107317-2.webp",
+      "skin/skin-1785934107317-3.png"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785933479988",
     "name": "ВПРИТУЛ",
     "method": "Підписка Base",
