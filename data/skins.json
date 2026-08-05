@@ -1,5 +1,19 @@
 [
   {
+    "id": "3",
+    "name": "Штаб 3 армійського корпусу",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 200,
+    "date": "2026-08-05",
+    "description": "за донат від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/2cJvZE5w3f",
+    "image": "skin/3.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "otoy",
     "name": "OTOY",
     "method": "Безкоштовний",
