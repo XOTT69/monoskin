@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785933479988",
+    "name": "ВПРИТУЛ",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "date": "2026-08-05",
+    "description": "Мін: 300 грн/міс. Макс: 29 900 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ#subscriptions",
+    "image": "skin/skin-1785933479988.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785932696332",
     "name": "Опора Спільноти",
     "method": "Підписка Base",
