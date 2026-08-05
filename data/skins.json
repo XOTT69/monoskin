@@ -1,5 +1,19 @@
 [
   {
+    "id": "ghostik",
+    "name": "Скін на картку від Ghostik-а",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/56iFmHwsHL",
+    "image": "skin/ghostik.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "unit-travel",
     "name": "Скін працівників unit travel",
     "method": "Безкоштовний",
