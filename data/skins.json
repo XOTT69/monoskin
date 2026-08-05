@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785963731436",
+    "name": "Кришка-Брелок",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "отримати можна сканувавши, при покупці на КуражБазарі Кришку-Брелок. Також доступний за посиланням",
+    "sourceUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
+    "image": "skin/skin-1785963731436.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785963428236",
     "name": "Скін абсолютного чемпіону світу у двох вагових категоріях Олександра Усика",
     "method": "Безкоштовний",
