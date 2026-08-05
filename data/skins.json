@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785964145479",
+    "name": "Будинок іграшок",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Видається працівникам Будинок іграшок.",
+    "sourceUrl": "",
+    "image": "skin/skin-1785964145479.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "x-mono",
     "name": "НАУ x mono",
     "method": "Безкоштовний",
