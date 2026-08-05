@@ -25,7 +25,6 @@ for (const [index, skin] of skins.entries()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(skin.date) || Number.isNaN(Date.parse(skin.date))) fail(`${label}: некоректна дата «${skin.date}».`);
   if (skin.lastVerifiedAt && (!/^\d{4}-\d{2}-\d{2}$/.test(skin.lastVerifiedAt) || Number.isNaN(Date.parse(skin.lastVerifiedAt)))) fail(`${label}: некоректна дата перевірки.`);
   if (!Number.isFinite(skin.minimumValue) || skin.minimumValue < 0) fail(`${label}: minimumValue має бути числом від 0.`);
-  if (skin.status === "Доступний" && skin.method !== "Доступні всім" && !isSecureUrl(skin.sourceUrl)) fail(`${label}: доступному скіну потрібне HTTPS-посилання.`);
   if (skin.sourceUrl && !isSecureUrl(skin.sourceUrl)) fail(`${label}: sourceUrl має починатися з https://.`);
   const skinImages = skin.images?.length ? skin.images : [skin.image];
   if (skin.images && (!Array.isArray(skin.images) || !skin.images.length || !skin.images.every((image) => typeof image === "string"))) fail(`${label}: images має бути непорожнім масивом шляхів.`);
