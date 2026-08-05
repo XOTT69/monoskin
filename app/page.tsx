@@ -45,6 +45,12 @@ const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 const visualHashWidth = 20;
 const visualHashHeight = 12;
 const themePreferenceKey = "monoskin-theme-preference";
+type ImageCrop = { x: number; y: number; width: number; height: number };
+const photoSearchCrops = [
+  { x: 0, y: 0, width: 1, height: 1 },
+  { x: .02, y: .03, width: .96, height: .94 },
+  { x: .03, y: .04, width: .94, height: .91 },
+] as const satisfies readonly ImageCrop[];
 
 function money(value: number) {
   return value ? `від ${value.toLocaleString("uk-UA")} ₴` : "Безкоштовно";
@@ -79,7 +85,7 @@ async function imageFromSystemClipboard() {
   return null;
 }
 
-async function imageFingerprint(source: File | string) {
+async function imageFingerprint(source: File | string, crop: ImageCrop = photoSearchCrops[0]) {
   const objectUrl = source instanceof File ? URL.createObjectURL(source) : source;
   try {
     const image = await new Promise<HTMLImageElement>((resolve, reject) => {
@@ -93,7 +99,17 @@ async function imageFingerprint(source: File | string) {
     canvas.height = visualHashHeight;
     const context = canvas.getContext("2d", { willReadFrequently: true });
     if (!context) throw new Error("Браузер не підтримує пошук за фото.");
-    context.drawImage(image, 0, 0, visualHashWidth, visualHashHeight);
+    context.drawImage(
+      image,
+      image.width * crop.x,
+      image.height * crop.y,
+      image.width * crop.width,
+      image.height * crop.height,
+      0,
+      0,
+      visualHashWidth,
+      visualHashHeight,
+    );
     const pixels = context.getImageData(0, 0, visualHashWidth, visualHashHeight).data;
     const luminance = Array.from({ length: visualHashWidth * visualHashHeight }, (_, index) => {
       const offset = index * 4;
@@ -153,7 +169,7 @@ export default function Home() {
   const turnstileSlot = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | undefined>(undefined);
   const turnstileToken = useRef("");
-  const visualHashCache = useRef(new Map<string, Promise<number[]>>());
+  const visualHashCache = useRef(new Map<string, Promise<number[][]>>());
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
@@ -324,11 +340,12 @@ export default function Home() {
     if (!file) return;
     setVisualSearch({ state: "searching" });
     try {
-      const queryHash = await imageFingerprint(file);
+      const queryHashes = await Promise.all(photoSearchCrops.map((crop) => imageFingerprint(file, crop)));
       const candidates = await Promise.all(skins.map(async (skin) => {
-        const existing = visualHashCache.current.get(skin.id) ?? imageFingerprint(skinImage(skin));
+        const existing = visualHashCache.current.get(skin.id) ?? Promise.all(skinImages(skin).map((image) => imageFingerprint(`/monoskin/${image}`)));
         visualHashCache.current.set(skin.id, existing);
-        return { skin, similarity: fingerprintSimilarity(queryHash, await existing) };
+        const imageHashes = await existing;
+        return { skin, similarity: Math.max(...queryHashes.flatMap((queryHash) => imageHashes.map((imageHash) => fingerprintSimilarity(queryHash, imageHash)))) };
       }));
       const matches = candidates.sort((left, right) => right.similarity - left.similarity).slice(0, 3);
       const closest = matches[0];
