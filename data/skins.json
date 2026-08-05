@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-1785941888336",
+    "name": "БФ Сергій Притула х Владислав Гераскевич",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "date": "2026-08-05",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3w8JTb7xhE",
+    "image": "skin/skin-1785941888336.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785941419187",
     "name": "Бойові пінгвіни",
     "method": "Донат на банку",
