@@ -9,7 +9,7 @@ type Skin = { id: string; name: string; method: Method; status: Status; minimumV
 type FormValues = { id: string; name: string; category: Category; minimumValue: string; lastVerifiedAt: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
 type ContentFile = { content: string };
 type Editor = { skin: Skin; draft: boolean };
-type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; date?: string; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
+type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
 
 const owner = "XOTT69";
 const repo = "monoskin";

@@ -5,14 +5,14 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 300,
-    "date": "2026-08-05",
     "lastVerifiedAt": "2026-08-05",
     "description": "Донат від 300 грн",
     "sourceUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
     "image": "skin/skin-kolo.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:42:47+03:00"
   },
   {
     "id": "klimanutyy",
@@ -20,13 +20,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 77,
-    "date": "2026-08-05",
     "description": "За донат від 77 грн",
     "sourceUrl": "https://send.monobank.ua/jar/6saXm571hL",
     "image": "skin/klimanutyy.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:38:06+03:00"
   },
   {
     "id": "fond-serhiya-prytuly",
@@ -34,7 +34,6 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 1,
-    "date": "2026-08-05",
     "description": "отримати можна за донат на будь-яку суму. Скін надійде протягом 24 годин.",
     "sourceUrl": "https://send.monobank.ua/jar/2AwsVyDJ6Q",
     "image": "skin/fond-serhiya-prytuly.png",
@@ -44,7 +43,8 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:13:24+03:00"
   },
   {
     "id": "fond-povernys-zhyvym",
@@ -52,13 +52,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 1,
-    "date": "2026-08-05",
     "description": "отримати можна за донат на будь-яку суму. Скін надійде протягом 24 годин.",
     "sourceUrl": "https://send.monobank.ua/jar/4Dyucs5PBU",
     "image": "skin/fond-povernys-zhyvym.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:11:52+03:00"
   },
   {
     "id": "8-den-narodzhennya-mono",
@@ -66,13 +66,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 88,
-    "date": "2026-08-05",
     "description": "",
     "sourceUrl": "",
     "image": "skin/8-den-narodzhennya-mono.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:10:26+03:00"
   },
   {
     "id": "skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya",
@@ -80,13 +80,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 95,
-    "date": "2026-04-30",
     "description": "Можна було отримати у 2025 році за донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/89eRpMCUpn",
     "image": "skin/skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T01:08:53+03:00"
   },
   {
     "id": "skin-uanimals-ta-ukrposhty",
@@ -94,13 +94,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "Донат 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/3E4KYm3Un5",
     "image": "skin/skin-uanimals-ta-ukrposhty.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:44:40+03:00"
   },
   {
     "id": "ghostik",
@@ -108,13 +108,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/56iFmHwsHL",
     "image": "skin/ghostik.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:27:04+03:00"
   },
   {
     "id": "unit-travel",
@@ -122,13 +122,13 @@
     "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "",
     "sourceUrl": "",
     "image": "skin/unit-travel.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:16:16+03:00"
   },
   {
     "id": "kavitech",
@@ -136,13 +136,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "",
     "sourceUrl": "",
     "image": "skin/kavitech.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:13:37+03:00"
   },
   {
     "id": "skin-1785964267085",
@@ -150,13 +150,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Даний скін видавався ексклюзивно на вебінарі \"Ефективне управління фінансами\". Його отримати можливості немає.",
     "sourceUrl": "",
     "image": "skin/skin-1785964267085.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:11:10+03:00"
   },
   {
     "id": "skin-1785964145479",
@@ -164,13 +164,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Видається працівникам Будинок іграшок.",
     "sourceUrl": "",
     "image": "skin/skin-1785964145479.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:09:07+03:00"
   },
   {
     "id": "x-mono",
@@ -178,13 +178,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Скін для студентів НАУ, котрі отримують стипендію на картку mono.",
     "sourceUrl": "",
     "image": "skin/x-mono.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:07:51+03:00"
   },
   {
     "id": "uanimals",
@@ -192,13 +192,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2025-03-25",
     "description": "Отримати можна було лише за підписку на кешбек UAnimals з 25 березня до 1 травня 2025 р.",
     "sourceUrl": "",
     "image": "skin/uanimals.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:05:33+03:00"
   },
   {
     "id": "skin-1785963731436",
@@ -206,13 +206,13 @@
     "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "отримати можна сканувавши, при покупці на КуражБазарі Кришку-Брелок. Також доступний за посиланням",
     "sourceUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
     "image": "skin/skin-1785963731436.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-06T00:02:14+03:00"
   },
   {
     "id": "skin-1785963428236",
@@ -220,13 +220,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Скін видавався всім після перемоги Усика в бою 19.07.2025",
     "sourceUrl": "",
     "image": "skin/skin-1785963428236.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T23:57:10+03:00"
   },
   {
     "id": "mono",
@@ -234,13 +234,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Видається працівникам mono",
     "sourceUrl": "",
     "image": "skin/mono.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T23:24:09+03:00"
   },
   {
     "id": "visa-monobank",
@@ -248,13 +248,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Цей скін на картку можна було отримати у 2024 році разом з Одягом Котжо Сатору за перехід від Mastercard на Visa за PUSH-повідомленням.",
     "sourceUrl": "",
     "image": "skin/visa-monobank.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T22:50:46+03:00"
   },
   {
     "id": "skin-1785946693975",
@@ -262,13 +262,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 500,
-    "date": "2026-08-05",
     "description": "Можна було купити протягом одного місяця цей скін через монобазу за 500 грн.",
     "sourceUrl": "",
     "image": "skin/skin-1785946693975.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T19:18:16+03:00"
   },
   {
     "id": "skin-1785946188136",
@@ -276,13 +276,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 6,
-    "date": "2026-08-05",
     "description": "за донат від 6 грн. Треба віддати голос одному з учасників",
     "sourceUrl": "https://base.monobank.ua/nashebachennia",
     "image": "skin/skin-1785946188136.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T19:09:50+03:00"
   },
   {
     "id": "505",
@@ -290,13 +290,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 200,
-    "date": "2026-08-05",
     "description": "За донат від 200",
     "sourceUrl": "https://send.monobank.ua/jar/4aDXGeyHKi",
     "image": "skin/505.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T19:06:18+03:00"
   },
   {
     "id": "1",
@@ -304,13 +304,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/2aB4ckTXgp",
     "image": "skin/1.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T19:01:05+03:00"
   },
   {
     "id": "12",
@@ -318,13 +318,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 50,
-    "date": "2026-08-05",
     "description": "За донат від 50 грн",
     "sourceUrl": "https://send.monobank.ua/jar/6NRXAcLbXs",
     "image": "skin/12.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:47:35+03:00"
   },
   {
     "id": "skin-1785944792766",
@@ -332,13 +332,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/3VcrE6HNKU",
     "image": "skin/skin-1785944792766.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:46:35+03:00"
   },
   {
     "id": "ghostik-largo",
@@ -346,13 +346,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "банка закрита",
     "sourceUrl": "",
     "image": "skin/ghostik-largo.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:27:51+03:00"
   },
   {
     "id": "skin-1785943371600",
@@ -360,13 +360,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 500,
-    "date": "2026-08-05",
     "description": "за донат від 500 грн",
     "sourceUrl": "https://send.monobank.ua/jar/7r7v7wVLJv",
     "image": "skin/skin-1785943371600.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:22:54+03:00"
   },
   {
     "id": "skin-1785943082076",
@@ -374,13 +374,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/8QSgsttWUk",
     "image": "skin/skin-1785943082076.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:18:04+03:00"
   },
   {
     "id": "3",
@@ -388,13 +388,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 200,
-    "date": "2026-08-05",
     "description": "за донат від 200 грн",
     "sourceUrl": "https://send.monobank.ua/jar/2cJvZE5w3f",
     "image": "skin/3.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:03:09+03:00"
   },
   {
     "id": "otoy",
@@ -402,13 +402,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат 100 грн",
     "sourceUrl": "",
     "image": "skin/otoy.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T18:00:20+03:00"
   },
   {
     "id": "skin-1785941888336",
@@ -416,13 +416,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/3w8JTb7xhE",
     "image": "skin/skin-1785941888336.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T17:58:10+03:00"
   },
   {
     "id": "skin-1785941419187",
@@ -430,13 +430,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-05",
     "description": "За донат від 100 грн",
     "sourceUrl": "https://send.monobank.ua/jar/3LeVTKkqKj",
     "image": "skin/skin-1785941419187.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T17:50:21+03:00"
   },
   {
     "id": "20-2",
@@ -444,13 +444,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Тільки для військових 20 ОББС «К-2» по зарплатному проекту.",
     "sourceUrl": "",
     "image": "skin/20-2.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T17:47:22+03:00"
   },
   {
     "id": "68",
@@ -458,13 +458,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Лише для бійців 68 ОАеМБр",
     "sourceUrl": "",
     "image": "skin/68.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T17:00:50+03:00"
   },
   {
     "id": "multiplex",
@@ -472,13 +472,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Для працівників Multiplex",
     "sourceUrl": "",
     "image": "skin/multiplex.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:56:29+03:00"
   },
   {
     "id": "skin-1785938125226",
@@ -486,13 +486,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Отримати можуть лише військовслужбовці з  - корпусу Хартія",
     "sourceUrl": "",
     "image": "skin/skin-1785938125226.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:55:27+03:00"
   },
   {
     "id": "95",
@@ -500,13 +500,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Видається військовослужбовцям бригади  -  95 ОДШБр",
     "sourceUrl": "",
     "image": "skin/95.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:43:09+03:00"
   },
   {
     "id": "ivr",
@@ -514,13 +514,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "Отримати можуть лише працівники IVR",
     "sourceUrl": "",
     "image": "skin/ivr.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:40:54+03:00"
   },
   {
     "id": "boosta-ukraine",
@@ -528,13 +528,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-08-05",
     "description": "видається лише працівникам Boosta.",
     "sourceUrl": "",
     "image": "skin/boosta-ukraine.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:33:25+03:00"
   },
   {
     "id": "skin-1785936525404",
@@ -542,13 +542,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 55,
-    "date": "2026-08-05",
     "description": "Мін: 55 грн/міс. Макс: 7000 грн/міс. 1 скін",
     "sourceUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ#subscriptions",
     "image": "skin/skin-1785936525403.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:28:47+03:00"
   },
   {
     "id": "skin-1785936054797",
@@ -556,13 +556,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "date": "2026-08-05",
     "description": "Мін: 10 грн/міс. Макс: 3000 грн/міс. 1 скін",
     "sourceUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA#subscriptions",
     "image": "skin/skin-1785936054797.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:20:57+03:00"
   },
   {
     "id": "kraken",
@@ -570,7 +570,6 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "date": "2026-08-05",
     "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 2 скіна",
     "sourceUrl": "https://base.monobank.ua/kraken#subscriptions",
     "image": "skin/kraken.webp",
@@ -580,7 +579,8 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T16:06:56+03:00"
   },
   {
     "id": "skin-1785934784953",
@@ -588,13 +588,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "date": "2026-08-05",
     "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 1 скін",
     "sourceUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg#subscriptions",
     "image": "skin/skin-1785934784953.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T15:59:46+03:00"
   },
   {
     "id": "skin-1785934549915",
@@ -602,14 +602,14 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "date": "2026-08-05",
     "lastVerifiedAt": "2026-08-05",
     "description": "Мін: 50 грн/міс. Макс: 5000 грн/міс. 1 скін",
     "sourceUrl": "https://base.monobank.ua/4kY1gWoR91PxRp#subscriptions",
     "image": "skin/skin-1785934549915.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T15:55:52+03:00"
   },
   {
     "id": "skin-1785934107317",
@@ -617,7 +617,6 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 500,
-    "date": "2026-08-05",
     "lastVerifiedAt": "2026-08-05",
     "description": "Мін: 500 грн/міс. Макс 99 999 грн/міс. Отримує 3 скіни",
     "sourceUrl": "https://base.monobank.ua/cba#subscriptions",
@@ -629,7 +628,8 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T15:48:30+03:00"
   },
   {
     "id": "skin-1785933479988",
@@ -637,13 +637,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "date": "2026-08-05",
     "description": "Мін: 300 грн/міс. Макс: 29 900 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ#subscriptions",
     "image": "skin/skin-1785933479988.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T15:38:02+03:00"
   },
   {
     "id": "skin-1785932696332",
@@ -651,13 +651,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "date": "2026-08-05",
     "description": "Від 10 грн/місяць 1 скін, Мін: 1000 грн/міс. Макс: 99 999 грн/міс. 2 скіна",
     "sourceUrl": "https://base.monobank.ua/sternenkofund#subscriptions",
     "image": "skin/skin-1785932696332.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-05T15:24:59+03:00"
   },
   {
     "id": "faine-misto",
@@ -665,13 +665,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 300,
-    "date": "2026-05-13",
     "description": "Скін доступний за донат від 300грн\n\n⚠️ Після закриття банки скін вже не отримати",
     "sourceUrl": "https://send.monobank.ua/jar/2WAAauzPf2",
     "image": "skin/faine-misto.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T19:21:47+03:00"
   },
   {
     "id": "swu-heroes-3",
@@ -679,13 +679,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-05-13",
     "description": "Скін доступний за донат від 100грн\n\n⚠️ Після закриття банки скін вже не отримати",
     "sourceUrl": "https://send.monobank.ua/jar/V8tfap88j",
     "image": "skin/swu-heroes-3.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T18:33:49+03:00"
   },
   {
     "id": "2-0",
@@ -693,13 +693,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-05-20",
     "description": "Скін доступний за донат від 100грн\n\n⚠️ Після закриття банки скін вже не отримати",
     "sourceUrl": "https://send.monobank.ua/jar/4p5njwQqiy",
     "image": "skin/2-0.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T18:07:49+03:00"
   },
   {
     "id": "skin-1785855840516",
@@ -707,13 +707,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 200,
-    "date": "2026-05-27",
     "description": "Скін доступний за донат від 200грн",
     "sourceUrl": "https://send.monobank.ua/jar/59CYfTCmkA",
     "image": "skin/skin-1785855840516.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T18:04:03+03:00"
   },
   {
     "id": "30",
@@ -721,13 +721,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 230,
-    "date": "2026-06-04",
     "description": "Скін доступний за донат від 230грн\n⚠️ Після закриття банки скін вже не отримати",
     "sourceUrl": "https://send.monobank.ua/jar/AT5r6fW4Lx",
     "image": "skin/30.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T17:55:59+03:00"
   },
   {
     "id": "skin-1785855179107",
@@ -735,13 +735,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 500,
-    "date": "2026-06-30",
     "description": "Скін доступний за донат від 500 грн",
     "sourceUrl": "https://send.monobank.ua/jar/3XKSbcYfd2",
     "image": "skin/skin-1785855179107.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T17:53:02+03:00"
   },
   {
     "id": "skin-1785853916464",
@@ -749,13 +749,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 300,
-    "date": "2026-07-02",
     "description": "Скін доступний за донат від 300грн",
     "sourceUrl": "https://send.monobank.ua/jar/9kdgEDhnZH",
     "image": "skin/skin-1785853916464.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T17:31:59+03:00"
   },
   {
     "id": "skin-1785853726469",
@@ -763,13 +763,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-08-12",
     "description": "За донат від 100 грн забирайте новий скін для вашої картки у налаштуваннях🫡",
     "sourceUrl": "https://send.monobank.ua/jar/27ESgQt42X",
     "image": "skin/skin-1785853726469.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-04T17:28:50+03:00"
   },
   {
     "id": "gta-vi-gta-vi",
@@ -777,13 +777,13 @@
     "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-08-03",
     "description": "Щоб отримати скін, потрібно:\n1. Натиснути на картку\n2. Відкрити Налаштування Google/Apple Pay → Скін для гаманця\n3. Обрати скін з першої категорії",
     "sourceUrl": "",
     "image": "skin/gta-vi-gta-vi.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-03T23:38:53+03:00"
   },
   {
     "id": "skin-1785789433744",
@@ -791,13 +791,13 @@
     "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-08-03",
     "description": "Щоб отримати скін, потрібно:\n1. Натиснути на картку\n2. Відкрити Налаштування Google/Apple Pay → Скін для гаманця\n3. Обрати скін з першої категорії",
     "sourceUrl": "",
     "image": "skin/skin-1785789433744.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-03T23:37:16+03:00"
   },
   {
     "id": "2006",
@@ -805,13 +805,13 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2026-07-10",
     "description": "«Ліга Дужих» - соціальний проєкт УАФ з розвитку ампфутболу.\nЗа донат від 100 грн бери участь у розіграші футболки з підписами гравців збірної 2026 та газети «Наші гоооловні моменти» з автографом Артема Мілевського\nТакож за донат від 100 грн отримуєте скін",
     "sourceUrl": "https://send.monobank.ua/jar/6yLdfqtCXu",
     "image": "skin/2006.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-03T23:19:09+03:00"
   },
   {
     "id": "spilne",
@@ -819,13 +819,13 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2026-05-20",
     "description": "Скін доступний за донат від 100грн",
     "sourceUrl": "https://send.monobank.ua/jar/5RjDXQ2d9X",
     "image": "skin/12.jpg",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-03T21:31:31+03:00"
   },
   {
     "id": "kurgan-agregat-ukhodysh",
@@ -833,12 +833,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 500,
-    "date": "2024-06-18",
     "description": "Скін був створений у межах благодійного збору на честь дня народження Аміля та Раміля (Курган і Агрегат).\n\nТекст на дизайні — це рядки з пісні гурту, а сам скін виконаний на основі принта футболки, розробленого дизайнером yushyn_ua.\n\nMonobank видавав цей кастомний скін користувачам за донат від 500 грн на банку збору",
     "sourceUrl": "https://send.monobank.ua/jar/x9JRivrq9",
     "image": "skin/kurgan-agregat-ukhodysh.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "flaminho-fp-5",
@@ -846,12 +846,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-23",
     "description": "Monobank представив дизайн картки «Фламінго», натхненний ракетою FP-5 «Фламінго»",
     "sourceUrl": "https://base.monobank.ua/ds/4oq1pM492x5wDA",
     "image": "skin/flaminho-fp-16.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "zbroia-fpv",
@@ -859,12 +859,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-04-13",
     "description": "ЗБРОЯ — цифровий скін Monobank зі стилізованим зображенням українського FPV-дрона. Створений Мінстратегпромом спільно з Monobank для підтримки та популяризації вітчизняного виробництва сучасного озброєння",
     "sourceUrl": "https://base.monobank.ua/ds/Cd6GHUukwSJACX",
     "image": "skin/zbroia.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "gunia",
@@ -872,12 +872,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-01-15",
     "description": "Скін для картки monobank створений у межах благодійної колаборації GUNIA Project × monobank. Дизайн базується на наївній естетиці GUNIA Project та адаптований до айдентики monobank.\n\nСкін можна було і можна отримати за QR-кодом, що додавався до керамічної миски, а також протягом певного часу — за донат від 200 грн на благодійну банку. Усі кошти спрямовані на підтримку UAnimals",
     "sourceUrl": "https://base.monobank.ua/ds/AiwndUffxuVkSE",
     "image": "skin/gunia.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "hroshi-vdoma",
@@ -885,12 +885,12 @@
     "method": "За дію",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-01-01",
     "description": "Скін картки monobank створили як одноразовий бонус для користувачів, які 1 січня 2026 року здійснили будь-яку платіжну дію в застосунку.\n\nЗадум полягав у тому, щоб надати скін тим, хто цього дня самостійно щось оплачував — «цей скін отримають усі, хто сьогодні має сили щось оплатити». Водночас скін також отримали користувачі, у яких цього дня спрацювали автоматичні платежі",
     "sourceUrl": "",
     "image": "skin/hroshi-vdoma.png",
     "isVisaOnly": true,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "olenamandziuk",
@@ -898,13 +898,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 99,
-    "date": "2026-06-09",
     "description": "Скін «Муза Русофобії» — дизайн картки monobank для підписників монобази Олени Мандзюк. За основу взято класичне полотно із жінкою, що читає в саду, поверх якого накладені рожеві піксельні блоки у вигляді вишиванкового орнаменту.\n\nСкін став доступним 9 червня 2026 року й надається за підписку від 99 грн на місяць",
     "sourceUrl": "https://base.monobank.ua/olenamandziuk",
     "image": "skin/olenamandziuk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "addedAt": "2026-08-03T22:43:58+03:00"
   },
   {
     "id": "monitor-base",
@@ -912,12 +912,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2024-10-29",
     "description": "Скін «Локаційно чисто» — спеціальний дизайн картки monobank для користувачів, які підтримують діяльність monitor через щомісячну підписку.\n\nТака собі афірмація на відсутність тривог ;)",
     "sourceUrl": "https://base.monobank.ua/monitor",
     "image": "skin/monitor-base.webp",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "dota2-broodmother",
@@ -925,12 +925,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2025-12-17",
     "description": "Скін monobank від Ghostik (український кіберспортсмен і стрімер), натхнений Broodmother після апу в новому патчі Dota2.\n\nДизайн доступний за донат від 100 грн і поєднує ігровий референс із підтримкою благодійного збору",
     "sourceUrl": "https://send.monobank.ua/jar/gApNCgSF4",
     "image": "skin/dota2-broodmother.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "kharkiv-1",
@@ -938,12 +938,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-23",
     "description": "Скін картки monobank, випущений до Дня міста Харкова. Дизайн з квадратною піцою відсилає до локального міського символу та з’явився після численних запитів харків’ян у Threads, на які відреагував Олег Гороховський. Скін доступний за спеціальним посиланням. Цей скін став першим тематичним скіном до днів міст",
     "sourceUrl": "https://base.monobank.ua/ds/PV9ifVjreSVfL",
     "image": "skin/kharkiv-1.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "kharkiv-2",
@@ -951,12 +951,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-23",
     "description": "Скін картки monobank, випущений 23 серпня 2025 року до Дня міста Харкова. З’явився як альтернативний дизайн із зображенням Держпрому після активного обговорення та неоднозначної реакції харків’ян на попередній скін із квадратною піцою",
     "sourceUrl": "https://base.monobank.ua/ds/CMjaRThqZXFmq5",
     "image": "skin/kharkiv-2.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "rivne",
@@ -964,12 +964,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-31",
     "description": "Скін картки monobank, випущений 31 серпня 2025 року до Дня міста Рівного",
     "sourceUrl": "https://base.monobank.ua/ds/4DEGSopcs6oGvy",
     "image": "skin/rivne.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "odesa-1",
@@ -977,12 +977,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-02",
     "description": "Скін картки monobank, випущений до Дня міста Одеси. Кумедний дизайн із мідіями відсилає до локальної гастрономічної асоціації",
     "sourceUrl": "https://base.monobank.ua/ds/EpJ3ehQkXXbQ5n",
     "image": "skin/odesa-2.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "odesa-2",
@@ -990,12 +990,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-02",
     "description": "Естетичний скін картки monobank, присвячений Дню міста Одеси. Дизайн із видом узбережжя Чорного моря, ймовірно району Ланжерону",
     "sourceUrl": "https://base.monobank.ua/ds/BRwpEHw9FZsncq",
     "image": "skin/odesa-1.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "sumy-velyki-sumy",
@@ -1003,12 +1003,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-06",
     "description": "Скін картки monobank, випущений 6 вересня 2025 року до Дня міста Суми. Дизайн побудований на грі слів із назвою міста («тут великі суми»)",
     "sourceUrl": "https://base.monobank.ua/ds/7bZvMVXqymtfzz",
     "image": "skin/velyki-sumy.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "dnipro-shaurma",
@@ -1016,12 +1016,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Дніпра. Дизайн із шаурмою — популярним стритфудом та культурою швидкої їжі, що широко поширена в місті",
     "sourceUrl": "https://base.monobank.ua/ds/65pcaUfzXM8Bv8",
     "image": "skin/dnipro-1.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "dnipro-sumka",
@@ -1029,12 +1029,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Дніпра. Дизайн із зображенням сумки відсилає до популярної міської асоціації з «офісним» ритмом життя, який часто жартівливо пов’язують із Дніпром серед місцевої спільноти",
     "sourceUrl": "https://base.monobank.ua/ds/Q379Qwetfxpeo",
     "image": "skin/dnipro-2.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "dnipro-naberezhna",
@@ -1042,12 +1042,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Дніпра. Дизайн з видом на Січеславську Набережну з правого берега, із Центральним (Новим) мостом у перспективі, передає впізнаваний міський пейзаж",
     "sourceUrl": "https://base.monobank.ua/ds/6VJz9UBaw3xT6i",
     "image": "skin/dnipro-3.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "luhansk-convert",
@@ -1055,12 +1055,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Луганськ у межах серії скінів, присвячених містам України. Дизайн виконаний у вигляді поштового конверта з маркою, на якій зображено будівлю Луганського залізничного вокзалу — одну з впізнаваних архітектурних споруд міста. Скін символізує зв’язок із містом",
     "sourceUrl": "https://base.monobank.ua/ds/A9g38siFQBbUFi",
     "image": "skin/luhansk.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "vinnytsia-hrin",
@@ -1068,12 +1068,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Вінниці. Дизайн із банкою вінницького хріну відсилає до локального гастрономічного символу міста та використовує іронічну, впізнавану асоціацію. Скін є частиною серії святкових дизайнів, присвячених українським містам",
     "sourceUrl": "https://base.monobank.ua/ds/EAEek2NEafHWDu",
     "image": "skin/vinnytsia.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "lutsk-budynok-stina",
@@ -1081,12 +1081,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Луцька. Дизайн побудований на локальному мемі: зображення Великої Китайської стіни поєднане з табличкою проспектів Молоді та Соборності — місця, де розташований відомий найдовший житловий будинок міста (та у світі), який лучани жартівливо називають «китайською стіною»",
     "sourceUrl": "https://base.monobank.ua/ds/46YQrfL14TZi4X",
     "image": "skin/lutsk.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "mykolaiv-na-hvyli",
@@ -1094,12 +1094,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Миколаєва. Дизайн із хвилею та написом «місто на хвилі» відсилає до морського характеру міста, його корабельної історії та тісного зв’язку з водою",
     "sourceUrl": "https://base.monobank.ua/ds/YzUAdNDwz1y77",
     "image": "skin/mykolaiv.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "zhytomyr",
@@ -1107,12 +1107,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-09-13",
     "description": "Скін картки monobank, випущений до Дня міста Житомира. Він обігрує жартівливу інтернет-теорію змови про те, що Житомира нібито не існує. Тому дизайн навмисно зроблено «порожнім», а замість зображення використано шахівницю — стандартне позначення прозорого фону в графічних редакторах, що візуалізує ідею відсутності міста й самого скіна",
     "sourceUrl": "https://base.monobank.ua/ds/AiQjHEdNfYbH1v",
     "image": "skin/zhytomyr.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "200uah",
@@ -1120,12 +1120,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-05-16",
     "description": "Скін картки monobank із номіналом 200 грн, імовірно пов’язаний із технічною конференцією DOU Day, що проходила 16–17 травня 2025 року в Києві (КВЦ «Парковий»). Деталі механіки отримання достеменно невідомі; за наявними згадками, скін міг поширюватися серед учасників заходу. Опис має імовірний характер",
     "sourceUrl": "https://base.monobank.ua/ds/HE23tGWe8hXPQ",
     "image": "skin/200uah.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "50uah",
@@ -1133,12 +1133,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 135,
-    "date": "2025-04-21",
     "description": "Скін картки monobank × Живчик з номіналом 50 грн, створений у межах колаборації до виходу напою Живчик x mono 2.0 з лавандою. Скін надається за покупку продукту в market by mono та є частиною промокампанії разом з унікальним стікерпаком і предметами для аватара, що активуються через QR-код на банці",
     "sourceUrl": "https://monomarket.ua/products/Zivcik-x-mono-Abluko-Lavanda-6x330-ml-837966",
     "image": "skin/50uah.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "100uah",
@@ -1146,12 +1146,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-03",
     "description": "Скін картки monobank з номіналом 100 грн, один із п’яти дизайнів, доступних через QR-коди на зошитах зі шкільного комплекту monobank. Скін є частиною серії, створеної для дітей, і поширювався разом із наборами «щоденник + зошити», що продавалися в monomarket у серпні 2025 року",
     "sourceUrl": "https://base.monobank.ua/ds/DjpbdgNECipypg",
     "image": "skin/100uah.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "love-school",
@@ -1159,12 +1159,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-03",
     "description": "Скін «Люблю свою школу» — іронічний дизайн картки monobank із котом, що плаче в «морі сліз» з ноутбуком. Доступний через QR-коди на зошитах зі шкільного комплекту monobank",
     "sourceUrl": "https://base.monobank.ua/ds/C3iVMSzbvF2peB",
     "image": "skin/love-school.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "naruto-cat",
@@ -1172,12 +1172,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-03",
     "description": "Скін «Кіт Наруто» — дизайн картки monobank із котом у стилі персонажа з аніме Naruto, з характерною пов’язкою ніндзя та зосередженим поглядом. Скін є одним із дизайнів, доступних через QR-коди на зошитах зі шкільного комплекту monobank",
     "sourceUrl": "https://base.monobank.ua/ds/2xfZwzwPByLu77",
     "image": "skin/naruto-cat.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "minecraft-tnt-mnb",
@@ -1185,12 +1185,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-03",
     "description": "Скін «TNT» — дизайн картки monobank із блоком динаміту, стилізованим під гру Minecraft. Скін є одним із п’яти дизайнів, доступних через QR-коди на зошитах зі шкільного комплекту monobank",
     "sourceUrl": "https://base.monobank.ua/ds/3HNHhLRacc3MsZ",
     "image": "skin/minecraft-tnt-mnb.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "roblox-mono",
@@ -1198,12 +1198,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-08-03",
     "description": "Скін «Roblox Mono» — дизайн картки monobank у стилі гри Roblox з котами-персонажами у вигляді ігрових аватарів. Скін є одним із дизайнів, доступних через QR-коди на зошитах зі шкільного комплекту monobank",
     "sourceUrl": "https://base.monobank.ua/ds/ENwqcZzaLqMP34",
     "image": "skin/roblox-mono.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "use-dobre",
@@ -1211,12 +1211,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-10-04",
     "description": "Скін картки monobank з написом «Усе добре», імовірно пов’язаний із конференцією «БОРЩ», що відбулася 4 жовтня 2025 року в Києві (ВДНГ). Дизайн із котом, який спокійно сидить серед вогню з кавою в руках (посилання на популярний інтернет-мем «This Is Fine»). За непрямими ознаками, скін міг видаватися під час події або в межах виступу monobank. Точні умови отримання невідомі",
     "sourceUrl": "https://base.monobank.ua/ds/42bh87EDg8Y1pY",
     "image": "skin/use-dobre.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "paket-ne-treba",
@@ -1224,12 +1224,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-05-09",
     "description": "Скін картки monobank, доступний під час події Кураж, що відбулася 10 травня 2025 року в Києві. Імовірно видавався разом із брендованим шопером monobank на офіційному ларьку банку",
     "sourceUrl": "https://base.monobank.ua/ds/6tjm1ZRQUNw4ck",
     "image": "skin/paket-ne-treba.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "kryshka",
@@ -1237,12 +1237,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-05-09",
     "description": "Скін картки monobank, доступний під час події Кураж 10 травня 2025 року в Києві. Імовірно видавався разом із брендованим брелоком у вигляді кришки на офіційному стенді monobank",
     "sourceUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
     "image": "skin/kryshka.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "urban-cat-black",
@@ -1250,13 +1250,13 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-12-01",
     "description": "Скін картки monobank, створений у межах внутрішнього новорічного мерчу для працівників monobank. Видавався разом із двосторонньою жилеткою, кепкою та набором стікерів. Є темною версією пари скінів «Кібер Кіт»",
     "sourceUrl": "https://base.monobank.ua/ds/E2TKqDSUY69ac6",
     "image": "skin/urban-cat-black.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": true
+    "featured": true,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "urban-cat-white",
@@ -1264,12 +1264,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-12-01",
     "description": "Скін картки monobank, світла версія дизайну «Кібер Кіт». Поширювався серед працівників monobank разом із темною версією на новорічні свята як частина брендованого комплекту мерчу з двосторонньою жилеткою",
     "sourceUrl": "https://base.monobank.ua/ds/2svcYsGEZTVt7G",
     "image": "skin/urban-cat-white.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "explosion-battle",
@@ -1277,12 +1277,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2025-12-07",
     "description": "Скін картки monobank, випущений спеціально для танцювального івенту EXPLOSION BATTLE, що відбувся 7 грудня 2025 року в Києві. Дизайн із танцюючим котом був доступний виключно для учасників і гостей події та поширювався безпосередньо на івенті",
     "sourceUrl": "https://base.monobank.ua/ds/sHmRwGjTTzKpn",
     "image": "skin/explosion-battle.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "maincast-inferno",
@@ -1290,12 +1290,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2025-12-02",
     "description": "Скін картки monobank, створений у колаборації з Maincast і натхнений картою Inferno з Counter-Strike. Дизайн із котом у тактичному спорядженні та куркою відсилає до впізнаваних елементів гри. Скін доступний за донат від 100 грн у межах благодійного збору",
     "sourceUrl": "https://send.monobank.ua/jar/2H3ktBJ4wm",
     "image": "skin/maincast-inferno.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "lemons",
@@ -1303,12 +1303,12 @@
     "method": "За дію",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2025-10-16",
     "description": "Скін картки monobank, випущений на честь досягнення 10 000 000 клієнтів. Дизайн із лимонами пов’язаний із внутрішньою ігровою механікою «полювання на лимони», що проходила в застосунку протягом обмеженого часу. Скін нараховувався користувачам, які зібрали 10 🍋 під час події",
     "sourceUrl": "",
     "image": "skin/lemons.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "invitation-market-mono",
@@ -1316,12 +1316,12 @@
     "method": "За дію",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2024-10-21",
     "description": "Скін картки monobank у форматі запрошення на третю річницю market by mono. Скін отримували всі користувачі, які здійснили покупку в перший день запуску market by mono. Через високий попит і велику кількість замовлень скін також надавали покупцям другого дня, про що було повідомлено окремо. Поширювався в жовтні 2024 року як частина запуску маркетплейсу",
     "sourceUrl": "",
     "image": "skin/invitation-market-mono.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "checkered-bag",
@@ -1329,12 +1329,12 @@
     "method": "За дію",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2025-09-01",
     "description": "Скін «Картата сумка» — дизайн картки monobank, доступний у межах промокампанії до виходу monoмаркету з бета-тестування. Скін отримували користувачі, які поторгувалися з котом-бабцею та здійснили покупку в monoмаркеті. Кампанія проходила з 1 вересня 2025 року та була присвячена загальній знижці 10% на всі товари в межах бюджету акції",
     "sourceUrl": "",
     "image": "skin/checkered-bag.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "maincast-mirage-b",
@@ -1342,12 +1342,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2024-02-25",
     "description": "Скін картки monobank, створений у межах благодійного збору під час CS2-івенту. Дизайн відсилає до легендарної мапи Dust II, локації Bombsite B, і обігрує ігрову механіку: замість вибухівки персонаж «плантить» банку monobank. Скін надавався за донат від 100 грн",
     "sourceUrl": "",
     "image": "skin/maincast-mirage-b.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "lebigovych-president",
@@ -1355,12 +1355,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2023-09-03",
     "description": "Скін картки monobank, випущений 3 вересня 2023 року в межах жартівливого благодійного збору у форматі «голосування за президента». Скін отримували користувачі, які задонатили 100 грн (1 донат = 1 «голос») за Михайла Лебіговича",
     "sourceUrl": "",
     "image": "skin/lebigovych-president.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "ukrposhta-stamp",
@@ -1368,12 +1368,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2022-05-16",
     "description": "Скін картки monobank, створений у межах масштабного благодійного збору у травні 2022 року, присвяченого легендарній марці від Укрпошти.\n\nСкін отримували всі користувачі, які зробили благодійний внесок від 100 грн у межах збору",
     "sourceUrl": "",
     "image": "skin/stamp-ship.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "maincast-dota2-sf",
@@ -1381,12 +1381,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2024-10-20",
     "description": "Скін картки monobank, випущений 20 жовтня 2024 року до благодійного шоу-матчу «Три тангуси» у співпраці з Maincast. Дизайн із котом у образі Shadow Fiend (SF) відсилає до Dota 2.\n\nСкін надавався користувачам, які задонатили від 100 грн на благодійний стрім та був доступний під час стріму благодійного матчу",
     "sourceUrl": "",
     "image": "skin/dota2-sf.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "maluk-pavutyna",
@@ -1394,12 +1394,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2025-06-02",
     "description": "Скін картки monobank, випущений у межах благодійного збору у червні 2025 року. Дизайн присвячений спецоперації «Павутина».\n\nСкін із зображенням генерала «Малюка» надавався всім користувачам, які задонатили від 100 грн на збір",
     "sourceUrl": "",
     "image": "skin/maluk.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "lvivske-rizdviane",
@@ -1407,12 +1407,12 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "date": "2024-12-16",
     "description": "Скін картки monobank «Різдвяне», випущений у грудні 2024 року в межах благодійного різдвяного збору, організованого UAF Foundation у співпраці з monobank та брендом «Львівське». Скін отримували користувачі 18+, які зробили донат від 100 грн",
     "sourceUrl": "",
     "image": "skin/lvivske-rizdviane.png",
     "isVisaOnly": false,
-    "isAdultOnly": true
+    "isAdultOnly": true,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "petrychenko",
@@ -1420,12 +1420,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "date": "2025-04-22",
     "description": "Скін «Не можна бомжам довіряти навіть мінімальне лаве» — спеціальний дизайн картки monobank для користувачів, які підтримують меморіал Павла Петриченка. \n\n Цей дизайн – про Пашине почуття гумору і ще один спосіб підтримати важливу справу 💥\n\nВсі кошти з цієї підписки підуть на RUSORIZ Сергія Стерненка.",
     "sourceUrl": "https://base.monobank.ua/petrychenko",
     "image": "skin/petrychenko.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "vms",
@@ -1433,12 +1433,12 @@
     "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-07-04",
     "description": "Скін картки monobank, випущений до Дня Військово-Морських Сил ЗС України. Дизайн із бойовим кораблем у штормовому морі та емблемою ВМС — спосіб висловити підтримку українським морякам.\n\nСкін доступний за спеціальним посиланням. Аналогічний тематичний дизайн ВМС ЗС України тоді ж пропонував і ПриватБанк",
     "sourceUrl": "https://base.monobank.ua/ds/6QU1jVsovmhkij",
     "image": "skin/vms.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "yanovych",
@@ -1446,12 +1446,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-07-16",
     "description": "Скін картки monobank із кадром-стопом обличчя ведучого, показаний у 16-му випуску шоу КОНТРЛВЕ на YouTube-каналі Жені Яновича (на 6:44).\n\nСкін можна отримати за QR-кодом, показаним у випуску",
     "sourceUrl": "https://base.monobank.ua/ds/7mmbKiRoH6DUHY",
     "image": "skin/yanovych.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "mono-career-vdng",
@@ -1459,12 +1459,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-05-22",
     "description": "Скін картки monobank, доступний під час Фестивалю кар’єри на ВДНГ у Києві. Дизайн із котом, який ловить сачком гривні, обігрує тему пошуку роботи та заробітку.\n\nСкін видавався 22 і 24 травня в зоні експрес-співбесід, де monobank|Universal Bank проводив співбесіди на свої вакансії: біля стенду банку стояв банер із QR-кодом і написом «отримай особливий скін»",
     "sourceUrl": "https://base.monobank.ua/ds/F9Bt2q8kq3tYA5",
     "image": "skin/mono-career-vdng.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "women-career-day",
@@ -1472,12 +1472,12 @@
     "method": "За дію",
     "status": "Доступний",
     "minimumValue": 0,
-    "date": "2026-06-06",
     "description": "Скін «Сама собі заробила» — дизайн картки monobank у колаборації з Happy Monday до Women Career Day, кар’єрної події для жінок, що відбулася 6 червня 2026 року в Києві. Скін видавався учасницям за QR-кодом на плакатах із написом «Скін від mono для сильних і незалежних».\n\nСеред спікерок заходу була Олена Іванцова, Head of Recruitment mono — імовірно, саме завдяки їй скін і з’явився на події",
     "sourceUrl": "https://base.monobank.ua/ds/9WHoYeYRCHPdT8",
     "image": "skin/women-career-day.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "sternenko-rusoriz",
@@ -1485,12 +1485,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "date": "2025-02-18",
     "description": "Скін картки monobank, з’явився у лютому 2025 року, коли «Русоріз» Сергія Стерненка став першим збором, для якого monobank увімкнув можливість оформити щомісячну підписку на Base. Фонд закуповує FPV-дрони та сучасні засоби ураження для Збройних сил України.\n\nДизайн з фірмовою емблемою фонду отримують усі, хто оформив підписку від 50 грн на монобазу фонду",
     "sourceUrl": "https://base.monobank.ua/rusoriz",
     "image": "skin/sternenko-rusoriz.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "sternenko-spivuchasnyk-rusorizu",
@@ -1498,12 +1498,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "date": "2025-02-18",
     "description": "Скін «Співучасник Русорізу» — один з рівнів підписки на монобазу Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Кошти підписників ідуть на закупівлю FPV-дронів для ЗСУ у межах збору «Русоріз».\n\nСкін надається тим, хто оформив підписку від 10 грн на монобазу фонду",
     "sourceUrl": "https://base.monobank.ua/sternenkofund",
     "image": "skin/sternenko-spivuchasnyk-rusorizu.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "sternenko-opora-spilnoty",
@@ -1511,12 +1511,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 1000,
-    "date": "2025-02-18",
     "description": "Скін найвищого рівня підписки монобази Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Темніший варіант дизайну відзначає найщедріших підписників збору «Русоріз», кошти якого спрямовуються на закупівлю FPV-дронів для ЗСУ.\n\nСкін надається тим, хто оформив підписку від 1000 грн на монобазу фонду",
     "sourceUrl": "https://base.monobank.ua/sternenkofund",
     "image": "skin/sternenko-opora-spilnoty.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "azov-odna-hryvnia",
@@ -1524,12 +1524,12 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 1,
-    "date": "2025-01-01",
     "description": "Скін «Азовська гривня» — подарунковий дизайн картки monobank, розроблений спільно з АЗОВ.ONE, офіційним відділом фандрейзингу 12-ї бригади спеціального призначення «Азов» Нацгвардії України. Так команда дякує всім, хто підтримував бригаду протягом року.\n\nСкін надається за символічний внесок від 1 грн на спеціальну банку в розділі «Благодійність». Поріг навмисно занижений: люди часто соромляться донатити дрібні суми, вважаючи, що це ні на що не вплине, — але якщо кожен користувач застосунку задонатить бодай гривню, цього вистачить, щоб закрити велику кількість потреб підрозділів на передовій.\n\n«Одиниця має вагу, змін не робить нуль»",
     "sourceUrl": "https://send.monobank.ua/jar/4d9XFu2pab",
     "image": "skin/azov-odna-hryvnia.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "heraskevych-sholom-pamiati",
@@ -1537,12 +1537,12 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "date": "2026-02-11",
     "description": "Скін картки monobank із зображенням українського скелетоніста Владислава Гераскевича у «шоломі пам’яті» — екіпіруванні з портретами понад 20 українських спортсменів і тренерів, загиблих через російську агресію. У шоломі спортсмен вийшов на тренування Олімпіади-2026 у Мілані та Кортіні, попри заборону МОК, що згодом призвело до його дискваліфікації.\n\nСкін зробили 11 лютого 2026 року після народного голосування в Threads: користувач із ніком ool_cam тегнув monobank і запропонував випустити такий дизайн, а співзасновник банку Олег Гороховський підтримав ініціативу як публічний знак солідарності з позицією Гераскевича.\n\nДизайн був доступний у розділі «Скін для гаманця» в налаштуваннях картки",
     "sourceUrl": "",
     "image": "skin/heraskevych-sholom-pamiati.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "smak-gnomes",
@@ -1550,12 +1550,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 148,
-    "date": "2025-04-04",
     "description": "Скін картки monobank для підписників телеграм-групи Smak — гумористичного українського медіа. На дизайні сіра юрба гномів затуляє собі очі та роти в дусі трьох мудрих мавп — «нічого не бачу, нічого не чую, нічого не скажу», — і лише один, кольоровий, дивиться на глядача. Він у каструлі з логотипом Smak, надітій поверх ковпака: відсилка до Майдану, коли через заборону шоломів на мітинги виходили в каструлях і друшляках.\n\nСкін надається підписникам монобази Smak за підписку від 148 грн на місяць",
     "sourceUrl": "https://base.monobank.ua/smak",
     "image": "skin/smak-gnomes.webp",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "torontotv-pig-monument",
@@ -1563,12 +1563,12 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "date": "2025-02-05",
     "description": "Скін картки monobank «Пам’ятник свині» для підписників монобази українського сатиричного медіа «Телебачення Торонто». Підписники, які донатять від 300 грн щомісяця, отримують цей скін, а ті, хто оформив рівень підписки «Олександра» від 666 грн, додатково потрапляють у закритий патронський чат каналу",
     "sourceUrl": "https://base.monobank.ua/torontotv",
     "image": "skin/torontotv-pig-monument.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   },
   {
     "id": "mono-7",
@@ -1576,11 +1576,11 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 77,
-    "date": "2024-11-22",
     "description": "Скін картки monobank, випущений 22 листопада 2024 року на сьомий день народження банку. Дизайн обіграє «Метальника квітів» — відоме трафаретне графіті Бенксі, де протестувальник у хустці замахується не коктейлем Молотова, а букетом. У версії mono на його місці кіт, а в руці — банка.\n\nСкін видавали за донат від 77 грн на спільний збір monobank і Фонду Притули.",
     "sourceUrl": "",
     "image": "skin/mono-7.png",
     "isVisaOnly": false,
-    "isAdultOnly": false
+    "isAdultOnly": false,
+    "addedAt": "2026-08-01T18:25:50+03:00"
   }
 ]
