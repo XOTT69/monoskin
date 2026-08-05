@@ -1,5 +1,19 @@
 [
   {
+    "id": "visa-monobank",
+    "name": "Скін Visa для карти Monobank",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "date": "2026-08-05",
+    "description": "Цей скін на картку можна було отримати у 2024 році разом з Одягом Котжо Сатору за перехід від Mastercard на Visa за PUSH-повідомленням.",
+    "sourceUrl": "",
+    "image": "skin/visa-monobank.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-1785946693975",
     "name": "Повернись живим - на день народження БФ",
     "method": "Безкоштовний",
