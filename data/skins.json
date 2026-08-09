@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-vasylya-baydaka",
+    "name": "Скін Василя Байдака",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:53:52.841Z",
+    "description": "за донат від 500 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/skin-vasylya-baydaka.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ukrayinska-pravda",
     "name": "Українська Правда",
     "method": "Донат на банку",
