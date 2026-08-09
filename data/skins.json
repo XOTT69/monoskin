@@ -1,5 +1,19 @@
 [
   {
+    "id": "vichnyy-dvyhun",
+    "name": "♾️Вічний двигун",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:55:46.278Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/5CdXavd1JW8LGS",
+    "image": "skin/vichnyy-dvyhun.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "mehamozok",
     "name": "🧠Мегамозок",
     "method": "Безкоштовний",
