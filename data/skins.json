@@ -1,5 +1,19 @@
 [
   {
+    "id": "vovky-da-vinchi",
+    "name": "Вовки Да Вінчі",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 200,
+    "addedAt": "2026-08-09T07:17:20.278Z",
+    "description": "був доступний за донат від 200 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/vovky-da-vinchi.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "azov-one-kh-maincast",
     "name": "АЗОВ.ONE. х Maincast",
     "method": "Безкоштовний",
