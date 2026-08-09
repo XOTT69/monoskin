@@ -1,5 +1,19 @@
 [
   {
+    "id": "24-bryhada-kh-dmytro-varvaruk",
+    "name": "24 бригада х Дмитро Варварук",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:41:29.996Z",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6bSxfpqfyu",
+    "image": "skin/24-bryhada-kh-dmytro-varvaruk.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "yalynka-2-0",
     "name": "Ялинка 2.0",
     "method": "Безкоштовний",
