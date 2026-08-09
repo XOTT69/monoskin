@@ -1,5 +1,19 @@
 [
   {
+    "id": "skin-zhytomyra-ne-isnuye",
+    "name": "Скін \"Житомира не існує\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 10,
+    "addedAt": "2026-08-09T08:09:44.729Z",
+    "description": "Даруємо скін «Житомира не існує» за підписку 10 грн.\nВсі кошти будуть направлені на Центр захисту тварин.\n Поставили мінімальну суму, яка технічно можлива\nДоки є підписка - до того часу є скін.",
+    "sourceUrl": "https://base.monobank.ua/sp/2qy3o7zD6mTGQA",
+    "image": "skin/skin-zhytomyra-ne-isnuye.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "memorial-heroyiv-kh-rbtnk",
     "name": "Меморіал Героїв х RBTNK",
     "method": "Донат на банку",
