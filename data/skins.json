@@ -1,5 +1,19 @@
 [
   {
+    "id": "bf-serhiya-prytuly-shchelepy",
+    "name": "БФ Сергія Притули \"Щелепи",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-08-09T08:16:52.776Z",
+    "description": "за донат від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/Rmhzf7Ktw",
+    "image": "skin/bf-serhiya-prytuly-shchelepy.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "levy-na-dzhypi",
     "name": "Леви на джипі",
     "method": "Безкоштовний",
