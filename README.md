@@ -60,19 +60,7 @@ Token не записується у репозиторій і не зберіг
 
    `GITHUB_TOKEN` — fine-grained token із попереднього пункту. Для `TELEGRAM_WEBHOOK_SECRET` створи окремий довгий випадковий рядок і збережи його: він знадобиться лише в наступній команді. Існуючі `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` та `TURNSTILE_SECRET_KEY` залишаються в Worker.
 
-   Worker виведе URL формату `https://monoskin-telegram.<account>.workers.dev`. Для бота задай webhook (підстав URL Worker і введи значення лише у свій термінал):
-
-   ```bash
-   read -s MONOSKIN_BOT_TOKEN
-   read -s MONOSKIN_WEBHOOK_SECRET
-   curl --fail --request POST "https://api.telegram.org/bot${MONOSKIN_BOT_TOKEN}/setWebhook" \
-     --data-urlencode "url=https://YOUR-WORKER.workers.dev/telegram/webhook" \
-     --data-urlencode "secret_token=${MONOSKIN_WEBHOOK_SECRET}" \
-     --data-urlencode 'allowed_updates=["message","callback_query"]'
-   unset MONOSKIN_BOT_TOKEN MONOSKIN_WEBHOOK_SECRET
-   ```
-
-   У відповідь має прийти `"ok":true`. Потім відкрий приватний чат із ботом і надішли `/start`.
+   Worker виведе URL формату `https://monoskin-telegram.<account>.workers.dev`. Відкрий у браузері адресу з `/telegram/connect` у кінці, встав `TELEGRAM_WEBHOOK_SECRET` і натисни «Підключити бота». Токен Telegram на цій сторінці не потрібен. Потім відкрий приватний чат із ботом і надішли `/start`.
 
 5. У GitHub відкрийте **Settings → Secrets and variables → Actions → Variables** і створіть дві змінні:
    - `NEXT_PUBLIC_SUBMISSION_API_URL` — URL Worker із `/submit`;

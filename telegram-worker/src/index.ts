@@ -474,9 +474,35 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
   }
 }
 
+function setupPage(message = "") {
+  const notice = message ? `<p class="notice">${escapeHtml(message)}</p>` : "";
+  return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MONOSKIN · Підключити бота</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#101010;color:#fff;font-family:Arial,sans-serif}.card{box-sizing:border-box;width:min(100% - 32px,460px);padding:32px;border:1px solid #363636;border-radius:20px;background:#171717}h1{margin:0 0 12px;font-size:28px}p{color:#b9b9b9;line-height:1.55}.notice{padding:12px 14px;border:1px solid #5a401f;border-radius:10px;color:#ffd2ac;background:#2c1d14}input,button{box-sizing:border-box;width:100%;min-height:48px;border-radius:10px;font-size:16px}input{margin:14px 0;border:1px solid #444;padding:0 13px;color:#fff;background:#0d0d0d}button{border:0;color:#fff;background:#ff6b00;font-weight:700;cursor:pointer}small{display:block;margin-top:16px;color:#858585;line-height:1.45}</style></head><body><main class="card"><h1>Підключити Telegram-бота</h1><p>Встав <b>TELEGRAM_WEBHOOK_SECRET</b> зі секретів Cloudflare. Сторінка підключить бота до цього Worker; токен Telegram тут не вводиться.</p>${notice}<form method="post"><input name="secret" type="password" autocomplete="off" placeholder="Webhook secret" required><button type="submit">Підключити бота</button></form><small>Після успішного підключення відкрий чат із ботом і надішли <b>/start</b>.</small></main></body></html>`;
+}
+
+function html(body: string, status = 200) {
+  return new Response(body, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Frame-Options": "DENY" } });
+}
+
+async function connectTelegramWebhook(request: Request, env: Env) {
+  if (request.method === "GET") return html(setupPage());
+  if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
+  const form = await request.formData();
+  const suppliedSecret = field(form, "secret", 200);
+  if (!suppliedSecret || suppliedSecret !== env.TELEGRAM_WEBHOOK_SECRET) return html(setupPage("Невірний секрет. Спробуй ще раз."), 403);
+  try {
+    const origin = new URL(request.url).origin;
+    await telegram("setWebhook", { url: `${origin}/telegram/webhook`, secret_token: env.TELEGRAM_WEBHOOK_SECRET, allowed_updates: ["message", "callback_query"] }, env);
+    return html(setupPage("Готово — webhook підключено. Відкрий чат із ботом і надішли /start."));
+  } catch (error) {
+    console.error("Telegram webhook setup failed", error);
+    return html(setupPage("Telegram не підтвердив підключення. Перевір токен бота у секретах Cloudflare та спробуй ще раз."), 502);
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+    if (url.pathname === "/telegram/connect") return connectTelegramWebhook(request, env);
     if (url.pathname === "/telegram/webhook") {
       if (request.method !== "POST" || request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.TELEGRAM_WEBHOOK_SECRET) return new Response("Not found", { status: 404 });
       try {
