@@ -1,5 +1,19 @@
 [
   {
+    "id": "krishtianu-kitaldu-siuuu",
+    "name": "⚽️ Кріштіану Кіталду «Siuuu»",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:48:21.529Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/41jF7um9Pvo385",
+    "image": "skin/krishtianu-kitaldu-siuuu.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "nonkonformist",
     "name": "Нонконформіст",
     "method": "Безкоштовний",
