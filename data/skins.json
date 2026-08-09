@@ -1,5 +1,19 @@
 [
   {
+    "id": "bf-eliny-svitolinoyi",
+    "name": "БФ Еліни Світоліної",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:07:32.492Z",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6VywWVQoi4",
+    "image": "skin/bf-eliny-svitolinoyi.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "zhovta-forma-zbirnoyi-ukrayiny",
     "name": "Жовта форма Збірної України",
     "method": "Донат на банку",
