@@ -1,5 +1,19 @@
 [
   {
+    "id": "khyzhaky-vysot",
+    "name": "Хижаки висот",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 259,
+    "addedAt": "2026-08-09T08:23:48.551Z",
+    "description": "за донат від 259 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/2vfsR8cEz5",
+    "image": "skin/khyzhaky-vysot.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ukrayinska-pravda-2",
     "name": "Українська правда 2",
     "method": "Донат на банку",
