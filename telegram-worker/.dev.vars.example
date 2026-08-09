@@ -1,3 +1,5 @@
 TELEGRAM_BOT_TOKEN="paste-a-test-token-here"
 TELEGRAM_CHAT_ID="your-private-chat-id"
 TURNSTILE_SECRET_KEY="paste-a-test-secret-here"
+TELEGRAM_WEBHOOK_SECRET="generate-a-long-random-secret"
+GITHUB_TOKEN="github_pat_with_contents_read_and_write"

@@ -9,8 +9,16 @@
   },
   "vars": {
     "ALLOWED_ORIGIN": "https://xott69.github.io",
-    "TURNSTILE_HOSTNAME": "xott69.github.io"
+    "TURNSTILE_HOSTNAME": "xott69.github.io",
+    "GITHUB_REPOSITORY": "XOTT69/monoskin",
+    "GITHUB_BRANCH": "main"
   },
+  "kv_namespaces": [
+    {
+      "binding": "BOT_SESSIONS",
+      "id": "dc30179f583046c48b82fb87064b8f5e"
+    }
+  ],
   "ratelimits": [
     {
       "name": "SUBMISSION_RATE_LIMITER",
@@ -22,6 +30,6 @@
     }
   ],
   "secrets": {
-    "required": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "TURNSTILE_SECRET_KEY"]
+    "required": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "TURNSTILE_SECRET_KEY", "TELEGRAM_WEBHOOK_SECRET", "GITHUB_TOKEN"]
   }
 }
