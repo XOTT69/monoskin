@@ -1,5 +1,19 @@
 [
   {
+    "id": "nonkonformist",
+    "name": "Нонконформіст",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:47:17.163Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/A3tUmdF6Py8VG9",
+    "image": "skin/nonkonformist.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "strymer-twitch",
     "name": "Стример Twitch",
     "method": "Безкоштовний",
