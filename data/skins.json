@@ -1,5 +1,19 @@
 [
   {
+    "id": "memorial-heroyiv-kh-rbtnk",
+    "name": "Меморіал Героїв х RBTNK",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "addedAt": "2026-08-09T08:06:27.534Z",
+    "description": "за донат від 300 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/dzbHYitbU",
+    "image": "skin/memorial-heroyiv-kh-rbtnk.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "ghostik-x-mono",
     "name": "Ghostik x mono",
     "method": "Безкоштовний",
