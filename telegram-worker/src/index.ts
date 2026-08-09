@@ -204,7 +204,7 @@ async function github<T>(path: string, env: Env, init: RequestInit = {}) {
     },
   });
   const body = await response.json().catch(() => ({})) as { message?: string } & T;
-  if (!response.ok) throw new Error(body.message || "GitHub не прийняв зміни.");
+  if (!response.ok) throw new Error(body.message ? `GitHub: ${body.message}` : `GitHub повернув помилку ${response.status}.`);
   return body as T;
 }
 
