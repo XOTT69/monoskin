@@ -1,5 +1,19 @@
 [
   {
+    "id": "pustytysya-bereha",
+    "name": "Пуститися берега",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:45:06.357Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/9aPjmFLMc21mNi",
+    "image": "skin/pustytysya-bereha.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-kolo",
     "name": "Скін KOLO",
     "method": "Донат на банку",
