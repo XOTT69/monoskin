@@ -276,6 +276,21 @@ async function publishDraft(draft: BotDraft, env: Env) {
   return record;
 }
 
+async function recentSkins(env: Env) {
+  const repository = env.GITHUB_REPOSITORY || `${OWNER}/${REPO}`;
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) throw new Error("Некоректна назва GitHub-репозиторію у налаштуваннях Worker.");
+  const branch = env.GITHUB_BRANCH || BRANCH;
+  const catalogFile = await github<GitHubContent>(`/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/data/skins.json?ref=${encodeURIComponent(branch)}`, env);
+  return (JSON.parse(base64ToText(catalogFile.content)) as Skin[])
+    .sort((left, right) => +new Date(right.addedAt) - +new Date(left.addedAt))
+    .slice(0, 6);
+}
+
+function startKeyboard() {
+  return inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }, { text: "Мої останні додані", callback_data: "skin:recent" }]]);
+}
+
 async function startDraft(chatId: number, env: Env) {
   const draft: BotDraft = { step: "photos", photos: [] };
   await saveDraft(chatId, draft, env);
@@ -286,18 +301,18 @@ async function processMessage(message: TelegramMessage, env: Env) {
   const chatId = message.chat.id;
   const text = message.text?.trim() || "";
   if (text === "/start" || text === "/add") {
-    await sendBotMessage(chatId, "Привіт. Я допоможу швидко додати скін у MONOSKIN.", env, inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }]]));
+    await sendBotMessage(chatId, "Привіт. Я допоможу швидко додати скін у MONOSKIN.", env, startKeyboard());
     return;
   }
   if (text === "/cancel") {
     await clearDraft(chatId, env);
-    await sendBotMessage(chatId, "Чернетку скасовано.", env, inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }]]));
+    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard());
     return;
   }
 
   const draft = await loadDraft(chatId, env);
   if (!draft) {
-    await sendBotMessage(chatId, "Натисни «Додати скін», щоб почати.", env, inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }]]));
+    await sendBotMessage(chatId, "Натисни «Додати скін», щоб почати.", env, startKeyboard());
     return;
   }
   if (message.photo?.length) {
@@ -307,7 +322,7 @@ async function processMessage(message: TelegramMessage, env: Env) {
     }
     const photo = message.photo[message.photo.length - 1];
     if (photo.file_size && photo.file_size > MAX_BOT_PHOTO_BYTES) {
-      await sendBotMessage(chatId, "Це фото більше 4 МБ. Надішли меншу версію.", env);
+      await sendBotMessage(chatId, "Це фото більше 8 МБ. Надішли меншу версію.", env);
       return;
     }
     if (draft.photos.some((item) => item.file_unique_id === photo.file_unique_id)) {
@@ -375,14 +390,29 @@ async function processCallback(callback: TelegramCallback, env: Env) {
     await startDraft(chatId, env);
     return;
   }
+  if (data === "skin:recent") {
+    try {
+      const records = await recentSkins(env);
+      if (!records.length) { await sendBotMessage(chatId, "Каталог поки порожній.", env, startKeyboard()); return; }
+      await sendBotMessage(chatId, "<b>Останні додані скіни</b>", env);
+      for (const skin of records) {
+        const url = `https://xott69.github.io/monoskin/?skin=${encodeURIComponent(skin.id)}`;
+        await sendBotMessage(chatId, `• <a href="${url}">${escapeHtml(skin.name)}</a>\n${escapeHtml(skin.addedAt.slice(0, 10))}`, env);
+      }
+      await sendBotMessage(chatId, "Що хочеш зробити далі?", env, startKeyboard());
+    } catch (error) {
+      await sendBotMessage(chatId, `Не вдалося завантажити каталог: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, startKeyboard());
+    }
+    return;
+  }
   if (data === "skin:cancel") {
     await clearDraft(chatId, env);
-    await sendBotMessage(chatId, "Чернетку скасовано.", env, inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }]]));
+    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard());
     return;
   }
   const draft = await loadDraft(chatId, env);
   if (!draft) {
-    await sendBotMessage(chatId, "Чернетка вже завершилась. Почни нову.", env, inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }]]));
+    await sendBotMessage(chatId, "Чернетка вже завершилась. Почни нову.", env, startKeyboard());
     return;
   }
   if (data === "skin:add-photo") {
@@ -428,7 +458,7 @@ async function processCallback(callback: TelegramCallback, env: Env) {
     try {
       const skin = await publishDraft(draft, env);
       await clearDraft(chatId, env);
-      await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> додано. GitHub Pages оновить сайт за кілька хвилин.`, env, inlineKeyboard([[{ text: "Додати ще", callback_data: "skin:new" }]]));
+      await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> додано. GitHub Pages оновить сайт за кілька хвилин.`, env, startKeyboard());
     } catch (error) {
       draft.step = "preview";
       await saveDraft(chatId, draft, env);

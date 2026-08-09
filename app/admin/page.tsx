@@ -10,6 +10,9 @@ type FormValues = { id: string; name: string; category: Category; minimumValue: 
 type ContentFile = { content: string };
 type Editor = { skin: Skin; draft: boolean };
 type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
+type AdminSort = "newest" | "oldest" | "name" | "needs-verification";
+type VerificationFilter = "all" | "needs-verification" | "verified-today";
+type CommitHistory = { sha: string; html_url: string; commit: { message: string; author: { date: string } }; author?: { login: string } | null };
 
 const owner = "XOTT69";
 const repo = "monoskin";
@@ -19,6 +22,7 @@ const today = new Date().toISOString().slice(0, 10);
 const allowedImageTypes = new Set(["image/png", "image/jpeg", "image/webp"]);
 const maxImageBytes = 4 * 1024 * 1024;
 const maxImagesPerSkin = 6;
+const verificationWindowDays = 30;
 const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", lastVerifiedAt: "", description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
 
 function categoryOf(skin: Skin): Category {
@@ -27,6 +31,24 @@ function categoryOf(skin: Skin): Category {
   if (skin.method === "Підписка Base") return "Підписка";
   if (skin.method === "Доступні всім") return "Доступні всім";
   return "Безкоштовно";
+}
+
+function categoryFields(category: Category) {
+  if (category === "Недоступні") return { method: "Безкоштовний" as Method, status: "Недоступний" as Status };
+  if (category === "Донат на банку") return { method: "Донат на банку" as Method, status: "Доступний" as Status };
+  if (category === "Підписка") return { method: "Підписка Base" as Method, status: "Доступний" as Status };
+  if (category === "Доступні всім") return { method: "Доступні всім" as Method, status: "Доступний" as Status };
+  return { method: "Безкоштовний" as Method, status: "Доступний" as Status };
+}
+
+function needsVerification(skin: Skin) {
+  if (!skin.lastVerifiedAt) return true;
+  const date = new Date(`${skin.lastVerifiedAt}T00:00:00`);
+  return Number.isNaN(+date) || Date.now() - +date >= verificationWindowDays * 24 * 60 * 60 * 1000;
+}
+
+function normalizedName(value: string) {
+  return value.toLocaleLowerCase("uk").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 }
 
 function toBase64(value: string) {
@@ -128,9 +150,35 @@ export default function AdminPage() {
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [adminQuery, setAdminQuery] = useState("");
+  const [adminCategory, setAdminCategory] = useState<Category | "Усі">("Усі");
+  const [verificationFilter, setVerificationFilter] = useState<VerificationFilter>("all");
+  const [adminSort, setAdminSort] = useState<AdminSort>("newest");
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
+  const [bulkCategory, setBulkCategory] = useState<Category>("Безкоштовно");
+  const [history, setHistory] = useState<CommitHistory[]>([]);
 
-  const sorted = useMemo(() => [...records].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [records]);
+  const visibleRecords = useMemo(() => {
+    const query = adminQuery.trim().toLocaleLowerCase("uk");
+    return records.filter((skin) => {
+      const matchesQuery = !query || [skin.name, skin.id, skin.description, skin.sourceUrl].join(" ").toLocaleLowerCase("uk").includes(query);
+      const matchesCategory = adminCategory === "Усі" || categoryOf(skin) === adminCategory;
+      const matchesVerification = verificationFilter === "all" || verificationFilter === "needs-verification" ? (verificationFilter !== "needs-verification" || needsVerification(skin)) : skin.lastVerifiedAt === today;
+      return matchesQuery && matchesCategory && matchesVerification;
+    }).sort((left, right) => {
+      if (adminSort === "oldest") return +new Date(left.addedAt) - +new Date(right.addedAt);
+      if (adminSort === "name") return left.name.localeCompare(right.name, "uk");
+      if (adminSort === "needs-verification") return Number(needsVerification(right)) - Number(needsVerification(left)) || +new Date(right.addedAt) - +new Date(left.addedAt);
+      return +new Date(right.addedAt) - +new Date(left.addedAt);
+    });
+  }, [adminCategory, adminQuery, adminSort, records, verificationFilter]);
   const sortedDrafts = useMemo(() => [...drafts].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [drafts]);
+  const selectedVisibleIds = useMemo(() => visibleRecords.filter((skin) => selectedIds.has(skin.id)).map((skin) => skin.id), [selectedIds, visibleRecords]);
+  const possibleDuplicates = useMemo(() => {
+    const name = normalizedName(form.name);
+    if (name.length < 4) return [];
+    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && (normalizedName(skin.name).includes(name) || name.includes(normalizedName(skin.name)))).slice(0, 3);
+  }, [drafts, editing?.skin.id, form.name, records]);
   const setField = <K extends keyof FormValues>(key: K, value: FormValues[K]) => setForm((current) => ({ ...current, [key]: value }));
 
   const loadCatalog = async (accessToken: string) => {
@@ -140,9 +188,16 @@ export default function AdminPage() {
     ]);
     const nextRecords = JSON.parse(fromBase64(skinsFile.content)) as Skin[];
     const nextDrafts = JSON.parse(fromBase64(draftsFile.content)) as Skin[];
-    setRecords(nextRecords); setDrafts(nextDrafts);
+    setRecords(nextRecords); setDrafts(nextDrafts); setSelectedIds(new Set());
     return { nextRecords, nextDrafts };
   };
+
+  const loadHistory = async (accessToken: string) => {
+    const commits = await github<CommitHistory[]>(`/repos/${owner}/${repo}/commits?path=data/skins.json&per_page=12`, accessToken);
+    setHistory(commits);
+  };
+
+  const refreshHistory = () => { void loadHistory(token).catch(() => undefined); };
 
   useEffect(() => {
     const accessToken = window.sessionStorage.getItem(adminSessionTokenKey);
@@ -154,6 +209,7 @@ export default function AdminPage() {
         const profile = await github<{ login: string }>("/user", accessToken);
         if (profile.login.toLowerCase() !== owner.toLowerCase()) throw new Error("Ця адмінка дозволена лише для акаунта XOTT69.");
         await loadCatalog(accessToken);
+        void loadHistory(accessToken).catch(() => undefined);
         if (!active) return;
         setToken(accessToken); setLogin(profile.login); setNotice("Сеанс відновлено.");
       } catch {
@@ -164,7 +220,7 @@ export default function AdminPage() {
     return () => { active = false; };
   }, []);
 
-  const signOut = () => { window.sessionStorage.removeItem(adminSessionTokenKey); setToken(""); setLogin(""); setRecords([]); setDrafts([]); setNotice("Ви вийшли з адмінки."); };
+  const signOut = () => { window.sessionStorage.removeItem(adminSessionTokenKey); setToken(""); setLogin(""); setRecords([]); setDrafts([]); setHistory([]); setSelectedIds(new Set()); setNotice("Ви вийшли з адмінки."); };
 
   const connect = async () => {
     const accessToken = tokenDraft.trim();
@@ -174,6 +230,7 @@ export default function AdminPage() {
       const profile = await github<{ login: string }>("/user", accessToken);
       if (profile.login.toLowerCase() !== owner.toLowerCase()) throw new Error("Ця адмінка дозволена лише для акаунта XOTT69.");
       await loadCatalog(accessToken);
+      void loadHistory(accessToken).catch(() => undefined);
       window.sessionStorage.setItem(adminSessionTokenKey, accessToken);
       setToken(accessToken); setLogin(profile.login); setTokenDraft(""); setNotice("Підключено до GitHub. Каталог завантажено.");
     } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося підключитися до GitHub."); }
@@ -244,7 +301,7 @@ export default function AdminPage() {
   };
 
   const recordFromForm = (image: string, images: string[], addedAt: string): Skin => ({
-    id: form.id.trim() || toId(form.name), name: form.name.trim(), method: form.category === "Донат на банку" ? "Донат на банку" : form.category === "Підписка" ? "Підписка Base" : form.category === "Доступні всім" ? "Доступні всім" : "Безкоштовний", status: form.category === "Недоступні" ? "Недоступний" : "Доступний", minimumValue: Number(form.minimumValue) || 0, addedAt, lastVerifiedAt: form.lastVerifiedAt || undefined, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
+    id: form.id.trim() || toId(form.name), name: form.name.trim(), ...categoryFields(form.category), minimumValue: form.category === "Донат на банку" ? Number(form.minimumValue) || 0 : 0, addedAt, lastVerifiedAt: form.lastVerifiedAt || undefined, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
   });
 
   const assertForm = (forDraft: boolean) => {
@@ -278,7 +335,7 @@ export default function AdminPage() {
       const usedImages = new Set([...nextRecords, ...nextDrafts].flatMap((skin) => skin.images?.length ? skin.images : [skin.image]));
       oldImages.filter((oldImage) => !images.includes(oldImage) && !usedImages.has(oldImage)).forEach((oldImage) => files.push({ path: `public/${oldImage}`, delete: true }));
       await commit(asDraft ? `Зберегти чернетку: ${record.name}` : editing?.draft ? `Опублікувати скін: ${record.name}` : editing ? `Оновити скін: ${record.name}` : `Додати скін: ${record.name}`, nextRecords, nextDrafts, files);
-      setRecords(nextRecords); setDrafts(nextDrafts); cancelEdit(); setNotice(asDraft ? "Чернетку збережено. Вона ще не видна відвідувачам." : "Зміни збережено. GitHub Pages оновить каталог за кілька хвилин.");
+      setRecords(nextRecords); setDrafts(nextDrafts); cancelEdit(); refreshHistory(); setNotice(asDraft ? "Чернетку збережено. Вона ще не видна відвідувачам." : "Зміни збережено. GitHub Pages оновить каталог за кілька хвилин.");
     } catch (caught) { await recoverFromConflict(caught); }
     finally { setBusy(false); }
   };
@@ -292,7 +349,7 @@ export default function AdminPage() {
       const images = skin.images?.length ? skin.images : skin.image ? [skin.image] : [];
       const usedImages = new Set([...nextRecords, ...nextDrafts].flatMap((record) => record.images?.length ? record.images : [record.image]));
       await commit(`Вилучити ${draft ? "чернетку" : "скін"}: ${skin.name}`, nextRecords, nextDrafts, images.filter((image) => !usedImages.has(image)).map((image) => ({ path: `public/${image}`, delete: true })));
-      setRecords(nextRecords); setDrafts(nextDrafts); if (editing?.skin.id === skin.id) cancelEdit(); setNotice("Запис вилучено.");
+      setRecords(nextRecords); setDrafts(nextDrafts); if (editing?.skin.id === skin.id) cancelEdit(); refreshHistory(); setNotice("Запис вилучено.");
     } catch (caught) { await recoverFromConflict(caught); }
     finally { setBusy(false); }
   };
@@ -302,9 +359,59 @@ export default function AdminPage() {
     try {
       const nextRecords = records.map((record) => record.id === skin.id ? { ...record, lastVerifiedAt: today } : record);
       await commit(`Перевірити скін: ${skin.name}`, nextRecords, drafts, []);
-      setRecords(nextRecords); setNotice("Позначено як перевірений сьогодні.");
+      setRecords(nextRecords); refreshHistory(); setNotice("Позначено як перевірений сьогодні.");
     } catch (caught) { await recoverFromConflict(caught); }
     finally { setBusy(false); }
+  };
+
+  const toggleSelected = (id: string) => setSelectedIds((current) => {
+    const next = new Set(current);
+    if (next.has(id)) next.delete(id); else next.add(id);
+    return next;
+  });
+
+  const toggleVisibleSelection = () => setSelectedIds((current) => {
+    const next = new Set(current);
+    const allVisibleSelected = visibleRecords.length > 0 && visibleRecords.every((skin) => next.has(skin.id));
+    visibleRecords.forEach((skin) => allVisibleSelected ? next.delete(skin.id) : next.add(skin.id));
+    return next;
+  });
+
+  const selectUnverified = () => setSelectedIds((current) => new Set([...current, ...visibleRecords.filter(needsVerification).map((skin) => skin.id)]));
+
+  const updateSelected = async (action: "verify" | "category") => {
+    const selected = records.filter((skin) => selectedIds.has(skin.id));
+    if (!selected.length) { setError("Обери хоча б один скін."); return; }
+    const actionLabel = action === "verify" ? "позначити перевіреними" : `змінити категорію на «${bulkCategory}»`;
+    if (!window.confirm(`Підтвердити: ${actionLabel} для ${selected.length} скінів? Це створить одне оновлення каталогу.`)) return;
+    setBusy(true); setError("");
+    try {
+      const nextRecords = records.map((skin) => {
+        if (!selectedIds.has(skin.id)) return skin;
+        if (action === "verify") return { ...skin, lastVerifiedAt: today };
+        return { ...skin, ...categoryFields(bulkCategory), minimumValue: bulkCategory === "Донат на банку" ? skin.minimumValue : 0 };
+      });
+      const message = action === "verify" ? `Перевірити ${selected.length} скінів` : `Змінити категорію для ${selected.length} скінів`;
+      await commit(message, nextRecords, drafts, []);
+      setRecords(nextRecords); setSelectedIds(new Set()); refreshHistory(); setNotice(`Готово: ${selected.length} скінів оновлено одним збереженням.`);
+    } catch (caught) { await recoverFromConflict(caught); }
+    finally { setBusy(false); }
+  };
+
+  const download = (filename: string, content: string, type: string) => {
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(new Blob([content], { type }));
+    link.download = filename;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(link.href), 0);
+  };
+
+  const exportCatalog = (format: "json" | "csv") => {
+    if (format === "json") { download("monoskin-catalog.json", `${JSON.stringify(records, null, 2)}\n`, "application/json"); return; }
+    const headers = ["id", "name", "category", "status", "minimumValue", "addedAt", "lastVerifiedAt", "description", "sourceUrl"];
+    const escape = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
+    const rows = records.map((skin) => [skin.id, skin.name, categoryOf(skin), skin.status, skin.minimumValue, skin.addedAt, skin.lastVerifiedAt, skin.description, skin.sourceUrl].map(escape).join(","));
+    download("monoskin-catalog.csv", `\uFEFF${headers.join(",")}\n${rows.join("\n")}\n`, "text/csv;charset=utf-8");
   };
 
   const selectImport = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -346,7 +453,7 @@ export default function AdminPage() {
 
   return <main className="admin-page"><header className="admin-header"><a className="brand" href="/monoskin/"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><div><span>{login || owner}</span><button onClick={signOut}>Вийти</button></div></header><section className="admin-shell"><div className="admin-heading"><div><p className="eyebrow"><span /> Редактор каталогу</p><h1>{editing ? editing.draft ? "Перевірити чернетку" : "Редагувати скін" : "Додати скін"}</h1></div><p>{records.length} скінів · {drafts.length} чернеток</p></div>{notice && <p className="form-notice">{notice}</p>}{error && <p className="form-error">{error}</p>}
     <form className="skin-form" onSubmit={(event) => { event.preventDefault(); void save(false); }} onPaste={async (event) => { const direct = imageFromClipboard(event.clipboardData.items); if (direct) { event.preventDefault(); void setChosenPhotos([direct], true); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void setChosenPhotos([systemImage], true); }}>
-      <label>Назва<input value={form.name} onChange={(event) => setField("name", event.target.value)} placeholder="Наприклад, Київ. Каштан" required /></label>
+      <label>Назва<input value={form.name} onChange={(event) => setField("name", event.target.value)} placeholder="Наприклад, Київ. Каштан" required />{possibleDuplicates.length > 0 && <small className="duplicate-hint">Можливий збіг: {possibleDuplicates.map((skin) => skin.name).join(" · ")}</small>}</label>
       <label>Категорія<select value={form.category} onChange={(event) => setField("category", event.target.value as Category)}><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
       <label>Мінімальна сума, ₴<input type="number" min="0" value={form.minimumValue} onChange={(event) => setField("minimumValue", event.target.value)} /></label>
       <label>Перевірено<input type="date" value={form.lastVerifiedAt} onChange={(event) => setField("lastVerifiedAt", event.target.value)} /></label>
@@ -364,6 +471,26 @@ export default function AdminPage() {
     </form>
     <section className="admin-import"><div><p className="eyebrow"><span /> Масовий імпорт</p><h2>Чернетки з фото</h2><p>Обери `missing-skins.json`, а потім усі чисті зображення. Файли зі збігом назви буде додано в чернетки, не одразу на сайт.</p></div><label>Файл списку<input type="file" accept="application/json" onChange={selectImport} /></label><label>Чисті фото<input type="file" multiple accept="image/png,image/jpeg,image/webp" onChange={(event) => setImportPhotos(Array.from(event.target.files ?? []))} /></label><button className="secondary-button" type="button" disabled={busy || !importRecords.length} onClick={() => void importAsDrafts}>Імпортувати {importRecords.length ? `${importRecords.length} записів` : "чернетки"}</button></section>
     {sortedDrafts.length > 0 && <section className="admin-list drafts-list"><div><p className="eyebrow"><span /> Не опубліковано</p><h2>Чернетки</h2></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('/monoskin/${skin.image}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
-    <section className="admin-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни</h2></div><div className="admin-grid">{sorted.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{skin.lastVerifiedAt ? ` · перевірено ${skin.lastVerifiedAt}` : " · не перевірено"}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div></section>
+    <section className="admin-list admin-catalog-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни <small>{visibleRecords.length} з {records.length}</small></h2></div>
+      <div className="admin-tools">
+        <input value={adminQuery} onChange={(event) => setAdminQuery(event.target.value)} placeholder="Пошук за назвою, описом або ID" aria-label="Пошук у каталозі" />
+        <select value={adminCategory} onChange={(event) => setAdminCategory(event.target.value as Category | "Усі")} aria-label="Категорія"><option>Усі</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select>
+        <select value={verificationFilter} onChange={(event) => setVerificationFilter(event.target.value as VerificationFilter)} aria-label="Стан перевірки"><option value="all">Усі перевірки</option><option value="needs-verification">Потрібна перевірка</option><option value="verified-today">Перевірені сьогодні</option></select>
+        <select value={adminSort} onChange={(event) => setAdminSort(event.target.value as AdminSort)} aria-label="Сортування"><option value="newest">Спершу нові</option><option value="oldest">Спершу старі</option><option value="name">За назвою</option><option value="needs-verification">Спершу неперевірені</option></select>
+        <button type="button" onClick={() => exportCatalog("json")}>JSON</button><button type="button" onClick={() => exportCatalog("csv")}>CSV</button>
+      </div>
+      <div className="admin-bulk">
+        <label><input type="checkbox" checked={visibleRecords.length > 0 && selectedVisibleIds.length === visibleRecords.length} onChange={toggleVisibleSelection} /> Вибрати видимі</label>
+        <button type="button" onClick={selectUnverified} disabled={busy}>Обрати неперевірені</button>
+        <strong>Обрано: {selectedIds.size}</strong>
+        <button className="primary-button" type="button" onClick={() => void updateSelected("verify")} disabled={busy || !selectedIds.size}>Підтвердити перевірку</button>
+        <select value={bulkCategory} onChange={(event) => setBulkCategory(event.target.value as Category)} aria-label="Нова категорія"><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select>
+        <button type="button" onClick={() => void updateSelected("category")} disabled={busy || !selectedIds.size}>Змінити категорію</button>
+        {selectedIds.size > 0 && <button type="button" onClick={() => setSelectedIds(new Set())}>Очистити вибір</button>}
+      </div>
+      <div className="admin-grid">{visibleRecords.map((skin) => <article key={skin.id}><label className="admin-row-select" title={`Обрати ${skin.name}`}><input type="checkbox" checked={selectedIds.has(skin.id)} onChange={() => toggleSelected(skin.id)} aria-label={`Обрати ${skin.name}`} /></label><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{needsVerification(skin) ? " · потрібна перевірка" : ` · перевірено ${skin.lastVerifiedAt}`}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div>
+      {visibleRecords.length === 0 && <p className="admin-empty">За цими фільтрами скінів немає.</p>}
+    </section>
+    <section className="admin-history"><p className="eyebrow"><span /> Історія</p><h2>Останні зміни каталогу</h2>{history.length ? <ol>{history.map((item) => <li key={item.sha}><a href={item.html_url} target="_blank" rel="noreferrer">{item.commit.message}</a><span>{new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(item.commit.author.date))}{item.author?.login ? ` · ${item.author.login}` : ""}</span></li>)}</ol> : <p>Історія завантажується…</p>}</section>
   </section></main>;
 }
