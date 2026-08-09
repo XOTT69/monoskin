@@ -1,5 +1,19 @@
 [
   {
+    "id": "morskyy-biy",
+    "name": "Морський бій",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 1,
+    "addedAt": "2026-08-09T07:26:48.199Z",
+    "description": "був доступний у 2024 р. за будь-яку суму. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/morskyy-biy.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kotyky-azovu",
     "name": "Котики Азову",
     "method": "Донат на банку",
