@@ -1,5 +1,19 @@
 [
   {
+    "id": "kotyky-azovu",
+    "name": "Котики Азову",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:23:04.258Z",
+    "description": "отримати можна за донат від 500 гривень. А ще, можете в коментарі до донату написати номер телефону або картки друга, і таким чином подарувати цей скін йому (Щоб залишити коментар, треба відкрити лінк на банку в браузері)",
+    "sourceUrl": "https://send.monobank.ua/jar/A6ExTgYxLa",
+    "image": "skin/kotyky-azovu.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "armiya-droniv",
     "name": "Армія дронів",
     "method": "Донат на банку",
