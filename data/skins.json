@@ -1,5 +1,19 @@
 [
   {
+    "id": "strymer-twitch",
+    "name": "Стример Twitch",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:46:13.587Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/6WRBqMpmd2rtUy",
+    "image": "skin/strymer-twitch.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "pustytysya-bereha",
     "name": "Пуститися берега",
     "method": "Безкоштовний",
