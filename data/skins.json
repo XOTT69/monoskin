@@ -1,5 +1,19 @@
 [
   {
+    "id": "43-oab",
+    "name": "43 ОАБ",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-08-09T08:17:57.478Z",
+    "description": "за донат від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3dsYXsBrqk",
+    "image": "skin/43-oab.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "bf-serhiya-prytuly-shchelepy",
     "name": "БФ Сергія Притули \"Щелепи",
     "method": "Донат на банку",
