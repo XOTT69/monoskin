@@ -1,5 +1,19 @@
 [
   {
+    "id": "ukrayinska-pravda-2",
+    "name": "Українська правда 2",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T08:21:05.913Z",
+    "description": "За донат від 500 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/4Bh5tHu2Cm",
+    "image": "skin/ukrayinska-pravda-2.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "43-oab",
     "name": "43 ОАБ",
     "method": "Донат на банку",
