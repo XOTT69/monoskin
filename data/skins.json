@@ -1,5 +1,19 @@
 [
   {
+    "id": "internatsionalnyy-lehion",
+    "name": "Інтернаціональний легіон",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 150,
+    "addedAt": "2026-08-09T07:55:27.035Z",
+    "description": "за донат від 150 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/5bWiubVkfc",
+    "image": "skin/internatsionalnyy-lehion.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-vasylya-baydaka",
     "name": "Скін Василя Байдака",
     "method": "Безкоштовний",
