@@ -1,5 +1,19 @@
 [
   {
+    "id": "mehamozok",
+    "name": "🧠Мегамозок",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:54:22.581Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/4BNdbJzTRyhZK4",
+    "image": "skin/mehamozok.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "lego",
     "name": "🧱Lego",
     "method": "Безкоштовний",
