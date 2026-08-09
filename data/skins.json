@@ -1,5 +1,19 @@
 [
   {
+    "id": "atlas-weekend-2024",
+    "name": "Atlas Weekend 2024",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:51:22.231Z",
+    "description": "За донат від 500 грн",
+    "sourceUrl": "",
+    "image": "skin/atlas-weekend-2024.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "novorichnyy-skin-do-2025-r",
     "name": "Новорічний скін до 2025 р",
     "method": "Безкоштовний",
