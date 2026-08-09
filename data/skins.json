@@ -1,5 +1,19 @@
 [
   {
+    "id": "yanholy-azovu",
+    "name": "Янголи Азову",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 1000,
+    "addedAt": "2026-08-09T07:12:17.547Z",
+    "description": "був доступний двічі за сумарний донат на 1000 грн",
+    "sourceUrl": "",
+    "image": "skin/yanholy-azovu.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "bf-eliny-svitolinoyi",
     "name": "БФ Еліни Світоліної",
     "method": "Донат на банку",
