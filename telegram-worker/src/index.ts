@@ -200,6 +200,7 @@ async function github<T>(path: string, env: Env, init: RequestInit = {}) {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
       "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "MONOSKIN-Telegram-Bot",
       ...(init.headers ?? {}),
     },
   });
