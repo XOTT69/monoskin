@@ -1,5 +1,19 @@
 [
   {
+    "id": "armiya-droniv",
+    "name": "Армія дронів",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:19:08.060Z",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/5jzfqZ4id4",
+    "image": "skin/armiya-droniv.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "vovky-da-vinchi",
     "name": "Вовки Да Вінчі",
     "method": "Безкоштовний",
