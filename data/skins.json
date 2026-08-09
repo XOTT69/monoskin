@@ -1,5 +1,19 @@
 [
   {
+    "id": "oko-za-oko",
+    "name": "ОКО ЗА ОКО",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:28:33.946Z",
+    "description": "був доступний за донат від 500 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/oko-za-oko.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "morskyy-biy",
     "name": "Морський бій",
     "method": "Безкоштовний",
