@@ -1,14 +1,14 @@
 [
   {
-    "id": "krishtianu-kitaldu-siuuu",
-    "name": "⚽️ Кріштіану Кіталду «Siuuu»",
+    "id": "basketbolist",
+    "name": "🏀 Баскетболіст",
     "method": "Безкоштовний",
     "status": "Доступний",
     "minimumValue": 0,
-    "addedAt": "2026-08-09T05:48:21.529Z",
+    "addedAt": "2026-08-09T05:49:26.141Z",
     "description": "Шкільний набір mono",
-    "sourceUrl": "https://base.monobank.ua/ds/41jF7um9Pvo385",
-    "image": "skin/krishtianu-kitaldu-siuuu.png",
+    "sourceUrl": "https://base.monobank.ua/ds/7pt7ACajtx8GDA",
+    "image": "skin/basketbolist.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false
