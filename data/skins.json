@@ -1,5 +1,19 @@
 [
   {
+    "id": "novorichnyy-skin-do-2025-r",
+    "name": "Новорічний скін до 2025 р",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:49:55.307Z",
+    "description": "за донат від 100 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/novorichnyy-skin-do-2025-r.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-by-ghostik",
     "name": "Skin by Ghostik",
     "method": "Безкоштовний",
