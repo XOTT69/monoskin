@@ -1,5 +1,19 @@
 [
   {
+    "id": "ghostik-x-mono",
+    "name": "Ghostik x mono",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T08:04:18.665Z",
+    "description": "за донат від 100 грн. Банка закрита",
+    "sourceUrl": "",
+    "image": "skin/ghostik-x-mono.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "mykhaylo-lebiha",
     "name": "Михайло Лебіга",
     "method": "Безкоштовний",
