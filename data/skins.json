@@ -1,5 +1,20 @@
 [
   {
+    "id": "lego",
+    "name": "🧱Lego",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:53:10.016Z",
+    "lastVerifiedAt": "2026-08-09",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/GHdagn4dtcwc2",
+    "image": "skin/lego.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "nindzya",
     "name": "🥷Ніндзя",
     "method": "Безкоштовний",
