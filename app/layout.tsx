@@ -22,8 +22,9 @@ export const metadata: Metadata = {
     images: ["/monoskin/og.png"],
   },
   icons: {
-    icon: "favicon.svg",
-    shortcut: "favicon.svg",
+    icon: "monoskin-avatar.png",
+    shortcut: "monoskin-avatar.png",
+    apple: "monoskin-avatar.png",
   },
 };
 

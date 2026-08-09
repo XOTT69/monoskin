@@ -365,7 +365,7 @@ export default function Home() {
     <main className={`site ${theme}`}>
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
         <nav className="nav container" aria-label="Головна навігація">
-          <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark">m</span><span>mono<span className="brand-light">skin</span></span></a>
+          <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark brand-avatar"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="27px" priority /></span><span>mono<span className="brand-light">skin</span></span></a>
           <div className="nav-actions"><button type="button" className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest">Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
         </nav>
         <div className="hero-content container">
@@ -407,6 +407,7 @@ export default function Home() {
 
       <section className="suggestion container" id="suggest" aria-labelledby="suggest-title">
         <div className="suggestion-copy">
+          <div className="suggestion-avatar" aria-hidden="true"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="92px" /></div>
           <p className="eyebrow"><span /> Доповнити каталог</p>
           <h2 id="suggest-title">Знаєш про новий скін?</h2>
           <p>Надішли назву, коротку умову та зображення. Ми перевіримо інформацію й додамо скін до каталогу.</p>
@@ -425,7 +426,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="container footer"><span className="brand"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
+      <footer className="container footer"><span className="brand"><span className="brand-mark brand-avatar"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="23px" /></span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
 
       {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}>
         <section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" onMouseDown={(event) => event.stopPropagation()}>
