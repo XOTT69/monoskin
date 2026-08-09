@@ -1,5 +1,20 @@
 [
   {
+    "id": "zhovta-forma-zbirnoyi-ukrayiny",
+    "name": "Жовта форма Збірної України",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T06:52:36.152Z",
+    "lastVerifiedAt": "2026-08-09",
+    "description": "За донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6Rc2E4tTLD",
+    "image": "skin/zhovta-forma-zbirnoyi-ukrayiny.jpg",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "vichnyy-dvyhun",
     "name": "♾️Вічний двигун",
     "method": "Безкоштовний",
