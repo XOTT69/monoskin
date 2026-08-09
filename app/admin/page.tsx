@@ -5,8 +5,9 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 type Method = "Безкоштовний" | "За дію" | "Доступні всім" | "Донат на банку" | "Підписка Base";
 type Status = "Доступний" | "Недоступний";
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
-type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; addedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string };
-type FormValues = { id: string; name: string; category: Category; minimumValue: string; lastVerifiedAt: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
+type LinkCheck = { checkedAt: string; status: number; finalUrl: string; ok: boolean };
+type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; addedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string; unavailableReason?: string; publishAt?: string; linkCheck?: LinkCheck };
+type FormValues = { id: string; name: string; category: Category; minimumValue: string; lastVerifiedAt: string; publishAt: string; unavailableReason: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
 type ContentFile = { content: string };
 type Editor = { skin: Skin; draft: boolean };
 type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
@@ -23,7 +24,8 @@ const allowedImageTypes = new Set(["image/png", "image/jpeg", "image/webp"]);
 const maxImageBytes = 4 * 1024 * 1024;
 const maxImagesPerSkin = 6;
 const verificationWindowDays = 30;
-const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", lastVerifiedAt: "", description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
+const workerUrl = "https://monoskin-telegram.ai-beta69690.workers.dev";
+const emptyForm = (): FormValues => ({ id: "", name: "", category: "Безкоштовно", minimumValue: "0", lastVerifiedAt: "", publishAt: "", unavailableReason: "", description: "", sourceUrl: "", isVisaOnly: false, isAdultOnly: false, featured: false });
 
 function categoryOf(skin: Skin): Category {
   if (skin.status === "Недоступний") return "Недоступні";
@@ -110,6 +112,32 @@ async function fileBase64(file: File) {
   });
 }
 
+async function fileHash(file: File) {
+  const digest = await crypto.subtle.digest("SHA-256", await file.arrayBuffer());
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+async function cropToCard(file: File) {
+  if (!window.createImageBitmap) throw new Error("Браузер не підтримує кадрування.");
+  const bitmap = await createImageBitmap(file);
+  const targetRatio = 729 / 459;
+  const sourceRatio = bitmap.width / bitmap.height;
+  const sourceWidth = sourceRatio > targetRatio ? Math.round(bitmap.height * targetRatio) : bitmap.width;
+  const sourceHeight = sourceRatio > targetRatio ? bitmap.height : Math.round(bitmap.width / targetRatio);
+  const sourceX = Math.round((bitmap.width - sourceWidth) / 2);
+  const sourceY = Math.round((bitmap.height - sourceHeight) / 2);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.min(1600, sourceWidth);
+  canvas.height = Math.round(canvas.width / targetRatio);
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Не вдалося кадрувати фото.");
+  context.drawImage(bitmap, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+  const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/webp", .9));
+  if (!blob) throw new Error("Не вдалося зберегти кадрування.");
+  return new File([blob], `${file.name.replace(/\.[^.]+$/, "")}-card.webp`, { type: "image/webp" });
+}
+
 async function optimizeImage(file: File) {
   if (file.size <= 900 * 1024 || !window.createImageBitmap) return file;
   try {
@@ -145,6 +173,8 @@ export default function AdminPage() {
   const [editing, setEditing] = useState<Editor | null>(null);
   const [photos, setPhotos] = useState<File[]>([]);
   const [previews, setPreviews] = useState<string[]>([]);
+  const [photoHashes, setPhotoHashes] = useState<string[]>([]);
+  const [existingImageOrder, setExistingImageOrder] = useState<string[]>([]);
   const [importRecords, setImportRecords] = useState<ImportRecord[]>([]);
   const [importPhotos, setImportPhotos] = useState<File[]>([]);
   const [notice, setNotice] = useState("");
@@ -156,7 +186,12 @@ export default function AdminPage() {
   const [adminSort, setAdminSort] = useState<AdminSort>("newest");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
   const [bulkCategory, setBulkCategory] = useState<Category>("Безкоштовно");
+  const [bulkLink, setBulkLink] = useState("");
   const [history, setHistory] = useState<CommitHistory[]>([]);
+  const [selectedDraftIds, setSelectedDraftIds] = useState<Set<string>>(() => new Set());
+  const [savePreview, setSavePreview] = useState<{ asDraft: boolean; changes: string[] } | null>(null);
+  const [skinHistory, setSkinHistory] = useState<Array<{ commit: CommitHistory; skin: Skin }> | null>(null);
+  const [historySkinName, setHistorySkinName] = useState("");
 
   const visibleRecords = useMemo(() => {
     const query = adminQuery.trim().toLocaleLowerCase("uk");
@@ -176,9 +211,14 @@ export default function AdminPage() {
   const selectedVisibleIds = useMemo(() => visibleRecords.filter((skin) => selectedIds.has(skin.id)).map((skin) => skin.id), [selectedIds, visibleRecords]);
   const possibleDuplicates = useMemo(() => {
     const name = normalizedName(form.name);
-    if (name.length < 4) return [];
-    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && (normalizedName(skin.name).includes(name) || name.includes(normalizedName(skin.name)))).slice(0, 3);
-  }, [drafts, editing?.skin.id, form.name, records]);
+    const sourceUrl = form.sourceUrl.trim();
+    if (name.length < 4 && !sourceUrl) return [];
+    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && ((name.length >= 4 && (normalizedName(skin.name).includes(name) || name.includes(normalizedName(skin.name)))) || Boolean(sourceUrl && skin.sourceUrl === sourceUrl))).slice(0, 3);
+  }, [drafts, editing?.skin, form.name, form.sourceUrl, records]);
+  const duplicatePhotoNames = useMemo(() => {
+    if (!photoHashes.length) return [];
+    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && skin.imageHashes?.some((hash) => photoHashes.includes(hash))).map((skin) => skin.name);
+  }, [drafts, editing?.skin, photoHashes, records]);
   const setField = <K extends keyof FormValues>(key: K, value: FormValues[K]) => setForm((current) => ({ ...current, [key]: value }));
 
   const loadCatalog = async (accessToken: string) => {
@@ -241,24 +281,50 @@ export default function AdminPage() {
     previews.forEach((preview) => URL.revokeObjectURL(preview));
     setPhotos([]);
     setPreviews([]);
+    setPhotoHashes([]);
   };
 
   const edit = (skin: Skin, draft = false) => {
     clearSelectedPhotos(); setEditing({ skin, draft }); setError("");
-    setForm({ id: skin.id, name: skin.name, category: categoryOf(skin), minimumValue: String(skin.minimumValue), lastVerifiedAt: skin.lastVerifiedAt ?? "", description: skin.description, sourceUrl: skin.sourceUrl, isVisaOnly: skin.isVisaOnly, isAdultOnly: skin.isAdultOnly, featured: Boolean(skin.featured) });
+    setExistingImageOrder(skin.images?.length ? skin.images : skin.image ? [skin.image] : []);
+    setForm({ id: skin.id, name: skin.name, category: categoryOf(skin), minimumValue: String(skin.minimumValue), lastVerifiedAt: skin.lastVerifiedAt ?? "", publishAt: skin.publishAt ? skin.publishAt.slice(0, 16) : "", unavailableReason: skin.unavailableReason ?? "", description: skin.description, sourceUrl: skin.sourceUrl, isVisaOnly: skin.isVisaOnly, isAdultOnly: skin.isAdultOnly, featured: Boolean(skin.featured) });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  const cancelEdit = () => { clearSelectedPhotos(); setEditing(null); setForm(emptyForm()); setError(""); };
+  const cancelEdit = () => { clearSelectedPhotos(); setExistingImageOrder([]); setEditing(null); setForm(emptyForm()); setError(""); };
 
   const setChosenPhotos = async (selected: File[], append = false) => {
     if (!selected.length) { if (!append) clearSelectedPhotos(); return; }
     if (selected.some((file) => !allowedImageTypes.has(file.type) || file.size > maxImageBytes)) { setError("Додай PNG, JPG або WebP до 4 МБ кожне."); return; }
     if ((append ? photos.length : 0) + selected.length > maxImagesPerSkin) { setError(`Для одного скіна можна додати до ${maxImagesPerSkin} фото.`); return; }
     const prepared = await Promise.all(selected.map(optimizeImage));
+    const hashes = await Promise.all(prepared.map(fileHash));
     const nextPhotos = append ? [...photos, ...prepared] : prepared;
     const nextPreviews = append ? [...previews, ...prepared.map((file) => URL.createObjectURL(file))] : prepared.map((file) => URL.createObjectURL(file));
     if (!append) previews.forEach((preview) => URL.revokeObjectURL(preview));
-    setError(""); setPhotos(nextPhotos); setPreviews(nextPreviews);
+    setError(""); setPhotos(nextPhotos); setPreviews(nextPreviews); setPhotoHashes(append ? [...photoHashes, ...hashes] : hashes);
+  };
+
+  const reorderChosenPhoto = (index: number, direction: -1 | 1) => {
+    const target = index + direction;
+    if (target < 0 || target >= photos.length) return;
+    const move = <T,>(items: T[]) => { const next = [...items]; [next[index], next[target]] = [next[target], next[index]]; return next; };
+    setPhotos(move); setPreviews(move); setPhotoHashes(move);
+  };
+
+  const reorderExistingPhoto = (index: number, direction: -1 | 1) => {
+    const target = index + direction;
+    if (target < 0 || target >= existingImageOrder.length) return;
+    const next = [...existingImageOrder]; [next[index], next[target]] = [next[target], next[index]]; setExistingImageOrder(next);
+  };
+
+  const cropChosenPhoto = async (index: number) => {
+    try {
+      const cropped = await cropToCard(photos[index]);
+      const optimized = await optimizeImage(cropped);
+      const nextPhotos = [...photos]; const nextPreviews = [...previews]; const nextHashes = [...photoHashes];
+      URL.revokeObjectURL(nextPreviews[index]); nextPhotos[index] = optimized; nextPreviews[index] = URL.createObjectURL(optimized); nextHashes[index] = await fileHash(optimized);
+      setPhotos(nextPhotos); setPreviews(nextPreviews); setPhotoHashes(nextHashes); setNotice("Фото кадровано під формат картки.");
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося кадрувати фото."); }
   };
 
   const currentHead = async () => {
@@ -300,14 +366,14 @@ export default function AdminPage() {
     setError(message);
   };
 
-  const recordFromForm = (image: string, images: string[], addedAt: string): Skin => ({
-    id: form.id.trim() || toId(form.name), name: form.name.trim(), ...categoryFields(form.category), minimumValue: form.category === "Донат на банку" ? Number(form.minimumValue) || 0 : 0, addedAt, lastVerifiedAt: form.lastVerifiedAt || undefined, description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
+  const recordFromForm = (image: string, images: string[], hashes: string[], addedAt: string): Skin => ({
+    id: form.id.trim() || toId(form.name), name: form.name.trim(), ...categoryFields(form.category), minimumValue: form.category === "Донат на банку" ? Number(form.minimumValue) || 0 : 0, addedAt, lastVerifiedAt: form.lastVerifiedAt || undefined, ...(form.publishAt ? { publishAt: new Date(form.publishAt).toISOString() } : {}), ...(form.category === "Недоступні" && form.unavailableReason.trim() ? { unavailableReason: form.unavailableReason.trim() } : {}), description: form.description.trim(), sourceUrl: form.sourceUrl.trim(), image, images: images.length > 1 ? images : undefined, imageHashes: hashes.length ? hashes : undefined, isVisaOnly: form.isVisaOnly, isAdultOnly: form.isAdultOnly, featured: form.featured,
   });
 
   const assertForm = (forDraft: boolean) => {
     if (!form.name.trim()) throw new Error("Вкажіть назву скіна.");
     if (!isSecureUrl(form.sourceUrl.trim())) throw new Error("Посилання має починатися з https://.");
-    if (!forDraft && !editing?.skin.image && !photos.length) throw new Error("Додайте фото скіна.");
+    if (!forDraft && !editing?.skin.image && !existingImageOrder.length && !photos.length) throw new Error("Додайте фото скіна.");
   };
 
   const save = async (asDraft: boolean) => {
@@ -319,10 +385,10 @@ export default function AdminPage() {
       const sameEditor = editing?.skin.id === id;
       const duplicate = [...records, ...drafts].find((skin) => skin.id === id);
       if (!sameEditor && duplicate) throw new Error(`У каталозі вже є запис «${duplicate.name}» з технічним ID ${id}.`);
-      const existingImages = editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : [];
-      const images = photos.length ? photos.map((photo, index) => `skin/${id}${index ? `-${index + 1}` : ""}.${photo.name.split(".").pop()?.toLowerCase() || "png"}`) : existingImages;
+      const existingImages = existingImageOrder.length ? existingImageOrder : editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : [];
+      const images = photos.length ? photos.map((photo, index) => `skin/${id}-${index + 1}-${photoHashes[index]?.slice(0, 8) || Date.now()}.${photo.name.split(".").pop()?.toLowerCase() || "png"}`) : existingImages;
       const image = images[0] || "";
-      const record = recordFromForm(image, images, editing?.skin.addedAt ?? new Date().toISOString());
+      const record = recordFromForm(image, images, photos.length ? photoHashes : editing?.skin.imageHashes ?? [], editing?.skin.addedAt ?? new Date().toISOString());
       const adjustedRecords = record.featured && !asDraft ? records.map((skin) => ({ ...skin, featured: false })) : records;
       const adjustedDrafts = record.featured && asDraft ? drafts.map((skin) => ({ ...skin, featured: false })) : drafts;
       let nextRecords = adjustedRecords;
@@ -398,6 +464,52 @@ export default function AdminPage() {
     finally { setBusy(false); }
   };
 
+  const requestSave = (asDraft: boolean) => {
+    try {
+      assertForm(asDraft);
+      const current = editing?.skin;
+      const values = [
+        ["Назва", current?.name, form.name.trim()], ["Категорія", current ? categoryOf(current) : "", form.category], ["Сума", current ? String(current.minimumValue) : "", form.minimumValue], ["Посилання", current?.sourceUrl, form.sourceUrl.trim()], ["Умова", current?.description, form.description.trim()], ["Причина недоступності", current?.unavailableReason, form.unavailableReason.trim()], ["Публікація", current?.publishAt?.slice(0, 16), form.publishAt],
+      ].filter(([, before, after]) => before !== after).map(([label, before, after]) => `${label}: ${before || "—"} → ${after || "—"}`);
+      if (photos.length) values.push(`Фото: буде завантажено ${photos.length}`);
+      setSavePreview({ asDraft, changes: values.length ? values : ["Значущих змін у даних немає."] }); setError("");
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Перевір форму."); }
+  };
+
+  const publishSelectedDrafts = async () => {
+    const selected = drafts.filter((skin) => selectedDraftIds.has(skin.id));
+    if (!selected.length) { setError("Обери хоча б одну чернетку."); return; }
+    if (!window.confirm(`Опублікувати ${selected.length} чернеток одним оновленням?`)) return;
+    setBusy(true); setError("");
+    try {
+      const nextRecords = [...selected.map((skin) => ({ ...skin, publishAt: undefined, lastVerifiedAt: skin.lastVerifiedAt || today })), ...records];
+      const nextDrafts = drafts.filter((skin) => !selectedDraftIds.has(skin.id));
+      await commit(`Опублікувати ${selected.length} чернеток`, nextRecords, nextDrafts, []);
+      setRecords(nextRecords); setDrafts(nextDrafts); setSelectedDraftIds(new Set()); refreshHistory(); setNotice(`Опубліковано ${selected.length} скінів одним комітом.`);
+    } catch (caught) { await recoverFromConflict(caught); }
+    finally { setBusy(false); }
+  };
+
+  const changeSelectedLinks = async (replaceWith: string) => {
+    if (!selectedIds.size) { setError("Обери скіни для зміни посилання."); return; }
+    if (!isSecureUrl(replaceWith)) { setError("Посилання має починатися з https:// або бути порожнім."); return; }
+    if (!window.confirm(replaceWith ? `Замінити посилання у ${selectedIds.size} скінів?` : `Очистити посилання у ${selectedIds.size} скінів?`)) return;
+    setBusy(true); setError("");
+    try {
+      const nextRecords = records.map((skin) => selectedIds.has(skin.id) ? { ...skin, sourceUrl: replaceWith } : skin);
+      await commit(`Оновити посилання для ${selectedIds.size} скінів`, nextRecords, drafts, []);
+      setRecords(nextRecords); setSelectedIds(new Set()); refreshHistory(); setNotice("Посилання оновлено одним збереженням.");
+    } catch (caught) { await recoverFromConflict(caught); }
+    finally { setBusy(false); }
+  };
+
+  const cloneSkin = (skin: Skin) => {
+    edit(skin);
+    setEditing(null);
+    setForm((current) => ({ ...current, id: "", name: `${skin.name} — копія`, publishAt: "" }));
+    setNotice("Створено копію у формі. Зміни назву, фото або умови та збережи.");
+  };
+
   const download = (filename: string, content: string, type: string) => {
     const link = document.createElement("a");
     link.href = URL.createObjectURL(new Blob([content], { type }));
@@ -412,6 +524,50 @@ export default function AdminPage() {
     const escape = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
     const rows = records.map((skin) => [skin.id, skin.name, categoryOf(skin), skin.status, skin.minimumValue, skin.addedAt, skin.lastVerifiedAt, skin.description, skin.sourceUrl].map(escape).join(","));
     download("monoskin-catalog.csv", `\uFEFF${headers.join(",")}\n${rows.join("\n")}\n`, "text/csv;charset=utf-8");
+  };
+
+  const loadSkinHistory = async (skin: Skin) => {
+    setBusy(true); setError(""); setHistorySkinName(skin.name);
+    try {
+      const commits = await github<CommitHistory[]>(`/repos/${owner}/${repo}/commits?path=data/skins.json&per_page=35`, token);
+      const found = (await inBatches(commits, 4, async (commit) => {
+        try {
+          const file = await github<ContentFile>(`/repos/${owner}/${repo}/contents/data/skins.json?ref=${commit.sha}`, token);
+          const version = (JSON.parse(fromBase64(file.content)) as Skin[]).find((item) => item.id === skin.id);
+          return version ? { commit, skin: version } : null;
+        } catch { return null; }
+      })).filter((item): item is { commit: CommitHistory; skin: Skin } => Boolean(item));
+      setSkinHistory(found);
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося завантажити історію."); setSkinHistory(null); }
+    finally { setBusy(false); }
+  };
+
+  const restoreSkinVersion = async (version: Skin) => {
+    if (!window.confirm(`Відновити версію «${version.name}»? Це створить новий коміт, старі дані не буде втрачено.`)) return;
+    setBusy(true); setError("");
+    try {
+      const nextRecords = records.map((skin) => skin.id === version.id ? { ...version, addedAt: skin.addedAt } : skin);
+      await commit(`Відновити версію скіна: ${version.name}`, nextRecords, drafts, []);
+      setRecords(nextRecords); setSkinHistory(null); refreshHistory(); setNotice("Версію скіна відновлено.");
+    } catch (caught) { await recoverFromConflict(caught); }
+    finally { setBusy(false); }
+  };
+
+  const checkLinks = async (ids: string[]) => {
+    const targets = records.filter((skin) => ids.includes(skin.id) && skin.sourceUrl).map((skin) => ({ id: skin.id, url: skin.sourceUrl }));
+    if (!targets.length) { setError("У вибраних скінів немає посилань для перевірки."); return; }
+    setBusy(true); setError(""); setNotice(`Перевіряємо ${targets.length} посилань…`);
+    try {
+      const response = await fetch(`${workerUrl}/admin/check-links`, { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` }, body: JSON.stringify({ links: targets }) });
+      const result = await response.json().catch(() => ({})) as { error?: string; results?: Array<{ id: string; status: number; finalUrl: string; ok: boolean }> };
+      if (!response.ok || !result.results) throw new Error(result.error || "Не вдалося перевірити посилання.");
+      const checkedAt = new Date().toISOString();
+      const checks = new Map(result.results.map((item) => [item.id, { ...item, checkedAt }]));
+      const nextRecords = records.map((skin) => checks.has(skin.id) ? { ...skin, linkCheck: checks.get(skin.id) } : skin);
+      await commit(`Перевірити ${targets.length} посилань`, nextRecords, drafts, []);
+      setRecords(nextRecords); refreshHistory(); setNotice(`Перевірено ${targets.length} посилань. Результати збережено.`);
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося перевірити посилання."); }
+    finally { setBusy(false); }
   };
 
   const selectImport = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -452,11 +608,14 @@ export default function AdminPage() {
   if (!token) return <main className="admin-page"><header className="admin-header"><a className="brand" href="/monoskin/"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><span>Адмінка</span></header><section className="login-card"><p className="eyebrow"><span /> Тільки для редактора каталогу</p><h1>Керуй скінами<br /><em>без коду.</em></h1><div className="admin-error"><strong>Підключи GitHub token із доступом лише до цього репозиторію.</strong><p>Створи fine-grained token для <code>XOTT69/monoskin</code> з дозволом <b>Contents: Read and write</b>. Токен зберігається лише до закриття вкладки; не використовуй його на чужому пристрої.</p></div><label className="token-field">GitHub token<input type="password" value={tokenDraft} onChange={(event) => setTokenDraft(event.target.value)} placeholder="github_pat_…" autoComplete="off" /></label><button className="primary-button" onClick={connect} disabled={busy}>{busy ? "Підключаю…" : "Підключити GitHub"}</button>{error && <p className="form-error">{error}</p>}</section></main>;
 
   return <main className="admin-page"><header className="admin-header"><a className="brand" href="/monoskin/"><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><div><span>{login || owner}</span><button onClick={signOut}>Вийти</button></div></header><section className="admin-shell"><div className="admin-heading"><div><p className="eyebrow"><span /> Редактор каталогу</p><h1>{editing ? editing.draft ? "Перевірити чернетку" : "Редагувати скін" : "Додати скін"}</h1></div><p>{records.length} скінів · {drafts.length} чернеток</p></div>{notice && <p className="form-notice">{notice}</p>}{error && <p className="form-error">{error}</p>}
-    <form className="skin-form" onSubmit={(event) => { event.preventDefault(); void save(false); }} onPaste={async (event) => { const direct = imageFromClipboard(event.clipboardData.items); if (direct) { event.preventDefault(); void setChosenPhotos([direct], true); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void setChosenPhotos([systemImage], true); }}>
+    {savePreview && <section className="save-preview" role="dialog" aria-label="Підтвердження змін"><strong>Перевір зміни перед збереженням</strong><ul>{savePreview.changes.map((change) => <li key={change}>{change}</li>)}</ul><div><button className="primary-button" type="button" disabled={busy} onClick={() => { const asDraft = savePreview.asDraft; setSavePreview(null); void save(asDraft); }}>{savePreview.asDraft ? "Підтвердити чернетку" : "Підтвердити збереження"}</button><button className="secondary-button" type="button" onClick={() => setSavePreview(null)}>Повернутися до редагування</button></div></section>}
+    <form className="skin-form" onSubmit={(event) => { event.preventDefault(); requestSave(false); }} onPaste={async (event) => { const direct = imageFromClipboard(event.clipboardData.items); if (direct) { event.preventDefault(); void setChosenPhotos([direct], true); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void setChosenPhotos([systemImage], true); }}>
       <label>Назва<input value={form.name} onChange={(event) => setField("name", event.target.value)} placeholder="Наприклад, Київ. Каштан" required />{possibleDuplicates.length > 0 && <small className="duplicate-hint">Можливий збіг: {possibleDuplicates.map((skin) => skin.name).join(" · ")}</small>}</label>
       <label>Категорія<select value={form.category} onChange={(event) => setField("category", event.target.value as Category)}><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
       <label>Мінімальна сума, ₴<input type="number" min="0" value={form.minimumValue} onChange={(event) => setField("minimumValue", event.target.value)} /></label>
       <label>Перевірено<input type="date" value={form.lastVerifiedAt} onChange={(event) => setField("lastVerifiedAt", event.target.value)} /></label>
+      <label>Запланувати публікацію<input type="datetime-local" value={form.publishAt} onChange={(event) => setField("publishAt", event.target.value)} disabled={Boolean(editing && !editing.draft)} /><small>{editing && !editing.draft ? "Доступно для нової або наявної чернетки." : "Збережи як чернетку — Worker опублікує її в цей час."}</small></label>
+      {form.category === "Недоступні" && <label className="full">Чому недоступний<textarea value={form.unavailableReason} onChange={(event) => setField("unavailableReason", event.target.value)} placeholder="Наприклад, банка закрита або акція завершилась" rows={2} /></label>}
       <label className="verify-help">Час додавання формується автоматично. Дата перевірки не показує строк дії скіна.</label>
       <label className="full">Опис / умова отримання<textarea value={form.description} onChange={(event) => setField("description", event.target.value)} placeholder="Коротко поясни, як отримати цей скін" rows={5} /></label>
       <label className="full">Посилання на скін<input type="url" value={form.sourceUrl} onChange={(event) => setField("sourceUrl", event.target.value)} placeholder="https://…" /></label>
@@ -464,13 +623,18 @@ export default function AdminPage() {
         <input type="file" multiple accept="image/png,image/jpeg,image/webp" onChange={(event) => void setChosenPhotos(Array.from(event.target.files ?? []))} />
         <span>{photos.length ? `✓ Обрано фото: ${photos.length}` : editing ? "Залишити поточні фото, обрати нові або вставити Ctrl/Cmd + V" : `PNG, JPG або WebP · до 4 МБ кожне · до ${maxImagesPerSkin} фото`}</span>
         {photos.length > 0 && <span className="upload-hint">Новий набір замінить поточну галерею після збереження.</span>}
-        <span className="photo-previews">{(previews.length ? previews : (editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : []).map((image) => `/monoskin/${image}`)).map((preview, index) => <span className="photo-preview" key={preview} style={{ backgroundImage: `url('${preview}')` }} title={`Фото ${index + 1}`} />)}</span>
+        {duplicatePhotoNames.length > 0 && <span className="duplicate-hint">Таке саме фото вже є у: {duplicatePhotoNames.join(" · ")}</span>}
+        <span className="photo-previews">{(previews.length ? previews : existingImageOrder.map((image) => `/monoskin/${image}`)).map((preview, index) => <span className="photo-preview" key={preview} style={{ backgroundImage: `url('${preview}')` }} title={`Фото ${index + 1}`}><span className="photo-preview-actions"><button type="button" disabled={index === 0} onClick={(event) => { event.preventDefault(); if (photos.length) reorderChosenPhoto(index, -1); else reorderExistingPhoto(index, -1); }}>←</button><button type="button" disabled={index === (photos.length ? photos.length : existingImageOrder.length) - 1} onClick={(event) => { event.preventDefault(); if (photos.length) reorderChosenPhoto(index, 1); else reorderExistingPhoto(index, 1); }}>→</button>{photos.length > 0 && <button type="button" onClick={(event) => { event.preventDefault(); void cropChosenPhoto(index); }}>Кадрувати</button>}</span></span>)}</span>
       </label>
       <div className="checkboxes"><label><input type="checkbox" checked={form.isVisaOnly} onChange={(event) => setField("isVisaOnly", event.target.checked)} /> Лише Visa</label><label><input type="checkbox" checked={form.isAdultOnly} onChange={(event) => setField("isAdultOnly", event.target.checked)} /> Лише 18+</label><label><input type="checkbox" checked={form.featured} onChange={(event) => setField("featured", event.target.checked)} /> Показувати в hero</label></div>
-      <div className="form-actions"><button className="primary-button" type="submit" disabled={busy}>{busy ? "Зберігаю…" : editing?.draft ? "Опублікувати скін" : editing ? "Зберегти зміни" : "Додати скін"}</button><button className="secondary-button" type="button" disabled={busy} onClick={() => void save(true)}>Зберегти чернетку</button>{editing && <button className="secondary-button" type="button" onClick={cancelEdit}>Скасувати</button>}</div>
+      <div className="form-actions"><button className="primary-button" type="submit" disabled={busy}>{busy ? "Зберігаю…" : editing?.draft ? "Опублікувати скін" : editing ? "Зберегти зміни" : "Додати скін"}</button><button className="secondary-button" type="button" disabled={busy} onClick={() => requestSave(true)}>{form.publishAt ? "Запланувати як чернетку" : "Зберегти чернетку"}</button>{editing && <button className="secondary-button" type="button" onClick={cancelEdit}>Скасувати</button>}</div>
     </form>
+    <section className="admin-live-preview"><div><p className="eyebrow"><span /> Перед публікацією</p><h2>Як це побачить відвідувач</h2><p>Перевір назву, категорію та головне фото у форматі картки й деталей.</p></div><div className="preview-devices"><article className="preview-catalog-card"><span style={{ backgroundImage: `url('${previews[0] || (existingImageOrder[0] ? `/monoskin/${existingImageOrder[0]}` : "")}')` }} /><strong>{form.name || "Назва скіна"}</strong><small>{form.category}</small></article><article className="preview-details-card"><span style={{ backgroundImage: `url('${previews[0] || (existingImageOrder[0] ? `/monoskin/${existingImageOrder[0]}` : "")}')` }} /><div><strong>{form.name || "Назва скіна"}</strong><small>{form.category}</small><p>{form.description || "Тут буде коротка умова отримання скіна."}</p></div></article></div></section>
     <section className="admin-import"><div><p className="eyebrow"><span /> Масовий імпорт</p><h2>Чернетки з фото</h2><p>Обери `missing-skins.json`, а потім усі чисті зображення. Файли зі збігом назви буде додано в чернетки, не одразу на сайт.</p></div><label>Файл списку<input type="file" accept="application/json" onChange={selectImport} /></label><label>Чисті фото<input type="file" multiple accept="image/png,image/jpeg,image/webp" onChange={(event) => setImportPhotos(Array.from(event.target.files ?? []))} /></label><button className="secondary-button" type="button" disabled={busy || !importRecords.length} onClick={() => void importAsDrafts}>Імпортувати {importRecords.length ? `${importRecords.length} записів` : "чернетки"}</button></section>
-    {sortedDrafts.length > 0 && <section className="admin-list drafts-list"><div><p className="eyebrow"><span /> Не опубліковано</p><h2>Чернетки</h2></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('/monoskin/${skin.image}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
+    {sortedDrafts.length > 0 && <section className="admin-list drafts-list"><div><p className="eyebrow"><span /> Не опубліковано</p><h2>Чернетки</h2></div><div className="admin-bulk"><label><input type="checkbox" checked={sortedDrafts.length > 0 && sortedDrafts.every((skin) => selectedDraftIds.has(skin.id))} onChange={() => setSelectedDraftIds((current) => {
+      const allSelected = sortedDrafts.every((skin) => current.has(skin.id));
+      return allSelected ? new Set<string>() : new Set(sortedDrafts.map((skin) => skin.id));
+    })} /> Вибрати всі</label><strong>Обрано: {selectedDraftIds.size}</strong><button className="primary-button" type="button" disabled={busy || !selectedDraftIds.size} onClick={() => void publishSelectedDrafts()}>Опублікувати вибрані</button></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><label className="admin-row-select"><input type="checkbox" checked={selectedDraftIds.has(skin.id)} onChange={() => setSelectedDraftIds((current) => { const next = new Set(current); if (next.has(skin.id)) next.delete(skin.id); else next.add(skin.id); return next; })} aria-label={`Обрати ${skin.name}`} /></label><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('/monoskin/${skin.image}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{skin.publishAt ? ` · заплановано ${new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.publishAt))}` : ""}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
     <section className="admin-list admin-catalog-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни <small>{visibleRecords.length} з {records.length}</small></h2></div>
       <div className="admin-tools">
         <input value={adminQuery} onChange={(event) => setAdminQuery(event.target.value)} placeholder="Пошук за назвою, описом або ID" aria-label="Пошук у каталозі" />
@@ -486,11 +650,16 @@ export default function AdminPage() {
         <button className="primary-button" type="button" onClick={() => void updateSelected("verify")} disabled={busy || !selectedIds.size}>Підтвердити перевірку</button>
         <select value={bulkCategory} onChange={(event) => setBulkCategory(event.target.value as Category)} aria-label="Нова категорія"><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select>
         <button type="button" onClick={() => void updateSelected("category")} disabled={busy || !selectedIds.size}>Змінити категорію</button>
+        <button type="button" onClick={() => void checkLinks(selectedIds.size ? Array.from(selectedIds) : visibleRecords.map((skin) => skin.id))} disabled={busy}>Перевірити посилання</button>
+        <input value={bulkLink} onChange={(event) => setBulkLink(event.target.value)} placeholder="Нове https://… або порожньо" aria-label="Нове посилання" />
+        <button type="button" onClick={() => void changeSelectedLinks(bulkLink.trim())} disabled={busy || !selectedIds.size}>Замінити URL</button>
+        <button type="button" onClick={() => void changeSelectedLinks("")} disabled={busy || !selectedIds.size}>Очистити URL</button>
         {selectedIds.size > 0 && <button type="button" onClick={() => setSelectedIds(new Set())}>Очистити вибір</button>}
       </div>
-      <div className="admin-grid">{visibleRecords.map((skin) => <article key={skin.id}><label className="admin-row-select" title={`Обрати ${skin.name}`}><input type="checkbox" checked={selectedIds.has(skin.id)} onChange={() => toggleSelected(skin.id)} aria-label={`Обрати ${skin.name}`} /></label><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{needsVerification(skin) ? " · потрібна перевірка" : ` · перевірено ${skin.lastVerifiedAt}`}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div>
+      <div className="admin-grid">{visibleRecords.map((skin) => <article key={skin.id}><label className="admin-row-select" title={`Обрати ${skin.name}`}><input type="checkbox" checked={selectedIds.has(skin.id)} onChange={() => toggleSelected(skin.id)} aria-label={`Обрати ${skin.name}`} /></label><span className="admin-thumb" style={{ backgroundImage: `url('/monoskin/${skin.image}')` }} /><div><strong>{skin.name}</strong><p>{categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{needsVerification(skin) ? " · потрібна перевірка" : ` · перевірено ${skin.lastVerifiedAt}`}{skin.linkCheck ? ` · URL ${skin.linkCheck.ok ? "✓" : "⚠"} ${skin.linkCheck.status}` : ""}</p></div><div><button onClick={() => void markVerified(skin)} disabled={busy}>Перевірено сьогодні</button><button onClick={() => cloneSkin(skin)}>Копія</button><button onClick={() => void loadSkinHistory(skin)} disabled={busy}>Історія</button><button onClick={() => edit(skin)}>Редагувати</button><button className="danger" onClick={() => void remove(skin, false)} disabled={busy}>Вилучити</button></div></article>)}</div>
       {visibleRecords.length === 0 && <p className="admin-empty">За цими фільтрами скінів немає.</p>}
     </section>
     <section className="admin-history"><p className="eyebrow"><span /> Історія</p><h2>Останні зміни каталогу</h2>{history.length ? <ol>{history.map((item) => <li key={item.sha}><a href={item.html_url} target="_blank" rel="noreferrer">{item.commit.message}</a><span>{new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(item.commit.author.date))}{item.author?.login ? ` · ${item.author.login}` : ""}</span></li>)}</ol> : <p>Історія завантажується…</p>}</section>
+    {skinHistory && <section className="skin-version-history"><div><p className="eyebrow"><span /> Версії скіна</p><h2>{historySkinName}</h2></div><button type="button" onClick={() => setSkinHistory(null)}>Закрити</button>{skinHistory.length ? <ol>{skinHistory.map(({ commit, skin }) => <li key={commit.sha}><div><strong>{commit.commit.message}</strong><p>{new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(commit.commit.author.date))} · {categoryOf(skin)} · {skin.sourceUrl || "без посилання"}</p></div><button type="button" disabled={busy} onClick={() => void restoreSkinVersion(skin)}>Відновити цю версію</button></li>)}</ol> : <p>У доступній історії немає попередніх версій.</p>}</section>}
   </section></main>;
 }

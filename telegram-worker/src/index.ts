@@ -15,7 +15,7 @@ type TelegramUpdate = { message?: TelegramMessage; callback_query?: TelegramCall
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
 type BotStep = "photos" | "name" | "category" | "minimum" | "description" | "source" | "preview" | "publishing";
 type BotDraft = { step: BotStep; photos: TelegramPhoto[]; name?: string; category?: Category; minimumValue?: number; description?: string; sourceUrl?: string };
-type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
+type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
 type GitHubContent = { content: string; sha: string };
 type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { tree: { sha: string } };
@@ -28,7 +28,7 @@ function corsHeaders(origin: string | null, env: Env): Record<string, string> {
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
     Vary: "Origin",
   };
 }
@@ -72,6 +72,11 @@ function bytesToBase64(bytes: Uint8Array) {
 
 function textToBase64(value: string) {
   return bytesToBase64(new TextEncoder().encode(value));
+}
+
+async function sha256(bytes: Uint8Array) {
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function base64ToText(value: string) {
@@ -245,6 +250,7 @@ async function publishDraft(draft: BotDraft, env: Env) {
     sourceUrl,
     image: imagePaths[0],
     ...(imagePaths.length > 1 ? { images: imagePaths } : {}),
+    imageHashes: await Promise.all(downloaded.map((file) => sha256(file.bytes))),
     isVisaOnly: false,
     isAdultOnly: false,
     featured: false,
@@ -513,6 +519,76 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
   }
 }
 
+function safeExternalUrl(value: string) {
+  try {
+    const url = new URL(value);
+    const host = url.hostname.toLowerCase();
+    const privateIp = /^(127\.|0\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+    return url.protocol === "https:" && !url.port && host !== "localhost" && !host.endsWith(".local") && !privateIp;
+  } catch { return false; }
+}
+
+async function isGithubOwnerToken(token: string) {
+  const response = await fetch("https://api.github.com/user", { headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" } });
+  const data = await response.json().catch(() => ({})) as { login?: string };
+  return response.ok && data.login?.toLowerCase() === OWNER.toLowerCase();
+}
+
+async function inspectLink(url: string) {
+  if (!safeExternalUrl(url)) return { status: 0, finalUrl: url, ok: false };
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    let response = await fetch(url, { method: "HEAD", redirect: "follow", signal: controller.signal });
+    if (response.status === 405 || response.status === 403) response = await fetch(url, { method: "GET", redirect: "follow", signal: controller.signal, headers: { Range: "bytes=0-0" } });
+    return { status: response.status, finalUrl: response.url || url, ok: response.status >= 200 && response.status < 400 };
+  } catch { return { status: 0, finalUrl: url, ok: false }; }
+  finally { clearTimeout(timeout); }
+}
+
+async function handleLinkCheck(request: Request, env: Env): Promise<Response> {
+  const origin = request.headers.get("Origin");
+  const headers = corsHeaders(origin, env);
+  if (request.method === "OPTIONS") return new Response(null, { status: origin === env.ALLOWED_ORIGIN ? 204 : 403, headers });
+  if (origin !== env.ALLOWED_ORIGIN || request.method !== "POST") return json({ error: "Not found" }, 404, headers);
+  const token = request.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") || "";
+  if (!token || !await isGithubOwnerToken(token)) return json({ error: "Адмін-доступ не підтверджено." }, 401, headers);
+  const body = await request.json().catch(() => null) as { links?: Array<{ id?: string; url?: string }> } | null;
+  const links = body?.links?.filter((item) => typeof item.id === "string" && typeof item.url === "string").slice(0, 50) ?? [];
+  if (!links.length) return json({ error: "Немає посилань для перевірки." }, 400, headers);
+  const results = await Promise.all(links.map(async (item) => ({ id: item.id!, ...await inspectLink(item.url!) })));
+  return Response.json({ results }, { headers: { ...headers, "Cache-Control": "no-store" } });
+}
+
+async function publishScheduledDrafts(env: Env) {
+  const repository = env.GITHUB_REPOSITORY || `${OWNER}/${REPO}`;
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) throw new Error("Некоректна назва GitHub-репозиторію.");
+  const branch = env.GITHUB_BRANCH || BRANCH;
+  const base = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const [catalogFile, draftsFile, ref] = await Promise.all([
+    github<GitHubContent>(`${base}/contents/data/skins.json?ref=${encodeURIComponent(branch)}`, env),
+    github<GitHubContent>(`${base}/contents/data/drafts.json?ref=${encodeURIComponent(branch)}`, env),
+    github<GitHubRef>(`${base}/git/ref/heads/${encodeURIComponent(branch)}`, env),
+  ]);
+  const records = JSON.parse(base64ToText(catalogFile.content)) as Skin[];
+  const drafts = JSON.parse(base64ToText(draftsFile.content)) as Skin[];
+  const now = Date.now();
+  const ready = drafts.filter((skin) => skin.publishAt && +new Date(skin.publishAt) <= now);
+  if (!ready.length) return;
+  const dueIds = new Set(ready.map((skin) => skin.id));
+  const nextRecords = [...ready.map((skin) => ({ ...skin, publishAt: undefined, lastVerifiedAt: skin.lastVerifiedAt || today() })), ...records];
+  const nextDrafts = drafts.filter((skin) => !dueIds.has(skin.id));
+  const current = await github<GitHubCommit>(`${base}/git/commits/${ref.object.sha}`, env);
+  const blobs = await Promise.all([
+    github<GitHubBlob>(`${base}/git/blobs`, env, { method: "POST", body: JSON.stringify({ content: textToBase64(`${JSON.stringify(nextRecords, null, 2)}\n`), encoding: "base64" }) }),
+    github<GitHubBlob>(`${base}/git/blobs`, env, { method: "POST", body: JSON.stringify({ content: textToBase64(`${JSON.stringify(nextDrafts, null, 2)}\n`), encoding: "base64" }) }),
+  ]);
+  const tree = await github<GitHubTree>(`${base}/git/trees`, env, { method: "POST", body: JSON.stringify({ base_tree: current.tree.sha, tree: [{ path: "data/skins.json", mode: "100644", type: "blob", sha: blobs[0].sha }, { path: "data/drafts.json", mode: "100644", type: "blob", sha: blobs[1].sha }] }) });
+  const commit = await github<GitHubCreatedCommit>(`${base}/git/commits`, env, { method: "POST", body: JSON.stringify({ message: `Опублікувати заплановані скіни: ${ready.length}`, tree: tree.sha, parents: [ref.object.sha] }) });
+  await github(`${base}/git/refs/heads/${encodeURIComponent(branch)}`, env, { method: "PATCH", body: JSON.stringify({ sha: commit.sha, force: false }) });
+}
+
 function setupPage(message = "") {
   const notice = message ? `<p class="notice">${escapeHtml(message)}</p>` : "";
   return `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MONOSKIN · Підключити бота</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#101010;color:#fff;font-family:Arial,sans-serif}.card{box-sizing:border-box;width:min(100% - 32px,460px);padding:32px;border:1px solid #363636;border-radius:20px;background:#171717}h1{margin:0 0 12px;font-size:28px}p{color:#b9b9b9;line-height:1.55}.notice{padding:12px 14px;border:1px solid #5a401f;border-radius:10px;color:#ffd2ac;background:#2c1d14}input,button{box-sizing:border-box;width:100%;min-height:48px;border-radius:10px;font-size:16px}input{margin:14px 0;border:1px solid #444;padding:0 13px;color:#fff;background:#0d0d0d}button{border:0;color:#fff;background:#ff6b00;font-weight:700;cursor:pointer}small{display:block;margin-top:16px;color:#858585;line-height:1.45}</style></head><body><main class="card"><h1>Підключити Telegram-бота</h1><p>Встав <b>TELEGRAM_WEBHOOK_SECRET</b> зі секретів Cloudflare. Сторінка підключить бота до цього Worker; токен Telegram тут не вводиться.</p>${notice}<form method="post"><input name="secret" type="password" autocomplete="off" placeholder="Webhook secret" required><button type="submit">Підключити бота</button></form><small>Після успішного підключення відкрий чат із ботом і надішли <b>/start</b>.</small></main></body></html>`;
@@ -553,6 +629,10 @@ export default {
       }
     }
     if (url.pathname === "/submit") return handleSubmission(request, env);
+    if (url.pathname === "/admin/check-links") return handleLinkCheck(request, env);
     return new Response("Not found", { status: 404 });
+  },
+  async scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext) {
+    ctx.waitUntil(publishScheduledDrafts(env).catch((error) => console.error("Scheduled publication failed", error)));
   },
 } satisfies ExportedHandler<Env>;

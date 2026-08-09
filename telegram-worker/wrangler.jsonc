@@ -7,6 +7,9 @@
     "enabled": true,
     "head_sampling_rate": 1
   },
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
   "vars": {
     "ALLOWED_ORIGIN": "https://xott69.github.io",
     "TURNSTILE_HOSTNAME": "xott69.github.io",
