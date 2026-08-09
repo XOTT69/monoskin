@@ -1,5 +1,5 @@
 const MAX_PHOTO_BYTES = 8 * 1024 * 1024;
-const MAX_BOT_PHOTO_BYTES = 4 * 1024 * 1024;
+const MAX_BOT_PHOTO_BYTES = 8 * 1024 * 1024;
 const MAX_IMAGES_PER_SKIN = 6;
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 const OWNER = "XOTT69";
@@ -186,9 +186,12 @@ async function fetchTelegramPhoto(photo: TelegramPhoto, env: Env) {
   const file = await telegram<{ file_path: string }>("getFile", { file_id: photo.file_id }, env);
   const response = await fetch(`https://api.telegram.org/file/bot${env.TELEGRAM_BOT_TOKEN}/${file.file_path}`);
   if (!response.ok) throw new Error("Не вдалося завантажити фото з Telegram.");
-  const contentType = response.headers.get("Content-Type")?.split(";")[0].toLowerCase() || "image/jpeg";
+  const responseType = response.headers.get("Content-Type")?.split(";")[0].toLowerCase() || "";
+  const extensionFromPath = file.file_path.split(".").pop()?.toLowerCase();
+  const inferredType = extensionFromPath === "png" ? "image/png" : extensionFromPath === "webp" ? "image/webp" : extensionFromPath === "jpg" || extensionFromPath === "jpeg" ? "image/jpeg" : "";
+  const contentType = ALLOWED_IMAGE_TYPES.has(responseType) ? responseType : inferredType;
   const bytes = new Uint8Array(await response.arrayBuffer());
-  if (!ALLOWED_IMAGE_TYPES.has(contentType) || !bytes.length || bytes.length > MAX_BOT_PHOTO_BYTES) throw new Error("Кожне фото має бути PNG, JPG або WebP до 4 МБ.");
+  if (!ALLOWED_IMAGE_TYPES.has(contentType) || !bytes.length || bytes.length > MAX_BOT_PHOTO_BYTES) throw new Error("Кожне фото має бути PNG, JPG або WebP до 8 МБ.");
   const extension = contentType === "image/png" ? "png" : contentType === "image/webp" ? "webp" : "jpg";
   return { bytes, extension };
 }
