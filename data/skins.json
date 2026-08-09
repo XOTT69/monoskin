@@ -1,5 +1,19 @@
 [
   {
+    "id": "mykhaylo-lebiha",
+    "name": "Михайло Лебіга",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T08:00:08.889Z",
+    "description": "за донат від 100 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/mykhaylo-lebiha.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "bf-povernys-zhyvym",
     "name": "БФ Повернись живим",
     "method": "Донат на банку",
