@@ -1,5 +1,19 @@
 [
   {
+    "id": "levy-na-dzhypi",
+    "name": "Леви на джипі",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 300,
+    "addedAt": "2026-08-09T08:12:37.981Z",
+    "description": "за донат від 300 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/levy-na-dzhypi.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "skin-zhytomyra-ne-isnuye",
     "name": "Скін \"Житомира не існує\"",
     "method": "Підписка Base",
