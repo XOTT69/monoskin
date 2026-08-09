@@ -1,5 +1,19 @@
 [
   {
+    "id": "bf-povernys-zhyvym",
+    "name": "БФ Повернись живим",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:58:44.226Z",
+    "description": "за донат від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/7VuHWj7Eyx",
+    "image": "skin/bf-povernys-zhyvym.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "maincast-kh-cs2",
     "name": "Maincast х CS2",
     "method": "Донат на банку",
