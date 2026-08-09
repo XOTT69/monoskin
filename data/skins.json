@@ -1,5 +1,19 @@
 [
   {
+    "id": "ukrayinska-pravda",
+    "name": "Українська Правда",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:52:25.509Z",
+    "description": "за донат від 500 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/dyt7PRkxH",
+    "image": "skin/ukrayinska-pravda.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "atlas-weekend-2024",
     "name": "Atlas Weekend 2024",
     "method": "Безкоштовний",
