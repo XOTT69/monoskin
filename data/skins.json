@@ -1,5 +1,19 @@
 [
   {
+    "id": "fk-shakhtar-kh-3-oshb",
+    "name": "ФК Шахтар х 3 ОШБ",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T08:30:13.873Z",
+    "description": "За донат від 100 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/fk-shakhtar-kh-3-oshb.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "khyzhaky-vysot",
     "name": "Хижаки висот",
     "method": "Донат на банку",
