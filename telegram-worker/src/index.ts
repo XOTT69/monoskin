@@ -79,6 +79,11 @@ function base64ToText(value: string) {
   return new TextDecoder().decode(Uint8Array.from(binary, (character) => character.charCodeAt(0)));
 }
 
+async function telegramWebhookToken(env: Env) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(env.TELEGRAM_WEBHOOK_SECRET));
+  return bytesToBase64(new Uint8Array(digest)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
 function inlineKeyboard(rows: Array<Array<{ text: string; callback_data: string }>>) {
   return { inline_keyboard: rows };
 }
@@ -491,7 +496,7 @@ async function connectTelegramWebhook(request: Request, env: Env) {
   if (!suppliedSecret || suppliedSecret !== env.TELEGRAM_WEBHOOK_SECRET) return html(setupPage("Невірний секрет. Спробуй ще раз."), 403);
   try {
     const origin = new URL(request.url).origin;
-    await telegram("setWebhook", { url: `${origin}/telegram/webhook`, secret_token: env.TELEGRAM_WEBHOOK_SECRET, allowed_updates: ["message", "callback_query"] }, env);
+    await telegram("setWebhook", { url: `${origin}/telegram/webhook`, secret_token: await telegramWebhookToken(env), allowed_updates: ["message", "callback_query"] }, env);
     return html(setupPage("Готово — webhook підключено. Відкрий чат із ботом і надішли /start."));
   } catch (error) {
     console.error("Telegram webhook setup failed", error);
@@ -504,7 +509,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === "/telegram/connect") return connectTelegramWebhook(request, env);
     if (url.pathname === "/telegram/webhook") {
-      if (request.method !== "POST" || request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.TELEGRAM_WEBHOOK_SECRET) return new Response("Not found", { status: 404 });
+      if (request.method !== "POST" || request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== await telegramWebhookToken(env)) return new Response("Not found", { status: 404 });
       try {
         await handleTelegramUpdate(await request.json() as TelegramUpdate, env);
         return new Response("ok");
