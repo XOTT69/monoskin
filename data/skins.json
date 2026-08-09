@@ -1,5 +1,19 @@
 [
   {
+    "id": "2-internatsionalnyy-lehion-ou",
+    "name": "2 Інтернаціональний легіон ОУ",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 500,
+    "addedAt": "2026-08-09T07:43:01.573Z",
+    "description": "був доступний за донат від 500 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/2-internatsionalnyy-lehion-ou.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "24-bryhada-kh-dmytro-varvaruk",
     "name": "24 бригада х Дмитро Варварук",
     "method": "Донат на банку",
