@@ -1,5 +1,19 @@
 [
   {
+    "id": "hur",
+    "name": "ГУР",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-08-09T07:44:38.944Z",
+    "description": "за донат від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/2Z2G9sPcZi",
+    "image": "skin/hur.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "2-internatsionalnyy-lehion-ou",
     "name": "2 Інтернаціональний легіон ОУ",
     "method": "Безкоштовний",
