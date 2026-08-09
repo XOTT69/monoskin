@@ -1,5 +1,19 @@
 [
   {
+    "id": "maincast-kh-cs2",
+    "name": "Maincast х CS2",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:57:39.574Z",
+    "description": "за донат від 100 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/maincast-kh-cs2.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "internatsionalnyy-lehion",
     "name": "Інтернаціональний легіон",
     "method": "Донат на банку",
