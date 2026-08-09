@@ -1,5 +1,19 @@
 [
   {
+    "id": "spantelychenyy",
+    "name": "🤔Спантеличений",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:51:00.305Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/ADzpFTxRAg2XHd",
+    "image": "skin/spantelychenyy.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "basketbolist",
     "name": "🏀 Баскетболіст",
     "method": "Безкоштовний",
