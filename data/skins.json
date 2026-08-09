@@ -1,5 +1,19 @@
 [
   {
+    "id": "azov-one-kh-maincast",
+    "name": "АЗОВ.ONE. х Maincast",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 300,
+    "addedAt": "2026-08-09T07:13:46.978Z",
+    "description": "Був доступний за донат від 300 грн. Банка закрита",
+    "sourceUrl": "",
+    "image": "skin/azov-one-kh-maincast.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "yanholy-azovu",
     "name": "Янголи Азову",
     "method": "Безкоштовний",
