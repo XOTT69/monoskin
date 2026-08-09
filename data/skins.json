@@ -1,5 +1,19 @@
 [
   {
+    "id": "yalynka-2-0",
+    "name": "Ялинка 2.0",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-09T07:39:50.966Z",
+    "description": "був доступний за донат від 100 грн. Банка закрита.",
+    "sourceUrl": "",
+    "image": "skin/yalynka-2-0.webp",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "oko-za-oko",
     "name": "ОКО ЗА ОКО",
     "method": "Безкоштовний",
