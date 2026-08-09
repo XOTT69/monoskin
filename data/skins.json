@@ -1,5 +1,23 @@
 [
   {
+    "id": "kartka-krishtianu-ronaldu-z-zoshyta-shkilnoho-naboru-2026",
+    "name": "⚽️ Картка Кріштіану Роналду з зошита Шкільного набору 2026",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T20:33:47.027Z",
+    "lastVerifiedAt": "2026-08-09",
+    "description": "Отримати можна відсканувавши QR з зошита Шкільного набору 2026 або за посиланням",
+    "sourceUrl": "https://base.monobank.ua/ds/41jF7um9Pvo385",
+    "image": "skin/kartka-krishtianu-ronaldu-z-zoshyta-shkilnoho-naboru-2026.jpg",
+    "imageHashes": [
+      "e41c449b63ee4542da2227dcfb5e37436a810fb9834ea81d589c1fd35b2d8152"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "fk-shakhtar-kh-3-oshb",
     "name": "ФК Шахтар х 3 ОШБ",
     "method": "Безкоштовний",
