@@ -529,7 +529,7 @@ export default function AdminPage() {
   const loadSkinHistory = async (skin: Skin) => {
     setBusy(true); setError(""); setHistorySkinName(skin.name);
     try {
-      const commits = await github<CommitHistory[]>(`/repos/${owner}/${repo}/commits?path=data/skins.json&per_page=35`, token);
+      const commits = await github<CommitHistory[]>(`/repos/${owner}/${repo}/commits?path=data/skins.json&per_page=100`, token);
       const found = (await inBatches(commits, 4, async (commit) => {
         try {
           const file = await github<ContentFile>(`/repos/${owner}/${repo}/contents/data/skins.json?ref=${commit.sha}`, token);
