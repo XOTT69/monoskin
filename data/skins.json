@@ -11,7 +11,8 @@
     "image": "skin/fk-shakhtar-kh-3-oshb.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "khyzhaky-vysot",
@@ -25,7 +26,8 @@
     "image": "skin/khyzhaky-vysot.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ukrayinska-pravda-2",
@@ -39,7 +41,8 @@
     "image": "skin/ukrayinska-pravda-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "43-oab",
@@ -53,7 +56,8 @@
     "image": "skin/43-oab.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "bf-serhiya-prytuly-shchelepy",
@@ -67,7 +71,8 @@
     "image": "skin/bf-serhiya-prytuly-shchelepy.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "levy-na-dzhypi",
@@ -81,7 +86,8 @@
     "image": "skin/levy-na-dzhypi.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-zhytomyra-ne-isnuye",
@@ -95,7 +101,8 @@
     "image": "skin/skin-zhytomyra-ne-isnuye.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "memorial-heroyiv-kh-rbtnk",
@@ -109,7 +116,8 @@
     "image": "skin/memorial-heroyiv-kh-rbtnk.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ghostik-x-mono",
@@ -123,7 +131,8 @@
     "image": "skin/ghostik-x-mono.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mykhaylo-lebiha",
@@ -137,7 +146,8 @@
     "image": "skin/mykhaylo-lebiha.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "bf-povernys-zhyvym",
@@ -151,7 +161,8 @@
     "image": "skin/bf-povernys-zhyvym.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "maincast-kh-cs2",
@@ -165,7 +176,8 @@
     "image": "skin/maincast-kh-cs2.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "internatsionalnyy-lehion",
@@ -179,7 +191,8 @@
     "image": "skin/internatsionalnyy-lehion.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-vasylya-baydaka",
@@ -193,7 +206,8 @@
     "image": "skin/skin-vasylya-baydaka.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ukrayinska-pravda",
@@ -207,7 +221,8 @@
     "image": "skin/ukrayinska-pravda.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "atlas-weekend-2024",
@@ -221,7 +236,8 @@
     "image": "skin/atlas-weekend-2024.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "novorichnyy-skin-do-2025-r",
@@ -235,7 +251,8 @@
     "image": "skin/novorichnyy-skin-do-2025-r.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-by-ghostik",
@@ -249,7 +266,8 @@
     "image": "skin/skin-by-ghostik.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "hur",
@@ -263,7 +281,8 @@
     "image": "skin/hur.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "2-internatsionalnyy-lehion-ou",
@@ -277,7 +296,8 @@
     "image": "skin/2-internatsionalnyy-lehion-ou.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "24-bryhada-kh-dmytro-varvaruk",
@@ -291,7 +311,8 @@
     "image": "skin/24-bryhada-kh-dmytro-varvaruk.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "yalynka-2-0",
@@ -305,7 +326,8 @@
     "image": "skin/yalynka-2-0.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "oko-za-oko",
@@ -319,7 +341,8 @@
     "image": "skin/oko-za-oko.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "morskyy-biy",
@@ -333,7 +356,8 @@
     "image": "skin/morskyy-biy.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kotyky-azovu",
@@ -347,7 +371,8 @@
     "image": "skin/kotyky-azovu.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "armiya-droniv",
@@ -361,7 +386,8 @@
     "image": "skin/armiya-droniv.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "vovky-da-vinchi",
@@ -375,7 +401,8 @@
     "image": "skin/vovky-da-vinchi.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "azov-one-kh-maincast",
@@ -389,7 +416,8 @@
     "image": "skin/azov-one-kh-maincast.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "yanholy-azovu",
@@ -403,7 +431,8 @@
     "image": "skin/yanholy-azovu.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "bf-eliny-svitolinoyi",
@@ -417,7 +446,8 @@
     "image": "skin/bf-eliny-svitolinoyi.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "zhovta-forma-zbirnoyi-ukrayiny",
@@ -446,7 +476,8 @@
     "image": "skin/vichnyy-dvyhun.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mehamozok",
@@ -460,7 +491,8 @@
     "image": "skin/mehamozok.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "lego",
@@ -489,7 +521,8 @@
     "image": "skin/nindzya.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "spantelychenyy",
@@ -503,7 +536,8 @@
     "image": "skin/spantelychenyy.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "basketbolist",
@@ -517,7 +551,8 @@
     "image": "skin/basketbolist.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "nonkonformist",
@@ -531,7 +566,8 @@
     "image": "skin/nonkonformist.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "strymer-twitch",
@@ -545,7 +581,8 @@
     "image": "skin/strymer-twitch.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "pustytysya-bereha",
@@ -559,7 +596,8 @@
     "image": "skin/pustytysya-bereha.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-kolo",
@@ -567,7 +605,7 @@
     "method": "Донат на банку",
     "status": "Доступний",
     "minimumValue": 300,
-    "lastVerifiedAt": "2026-08-05",
+    "lastVerifiedAt": "2026-08-09",
     "description": "Донат від 300 грн",
     "sourceUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
     "image": "skin/skin-kolo.webp",
@@ -588,7 +626,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:38:06+03:00"
+    "addedAt": "2026-08-06T01:38:06+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "fond-serhiya-prytuly",
@@ -606,7 +645,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:13:24+03:00"
+    "addedAt": "2026-08-06T01:13:24+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "fond-povernys-zhyvym",
@@ -620,7 +660,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:11:52+03:00"
+    "addedAt": "2026-08-06T01:11:52+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "8-den-narodzhennya-mono",
@@ -634,7 +675,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:10:26+03:00"
+    "addedAt": "2026-08-06T01:10:26+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-do-dnya-prykordonnyka-ukrayiny-30-kvitnya",
@@ -648,7 +690,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:08:53+03:00"
+    "addedAt": "2026-08-06T01:08:53+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-uanimals-ta-ukrposhty",
@@ -662,7 +705,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:44:40+03:00"
+    "addedAt": "2026-08-06T00:44:40+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ghostik",
@@ -676,7 +720,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:27:04+03:00"
+    "addedAt": "2026-08-06T00:27:04+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "unit-travel",
@@ -690,7 +735,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:16:16+03:00"
+    "addedAt": "2026-08-06T00:16:16+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kavitech",
@@ -704,7 +750,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:13:37+03:00"
+    "addedAt": "2026-08-06T00:13:37+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785964267085",
@@ -718,7 +765,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:11:10+03:00"
+    "addedAt": "2026-08-06T00:11:10+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785964145479",
@@ -732,7 +780,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:09:07+03:00"
+    "addedAt": "2026-08-06T00:09:07+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "x-mono",
@@ -746,7 +795,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:07:51+03:00"
+    "addedAt": "2026-08-06T00:07:51+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "uanimals",
@@ -760,7 +810,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:05:33+03:00"
+    "addedAt": "2026-08-06T00:05:33+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785963731436",
@@ -774,7 +825,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:02:14+03:00"
+    "addedAt": "2026-08-06T00:02:14+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785963428236",
@@ -788,7 +840,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T23:57:10+03:00"
+    "addedAt": "2026-08-05T23:57:10+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mono",
@@ -802,7 +855,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T23:24:09+03:00"
+    "addedAt": "2026-08-05T23:24:09+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "visa-monobank",
@@ -816,7 +870,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T22:50:46+03:00"
+    "addedAt": "2026-08-05T22:50:46+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785946693975",
@@ -830,7 +885,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T19:18:16+03:00"
+    "addedAt": "2026-08-05T19:18:16+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785946188136",
@@ -844,7 +900,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T19:09:50+03:00"
+    "addedAt": "2026-08-05T19:09:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "505",
@@ -858,7 +915,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T19:06:18+03:00"
+    "addedAt": "2026-08-05T19:06:18+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "1",
@@ -872,7 +930,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T19:01:05+03:00"
+    "addedAt": "2026-08-05T19:01:05+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "12",
@@ -886,7 +945,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:47:35+03:00"
+    "addedAt": "2026-08-05T18:47:35+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785944792766",
@@ -900,7 +960,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:46:35+03:00"
+    "addedAt": "2026-08-05T18:46:35+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ghostik-largo",
@@ -914,7 +975,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:27:51+03:00"
+    "addedAt": "2026-08-05T18:27:51+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785943371600",
@@ -928,7 +990,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:22:54+03:00"
+    "addedAt": "2026-08-05T18:22:54+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785943082076",
@@ -942,7 +1005,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:18:04+03:00"
+    "addedAt": "2026-08-05T18:18:04+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "3",
@@ -956,7 +1020,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:03:09+03:00"
+    "addedAt": "2026-08-05T18:03:09+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "otoy",
@@ -970,7 +1035,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T18:00:20+03:00"
+    "addedAt": "2026-08-05T18:00:20+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785941888336",
@@ -984,7 +1050,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T17:58:10+03:00"
+    "addedAt": "2026-08-05T17:58:10+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785941419187",
@@ -998,7 +1065,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T17:50:21+03:00"
+    "addedAt": "2026-08-05T17:50:21+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "20-2",
@@ -1012,7 +1080,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T17:47:22+03:00"
+    "addedAt": "2026-08-05T17:47:22+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "68",
@@ -1026,7 +1095,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T17:00:50+03:00"
+    "addedAt": "2026-08-05T17:00:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "multiplex",
@@ -1040,7 +1110,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:56:29+03:00"
+    "addedAt": "2026-08-05T16:56:29+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785938125226",
@@ -1054,7 +1125,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:55:27+03:00"
+    "addedAt": "2026-08-05T16:55:27+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "95",
@@ -1068,7 +1140,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:43:09+03:00"
+    "addedAt": "2026-08-05T16:43:09+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ivr",
@@ -1082,7 +1155,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:40:54+03:00"
+    "addedAt": "2026-08-05T16:40:54+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "boosta-ukraine",
@@ -1096,7 +1170,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:33:25+03:00"
+    "addedAt": "2026-08-05T16:33:25+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785936525404",
@@ -1110,7 +1185,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:28:47+03:00"
+    "addedAt": "2026-08-05T16:28:47+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785936054797",
@@ -1124,7 +1200,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:20:57+03:00"
+    "addedAt": "2026-08-05T16:20:57+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kraken",
@@ -1142,7 +1219,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T16:06:56+03:00"
+    "addedAt": "2026-08-05T16:06:56+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785934784953",
@@ -1156,7 +1234,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T15:59:46+03:00"
+    "addedAt": "2026-08-05T15:59:46+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785934549915",
@@ -1164,7 +1243,7 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "lastVerifiedAt": "2026-08-05",
+    "lastVerifiedAt": "2026-08-09",
     "description": "Мін: 50 грн/міс. Макс: 5000 грн/міс. 1 скін",
     "sourceUrl": "https://base.monobank.ua/4kY1gWoR91PxRp#subscriptions",
     "image": "skin/skin-1785934549915.png",
@@ -1179,7 +1258,7 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 500,
-    "lastVerifiedAt": "2026-08-05",
+    "lastVerifiedAt": "2026-08-09",
     "description": "Мін: 500 грн/міс. Макс 99 999 грн/міс. Отримує 3 скіни",
     "sourceUrl": "https://base.monobank.ua/cba#subscriptions",
     "image": "skin/skin-1785934107317.png",
@@ -1205,7 +1284,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T15:38:02+03:00"
+    "addedAt": "2026-08-05T15:38:02+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785932696332",
@@ -1219,7 +1299,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-05T15:24:59+03:00"
+    "addedAt": "2026-08-05T15:24:59+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "faine-misto",
@@ -1233,7 +1314,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T19:21:47+03:00"
+    "addedAt": "2026-08-04T19:21:47+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "swu-heroes-3",
@@ -1247,7 +1329,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T18:33:49+03:00"
+    "addedAt": "2026-08-04T18:33:49+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "2-0",
@@ -1261,7 +1344,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T18:07:49+03:00"
+    "addedAt": "2026-08-04T18:07:49+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785855840516",
@@ -1275,7 +1359,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T18:04:03+03:00"
+    "addedAt": "2026-08-04T18:04:03+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "30",
@@ -1289,7 +1374,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T17:55:59+03:00"
+    "addedAt": "2026-08-04T17:55:59+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785855179107",
@@ -1303,7 +1389,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T17:53:02+03:00"
+    "addedAt": "2026-08-04T17:53:02+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785853916464",
@@ -1317,7 +1404,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T17:31:59+03:00"
+    "addedAt": "2026-08-04T17:31:59+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785853726469",
@@ -1331,7 +1419,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-04T17:28:50+03:00"
+    "addedAt": "2026-08-04T17:28:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "gta-vi-gta-vi",
@@ -1345,7 +1434,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-03T23:38:53+03:00"
+    "addedAt": "2026-08-03T23:38:53+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "skin-1785789433744",
@@ -1359,7 +1449,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-03T23:37:16+03:00"
+    "addedAt": "2026-08-03T23:37:16+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "2006",
@@ -1373,7 +1464,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-03T23:19:09+03:00"
+    "addedAt": "2026-08-03T23:19:09+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "spilne",
@@ -1387,7 +1479,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-03T21:31:31+03:00"
+    "addedAt": "2026-08-03T21:31:31+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kurgan-agregat-ukhodysh",
@@ -1400,7 +1493,8 @@
     "image": "skin/kurgan-agregat-ukhodysh.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "flaminho-fp-5",
@@ -1413,7 +1507,8 @@
     "image": "skin/flaminho-fp-16.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "zbroia-fpv",
@@ -1426,7 +1521,8 @@
     "image": "skin/zbroia.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "gunia",
@@ -1439,7 +1535,8 @@
     "image": "skin/gunia.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "hroshi-vdoma",
@@ -1452,7 +1549,8 @@
     "image": "skin/hroshi-vdoma.png",
     "isVisaOnly": true,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "olenamandziuk",
@@ -1466,7 +1564,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-03T22:43:58+03:00"
+    "addedAt": "2026-08-03T22:43:58+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "monitor-base",
@@ -1479,7 +1578,8 @@
     "image": "skin/monitor-base.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "dota2-broodmother",
@@ -1492,7 +1592,8 @@
     "image": "skin/dota2-broodmother.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kharkiv-1",
@@ -1505,7 +1606,8 @@
     "image": "skin/kharkiv-1.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kharkiv-2",
@@ -1518,7 +1620,8 @@
     "image": "skin/kharkiv-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "rivne",
@@ -1531,7 +1634,8 @@
     "image": "skin/rivne.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "odesa-1",
@@ -1544,7 +1648,8 @@
     "image": "skin/odesa-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "odesa-2",
@@ -1557,7 +1662,8 @@
     "image": "skin/odesa-1.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "sumy-velyki-sumy",
@@ -1570,7 +1676,8 @@
     "image": "skin/velyki-sumy.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "dnipro-shaurma",
@@ -1583,7 +1690,8 @@
     "image": "skin/dnipro-1.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "dnipro-sumka",
@@ -1596,7 +1704,8 @@
     "image": "skin/dnipro-2.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "dnipro-naberezhna",
@@ -1609,7 +1718,8 @@
     "image": "skin/dnipro-3.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "luhansk-convert",
@@ -1622,7 +1732,8 @@
     "image": "skin/luhansk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "vinnytsia-hrin",
@@ -1635,7 +1746,8 @@
     "image": "skin/vinnytsia.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "lutsk-budynok-stina",
@@ -1648,7 +1760,8 @@
     "image": "skin/lutsk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mykolaiv-na-hvyli",
@@ -1661,7 +1774,8 @@
     "image": "skin/mykolaiv.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "zhytomyr",
@@ -1674,7 +1788,8 @@
     "image": "skin/zhytomyr.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "200uah",
@@ -1687,7 +1802,8 @@
     "image": "skin/200uah.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "50uah",
@@ -1700,7 +1816,8 @@
     "image": "skin/50uah.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "100uah",
@@ -1713,7 +1830,8 @@
     "image": "skin/100uah.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "love-school",
@@ -1726,7 +1844,8 @@
     "image": "skin/love-school.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "naruto-cat",
@@ -1739,7 +1858,8 @@
     "image": "skin/naruto-cat.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "minecraft-tnt-mnb",
@@ -1752,7 +1872,8 @@
     "image": "skin/minecraft-tnt-mnb.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "roblox-mono",
@@ -1765,7 +1886,8 @@
     "image": "skin/roblox-mono.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "use-dobre",
@@ -1778,7 +1900,8 @@
     "image": "skin/use-dobre.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "paket-ne-treba",
@@ -1791,7 +1914,8 @@
     "image": "skin/paket-ne-treba.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "kryshka",
@@ -1804,7 +1928,8 @@
     "image": "skin/kryshka.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "urban-cat-black",
@@ -1818,7 +1943,8 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": true,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "urban-cat-white",
@@ -1831,7 +1957,8 @@
     "image": "skin/urban-cat-white.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "explosion-battle",
@@ -1844,7 +1971,8 @@
     "image": "skin/explosion-battle.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "maincast-inferno",
@@ -1857,7 +1985,8 @@
     "image": "skin/maincast-inferno.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "lemons",
@@ -1870,7 +1999,8 @@
     "image": "skin/lemons.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "invitation-market-mono",
@@ -1883,7 +2013,8 @@
     "image": "skin/invitation-market-mono.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "checkered-bag",
@@ -1896,7 +2027,8 @@
     "image": "skin/checkered-bag.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "maincast-mirage-b",
@@ -1909,7 +2041,8 @@
     "image": "skin/maincast-mirage-b.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "lebigovych-president",
@@ -1922,7 +2055,8 @@
     "image": "skin/lebigovych-president.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "ukrposhta-stamp",
@@ -1935,7 +2069,8 @@
     "image": "skin/stamp-ship.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "maincast-dota2-sf",
@@ -1948,7 +2083,8 @@
     "image": "skin/dota2-sf.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "maluk-pavutyna",
@@ -1961,7 +2097,8 @@
     "image": "skin/maluk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "lvivske-rizdviane",
@@ -1974,7 +2111,8 @@
     "image": "skin/lvivske-rizdviane.png",
     "isVisaOnly": false,
     "isAdultOnly": true,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "petrychenko",
@@ -1987,7 +2125,8 @@
     "image": "skin/petrychenko.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "vms",
@@ -2000,7 +2139,8 @@
     "image": "skin/vms.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "yanovych",
@@ -2013,7 +2153,8 @@
     "image": "skin/yanovych.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mono-career-vdng",
@@ -2026,7 +2167,8 @@
     "image": "skin/mono-career-vdng.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "women-career-day",
@@ -2039,7 +2181,8 @@
     "image": "skin/women-career-day.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "sternenko-rusoriz",
@@ -2052,7 +2195,8 @@
     "image": "skin/sternenko-rusoriz.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "sternenko-spivuchasnyk-rusorizu",
@@ -2065,7 +2209,8 @@
     "image": "skin/sternenko-spivuchasnyk-rusorizu.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "sternenko-opora-spilnoty",
@@ -2078,7 +2223,8 @@
     "image": "skin/sternenko-opora-spilnoty.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "azov-odna-hryvnia",
@@ -2091,7 +2237,8 @@
     "image": "skin/azov-odna-hryvnia.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "heraskevych-sholom-pamiati",
@@ -2104,7 +2251,8 @@
     "image": "skin/heraskevych-sholom-pamiati.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "smak-gnomes",
@@ -2117,7 +2265,8 @@
     "image": "skin/smak-gnomes.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "torontotv-pig-monument",
@@ -2130,7 +2279,8 @@
     "image": "skin/torontotv-pig-monument.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   },
   {
     "id": "mono-7",
@@ -2143,6 +2293,7 @@
     "image": "skin/mono-7.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00"
+    "addedAt": "2026-08-01T18:25:50+03:00",
+    "lastVerifiedAt": "2026-08-09"
   }
 ]
