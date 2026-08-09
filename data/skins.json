@@ -1,5 +1,19 @@
 [
   {
+    "id": "nindzya",
+    "name": "🥷Ніндзя",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-09T05:52:01.166Z",
+    "description": "Шкільний набір mono",
+    "sourceUrl": "https://base.monobank.ua/ds/Q9htum6m2TdGi",
+    "image": "skin/nindzya.png",
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "spantelychenyy",
     "name": "🤔Спантеличений",
     "method": "Безкоштовний",
