@@ -24,13 +24,17 @@ type GitHubTree = { sha: string };
 type GitHubCreatedCommit = { sha: string };
 
 function corsHeaders(origin: string | null, env: Env): Record<string, string> {
-  if (origin !== env.ALLOWED_ORIGIN) return {};
+  if (!isAllowedOrigin(origin, env)) return {};
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
     Vary: "Origin",
   };
+}
+
+function isAllowedOrigin(origin: string | null, env: Env) {
+  return origin === env.ALLOWED_ORIGIN || origin === "https://monoskin.pages.dev";
 }
 
 function json(body: Record<string, string | boolean>, status: number, headers: Record<string, string>) {
@@ -483,8 +487,8 @@ async function handleTelegramUpdate(update: TelegramUpdate, env: Env) {
 async function handleSubmission(request: Request, env: Env): Promise<Response> {
   const origin = request.headers.get("Origin");
   const headers = corsHeaders(origin, env);
-  if (request.method === "OPTIONS") return new Response(null, { status: origin === env.ALLOWED_ORIGIN ? 204 : 403, headers });
-  if (origin !== env.ALLOWED_ORIGIN || request.method !== "POST") return json({ error: "Not found" }, 404, headers);
+  if (request.method === "OPTIONS") return new Response(null, { status: isAllowedOrigin(origin, env) ? 204 : 403, headers });
+  if (!isAllowedOrigin(origin, env) || request.method !== "POST") return json({ error: "Not found" }, 404, headers);
   const contentLength = Number(request.headers.get("Content-Length") || 0);
   if (contentLength > MAX_PHOTO_BYTES + 80_000) return json({ error: "Фото має бути меншим за 8 МБ." }, 413, headers);
   if (!request.headers.get("Content-Type")?.includes("multipart/form-data")) return json({ error: "Некоректний формат форми." }, 415, headers);
@@ -549,8 +553,8 @@ async function inspectLink(url: string) {
 async function handleLinkCheck(request: Request, env: Env): Promise<Response> {
   const origin = request.headers.get("Origin");
   const headers = corsHeaders(origin, env);
-  if (request.method === "OPTIONS") return new Response(null, { status: origin === env.ALLOWED_ORIGIN ? 204 : 403, headers });
-  if (origin !== env.ALLOWED_ORIGIN || request.method !== "POST") return json({ error: "Not found" }, 404, headers);
+  if (request.method === "OPTIONS") return new Response(null, { status: isAllowedOrigin(origin, env) ? 204 : 403, headers });
+  if (!isAllowedOrigin(origin, env) || request.method !== "POST") return json({ error: "Not found" }, 404, headers);
   const token = request.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") || "";
   if (!token || !await isGithubOwnerToken(token)) return json({ error: "Адмін-доступ не підтверджено." }, 401, headers);
   const body = await request.json().catch(() => null) as { links?: Array<{ id?: string; url?: string }> } | null;
