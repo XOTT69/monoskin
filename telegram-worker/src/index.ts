@@ -16,6 +16,7 @@ type Category = "Безкоштовно" | "Доступні всім" | "Дон
 type BotStep = "photos" | "name" | "category" | "minimum" | "description" | "source" | "preview" | "publishing";
 type BotDraft = { step: BotStep; photos: TelegramPhoto[]; name?: string; category?: Category; minimumValue?: number; description?: string; sourceUrl?: string };
 type ReviewRequest = { draft: BotDraft; editorChatId: number; submittedAt: string; status: "pending" | "publishing" };
+type EditorAccessEnv = Env & { TELEGRAM_EDITOR_CHAT_IDS?: string };
 type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
 type GitHubContent = { content: string; sha: string };
 type GitHubRef = { object: { sha: string } };
@@ -166,7 +167,7 @@ function isOwner(chatId: number | undefined, env: Env) {
   return String(chatId ?? "") === env.TELEGRAM_CHAT_ID;
 }
 
-function isEditor(chatId: number | undefined, env: Env) {
+function isEditor(chatId: number | undefined, env: EditorAccessEnv) {
   const editors = (env.TELEGRAM_EDITOR_CHAT_IDS || "").split(/[\s,]+/).filter(Boolean);
   return isOwner(chatId, env) || editors.includes(String(chatId ?? ""));
 }
