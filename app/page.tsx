@@ -39,7 +39,6 @@ type Skin = {
   unavailableReason?: string;
 };
 type Sort = "newest" | "oldest" | "name" | "price";
-type DonationRange = "all" | "free" | "under-100" | "100-499" | "500-plus";
 
 const skins = rawSkins as Skin[];
 const categories: Category[] = ["Усі", "Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"];
@@ -157,11 +156,11 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
-  const [donationRange, setDonationRange] = useState<DonationRange>("all");
   const [sort, setSort] = useState<Sort>("newest");
   const [selected, setSelected] = useState<Skin | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [showQr, setShowQr] = useState(false);
+  const [copiedSkinId, setCopiedSkinId] = useState<string | null>(null);
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
@@ -183,14 +182,13 @@ export default function Home() {
     .filter((skin) => {
       const searchable = `${skin.name} ${skin.method} ${skin.status} ${skin.description}`.toLocaleLowerCase("uk");
       return searchable.includes(query.toLocaleLowerCase("uk"))
-        && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter)
-        && (donationRange === "all" || donationRange === "free" && skin.minimumValue === 0 || donationRange === "under-100" && skin.minimumValue > 0 && skin.minimumValue < 100 || donationRange === "100-499" && skin.minimumValue >= 100 && skin.minimumValue < 500 || donationRange === "500-plus" && skin.minimumValue >= 500);
+        && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter);
     })
     .sort((left, right) => {
       if (sort === "name") return left.name.localeCompare(right.name, "uk");
       if (sort === "price") return left.minimumValue - right.minimumValue;
       return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
-    }), [categoryFilter, donationRange, query, sort]);
+    }), [categoryFilter, query, sort]);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(themePreferenceKey) as Theme | null;
@@ -367,9 +365,12 @@ export default function Home() {
   };
 
   const copySkinLink = async (skin: Skin) => {
-    const url = `${window.location.origin}${window.location.pathname}?skin=${encodeURIComponent(skin.id)}`;
+    if (!isSecureUrl(skin.sourceUrl)) return;
+    const url = skin.sourceUrl;
     try { await navigator.clipboard.writeText(url); }
     catch { window.prompt("Скопіюй посилання:", url); }
+    setCopiedSkinId(skin.id);
+    window.setTimeout(() => setCopiedSkinId((current) => current === skin.id ? null : current), 2200);
   };
 
   return (
@@ -398,7 +399,6 @@ export default function Home() {
             <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Нещодавно додані</option><option value="oldest">Додані раніше</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label>
           </div>
           <div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>
-          <div className="filters amount-filters" aria-label="Сума отримання"><span>Сума:</span>{([['all', 'Усі'], ['free', 'Безкоштовно'], ['under-100', 'до 100 ₴'], ['100-499', '100–499 ₴'], ['500-plus', 'від 500 ₴']] as const).map(([value, label]) => <button type="button" className={donationRange === value ? "active" : ""} key={value} onClick={() => setDonationRange(value)}>{label}</button>)}</div>
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
             {visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}
             {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) openSkin(visualSearch.skin); }}>Відкрити скін →</button></>}
@@ -448,7 +448,7 @@ export default function Home() {
             <h2 id="details-title">{selected.name}</h2>
             <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? selected.unavailableReason ? `Видачу скіна завершено: ${selected.unavailableReason}` : "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
-            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}<button className="direct-link copy-link" type="button" onClick={() => void copySkinLink(selected)}>Скопіювати посилання</button></div>
+            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}{isSecureUrl(selected.sourceUrl) && <button className={`direct-link copy-link ${copiedSkinId === selected.id ? "copied" : ""}`} type="button" onClick={() => void copySkinLink(selected)}>{copiedSkinId === selected.id ? "Посилання скопійовано ✓" : "Скопіювати посилання отримання"}</button>}</div>
           </div>
           <div className="detail-art"><Image src={sitePath(skinImages(selected)[selectedImageIndex] ?? selected.image)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority />{skinImages(selected).length > 1 && <div className="detail-gallery" aria-label="Варіанти скіна">{skinImages(selected).map((image, index) => <button type="button" key={image} className={selectedImageIndex === index ? "active" : ""} aria-label={`Показати варіант ${index + 1}`} onClick={() => setSelectedImageIndex(index)}><Image src={sitePath(image)} alt="" fill sizes="72px" /></button>)}</div>}</div>
         </section>
