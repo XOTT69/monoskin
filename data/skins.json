@@ -21,16 +21,17 @@
     "id": "fk-shakhtar-kh-3-oshb",
     "name": "ФК Шахтар х 3 ОШБ",
     "method": "Донат на банку",
-    "status": "Доступний",
+    "status": "Недоступний",
     "minimumValue": 100,
     "addedAt": "2026-08-09T08:30:13.873Z",
-    "description": "Скін видається за донат від 100 грн на банку «Квиток на Донбас Арену» — спільний збір ФК «Шахтар» та 3 ОШБр.",
-    "sourceUrl": "https://send.monobank.ua/jar/6BtHLActTL",
+    "description": "Скін видавався за донат від 100 грн на банку «Квиток на Донбас Арену» — спільний збір ФК «Шахтар» та 3 ОШБр. Банку закрито.",
+    "sourceUrl": "",
     "image": "skin/fk-shakhtar-kh-3-oshb.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Банку закрито",
     "imageHashes": [
       "e90b61a1dccdca4f4e3e9b30a13d0d3879fe8aa0d2490285bbb700f30b6fc179"
     ]
@@ -2490,15 +2491,16 @@
     "id": "maluk-pavutyna",
     "name": "Малюк. Павутина",
     "method": "Донат на банку",
-    "status": "Доступний",
+    "status": "Недоступний",
     "minimumValue": 100,
-    "description": "Скін «Малюк» видається за донат від 100 грн на збір на дрони.",
-    "sourceUrl": "https://send.monobank.ua/jar/5UCcTusTa6",
+    "description": "Скін «Малюк» видавався за донат від 100 грн на збір на дрони. Банку закрито.",
+    "sourceUrl": "",
     "image": "skin/maluk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
     "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Банку закрито",
     "imageHashes": [
       "394aa489a28ce55cedc90c4426f2959aa11390d090adeac8b33e89b9ee2eaa32"
     ]
@@ -3829,10 +3831,10 @@
     "id": "madcruiser",
     "name": "Faine Misto × AZOV.ONE. MadCruiser",
     "method": "Донат на банку",
-    "status": "Доступний",
+    "status": "Недоступний",
     "minimumValue": 300,
-    "description": "Скін видавався за донат від 300 грн на збір MadCruiser від Faine Misto, Фонду Притули та AZOV.ONE.",
-    "sourceUrl": "https://send.monobank.ua/jar/4Xmqit43yX",
+    "description": "Скін видавався за донат від 300 грн на збір MadCruiser від Faine Misto, Фонду Притули та AZOV.ONE. Банку розбито.",
+    "sourceUrl": "",
     "image": "skin/madcruiser.png",
     "imageHashes": [
       "63867ffde7333fc3b61dae3058d6328997d0e55795f6cf0445c6101a6924fd1b"
@@ -3841,16 +3843,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.250Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Банку розбито"
   },
   {
     "id": "kurazh",
     "name": "Кураж",
     "method": "Донат на банку",
-    "status": "Доступний",
+    "status": "Недоступний",
     "minimumValue": 100,
-    "description": "Скін видавався за донат від 100 грн.",
-    "sourceUrl": "https://send.monobank.ua/jar/91o4iFkWDh",
+    "description": "Скін видавався за донат від 100 грн. Банку розбито.",
+    "sourceUrl": "",
     "image": "skin/kurazh.png",
     "imageHashes": [
       "d121ce47b63b71ba27e76a485c8e3faccbf34669463f0982042cfeaeb57a4045"
@@ -3859,7 +3862,8 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.253Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Банку розбито"
   },
   {
     "id": "dorofeeva-positiff",
