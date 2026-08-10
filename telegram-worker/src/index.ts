@@ -15,6 +15,7 @@ type TelegramUpdate = { message?: TelegramMessage; callback_query?: TelegramCall
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
 type BotStep = "photos" | "name" | "category" | "minimum" | "description" | "source" | "preview" | "publishing";
 type BotDraft = { step: BotStep; photos: TelegramPhoto[]; name?: string; category?: Category; minimumValue?: number; description?: string; sourceUrl?: string };
+type ReviewRequest = { draft: BotDraft; editorChatId: number; submittedAt: string; status: "pending" | "publishing" };
 type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
 type GitHubContent = { content: string; sha: string };
 type GitHubRef = { object: { sha: string } };
@@ -161,8 +162,25 @@ async function clearDraft(chatId: number, env: Env) {
   await env.BOT_SESSIONS.delete(`draft:${chatId}`);
 }
 
-function isAdmin(chatId: number | undefined, env: Env) {
+function isOwner(chatId: number | undefined, env: Env) {
   return String(chatId ?? "") === env.TELEGRAM_CHAT_ID;
+}
+
+function isEditor(chatId: number | undefined, env: Env) {
+  const editors = (env.TELEGRAM_EDITOR_CHAT_IDS || "").split(/[\s,]+/).filter(Boolean);
+  return isOwner(chatId, env) || editors.includes(String(chatId ?? ""));
+}
+
+async function loadReview(id: string, env: Env) {
+  return env.BOT_SESSIONS.get<ReviewRequest>(`review:${id}`, "json");
+}
+
+async function saveReview(id: string, review: ReviewRequest, env: Env) {
+  await env.BOT_SESSIONS.put(`review:${id}`, JSON.stringify(review), { expirationTtl: 60 * 60 * 24 * 7 });
+}
+
+async function clearReview(id: string, env: Env) {
+  await env.BOT_SESSIONS.delete(`review:${id}`);
 }
 
 function isHttpsUrl(value: string) {
@@ -173,7 +191,7 @@ function photoPrompt(count: number) {
   return `Надішли фото скіна (${count}/${MAX_IMAGES_PER_SKIN}). Після кожного фото обери: додати ще чи продовжити.`;
 }
 
-function previewText(draft: BotDraft) {
+function previewText(draft: BotDraft, review = false) {
   return [
     "<b>Перевір перед публікацією</b>",
     "",
@@ -184,15 +202,63 @@ function previewText(draft: BotDraft) {
     `<b>Посилання:</b> ${escapeHtml(draft.sourceUrl || "не додано")}`,
     `<b>Фото:</b> ${draft.photos.length}`,
     "",
-    "Після «Опублікувати» скін з’явиться на сайті за кілька хвилин.",
+    review ? "Натисни «Надіслати на перевірку» — власник каталогу отримає чернетку." : "Після «Опублікувати» скін з’явиться на сайті за кілька хвилин.",
   ].filter(Boolean).join("\n");
 }
 
 async function showPreview(chatId: number, draft: BotDraft, env: Env) {
-  await sendBotMessage(chatId, previewText(draft), env, inlineKeyboard([
-    [{ text: "Опублікувати", callback_data: "skin:publish" }],
+  const review = !isOwner(chatId, env);
+  await sendBotMessage(chatId, previewText(draft, review), env, inlineKeyboard([
+    [{ text: review ? "Надіслати на перевірку" : "Опублікувати", callback_data: "skin:publish" }],
     [{ text: "Почати заново", callback_data: "skin:new" }, { text: "Скасувати", callback_data: "skin:cancel" }],
   ]));
+}
+
+async function sendReview(chatId: number, draft: BotDraft, env: Env) {
+  const reviewId = crypto.randomUUID();
+  await saveReview(reviewId, { draft, editorChatId: chatId, submittedAt: new Date().toISOString(), status: "pending" }, env);
+  const ownerChatId = Number(env.TELEGRAM_CHAT_ID);
+  if (draft.photos.length > 1) {
+    await telegram("sendMediaGroup", { chat_id: ownerChatId, media: draft.photos.map((photo) => ({ type: "photo", media: photo.file_id })) }, env);
+  } else if (draft.photos[0]) {
+    await telegram("sendPhoto", { chat_id: ownerChatId, photo: draft.photos[0].file_id }, env);
+  }
+  await sendBotMessage(ownerChatId, `<b>Чернетка від редактора</b> · ID ${chatId}\n\n${previewText(draft, true)}`, env, inlineKeyboard([
+    [{ text: "✓ Опублікувати", callback_data: `review:approve:${reviewId}` }, { text: "✕ Відхилити", callback_data: `review:reject:${reviewId}` }],
+  ]));
+}
+
+async function processReviewCallback(callback: TelegramCallback, chatId: number, env: Env) {
+  const [, action, reviewId] = (callback.data || "").split(":");
+  if (!reviewId || (action !== "approve" && action !== "reject")) return;
+  const review = await loadReview(reviewId, env);
+  if (!review) {
+    await sendBotMessage(chatId, "Ця чернетка вже оброблена або термін її дії сплив.", env, startKeyboard());
+    return;
+  }
+  if (action === "reject") {
+    await clearReview(reviewId, env);
+    await sendBotMessage(review.editorChatId, "Чернетку не опубліковано. Уточни дані та створи нову — усе збережене фото можна надіслати повторно.", env, startKeyboard());
+    await sendBotMessage(chatId, "Чернетку відхилено. Редактор отримав повідомлення.", env, startKeyboard());
+    return;
+  }
+  if (review.status === "publishing") {
+    await sendBotMessage(chatId, "Публікація вже виконується. Зачекай кілька секунд.", env);
+    return;
+  }
+  review.status = "publishing";
+  await saveReview(reviewId, review, env);
+  await sendBotMessage(chatId, "Публікую скін у каталог…", env);
+  try {
+    const skin = await publishDraft(review.draft, env);
+    await clearReview(reviewId, env);
+    await sendBotMessage(review.editorChatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Сайт оновиться за кілька хвилин.`, env, startKeyboard());
+    await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Редактор отримав повідомлення.`, env, startKeyboard());
+  } catch (error) {
+    review.status = "pending";
+    await saveReview(reviewId, review, env);
+    await sendBotMessage(chatId, `Не вдалося опублікувати: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: `review:approve:${reviewId}` }, { text: "Відхилити", callback_data: `review:reject:${reviewId}` }]]));
+  }
 }
 
 async function fetchTelegramPhoto(photo: TelegramPhoto, env: Env) {
@@ -400,6 +466,11 @@ async function processCallback(callback: TelegramCallback, env: Env) {
   if (!chatId) return;
   await answerCallback(callback.id, env).catch(() => undefined);
   const data = callback.data || "";
+  if (data.startsWith("review:")) {
+    if (!isOwner(callback.from.id, env)) return;
+    await processReviewCallback(callback, chatId, env);
+    return;
+  }
   if (data === "skin:new") {
     await startDraft(chatId, env);
     return;
@@ -466,6 +537,16 @@ async function processCallback(callback: TelegramCallback, env: Env) {
       await sendBotMessage(chatId, "Публікація вже виконується. Зачекай кілька секунд.", env);
       return;
     }
+    if (!isOwner(chatId, env)) {
+      try {
+        await sendReview(chatId, draft, env);
+        await clearDraft(chatId, env);
+        await sendBotMessage(chatId, "✓ Чернетку та всі фото надіслано власнику каталогу. Напишемо сюди після рішення.", env, startKeyboard());
+      } catch (error) {
+        await sendBotMessage(chatId, `Не вдалося надіслати чернетку: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: "skin:publish" }, { text: "Скасувати", callback_data: "skin:cancel" }]]));
+      }
+      return;
+    }
     draft.step = "publishing";
     await saveDraft(chatId, draft, env);
     await sendBotMessage(chatId, "Публікую скін у каталог…", env);
@@ -483,7 +564,12 @@ async function processCallback(callback: TelegramCallback, env: Env) {
 
 async function handleTelegramUpdate(update: TelegramUpdate, env: Env) {
   const chatId = update.message?.chat.id ?? update.callback_query?.message?.chat.id;
-  if (!isAdmin(chatId, env)) return;
+  const message = update.message;
+  if (typeof chatId === "number" && message?.text?.trim() === "/id" && message.from?.id === chatId) {
+    await sendBotMessage(chatId, `Твій Telegram ID: <code>${chatId}</code>\nНадішли його власнику MONOSKIN, щоб отримати роль редактора.`, env);
+    return;
+  }
+  if (!isEditor(chatId, env)) return;
   if (update.callback_query) return processCallback(update.callback_query, env);
   if (update.message) return processMessage(update.message, env);
 }
