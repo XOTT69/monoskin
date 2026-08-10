@@ -5,6 +5,7 @@ import Script from "next/script";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import rawSkins from "@/data/skins.json";
+import { sitePath } from "@/lib/site-path";
 
 declare global {
   interface Window {
@@ -130,7 +131,7 @@ function fingerprintSimilarity(left: number[], right: number[]) {
 }
 
 function skinImage(skin: Skin) {
-  return `/monoskin/${skin.image}`;
+  return sitePath(skin.image);
 }
 
 function skinImages(skin: Skin) {
@@ -346,7 +347,7 @@ export default function Home() {
     try {
       const queryHashes = await Promise.all(photoSearchCrops.map((crop) => imageFingerprint(file, crop)));
       const candidates = await Promise.all(skins.map(async (skin) => {
-        const existing = visualHashCache.current.get(skin.id) ?? Promise.all(skinImages(skin).map((image) => imageFingerprint(`/monoskin/${image}`)));
+        const existing = visualHashCache.current.get(skin.id) ?? Promise.all(skinImages(skin).map((image) => imageFingerprint(sitePath(image))));
         visualHashCache.current.set(skin.id, existing);
         const imageHashes = await existing;
         return { skin, similarity: Math.max(...queryHashes.flatMap((queryHash) => imageHashes.map((imageHash) => fingerprintSimilarity(queryHash, imageHash)))) };
@@ -375,7 +376,7 @@ export default function Home() {
     <main className={`site ${theme}`}>
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
         <nav className="nav container" aria-label="Головна навігація">
-          <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark brand-avatar"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="27px" priority /></span><span>mono<span className="brand-light">skin</span></span></a>
+          <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark brand-avatar"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="27px" priority /></span><span>mono<span className="brand-light">skin</span></span></a>
           <div className="nav-actions"><button type="button" className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest">Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
         </nav>
         <div className="hero-content container">
@@ -418,7 +419,7 @@ export default function Home() {
 
       <section className="suggestion container" id="suggest" aria-labelledby="suggest-title">
         <div className="suggestion-copy">
-          <div className="suggestion-avatar" aria-hidden="true"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="92px" /></div>
+          <div className="suggestion-avatar" aria-hidden="true"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="92px" /></div>
           <p className="eyebrow"><span /> Доповнити каталог</p>
           <h2 id="suggest-title">Знаєш про новий скін?</h2>
           <p>Надішли назву, коротку умову та зображення. Ми перевіримо інформацію й додамо скін до каталогу.</p>
@@ -437,7 +438,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="container footer"><span className="brand"><span className="brand-mark brand-avatar"><Image src="/monoskin/monoskin-avatar.png" alt="" fill sizes="23px" /></span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
+      <footer className="container footer"><span className="brand"><span className="brand-mark brand-avatar"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="23px" /></span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
 
       {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}>
         <section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" onMouseDown={(event) => event.stopPropagation()}>
@@ -449,7 +450,7 @@ export default function Home() {
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? selected.unavailableReason ? `Видачу скіна завершено: ${selected.unavailableReason}` : "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
             <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}<button className="direct-link copy-link" type="button" onClick={() => void copySkinLink(selected)}>Скопіювати посилання</button></div>
           </div>
-          <div className="detail-art"><Image src={`/monoskin/${skinImages(selected)[selectedImageIndex] ?? selected.image}`} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority />{skinImages(selected).length > 1 && <div className="detail-gallery" aria-label="Варіанти скіна">{skinImages(selected).map((image, index) => <button type="button" key={image} className={selectedImageIndex === index ? "active" : ""} aria-label={`Показати варіант ${index + 1}`} onClick={() => setSelectedImageIndex(index)}><Image src={`/monoskin/${image}`} alt="" fill sizes="72px" /></button>)}</div>}</div>
+          <div className="detail-art"><Image src={sitePath(skinImages(selected)[selectedImageIndex] ?? selected.image)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority />{skinImages(selected).length > 1 && <div className="detail-gallery" aria-label="Варіанти скіна">{skinImages(selected).map((image, index) => <button type="button" key={image} className={selectedImageIndex === index ? "active" : ""} aria-label={`Показати варіант ${index + 1}`} onClick={() => setSelectedImageIndex(index)}><Image src={sitePath(image)} alt="" fill sizes="72px" /></button>)}</div>}</div>
         </section>
       </div>}
       {showQr && selected?.status === "Доступний" && selected.sourceUrl && <div className="qr-overlay" role="presentation" onMouseDown={() => setShowQr(false)}>
