@@ -2327,23 +2327,6 @@
     ]
   },
   {
-    "id": "kryshka",
-    "name": "Кришка",
-    "method": "За дію",
-    "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін картки monobank, доступний під час події Кураж 10 травня 2025 року в Києві. Імовірно видавався разом із брендованим брелоком у вигляді кришки на офіційному стенді monobank",
-    "sourceUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
-    "image": "skin/kryshka.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "80971b87256ac95bd15a26d72696c8f280d2e4d408b0921aae7a4aa85e8ba859"
-    ]
-  },
-  {
     "id": "urban-cat-black",
     "name": "Техно Кіт. Чорний",
     "method": "За дію",
