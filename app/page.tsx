@@ -54,8 +54,9 @@ const photoSearchCrops = [
   { x: .03, y: .04, width: .94, height: .91 },
 ] as const satisfies readonly ImageCrop[];
 
-function money(value: number) {
-  return value ? `від ${value.toLocaleString("uk-UA")} ₴` : "Безкоштовно";
+function money(value: number, method?: Method) {
+  if (value) return `від ${value.toLocaleString("uk-UA")} ₴`;
+  return method === "Підписка Base" ? "Сума в Base" : "Безкоштовно";
 }
 
 function formatDate(value: string) {
@@ -411,7 +412,7 @@ export default function Home() {
         <div className="skin-grid">
           {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
             <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
-            <div className="skin-info"><div><h3>{skin.name}</h3><p>{categoryOf(skin)}</p></div><span className="price">{money(skin.minimumValue)}</span></div>
+            <div className="skin-info"><div><h3>{skin.name}</h3><p>{categoryOf(skin)}</p></div><span className="price">{money(skin.minimumValue, skin.method)}</span></div>
           </button>)}
         </div>
         {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або категорію.</p></div>}
@@ -446,7 +447,7 @@ export default function Home() {
           <div className="detail-body">
             <p className="eyebrow"><span /> {selected.status}</p>
             <h2 id="details-title">{selected.name}</h2>
-            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
+            <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue, selected.method)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? selected.unavailableReason ? `Видачу скіна завершено: ${selected.unavailableReason}` : "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
             <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}{isSecureUrl(selected.sourceUrl) && <button className={`direct-link copy-link ${copiedSkinId === selected.id ? "copied" : ""}`} type="button" onClick={() => void copySkinLink(selected)}>{copiedSkinId === selected.id ? "Посилання скопійовано ✓" : "Скопіювати посилання отримання"}</button>}</div>
           </div>

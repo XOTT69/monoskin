@@ -20,17 +20,17 @@
   {
     "id": "fk-shakhtar-kh-3-oshb",
     "name": "ФК Шахтар х 3 ОШБ",
-    "method": "Безкоштовний",
-    "status": "Недоступний",
+    "method": "Донат на банку",
+    "status": "Доступний",
     "minimumValue": 100,
     "addedAt": "2026-08-09T08:30:13.873Z",
-    "description": "За донат від 100 грн. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видається за донат від 100 грн на банку «Квиток на Донбас Арену» — спільний збір ФК «Шахтар» та 3 ОШБр.",
+    "sourceUrl": "https://send.monobank.ua/jar/6BtHLActTL",
     "image": "skin/fk-shakhtar-kh-3-oshb.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "e90b61a1dccdca4f4e3e9b30a13d0d3879fe8aa0d2490285bbb700f30b6fc179"
     ]
@@ -148,15 +148,15 @@
     "name": "Меморіал Героїв х RBTNK",
     "method": "Донат на банку",
     "status": "Доступний",
-    "minimumValue": 300,
+    "minimumValue": 100,
     "addedAt": "2026-08-09T08:06:27.534Z",
-    "description": "за донат від 300 грн",
-    "sourceUrl": "https://send.monobank.ua/jar/dzbHYitbU",
+    "description": "Скін видається за донат від 100 грн на банку.",
+    "sourceUrl": "https://send.monobank.ua/jar/81Ko9pjSnh",
     "image": "skin/memorial-heroyiv-kh-rbtnk.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "7ddb33de246c37391778a40ecf5d6c6d0c24fd1c3dddcac7c5d261012fee7444"
     ]
@@ -254,20 +254,21 @@
   {
     "id": "skin-vasylya-baydaka",
     "name": "Скін Василя Байдака",
-    "method": "Безкоштовний",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 500,
     "addedAt": "2026-08-09T07:53:52.841Z",
-    "description": "за донат від 500 грн. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 500 грн на збір Василя Байдака.",
+    "sourceUrl": "https://send.monobank.ua/jar/4eRV1T1YrK",
     "image": "skin/skin-vasylya-baydaka.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "3bc139339e8326ce750982bfb3d2368363df523ad7798b933bacea6672af2a4f"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "ukrayinska-pravda",
@@ -326,20 +327,21 @@
   {
     "id": "skin-by-ghostik",
     "name": "Skin by Ghostik",
-    "method": "Безкоштовний",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 300,
     "addedAt": "2026-08-09T07:48:42.172Z",
-    "description": "за донат від 300 грн. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 300 грн на банку «РЕБ та дрони Азову».",
+    "sourceUrl": "https://send.monobank.ua/jar/5P67kMYNen",
     "image": "skin/skin-by-ghostik.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "61df1e7fd56f2b5d80837a6ffecfa1561eabb63d7036b324ca6123d4527dbedc"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "hur",
@@ -416,38 +418,40 @@
   {
     "id": "oko-za-oko",
     "name": "ОКО ЗА ОКО",
-    "method": "Безкоштовний",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 500,
     "addedAt": "2026-08-09T07:28:33.946Z",
-    "description": "був доступний за донат від 500 грн. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 500 грн на збір «ОКО ЗА ОКО 3».",
+    "sourceUrl": "https://send.monobank.ua/jar/3sL7WymGcE",
     "image": "skin/oko-za-oko.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "c47dca1d0dca0758915d538479a94769bf3ee1cc6db469703d70ecea6c90d4f7"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "morskyy-biy",
     "name": "Морський бій",
-    "method": "Безкоштовний",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 1,
     "addedAt": "2026-08-09T07:26:48.199Z",
-    "description": "був доступний у 2024 р. за будь-яку суму. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат на банку «Морський бій. Твій хід».",
+    "sourceUrl": "https://send.monobank.ua/jar/7K3pYkweXt",
     "image": "skin/morskyy-biy.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "9e1cb4bebc1f45c26a0353e9b7f89e317fa58f6d3f4750495196650d2ceeb197"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "kotyky-azovu",
@@ -488,38 +492,40 @@
   {
     "id": "vovky-da-vinchi",
     "name": "Вовки Да Вінчі",
-    "method": "Безкоштовний",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 200,
     "addedAt": "2026-08-09T07:17:20.278Z",
-    "description": "був доступний за донат від 200 грн. Банка закрита.",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 200 грн на банку «Вовки Да Вінчі».",
+    "sourceUrl": "https://send.monobank.ua/jar/8gt5Mp4sfL",
     "image": "skin/vovky-da-vinchi.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "bf006fa5593f94097343d4e48289c7db20e580a45f2df8716c8dd5fc7ddcb63e"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "azov-one-kh-maincast",
-    "name": "АЗОВ.ONE. х Maincast",
-    "method": "Безкоштовний",
+    "name": "MAJOR EQUIP",
+    "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 300,
     "addedAt": "2026-08-09T07:13:46.978Z",
-    "description": "Був доступний за донат від 300 грн. Банка закрита",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 300 грн на збір MAJOR EQUIP.",
+    "sourceUrl": "https://send.monobank.ua/jar/3NCDrBNjCV",
     "image": "skin/azov-one-kh-maincast.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "632967ac07ab3fe9f429de916b3a206a117321504691efae8b96929e255dcbbb"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "yanholy-azovu",
@@ -2448,20 +2454,21 @@
   },
   {
     "id": "maincast-mirage-b",
-    "name": "Maincast. CS Mirage",
+    "name": "Клатч Айдару",
     "method": "Донат на банку",
     "status": "Недоступний",
-    "minimumValue": 100,
-    "description": "Скін картки monobank, створений у межах благодійного збору під час CS2-івенту. Дизайн відсилає до легендарної мапи Dust II, локації Bombsite B, і обігрує ігрову механіку: замість вибухівки персонаж «плантить» банку monobank. Скін надавався за донат від 100 грн",
-    "sourceUrl": "",
+    "minimumValue": 200,
+    "description": "Скін видавався за донат 200 грн на банку «Клатч Айдару».",
+    "sourceUrl": "https://send.monobank.ua/jar/8SKXjqxJkQ",
     "image": "skin/maincast-mirage-b.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "0cb139f319c855996ef3cb3ef81e08457367fe57cace1f8be4bb9ab66b4b90a6"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "lebigovych-president",
@@ -2503,30 +2510,31 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "description": "Скін картки monobank, випущений 20 жовтня 2024 року до благодійного шоу-матчу «Три тангуси» у співпраці з Maincast. Дизайн із котом у образі Shadow Fiend (SF) відсилає до Dota 2.\n\nСкін надавався користувачам, які задонатили від 100 грн на благодійний стрім та був доступний під час стріму благодійного матчу",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 100 грн на банку шоу-матчу «3 тангуси».",
+    "sourceUrl": "https://send.monobank.ua/jar/ANGSjCM14e",
     "image": "skin/dota2-sf.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "0c988763f180a360725f274acb6110a2212e78b35be7c51abaeac80a36601298"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "maluk-pavutyna",
     "name": "Малюк. Павутина",
     "method": "Донат на банку",
-    "status": "Недоступний",
+    "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін картки monobank, випущений у межах благодійного збору у червні 2025 року. Дизайн присвячений спецоперації «Павутина».\n\nСкін із зображенням генерала «Малюка» надавався всім користувачам, які задонатили від 100 грн на збір",
-    "sourceUrl": "",
+    "description": "Скін «Малюк» видається за донат від 100 грн на збір на дрони.",
+    "sourceUrl": "https://send.monobank.ua/jar/5UCcTusTa6",
     "image": "skin/maluk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "394aa489a28ce55cedc90c4426f2959aa11390d090adeac8b33e89b9ee2eaa32"
     ]
@@ -2537,16 +2545,17 @@
     "method": "Донат на банку",
     "status": "Недоступний",
     "minimumValue": 100,
-    "description": "Скін картки monobank «Різдвяне», випущений у грудні 2024 року в межах благодійного різдвяного збору, організованого UAF Foundation у співпраці з monobank та брендом «Львівське». Скін отримували користувачі 18+, які зробили донат від 100 грн",
-    "sourceUrl": "",
+    "description": "Скін видавався за донат від 100 грн на «Різдвяний збір». Доступний лише повнолітнім.",
+    "sourceUrl": "https://send.monobank.ua/jar/5B7YNnG6nV",
     "image": "skin/lvivske-rizdviane.png",
     "isVisaOnly": false,
     "isAdultOnly": true,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "fb007086263716aacd938520b6c29b57158ee72403c3189fbbdd2bc80b78c98a"
-    ]
+    ],
+    "unavailableReason": "Акція завершена."
   },
   {
     "id": "petrychenko",
@@ -2982,8 +2991,8 @@
     "name": "Михайло Крупін",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «Михайло Крупін» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 25000,
+    "description": "Скін доступний у підписці «Михайло Крупін» у monobaza. Мінімальна сума підписки — від 25 000 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/89UUZoCBp8Dj4o#subscriptions",
     "image": "skin/base-mykhailo-krupin.png",
     "imageHashes": [
@@ -3097,8 +3106,8 @@
     "name": "Голландець 💨⛵️",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «Голландець 💨⛵️» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 500,
+    "description": "Скін доступний у підписці «Голландець 💨⛵️» у monobaza. Мінімальна сума підписки — від 500 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/6Nxv7zKiomi8By#subscriptions",
     "image": "skin/base-hollandets.png",
     "imageHashes": [
@@ -3156,8 +3165,8 @@
     "name": "БФ \"БФ\" ЛЕГІОН САППОРТ\" - Оф. БФ Міжнародного Легіону ГУР МО України: 4 скіни",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «БФ \"БФ\" ЛЕГІОН САППОРТ\" - Оф. БФ Міжнародного Легіону ГУР МО України: 4 скіни» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 200,
+    "description": "Скін доступний у підписці «БФ \"БФ\" ЛЕГІОН САППОРТ\" - Оф. БФ Міжнародного Легіону ГУР МО України: 4 скіни» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/legionsupport#subscriptions",
     "image": "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.png",
     "images": [
@@ -3426,8 +3435,8 @@
     "name": "ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 150,
+    "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Мінімальна сума підписки — від 150 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/ab3angels#subscriptions",
     "image": "skin/base-patronatna-sluzhba-yanholy.png",
     "images": [
@@ -3580,8 +3589,8 @@
     "name": "tura_hvost",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «tura_hvost» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 199,
+    "description": "Скін доступний у підписці «tura_hvost» у monobaza. Мінімальна сума підписки — від 199 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/tura_hvost#subscriptions",
     "image": "skin/base-tura-hvost.png",
     "imageHashes": [
@@ -3657,8 +3666,8 @@
     "name": "БФ \"Благодійний фонд \"ГАВКІТ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 50,
+    "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/E7b62zaY1GeXuc#subscriptions",
     "image": "skin/base-bf-blahodiinyi-fond-havkit.png",
     "images": [
@@ -3749,8 +3758,8 @@
     "name": "Андрій Г.",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «Андрій Г.» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 300,
+    "description": "Скін доступний у підписці «Андрій Г.» у monobaza. Мінімальна сума підписки — від 300 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW#subscriptions",
     "image": "skin/base-andrii-h.png",
     "imageHashes": [
@@ -3767,8 +3776,8 @@
     "name": "Pzhytomyr",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
-    "description": "Скін доступний у підписці «Pzhytomyr» у monobaza. Деталі щодо вартості — на сторінці підписки.",
+    "minimumValue": 10,
+    "description": "Скін доступний у підписці «Pzhytomyr» у monobaza. Мінімальна сума підписки — від 10 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/4jK74FuJaoieLf#subscriptions",
     "image": "skin/base-pzhytomyr.png",
     "imageHashes": [
@@ -3779,5 +3788,170 @@
     "featured": false,
     "addedAt": "2026-08-10T18:45:57.133Z",
     "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "azov-smilyvi-zavzhdy-mayut-ratsiyu",
+    "name": "АЗОВ. Сміливі завжди мають рацію",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін видається за донат від 100 грн на потреби бригади «АЗОВ».",
+    "sourceUrl": "https://send.monobank.ua/jar/84Agye6YNA",
+    "image": "skin/azov-smilyvi-zavzhdy-mayut-ratsiyu.png",
+    "imageHashes": [
+      "f46a2f0566097abaf01ab742eaf9190eaaccef386af7bc0c624e46ddb14e2a4d"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.241Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "ukrayinska-pravda-pu-pu-pu",
+    "name": "Українська правда. Пу-пу-пу",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "description": "Скін видавався за донат від 500 грн на підтримку «Української правди».",
+    "sourceUrl": "https://send.monobank.ua/jar/6853hYCfHk",
+    "image": "skin/ukrayinska-pravda-pu-pu-pu.png",
+    "imageHashes": [
+      "b82116eea7cacb5388837cc6a6d584bcddac1a12f8ec1a79df21109878a3007a"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.243Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "kolo-ukraine-povitryani-syly",
+    "name": "KOLO Ukraine. Планшети для Повітряних сил",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "description": "Скін видавався за донат від 300 грн на збір KOLO Ukraine для Повітряних сил.",
+    "sourceUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
+    "image": "skin/kolo-ukraine-povitryani-syly.png",
+    "imageHashes": [
+      "db4f9ff3505b868e3c1d4a50561d1dbd226cd4f4e7dfd6dd65ac1ad4124adf2d"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.246Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "tytanovi",
+    "name": "Титанові",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін видавався за донат від 100 грн на підтримку культурного центру «Титанові».",
+    "sourceUrl": "https://send.monobank.ua/jar/43MomG4QG5",
+    "image": "skin/tytanovi.png",
+    "imageHashes": [
+      "26e330988f18f2fc0d99b765f03e0706402ace3d82f59e4c797f4267195e8f0b"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.248Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "madcruiser",
+    "name": "Faine Misto × AZOV.ONE. MadCruiser",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "description": "Скін видавався за донат від 300 грн на збір MadCruiser від Faine Misto, Фонду Притули та AZOV.ONE.",
+    "sourceUrl": "https://send.monobank.ua/jar/4Xmqit43yX",
+    "image": "skin/madcruiser.png",
+    "imageHashes": [
+      "63867ffde7333fc3b61dae3058d6328997d0e55795f6cf0445c6101a6924fd1b"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.250Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "kurazh",
+    "name": "Кураж",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін видавався за донат від 100 грн.",
+    "sourceUrl": "https://send.monobank.ua/jar/91o4iFkWDh",
+    "image": "skin/kurazh.png",
+    "imageHashes": [
+      "d121ce47b63b71ba27e76a485c8e3faccbf34669463f0982042cfeaeb57a4045"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.253Z",
+    "lastVerifiedAt": "2026-08-10"
+  },
+  {
+    "id": "dorofeeva-positiff",
+    "name": "DOROFEEVA × POSITIFF",
+    "method": "Донат на банку",
+    "status": "Недоступний",
+    "minimumValue": 50.5,
+    "description": "Скін видавався за донат від 50,50 грн на благодійний збір DOROFEEVA та POSITIFF.",
+    "sourceUrl": "https://send.monobank.ua/jar/9jfqcEk8Gg",
+    "image": "skin/dorofeeva-positiff.png",
+    "imageHashes": [
+      "680a07c91c16b899041899457591dc41b7921727f1fcc8d215078e1d825904d3"
+    ],
+    "isVisaOnly": true,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.257Z",
+    "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Акція завершена."
+  },
+  {
+    "id": "ya-v-takiy-zao-ne-buv",
+    "name": "Я в такій ЗАО не був",
+    "method": "Донат на банку",
+    "status": "Недоступний",
+    "minimumValue": 200,
+    "description": "Скін видавався за донат від 200 грн на благодійний збір на дрони.",
+    "sourceUrl": "https://send.monobank.ua/jar/6sHyRFPo47",
+    "image": "skin/ya-v-takiy-zao-ne-buv.png",
+    "imageHashes": [
+      "f5054f4e5006d36506232a7d3f0b19c4746a3e2c5bc3f4eedb4ea82f0b7c1da2"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.259Z",
+    "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Акція завершена."
+  },
+  {
+    "id": "na-bronovanyy-avto-dlya-azovu",
+    "name": "На броньоване авто для Азову",
+    "method": "Донат на банку",
+    "status": "Недоступний",
+    "minimumValue": 100,
+    "description": "Скін видавався за донат від 100 грн на збір «На броньоване авто для Азову».",
+    "sourceUrl": "https://send.monobank.ua/jar/9Y1tYfFW6x",
+    "image": "skin/na-bronovanyy-avto-dlya-azovu.png",
+    "imageHashes": [
+      "a6e472fa2fed517569a8944e03d6b24eb66c15d296492a43773e8ff482f4b562"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-10T19:10:33.261Z",
+    "lastVerifiedAt": "2026-08-10",
+    "unavailableReason": "Акція завершена."
   }
 ]
