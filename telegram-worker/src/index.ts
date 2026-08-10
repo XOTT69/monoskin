@@ -37,6 +37,10 @@ function isAllowedOrigin(origin: string | null, env: Env) {
   return origin === env.ALLOWED_ORIGIN || origin === "https://monoskin.pages.dev";
 }
 
+function isAllowedTurnstileHostname(hostname: string | undefined, env: Env) {
+  return hostname === env.TURNSTILE_HOSTNAME || hostname === "monoskin.pages.dev";
+}
+
 function json(body: Record<string, string | boolean>, status: number, headers: Record<string, string>) {
   return Response.json(body, { status, headers: { ...headers, "Cache-Control": "no-store" } });
 }
@@ -510,7 +514,7 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
   if (!turnstileToken) return json({ error: "Підтвердь, що ти не робот." }, 400, headers);
   try {
     const verification = await verifyTurnstile(turnstileToken, request, env);
-    if (!verification.success || verification.hostname !== env.TURNSTILE_HOSTNAME) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
+    if (!verification.success || !isAllowedTurnstileHostname(verification.hostname, env)) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
     const photoPayload = new FormData();
     photoPayload.set("chat_id", env.TELEGRAM_CHAT_ID);
     photoPayload.set("photo", photo, photo.name || "monoskin-upload");
