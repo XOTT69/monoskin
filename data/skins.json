@@ -126,24 +126,6 @@
     ]
   },
   {
-    "id": "skin-zhytomyra-ne-isnuye",
-    "name": "Скін \"Житомира не існує\"",
-    "method": "Підписка Base",
-    "status": "Доступний",
-    "minimumValue": 10,
-    "addedAt": "2026-08-09T08:09:44.729Z",
-    "description": "Даруємо скін «Житомира не існує» за підписку 10 грн.\nВсі кошти будуть направлені на Центр захисту тварин.\n Поставили мінімальну суму, яка технічно можлива\nДоки є підписка - до того часу є скін.",
-    "sourceUrl": "https://base.monobank.ua/sp/2qy3o7zD6mTGQA",
-    "image": "skin/skin-zhytomyra-ne-isnuye.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "featured": false,
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "6bc733531e205607a7b8cf414969793d3d492ef24f2cb6d9910b524891ca8ee0"
-    ]
-  },
-  {
     "id": "memorial-heroyiv-kh-rbtnk",
     "name": "Меморіал Героїв х RBTNK",
     "method": "Донат на банку",
@@ -1568,24 +1550,6 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "cd7946ee3eb3d6eed05a35f902fd84359a3eafd4e50f67a91e782fde25908055"
-    ]
-  },
-  {
-    "id": "skin-1785932696332",
-    "name": "Опора Спільноти",
-    "method": "Підписка Base",
-    "status": "Доступний",
-    "minimumValue": 10,
-    "description": "Від 10 грн/місяць 1 скін, Мін: 1000 грн/міс. Макс: 99 999 грн/міс. 2 скіна",
-    "sourceUrl": "https://base.monobank.ua/sternenkofund#subscriptions",
-    "image": "skin/skin-1785932696332.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-05T15:24:59+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "b841a2ded6828fa92d366f463cc29699f7dcd31ad40cdfe9f06af619e3833e25"
     ]
   },
   {
