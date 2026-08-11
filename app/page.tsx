@@ -186,6 +186,8 @@ export default function Home() {
         && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter);
     })
     .sort((left, right) => {
+      const availabilityOrder = Number(left.status === "Недоступний") - Number(right.status === "Недоступний");
+      if (availabilityOrder) return availabilityOrder;
       if (sort === "name") return left.name.localeCompare(right.name, "uk");
       if (sort === "price") return left.minimumValue - right.minimumValue;
       return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
