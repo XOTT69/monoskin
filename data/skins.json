@@ -3551,8 +3551,10 @@
     "name": "Khimikdavid",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 200,
-    "description": "Скін доступний у підписці «Khimikdavid» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:55.862Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «Khimikdavid» у monobaza. Мінімальна сума підписки — від 50 грн/міс (1 скін), від 200 грн/міс (2 скіна)",
     "sourceUrl": "https://base.monobank.ua/DfMKh5mC4zumRy#subscriptions",
     "image": "skin/base-khimikdavid.png",
     "images": [
@@ -3565,9 +3567,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:55.862Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-loran",
