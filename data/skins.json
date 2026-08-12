@@ -273,20 +273,20 @@
   {
     "id": "maincast-kh-cs2",
     "name": "Maincast х CS2",
-    "method": "Донат на банку",
-    "status": "Доступний",
-    "minimumValue": 100,
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
     "addedAt": "2026-08-09T07:57:39.574Z",
+    "lastVerifiedAt": "2026-08-09",
     "description": "за донат від 100 грн. Банка закрита.",
     "sourceUrl": "",
     "image": "skin/maincast-kh-cs2.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "featured": false,
-    "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "1a4612680f245f60416f28bd268e78b8f06861508d8a2d5dcf1060cd71930d0c"
-    ]
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
   },
   {
     "id": "internatsionalnyy-lehion",
