@@ -2894,8 +2894,10 @@
     "name": "Дід Шинобі - ветеран 4 війни Шинобі, на пенсіі",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 199,
-    "description": "Скін доступний у підписці «Дід Шинобі - ветеран 4 війни Шинобі, на пенсіі» у monobaza. Мінімальна сума підписки — від 199 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:53.435Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «Дід Шинобі - ветеран 4 війни Шинобі, на пенсіі» у monobaza. Мінімальна сума підписки — від 50 грн/міс.\n50 грн/міс. - 1 скін\n199 грн/міс. - 2 скіни",
     "sourceUrl": "https://base.monobank.ua/8YS3SWXotttv5e#subscriptions",
     "image": "skin/base-did-shynobi-veteran-4-viiny-shynobi-na-pensii.png",
     "images": [
@@ -2908,9 +2910,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:53.435Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-leb1ga",
