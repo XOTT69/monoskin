@@ -3181,8 +3181,10 @@
     "name": "УТ-2: 2 скіни",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 119,
-    "description": "Скін доступний у підписці «УТ-2: 2 скіни» у monobaza. Мінімальна сума підписки — від 119 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:54.425Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «УТ-2: 2 скіни» у monobaza. Мінімальна сума підписки — від 39 грн/міс.\n39 грн/міс. - 1 скін\n119 грн/міс. - 2 скіна",
     "sourceUrl": "https://base.monobank.ua/yt2#subscriptions",
     "image": "skin/base-ut-2-2-skiny.png",
     "images": [
@@ -3195,9 +3197,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:54.425Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-",
