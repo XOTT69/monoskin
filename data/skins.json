@@ -951,7 +951,7 @@
     "id": "unit-travel",
     "name": "Скін працівників unit travel",
     "method": "Безкоштовний",
-    "status": "Доступний",
+    "status": "Недоступний",
     "minimumValue": 0,
     "description": "",
     "sourceUrl": "",
