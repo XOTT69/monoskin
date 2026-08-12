@@ -1,0 +1,78 @@
+{
+  "official": [
+    {
+      "id": "ogomono-telegram",
+      "type": "telegram",
+      "url": "https://t.me/s/OGoMono",
+      "label": "ОГо! — Олег Гороховський"
+    },
+    {
+      "id": "monobank-site",
+      "type": "html",
+      "url": "https://monobank.ua/",
+      "label": "monobank.ua"
+    },
+    {
+      "id": "monobank-black",
+      "type": "html",
+      "url": "https://monobank.ua/black",
+      "label": "monobank Black"
+    },
+    {
+      "id": "monobank-platinum",
+      "type": "html",
+      "url": "https://monobank.ua/platinum",
+      "label": "monobank Platinum"
+    },
+    {
+      "id": "monobank-iron",
+      "type": "html",
+      "url": "https://monobank.ua/iron",
+      "label": "monobank IRON"
+    },
+    {
+      "id": "monobank-child",
+      "type": "html",
+      "url": "https://monobank.ua/14",
+      "label": "monobank Child"
+    }
+  ],
+  "search": [
+    {
+      "id": "google-news-mono-skin",
+      "type": "google-news-rss",
+      "url": "https://news.google.com/rss/search?q=monobank+%D1%81%D0%BA%D1%96%D0%BD+OR+%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD+when%3A7d&hl=uk&gl=UA&ceid=UA:uk",
+      "label": "Google News — monobank skin/design"
+    },
+    {
+      "id": "google-news-mono-card",
+      "type": "google-news-rss",
+      "url": "https://news.google.com/rss/search?q=monobank+%D0%BA%D0%B0%D1%80%D1%82%D0%BA%D0%B0+%D1%81%D0%BA%D1%96%D0%BD+when%3A7d&hl=uk&gl=UA&ceid=UA:uk",
+      "label": "Google News — monobank card skin"
+    }
+  ],
+  "catalogs": [
+    {
+      "id": "toppi-monoskins",
+      "type": "catalog",
+      "url": "https://monoskins.toppi.me/",
+      "label": "Monoskins TOPPI"
+    },
+    {
+      "id": "kristobal-monoskins",
+      "type": "catalog",
+      "url": "https://github.com/KristobalJunta/monoskins",
+      "label": "KristobalJunta/monoskins"
+    }
+  ],
+  "keywords": [
+    "скін",
+    "скин",
+    "дизайн картки",
+    "дизайн карти",
+    "картка mono",
+    "картка monobank",
+    "monobank",
+    "mono"
+  ]
+}
