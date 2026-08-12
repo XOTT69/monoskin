@@ -1,5 +1,23 @@
 [
   {
+    "id": "kudy-podilasya-zarplatnya",
+    "name": "Куди поділася зарплатня",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-12T11:43:04.356Z",
+    "lastVerifiedAt": "2026-08-12",
+    "description": "Скін доступний всім клієнтам",
+    "sourceUrl": "",
+    "image": "skin/kudy-podilasya-zarplatnya-1-df1a4715.webp",
+    "imageHashes": [
+      "df1a47150e4b19cce43eb4945af067305afd2cab8db68c8cccfa9100026c12d2"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "stalker",
     "name": "Сталкер",
     "method": "Безкоштовний",
