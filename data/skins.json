@@ -2686,17 +2686,23 @@
     "name": "Русоріз",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 50,
-    "description": "Скін картки monobank, з’явився у лютому 2025 року, коли «Русоріз» Сергія Стерненка став першим збором, для якого monobank увімкнув можливість оформити щомісячну підписку на Base. Фонд закуповує FPV-дрони та сучасні засоби ураження для Збройних сил України.\n\nДизайн з фірмовою емблемою фонду отримують усі, хто оформив підписку від 50 грн на монобазу фонду",
-    "sourceUrl": "https://base.monobank.ua/rusoriz",
-    "image": "skin/sternenko-rusoriz.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
+    "minimumValue": 0,
     "addedAt": "2026-08-01T18:25:50+03:00",
     "lastVerifiedAt": "2026-08-09",
+    "description": "Скін картки monobank, з’явився у лютому 2025 року, коли «Русоріз» Сергія Стерненка став першим збором, для якого monobank увімкнув можливість оформити щомісячну підписку на Base. Фонд закуповує FPV-дрони та сучасні засоби ураження для Збройних сил України.\n\nДизайн з фірмовою емблемою фонду отримують усі, хто оформив підписку від 50 грн на монобазу фонду\n50 ₴/міс - 1 скін\n29 999 ₴/міс - 2 скіна",
+    "sourceUrl": "https://base.monobank.ua/rusoriz",
+    "image": "skin/sternenko-rusoriz-1-9aaae92a.png",
+    "images": [
+      "skin/sternenko-rusoriz-1-9aaae92a.png",
+      "skin/sternenko-rusoriz-2-144d1be0.webp"
+    ],
     "imageHashes": [
-      "00af1153b42717b3a428ae4dc024c6942081b2de03354f085895b4416b022689"
-    ]
+      "9aaae92ae8e5ce4b77aaa333bffc38ff3772b6d9c5037bbbfa5e42e686d99f83",
+      "144d1be0090fa58efacae89f941115b58d7175df47ebafe2d633bdeaf893991e"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
   },
   {
     "id": "sternenko-spivuchasnyk-rusorizu",
