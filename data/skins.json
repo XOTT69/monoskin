@@ -1,5 +1,23 @@
 [
   {
+    "id": "tsytaty-kota-kozhnoho-dnya-nova",
+    "name": "Цитати кота! Кожного дня - нова",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-12T11:49:17.010Z",
+    "lastVerifiedAt": "2026-08-12",
+    "description": "Доступно всім клієнтам",
+    "sourceUrl": "",
+    "image": "skin/tsytaty-kota-kozhnoho-dnya-nova-1-dfa8728a.webp",
+    "imageHashes": [
+      "dfa8728adb5dba3495307c2764a528251ccb6fb685a3d84c95baea1311d55322"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "lehendarna-stela-na-v-yizdi-v-donetsku-oblast",
     "name": "Легендарна стела на в'їзді в Донецьку область",
     "method": "Безкоштовний",
