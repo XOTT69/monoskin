@@ -2,7 +2,7 @@
   {
     "id": "tsytaty-kota-kozhnoho-dnya-nova",
     "name": "Цитати кота! Кожного дня - нова",
-    "method": "Безкоштовний",
+    "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
     "addedAt": "2026-08-12T11:49:17.010Z",
@@ -20,7 +20,7 @@
   {
     "id": "lehendarna-stela-na-v-yizdi-v-donetsku-oblast",
     "name": "Легендарна стела на в'їзді в Донецьку область",
-    "method": "Безкоштовний",
+    "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
     "addedAt": "2026-08-12T11:47:52.865Z",
@@ -38,7 +38,7 @@
   {
     "id": "kudy-podilasya-zarplatnya",
     "name": "Куди поділася зарплатня",
-    "method": "Безкоштовний",
+    "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
     "addedAt": "2026-08-12T11:43:04.356Z",
@@ -56,7 +56,7 @@
   {
     "id": "stalker",
     "name": "Сталкер",
-    "method": "Безкоштовний",
+    "method": "Доступні всім",
     "status": "Доступний",
     "minimumValue": 0,
     "addedAt": "2026-08-12T11:40:15.031Z",
