@@ -3474,8 +3474,10 @@
     "name": "ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 150,
-    "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Мінімальна сума підписки — від 150 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:55.561Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Мінімальна сума підписки — від 150 грн/міс (1 скін), 3 000 ₴/міс (2 скіна)",
     "sourceUrl": "https://base.monobank.ua/ab3angels#subscriptions",
     "image": "skin/base-patronatna-sluzhba-yanholy.png",
     "images": [
@@ -3488,9 +3490,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:55.561Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-bo-bf-1991",
