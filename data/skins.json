@@ -1,5 +1,23 @@
 [
   {
+    "id": "stalker",
+    "name": "Сталкер",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-12T11:40:15.031Z",
+    "lastVerifiedAt": "2026-08-12",
+    "description": "СКІН доступний всім Клієнтам автоматично",
+    "sourceUrl": "",
+    "image": "skin/stalker-1-da76a301.png",
+    "imageHashes": [
+      "da76a3017e970b3797f55f813ccc0080d40155b56282d97dade92689bcfb5d01"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kartka-krishtianu-ronaldu-z-zoshyta-shkilnoho-naboru-2026",
     "name": "⚽️ Картка Кріштіану Роналду з зошита Шкільного набору 2026",
     "method": "Безкоштовний",
