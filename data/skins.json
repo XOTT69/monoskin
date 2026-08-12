@@ -2726,17 +2726,23 @@
     "name": "Опора Спільноти",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 1000,
-    "description": "Скін найвищого рівня підписки монобази Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Темніший варіант дизайну відзначає найщедріших підписників збору «Русоріз», кошти якого спрямовуються на закупівлю FPV-дронів для ЗСУ.\n\nСкін надається тим, хто оформив підписку від 1000 грн на монобазу фонду",
-    "sourceUrl": "https://base.monobank.ua/sternenkofund",
-    "image": "skin/sternenko-opora-spilnoty.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
+    "minimumValue": 0,
     "addedAt": "2026-08-01T18:25:50+03:00",
     "lastVerifiedAt": "2026-08-09",
+    "description": "Скін найвищого рівня підписки монобази Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Темніший варіант дизайну відзначає найщедріших підписників збору «Русоріз», кошти якого спрямовуються на закупівлю FPV-дронів для ЗСУ.\n\nСкін надається тим, хто оформив підписку від 10 грн на монобазу фонду\n10 ₴/міс - 1 скін\n1000 ₴/міс - 2 скіна",
+    "sourceUrl": "https://base.monobank.ua/sternenkofund",
+    "image": "skin/sternenko-opora-spilnoty-1-b841a2de.png",
+    "images": [
+      "skin/sternenko-opora-spilnoty-1-b841a2de.png",
+      "skin/sternenko-opora-spilnoty-2-5b8eb677.png"
+    ],
     "imageHashes": [
-      "f8e23af0b9e397ea98f3d75ae441baa322f2bfaaaf6bc46e73800a15b5849550"
-    ]
+      "b841a2ded6828fa92d366f463cc29699f7dcd31ad40cdfe9f06af619e3833e25",
+      "5b8eb677a3fc6c2389ce3b6f995b3ef742c76f938c78f680459743d655a60d35"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
   },
   {
     "id": "azov-odna-hryvnia",
