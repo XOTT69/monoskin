@@ -1,5 +1,23 @@
 [
   {
+    "id": "lehendarna-stela-na-v-yizdi-v-donetsku-oblast",
+    "name": "Легендарна стела на в'їзді в Донецьку область",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-12T11:47:52.865Z",
+    "lastVerifiedAt": "2026-08-12",
+    "description": "Доступна всім клієнтам",
+    "sourceUrl": "",
+    "image": "skin/lehendarna-stela-na-v-yizdi-v-donetsku-oblast-1-3a77919b.webp",
+    "imageHashes": [
+      "3a77919b95eeeb7ae50f3216c156863d1a0ae5d851362dcf78f1e65134e2cc22"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "kudy-podilasya-zarplatnya",
     "name": "Куди поділася зарплатня",
     "method": "Безкоштовний",
