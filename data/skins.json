@@ -1,5 +1,23 @@
 [
   {
+    "id": "vid-bryhady-khartiya",
+    "name": "Від Бригади \"Хартія\"",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-12T21:26:24.128Z",
+    "lastVerifiedAt": "2026-08-13",
+    "description": "За донат на банку від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/5PEYzkmTen?fbclid=IwY2xjawL-ooBleHRuA2FlbQIxMQABHinYXRAQW2o9c9HjbvaIAZG_1NcpgKKPtLZcHTTDxbv-wT5NsSV7_zoRSKc2_aem_ogg0nCtupZ5xMcESGHGZQA",
+    "image": "skin/vid-bryhady-khartiya-1-fe938bf9.webp",
+    "imageHashes": [
+      "fe938bf9478e3ee50716fd700469564c6fbd3fe5937058ed053ebd319fb6f18e"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false
+  },
+  {
     "id": "tsytaty-kota-kozhnoho-dnya-nova",
     "name": "Цитати кота! Кожного дня - нова",
     "method": "Доступні всім",
