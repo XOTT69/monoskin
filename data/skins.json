@@ -3318,23 +3318,25 @@
     "name": "Підтримай Третю штурмову",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 499,
-    "description": "Скін доступний у підписці «Підтримай Третю штурмову» у monobaza. Мінімальна сума підписки — від 499 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:54.988Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скіни доступні у підписці «Підтримай Третю штурмову» у monobaza. Мінімальна сума підписки — від 100 грн/міс. за 3 скіни",
     "sourceUrl": "https://base.monobank.ua/ab3support#subscriptions",
-    "image": "skin/base-pidtrymai-tretyu-shturmovu.png",
+    "image": "skin/base-pidtrymai-tretyu-shturmovu-1-88a04fec.png",
     "images": [
-      "skin/base-pidtrymai-tretyu-shturmovu.png",
-      "skin/base-pidtrymai-tretyu-shturmovu-2.png"
+      "skin/base-pidtrymai-tretyu-shturmovu-1-88a04fec.png",
+      "skin/base-pidtrymai-tretyu-shturmovu-2-682a140b.png",
+      "skin/base-pidtrymai-tretyu-shturmovu-3-43531e41.webp"
     ],
     "imageHashes": [
-      "5f269d9c963220293e31bf88eaa062a6f6bfe40edbf12236ef5fc2b90c1283e4",
-      "aca968a949d8279e91503f7ef5247b0a311dd4880584de1d980190cd36e37c1f"
+      "88a04fec16f6c128cf4d15e74f5eac1f2bf219408ce1b5b826a0629eb229968d",
+      "682a140bac2abcf8bf4734b91918ccb16201f58e7c054f95a3a1065790d538cf",
+      "43531e41d9faa3f802632d3afdbbb327e4b13239110a1612e368cacd586aeb08"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:54.988Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-islandiya",
