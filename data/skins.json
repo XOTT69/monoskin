@@ -3682,8 +3682,10 @@
     "name": "Максим Кільдеров",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 99,
-    "description": "Скін доступний у підписці «Максим Кільдеров» у monobaza. Мінімальна сума підписки — від 99 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:56.239Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «Максим Кільдеров» у monobaza. Мінімальна сума підписки — від 99 грн/міс\n66 грн/міс. - 1 скін\n99 грн/міс. - 2 скіни",
     "sourceUrl": "https://base.monobank.ua/kilderov#subscriptions",
     "image": "skin/base-maksym-kilderov.png",
     "images": [
@@ -3696,9 +3698,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:56.239Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-bf-blahodiinyi-fond-havkit",
