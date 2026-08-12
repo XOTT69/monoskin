@@ -2705,23 +2705,6 @@
     "featured": false
   },
   {
-    "id": "sternenko-spivuchasnyk-rusorizu",
-    "name": "Співучасник Русорізу",
-    "method": "Підписка Base",
-    "status": "Доступний",
-    "minimumValue": 10,
-    "description": "Скін «Співучасник Русорізу» — один з рівнів підписки на монобазу Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Кошти підписників ідуть на закупівлю FPV-дронів для ЗСУ у межах збору «Русоріз».\n\nСкін надається тим, хто оформив підписку від 10 грн на монобазу фонду",
-    "sourceUrl": "https://base.monobank.ua/sternenkofund",
-    "image": "skin/sternenko-spivuchasnyk-rusorizu.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "8dbe79b80c60e2f0b3930a117c355a90435d5d3d2f9959db4c5f5779fdb2fb58"
-    ]
-  },
-  {
     "id": "sternenko-opora-spilnoty",
     "name": "Опора Спільноти",
     "method": "Підписка Base",
