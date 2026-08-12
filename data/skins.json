@@ -3862,24 +3862,6 @@
     "lastVerifiedAt": "2026-08-10"
   },
   {
-    "id": "kolo-ukraine-povitryani-syly",
-    "name": "KOLO Ukraine. Планшети для Повітряних сил",
-    "method": "Донат на банку",
-    "status": "Доступний",
-    "minimumValue": 300,
-    "description": "Скін видавався за донат від 300 грн на збір KOLO Ukraine для Повітряних сил.",
-    "sourceUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
-    "image": "skin/kolo-ukraine-povitryani-syly.png",
-    "imageHashes": [
-      "db4f9ff3505b868e3c1d4a50561d1dbd226cd4f4e7dfd6dd65ac1ad4124adf2d"
-    ],
-    "isVisaOnly": false,
-    "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T19:10:33.246Z",
-    "lastVerifiedAt": "2026-08-10"
-  },
-  {
     "id": "tytanovi",
     "name": "Титанові",
     "method": "Донат на банку",
