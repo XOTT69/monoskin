@@ -3705,8 +3705,10 @@
     "name": "БФ \"Благодійний фонд \"ГАВКІТ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 50,
-    "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:56.519Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Мінімальна сума підписки — від 50 грн/міс.\n50 грн/міс - 1 скін\n60 грн/міс - 2 скіни\n100 грн/міс - 3 скіни\n150 грн/міс - 4 скіни\n170 грн/міс - 5 скінів\n500 грн/міс - 6 скінів",
     "sourceUrl": "https://base.monobank.ua/E7b62zaY1GeXuc#subscriptions",
     "image": "skin/base-bf-blahodiinyi-fond-havkit.png",
     "images": [
@@ -3727,9 +3729,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:56.519Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-bihus-info",
