@@ -1,0 +1,62 @@
+name: Monitor MONOSKIN designs
+
+on:
+  schedule:
+    # 09:00 Europe/Kyiv in summer (GitHub cron is UTC).
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skin-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Run skin monitor
+        run: node scripts/monitor-skins.mjs
+
+      - name: Send Telegram report with visuals
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/send-monitor-report.mjs
+
+      - name: Validate catalog
+        run: npm run validate
+
+      - name: Build site
+        run: BASE_PATH=/monoskin npm run build
+
+      - name: Commit automatic catalog updates
+        run: |
+          git config user.name 'MONOSKIN Monitor'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/skins.json public/skin monitor/reports monitor/state.json
+          if git diff --cached --quiet; then
+            echo 'No catalog/report changes to commit.'
+            exit 0
+          fi
+          git commit -m 'chore: update monitored skins catalog'
+          git push
+
+      - name: Upload monitoring report
+        uses: actions/upload-artifact@v4
+        with:
+          name: monoskin-monitor-report-${{ github.run_number }}
+          path: monitor/reports/
