@@ -3736,8 +3736,10 @@
     "name": "Bihus.Info",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 500,
-    "description": "Скін доступний у підписці «Bihus.Info» у monobaza. Мінімальна сума підписки — від 500 грн/міс.",
+    "minimumValue": 0,
+    "addedAt": "2026-08-10T18:45:56.677Z",
+    "lastVerifiedAt": "2026-08-10",
+    "description": "Скін доступний у підписці «Bihus.Info» у monobaza. Мінімальна сума підписки — від 100 грн/міс (1 скін), від 250 грн/міс (2 скіни), від 500 грн/міс (3 скіни)",
     "sourceUrl": "https://base.monobank.ua/bihusinfo#subscriptions",
     "image": "skin/base-bihus-info.png",
     "images": [
@@ -3752,9 +3754,7 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false,
-    "addedAt": "2026-08-10T18:45:56.677Z",
-    "lastVerifiedAt": "2026-08-10"
+    "featured": false
   },
   {
     "id": "base-molodizhnyi-natsionalistychnyi-konhres",
