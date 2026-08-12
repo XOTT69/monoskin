@@ -8,13 +8,14 @@ const skins = JSON.parse(await readFile(dataPath, "utf8"));
 const threshold = 900 * 1024;
 let savedBytes = 0;
 let optimized = 0;
+const replacements = new Map();
+const referencedImages = [...new Set(skins.flatMap((skin) => skin.images?.length ? skin.images : [skin.image]).filter((image) => image?.startsWith("skin/")))];
 
-for (const skin of skins) {
-  if (!skin.image?.startsWith("skin/")) continue;
-  const input = resolve(root, "public", skin.image);
+for (const image of referencedImages) {
+  const input = resolve(root, "public", image);
   const inputSize = (await stat(input)).size;
-  if (inputSize <= threshold || skin.image.endsWith(".webp")) continue;
-  const outputImage = skin.image.replace(/\.[^.]+$/, ".webp");
+  if (inputSize <= threshold || image.endsWith(".webp")) continue;
+  const outputImage = image.replace(/\.[^.]+$/, ".webp");
   const output = resolve(root, "public", outputImage);
   const temporary = `${output}.tmp.webp`;
   await sharp(input).rotate().resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 86, effort: 5 }).toFile(temporary);
@@ -25,10 +26,15 @@ for (const skin of skins) {
     continue;
   }
   await unlink(input);
-  skin.image = outputImage;
+  replacements.set(image, outputImage);
   optimized += 1;
   savedBytes += inputSize - outputSize;
-  console.log(`${skin.name}: ${(inputSize / 1024 / 1024).toFixed(2)} → ${(outputSize / 1024 / 1024).toFixed(2)} МБ`);
+  console.log(`${image}: ${(inputSize / 1024 / 1024).toFixed(2)} → ${(outputSize / 1024 / 1024).toFixed(2)} МБ`);
+}
+
+for (const skin of skins) {
+  skin.image = replacements.get(skin.image) ?? skin.image;
+  if (skin.images?.length) skin.images = skin.images.map((image) => replacements.get(image) ?? image);
 }
 
 await writeFile(dataPath, `${JSON.stringify(skins, null, 2)}\n`);

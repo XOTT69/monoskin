@@ -14,6 +14,7 @@ type Editor = { skin: Skin; draft: boolean };
 type ImportRecord = { id?: string; name?: string; method?: Category; status?: string; minimumValue?: number | string | null; description?: string; sourceUrl?: string; imageFile?: string; isVisaOnly?: boolean; isAdultOnly?: boolean };
 type AdminSort = "newest" | "oldest" | "name" | "needs-verification";
 type VerificationFilter = "all" | "needs-verification" | "verified-today";
+type LinkFilter = "all" | "unchecked" | "healthy" | "broken" | "missing";
 type CommitHistory = { sha: string; html_url: string; commit: { message: string; author: { date: string } }; author?: { login: string } | null };
 
 const owner = "XOTT69";
@@ -184,6 +185,7 @@ export default function AdminPage() {
   const [adminQuery, setAdminQuery] = useState("");
   const [adminCategory, setAdminCategory] = useState<Category | "Усі">("Усі");
   const [verificationFilter, setVerificationFilter] = useState<VerificationFilter>("all");
+  const [linkFilter, setLinkFilter] = useState<LinkFilter>("all");
   const [adminSort, setAdminSort] = useState<AdminSort>("newest");
   const [selectedIds, setSelectedIds] = useState<Set<string>>(() => new Set());
   const [bulkCategory, setBulkCategory] = useState<Category>("Безкоштовно");
@@ -200,14 +202,23 @@ export default function AdminPage() {
       const matchesQuery = !query || [skin.name, skin.id, skin.description, skin.sourceUrl].join(" ").toLocaleLowerCase("uk").includes(query);
       const matchesCategory = adminCategory === "Усі" || categoryOf(skin) === adminCategory;
       const matchesVerification = verificationFilter === "all" || verificationFilter === "needs-verification" ? (verificationFilter !== "needs-verification" || needsVerification(skin)) : skin.lastVerifiedAt === today;
-      return matchesQuery && matchesCategory && matchesVerification;
+      const linkState: LinkFilter = !skin.sourceUrl ? "missing" : !skin.linkCheck ? "unchecked" : skin.linkCheck.ok ? "healthy" : "broken";
+      const matchesLink = linkFilter === "all" || linkFilter === linkState;
+      return matchesQuery && matchesCategory && matchesVerification && matchesLink;
     }).sort((left, right) => {
       if (adminSort === "oldest") return +new Date(left.addedAt) - +new Date(right.addedAt);
       if (adminSort === "name") return left.name.localeCompare(right.name, "uk");
       if (adminSort === "needs-verification") return Number(needsVerification(right)) - Number(needsVerification(left)) || +new Date(right.addedAt) - +new Date(left.addedAt);
       return +new Date(right.addedAt) - +new Date(left.addedAt);
     });
-  }, [adminCategory, adminQuery, adminSort, records, verificationFilter]);
+  }, [adminCategory, adminQuery, adminSort, linkFilter, records, verificationFilter]);
+  const dashboard = useMemo(() => ({
+    available: records.filter((skin) => skin.status === "Доступний").length,
+    unavailable: records.filter((skin) => skin.status === "Недоступний").length,
+    needsVerification: records.filter(needsVerification).length,
+    brokenLinks: records.filter((skin) => Boolean(skin.sourceUrl && skin.linkCheck && !skin.linkCheck.ok)).length,
+    uncheckedLinks: records.filter((skin) => Boolean(skin.sourceUrl && !skin.linkCheck)).length,
+  }), [records]);
   const sortedDrafts = useMemo(() => [...drafts].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [drafts]);
   const selectedVisibleIds = useMemo(() => visibleRecords.filter((skin) => selectedIds.has(skin.id)).map((skin) => skin.id), [selectedIds, visibleRecords]);
   const possibleDuplicates = useMemo(() => {
@@ -446,6 +457,14 @@ export default function AdminPage() {
 
   const selectUnverified = () => setSelectedIds((current) => new Set([...current, ...visibleRecords.filter(needsVerification).map((skin) => skin.id)]));
 
+  const applyDashboardFilter = (next: { verification?: VerificationFilter; links?: LinkFilter; category?: Category | "Усі" }) => {
+    setVerificationFilter(next.verification ?? "all");
+    setLinkFilter(next.links ?? "all");
+    setAdminCategory(next.category ?? "Усі");
+    setAdminQuery("");
+    document.getElementById("admin-catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const updateSelected = async (action: "verify" | "category") => {
     const selected = records.filter((skin) => selectedIds.has(skin.id));
     if (!selected.length) { setError("Обери хоча б один скін."); return; }
@@ -608,7 +627,9 @@ export default function AdminPage() {
 
   if (!token) return <main className="admin-page"><header className="admin-header"><a className="brand" href={sitePath("/")}><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><span>Адмінка</span></header><section className="login-card"><p className="eyebrow"><span /> Тільки для редактора каталогу</p><h1>Керуй скінами<br /><em>без коду.</em></h1><div className="admin-error"><strong>Підключи GitHub token із доступом лише до цього репозиторію.</strong><p>Створи fine-grained token для <code>XOTT69/monoskin</code> з дозволом <b>Contents: Read and write</b>. Токен зберігається лише до закриття вкладки; не використовуй його на чужому пристрої.</p></div><label className="token-field">GitHub token<input type="password" value={tokenDraft} onChange={(event) => setTokenDraft(event.target.value)} placeholder="github_pat_…" autoComplete="off" /></label><button className="primary-button" onClick={connect} disabled={busy}>{busy ? "Підключаю…" : "Підключити GitHub"}</button>{error && <p className="form-error">{error}</p>}</section></main>;
 
-  return <main className="admin-page"><header className="admin-header"><a className="brand" href={sitePath("/")}><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><div><span>{login || owner}</span><button onClick={signOut}>Вийти</button></div></header><section className="admin-shell"><div className="admin-heading"><div><p className="eyebrow"><span /> Редактор каталогу</p><h1>{editing ? editing.draft ? "Перевірити чернетку" : "Редагувати скін" : "Додати скін"}</h1></div><p>{records.length} скінів · {drafts.length} чернеток</p></div>{notice && <p className="form-notice">{notice}</p>}{error && <p className="form-error">{error}</p>}
+  return <main className="admin-page"><header className="admin-header"><a className="brand" href={sitePath("/")}><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><div><span>{login || owner}</span><button onClick={signOut}>Вийти</button></div></header><section className="admin-shell"><div className="admin-heading"><div><p className="eyebrow"><span /> Редактор каталогу</p><h1>{editing ? editing.draft ? "Перевірити чернетку" : "Редагувати скін" : "Додати скін"}</h1></div><p>{records.length} скінів · {drafts.length} чернеток</p></div>
+    <section className="admin-dashboard" aria-label="Стан каталогу"><button type="button" onClick={() => applyDashboardFilter({})}><strong>{records.length}</strong><span>Усього скінів</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Усі" })}><strong>{dashboard.available}</strong><span>Доступні</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Недоступні" })}><strong>{dashboard.unavailable}</strong><span>Недоступні</span></button><button type="button" onClick={() => applyDashboardFilter({ verification: "needs-verification" })}><strong>{dashboard.needsVerification}</strong><span>Потрібно перевірити</span></button><button type="button" onClick={() => applyDashboardFilter({ links: "unchecked" })}><strong>{dashboard.uncheckedLinks}</strong><span>URL не перевірено</span></button><button className={dashboard.brokenLinks ? "attention" : ""} type="button" onClick={() => applyDashboardFilter({ links: "broken" })}><strong>{dashboard.brokenLinks}</strong><span>Проблемні URL</span></button></section>
+    {notice && <p className="form-notice">{notice}</p>}{error && <p className="form-error">{error}</p>}
     {savePreview && <section className="save-preview" role="dialog" aria-label="Підтвердження змін"><strong>Перевір зміни перед збереженням</strong><ul>{savePreview.changes.map((change) => <li key={change}>{change}</li>)}</ul><div><button className="primary-button" type="button" disabled={busy} onClick={() => { const asDraft = savePreview.asDraft; setSavePreview(null); void save(asDraft); }}>{savePreview.asDraft ? "Підтвердити чернетку" : "Підтвердити збереження"}</button><button className="secondary-button" type="button" onClick={() => setSavePreview(null)}>Повернутися до редагування</button></div></section>}
     <form className="skin-form" onSubmit={(event) => { event.preventDefault(); requestSave(false); }} onPaste={async (event) => { const direct = imageFromClipboard(event.clipboardData.items); if (direct) { event.preventDefault(); void setChosenPhotos([direct], true); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void setChosenPhotos([systemImage], true); }}>
       <label>Назва<input value={form.name} onChange={(event) => setField("name", event.target.value)} placeholder="Наприклад, Київ. Каштан" required />{possibleDuplicates.length > 0 && <small className="duplicate-hint">Можливий збіг: {possibleDuplicates.map((skin) => skin.name).join(" · ")}</small>}</label>
@@ -636,11 +657,12 @@ export default function AdminPage() {
       const allSelected = sortedDrafts.every((skin) => current.has(skin.id));
       return allSelected ? new Set<string>() : new Set(sortedDrafts.map((skin) => skin.id));
     })} /> Вибрати всі</label><strong>Обрано: {selectedDraftIds.size}</strong><button className="primary-button" type="button" disabled={busy || !selectedDraftIds.size} onClick={() => void publishSelectedDrafts()}>Опублікувати вибрані</button></div><div className="admin-grid">{sortedDrafts.map((skin) => <article key={skin.id}><label className="admin-row-select"><input type="checkbox" checked={selectedDraftIds.has(skin.id)} onChange={() => setSelectedDraftIds((current) => { const next = new Set(current); if (next.has(skin.id)) next.delete(skin.id); else next.add(skin.id); return next; })} aria-label={`Обрати ${skin.name}`} /></label><span className="admin-thumb" style={{ backgroundImage: skin.image ? `url('${sitePath(skin.image)}')` : undefined }} /><div><strong>{skin.name}</strong><p>Чернетка · {categoryOf(skin)} · додано {new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.addedAt))}{skin.publishAt ? ` · заплановано ${new Intl.DateTimeFormat("uk-UA", { dateStyle: "medium", timeStyle: "short" }).format(new Date(skin.publishAt))}` : ""}</p></div><div><button onClick={() => edit(skin, true)}>Перевірити</button><button className="danger" onClick={() => void remove(skin, true)} disabled={busy}>Вилучити</button></div></article>)}</div></section>}
-    <section className="admin-list admin-catalog-list"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни <small>{visibleRecords.length} з {records.length}</small></h2></div>
+    <section className="admin-list admin-catalog-list" id="admin-catalog"><div><p className="eyebrow"><span /> Каталог</p><h2>Усі скіни <small>{visibleRecords.length} з {records.length}</small></h2></div>
       <div className="admin-tools">
         <input value={adminQuery} onChange={(event) => setAdminQuery(event.target.value)} placeholder="Пошук за назвою, описом або ID" aria-label="Пошук у каталозі" />
         <select value={adminCategory} onChange={(event) => setAdminCategory(event.target.value as Category | "Усі")} aria-label="Категорія"><option>Усі</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select>
         <select value={verificationFilter} onChange={(event) => setVerificationFilter(event.target.value as VerificationFilter)} aria-label="Стан перевірки"><option value="all">Усі перевірки</option><option value="needs-verification">Потрібна перевірка</option><option value="verified-today">Перевірені сьогодні</option></select>
+        <select value={linkFilter} onChange={(event) => setLinkFilter(event.target.value as LinkFilter)} aria-label="Стан посилання"><option value="all">Усі URL</option><option value="unchecked">URL не перевірено</option><option value="healthy">URL працюють</option><option value="broken">Проблемні URL</option><option value="missing">Без URL</option></select>
         <select value={adminSort} onChange={(event) => setAdminSort(event.target.value as AdminSort)} aria-label="Сортування"><option value="newest">Спершу нові</option><option value="oldest">Спершу старі</option><option value="name">За назвою</option><option value="needs-verification">Спершу неперевірені</option></select>
         <button type="button" onClick={() => exportCatalog("json")}>JSON</button><button type="button" onClick={() => exportCatalog("csv")}>CSV</button>
       </div>
@@ -651,7 +673,7 @@ export default function AdminPage() {
         <button className="primary-button" type="button" onClick={() => void updateSelected("verify")} disabled={busy || !selectedIds.size}>Підтвердити перевірку</button>
         <select value={bulkCategory} onChange={(event) => setBulkCategory(event.target.value as Category)} aria-label="Нова категорія"><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select>
         <button type="button" onClick={() => void updateSelected("category")} disabled={busy || !selectedIds.size}>Змінити категорію</button>
-        <button type="button" onClick={() => void checkLinks(selectedIds.size ? Array.from(selectedIds) : visibleRecords.map((skin) => skin.id))} disabled={busy}>Перевірити посилання</button>
+        <button type="button" onClick={() => void checkLinks(selectedIds.size ? Array.from(selectedIds) : visibleRecords.map((skin) => skin.id))} disabled={busy}>Перевірити URL ({selectedIds.size || visibleRecords.filter((skin) => Boolean(skin.sourceUrl)).length})</button>
         <input value={bulkLink} onChange={(event) => setBulkLink(event.target.value)} placeholder="Нове https://… або порожньо" aria-label="Нове посилання" />
         <button type="button" onClick={() => void changeSelectedLinks(bulkLink.trim())} disabled={busy || !selectedIds.size}>Замінити URL</button>
         <button type="button" onClick={() => void changeSelectedLinks("")} disabled={busy || !selectedIds.size}>Очистити URL</button>

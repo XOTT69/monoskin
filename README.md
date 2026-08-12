@@ -46,6 +46,15 @@ Token не записується у репозиторій і не зберіг
 
 Публічна форма приймає назву, категорію, опис, посилання та фото до 8 МБ; її також захищає Cloudflare Turnstile.
 
+### Cloudflare Web Analytics
+
+Щоб бачити відвідування без банерів cookie та без передачі персональних даних у сторонні сервіси, створіть сайт у [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/get-started/) і додайте його token у змінну збірки `NEXT_PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN`.
+
+- Для **Cloudflare Pages**: **Workers & Pages → monoskin → Settings → Variables and Secrets → Production**.
+- Для **GitHub Pages**: **Repository → Settings → Secrets and variables → Actions → Variables**.
+
+Після наступного деплою скрипт аналітики підключиться автоматично. Якщо змінну не додавати, жодна аналітика не завантажується.
+
 Одноразове налаштування власником:
 
 1. Створіть бота через [@BotFather](https://t.me/BotFather), напишіть йому повідомлення та визначте ID приватного чату, куди мають приходити заявки.

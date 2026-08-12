@@ -2972,7 +2972,7 @@
     "image": "skin/base-ghostik-2-skiny.png",
     "images": [
       "skin/base-ghostik-2-skiny.png",
-      "skin/base-ghostik-2-skiny-2.png"
+      "skin/base-ghostik-2-skiny-2.webp"
     ],
     "imageHashes": [
       "309b15fe5a80e6b87d56791c3a900953cbd7d0ee192cacbaa124b4f6c886ef91",
@@ -3010,7 +3010,7 @@
     "minimumValue": 169,
     "description": "Скін доступний у підписці «valentinopradagucci» у monobaza. Мінімальна сума підписки — від 169 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/7JuoNphXqvYJbb#subscriptions",
-    "image": "skin/base-valentinopradagucci.png",
+    "image": "skin/base-valentinopradagucci.webp",
     "imageHashes": [
       "e1d80a4c398ae569bc264f6e730ded6d0533294fee95b78d0c20849a923a6eab"
     ],
@@ -3028,7 +3028,7 @@
     "minimumValue": 70,
     "description": "Скін доступний у підписці «Михайло Смокович» у monobaza. Мінімальна сума підписки — від 70 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/smokovych#subscriptions",
-    "image": "skin/base-mykhailo-smokovych.png",
+    "image": "skin/base-mykhailo-smokovych.webp",
     "imageHashes": [
       "01684e2186aafc6c40c01177b79b6cbbe3945d165942ecc998f358739b9f6cea"
     ],
@@ -3118,11 +3118,11 @@
     "minimumValue": 100,
     "description": "Скін доступний у підписці «Ukraïner» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/ukrainer#subscriptions",
-    "image": "skin/base-ukrai-ner.png",
+    "image": "skin/base-ukrai-ner.webp",
     "images": [
-      "skin/base-ukrai-ner.png",
-      "skin/base-ukrai-ner-2.png",
-      "skin/base-ukrai-ner-3.png"
+      "skin/base-ukrai-ner.webp",
+      "skin/base-ukrai-ner-2.webp",
+      "skin/base-ukrai-ner-3.webp"
     ],
     "imageHashes": [
       "eb636a5169cf627f089815182e0e2a582ea0059d8099d62f3c88bab55a067c03",
@@ -3220,9 +3220,9 @@
     "minimumValue": 200,
     "description": "Скін доступний у підписці «БФ \"БФ\" ЛЕГІОН САППОРТ\" - Оф. БФ Міжнародного Легіону ГУР МО України: 4 скіни» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/legionsupport#subscriptions",
-    "image": "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.png",
+    "image": "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.webp",
     "images": [
-      "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.png",
+      "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.webp",
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--2.png",
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--3.png",
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--4.png"
@@ -3252,7 +3252,7 @@
     "image": "skin/base-konsul-pro-ideolohiyu.png",
     "images": [
       "skin/base-konsul-pro-ideolohiyu.png",
-      "skin/base-konsul-pro-ideolohiyu-2.png"
+      "skin/base-konsul-pro-ideolohiyu-2.webp"
     ],
     "imageHashes": [
       "7eb89ffdcac33ffa534e4e97c15b5e10ef534680773a312cb2afb6ea7452529c",
@@ -3311,10 +3311,10 @@
     "minimumValue": 100,
     "description": "Скін доступний у підписці «Alpha Centauri» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/theacentauri#subscriptions",
-    "image": "skin/base-alpha-centauri.png",
+    "image": "skin/base-alpha-centauri.webp",
     "images": [
-      "skin/base-alpha-centauri.png",
-      "skin/base-alpha-centauri-2.png"
+      "skin/base-alpha-centauri.webp",
+      "skin/base-alpha-centauri-2.webp"
     ],
     "imageHashes": [
       "93cd4c32bceaaf19a1da66c6a2537600688c7d2bc41928ec2aa4dfce05c17b7e",
@@ -3377,7 +3377,7 @@
     "minimumValue": 250,
     "description": "Скін доступний у підписці «thetremba» у monobaza. Мінімальна сума підписки — від 250 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/thetremba#subscriptions",
-    "image": "skin/base-thetremba.png",
+    "image": "skin/base-thetremba.webp",
     "imageHashes": [
       "cf252b5121e8e29632237b89d259435e76892e9f4d15fd2b73dd8ca20ee97610"
     ],
@@ -3395,7 +3395,7 @@
     "minimumValue": 50,
     "description": "Скін доступний у підписці «Благодійний фонд «Голоси дітей»» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/voicesofchildren#subscriptions",
-    "image": "skin/base-blahodiinyi-fond-holosy-ditei.png",
+    "image": "skin/base-blahodiinyi-fond-holosy-ditei.webp",
     "imageHashes": [
       "953b832b98dbda8c9b7b51365ff841c8021ec8981a7470d294f1f31c471cd530"
     ],
@@ -3413,7 +3413,7 @@
     "minimumValue": 50,
     "description": "Скін доступний у підписці «Богдан К.» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/AKQb3GjdneA1mw#subscriptions",
-    "image": "skin/base-bohdan-k.png",
+    "image": "skin/base-bohdan-k.webp",
     "imageHashes": [
       "8068a6c3644ab894a071b75c9a345fc443c6f71d5f4bfacee4633edcc2311333"
     ],
@@ -3494,10 +3494,10 @@
     "lastVerifiedAt": "2026-08-10",
     "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Мінімальна сума підписки — від 150 грн/міс (1 скін), 3 000 ₴/міс (2 скіна)",
     "sourceUrl": "https://base.monobank.ua/ab3angels#subscriptions",
-    "image": "skin/base-patronatna-sluzhba-yanholy.png",
+    "image": "skin/base-patronatna-sluzhba-yanholy.webp",
     "images": [
-      "skin/base-patronatna-sluzhba-yanholy.png",
-      "skin/base-patronatna-sluzhba-yanholy-2.png"
+      "skin/base-patronatna-sluzhba-yanholy.webp",
+      "skin/base-patronatna-sluzhba-yanholy-2.webp"
     ],
     "imageHashes": [
       "e42d3443aa6c75f8e2135af4a4054bfca0f14ec6e66817fc78a82077efa5ea59",
@@ -3515,7 +3515,7 @@
     "minimumValue": 250,
     "description": "Скін доступний у підписці «БО \"БФ \"1991\"» у monobaza. Мінімальна сума підписки — від 250 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/81NN2qov5Bc1aX#subscriptions",
-    "image": "skin/base-bo-bf-1991.png",
+    "image": "skin/base-bo-bf-1991.webp",
     "imageHashes": [
       "70770505c8ae19568d58244217021bb2d2459268de1267e0a85b3dffe14ddf0f"
     ],
@@ -3571,9 +3571,9 @@
     "lastVerifiedAt": "2026-08-10",
     "description": "Скін доступний у підписці «Khimikdavid» у monobaza. Мінімальна сума підписки — від 50 грн/міс (1 скін), від 200 грн/міс (2 скіна)",
     "sourceUrl": "https://base.monobank.ua/DfMKh5mC4zumRy#subscriptions",
-    "image": "skin/base-khimikdavid.png",
+    "image": "skin/base-khimikdavid.webp",
     "images": [
-      "skin/base-khimikdavid.png",
+      "skin/base-khimikdavid.webp",
       "skin/base-khimikdavid-2.png"
     ],
     "imageHashes": [
@@ -3702,10 +3702,10 @@
     "lastVerifiedAt": "2026-08-10",
     "description": "Скін доступний у підписці «Максим Кільдеров» у monobaza. Мінімальна сума підписки — від 99 грн/міс\n66 грн/міс. - 1 скін\n99 грн/міс. - 2 скіни",
     "sourceUrl": "https://base.monobank.ua/kilderov#subscriptions",
-    "image": "skin/base-maksym-kilderov.png",
+    "image": "skin/base-maksym-kilderov.webp",
     "images": [
-      "skin/base-maksym-kilderov.png",
-      "skin/base-maksym-kilderov-2.png"
+      "skin/base-maksym-kilderov.webp",
+      "skin/base-maksym-kilderov-2.webp"
     ],
     "imageHashes": [
       "3eaf1e8ca315498bc3d76c2a9f3d2399d5d83132849573785638b99819036c28",
@@ -3725,12 +3725,12 @@
     "lastVerifiedAt": "2026-08-10",
     "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Мінімальна сума підписки — від 50 грн/міс.\n50 грн/міс - 1 скін\n60 грн/міс - 2 скіни\n100 грн/міс - 3 скіни\n150 грн/міс - 4 скіни\n170 грн/міс - 5 скінів\n500 грн/міс - 6 скінів",
     "sourceUrl": "https://base.monobank.ua/E7b62zaY1GeXuc#subscriptions",
-    "image": "skin/base-bf-blahodiinyi-fond-havkit.png",
+    "image": "skin/base-bf-blahodiinyi-fond-havkit.webp",
     "images": [
-      "skin/base-bf-blahodiinyi-fond-havkit.png",
+      "skin/base-bf-blahodiinyi-fond-havkit.webp",
       "skin/base-bf-blahodiinyi-fond-havkit-2.png",
       "skin/base-bf-blahodiinyi-fond-havkit-3.png",
-      "skin/base-bf-blahodiinyi-fond-havkit-4.png",
+      "skin/base-bf-blahodiinyi-fond-havkit-4.webp",
       "skin/base-bf-blahodiinyi-fond-havkit-5.png",
       "skin/base-bf-blahodiinyi-fond-havkit-6.png"
     ],
@@ -3756,11 +3756,11 @@
     "lastVerifiedAt": "2026-08-10",
     "description": "Скін доступний у підписці «Bihus.Info» у monobaza. Мінімальна сума підписки — від 100 грн/міс (1 скін), від 250 грн/міс (2 скіни), від 500 грн/міс (3 скіни)",
     "sourceUrl": "https://base.monobank.ua/bihusinfo#subscriptions",
-    "image": "skin/base-bihus-info.png",
+    "image": "skin/base-bihus-info.webp",
     "images": [
-      "skin/base-bihus-info.png",
-      "skin/base-bihus-info-2.png",
-      "skin/base-bihus-info-3.png"
+      "skin/base-bihus-info.webp",
+      "skin/base-bihus-info-2.webp",
+      "skin/base-bihus-info-3.webp"
     ],
     "imageHashes": [
       "d98b9da0f1caa340035b33b8be8123ef17fc7511d2f7ab2292164dd20729170d",
@@ -3779,7 +3779,7 @@
     "minimumValue": 200,
     "description": "Скін доступний у підписці «Молодіжний Націоналістичний Конгрес» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/mnk_support#subscriptions",
-    "image": "skin/base-molodizhnyi-natsionalistychnyi-konhres.png",
+    "image": "skin/base-molodizhnyi-natsionalistychnyi-konhres.webp",
     "imageHashes": [
       "7c38f27476441bfd9c1953ebbbadf0cc1c24b614f8fd55b2a2c9a55bf81b75eb"
     ],
@@ -3797,7 +3797,7 @@
     "minimumValue": 200,
     "description": "Скін доступний у підписці «Dzyga's Paw» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/EsU4ynih2p7jmD#subscriptions",
-    "image": "skin/base-dzyga-s-paw.png",
+    "image": "skin/base-dzyga-s-paw.webp",
     "imageHashes": [
       "7d961d0fc1b07a209220e57e383fe8f68e7b2ba941e7640e53e6203b846f6ce4"
     ],
@@ -3815,7 +3815,7 @@
     "minimumValue": 300,
     "description": "Скін доступний у підписці «Андрій Г.» у monobaza. Мінімальна сума підписки — від 300 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW#subscriptions",
-    "image": "skin/base-andrii-h.png",
+    "image": "skin/base-andrii-h.webp",
     "imageHashes": [
       "32d30a35f648ebda2291275e6e559640927dc01a4ec53ef6646743c3a3b9f65b"
     ],
@@ -3924,7 +3924,7 @@
     "minimumValue": 100,
     "description": "Скін видавався за донат від 100 грн. Банку розбито.",
     "sourceUrl": "",
-    "image": "skin/kurazh.png",
+    "image": "skin/kurazh.webp",
     "imageHashes": [
       "d121ce47b63b71ba27e76a485c8e3faccbf34669463f0982042cfeaeb57a4045"
     ],
@@ -3943,7 +3943,7 @@
     "minimumValue": 50.5,
     "description": "Скін видавався за донат від 50,50 грн на благодійний збір DOROFEEVA та POSITIFF.",
     "sourceUrl": "https://send.monobank.ua/jar/9jfqcEk8Gg",
-    "image": "skin/dorofeeva-positiff.png",
+    "image": "skin/dorofeeva-positiff.webp",
     "imageHashes": [
       "680a07c91c16b899041899457591dc41b7921727f1fcc8d215078e1d825904d3"
     ],

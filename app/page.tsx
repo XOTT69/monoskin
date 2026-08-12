@@ -47,6 +47,7 @@ const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 const visualHashWidth = 20;
 const visualHashHeight = 12;
 const themePreferenceKey = "monoskin-theme-preference";
+const catalogBatchSize = 40;
 type ImageCrop = { x: number; y: number; width: number; height: number };
 const photoSearchCrops = [
   { x: 0, y: 0, width: 1, height: 1 },
@@ -158,6 +159,7 @@ export default function Home() {
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
   const [sort, setSort] = useState<Sort>("newest");
+  const [visibleCount, setVisibleCount] = useState(catalogBatchSize);
   const [selected, setSelected] = useState<Skin | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [showQr, setShowQr] = useState(false);
@@ -174,6 +176,7 @@ export default function Home() {
   const turnstileWidgetId = useRef<string | undefined>(undefined);
   const turnstileToken = useRef("");
   const visualHashCache = useRef(new Map<string, Promise<number[][]>>());
+  const catalogSentinel = useRef<HTMLDivElement>(null);
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
@@ -192,6 +195,22 @@ export default function Home() {
       if (sort === "price") return left.minimumValue - right.minimumValue;
       return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
     }), [categoryFilter, query, sort]);
+  const visibleSkins = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setVisibleCount(catalogBatchSize));
+    return () => window.cancelAnimationFrame(frame);
+  }, [categoryFilter, query, sort]);
+
+  useEffect(() => {
+    const target = catalogSentinel.current;
+    if (!target || visibleCount >= filtered.length) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setVisibleCount((current) => Math.min(current + catalogBatchSize, filtered.length));
+    }, { rootMargin: "560px 0px" });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [filtered.length, visibleCount]);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(themePreferenceKey) as Theme | null;
@@ -411,12 +430,13 @@ export default function Home() {
           </div>}
         </div>
 
-        <div className="skin-grid">
-          {filtered.map((skin) => <button className="skin-card" key={skin.id} onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
+        <div className="skin-grid" aria-live="polite">
+          {visibleSkins.map((skin) => <button className="skin-card" key={skin.id} onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
             <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
             <div className="skin-info"><div><h3>{skin.name}</h3><p>{categoryOf(skin)}</p></div><span className="price">{money(skin.minimumValue, skin.method)}</span></div>
           </button>)}
         </div>
+        {filtered.length > visibleSkins.length && <div className="catalog-load-more" ref={catalogSentinel} aria-live="polite">Показано {visibleSkins.length} з {filtered.length} скінів · підвантажуємо далі…</div>}
         {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або категорію.</p></div>}
       </section>
 
