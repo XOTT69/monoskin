@@ -16,8 +16,11 @@ type Category = "Безкоштовно" | "Доступні всім" | "Дон
 type BotStep = "photos" | "name" | "category" | "minimum" | "description" | "source" | "preview" | "publishing";
 type BotDraft = { step: BotStep; photos: TelegramPhoto[]; name?: string; category?: Category; minimumValue?: number; description?: string; sourceUrl?: string };
 type ReviewRequest = { draft: BotDraft; editorChatId: number; submittedAt: string; status: "pending" | "publishing" };
+type AvailabilityEvent = { date: string; status: "Доступний" | "Недоступний"; reason?: string };
+type LinkCheckResult = { id: string; status: number; finalUrl: string; ok: boolean; checkedAt: string };
+type LinkMonitorState = { ids: string[]; cursor: number; results: LinkCheckResult[]; startedAt: string };
 type EditorAccessEnv = Env & { TELEGRAM_EDITOR_CHAT_IDS?: string };
-type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
+type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; availabilityHistory?: AvailabilityEvent[]; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
 type GitHubContent = { content: string; sha: string };
 type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { tree: { sha: string } };
@@ -66,6 +69,10 @@ function categoryFields(category: Category) {
   if (category === "Підписка") return { method: "Підписка Base" as const, status: "Доступний" as const };
   if (category === "Доступні всім") return { method: "Доступні всім" as const, status: "Доступний" as const };
   return { method: "Безкоштовний" as const, status: "Доступний" as const };
+}
+
+function initialAvailabilityHistory(status: Skin["status"], reason?: string): AvailabilityEvent[] {
+  return [{ date: new Date().toISOString(), status, ...(reason ? { reason } : {}) }];
 }
 
 function toId(value: string) {
@@ -142,6 +149,17 @@ function messageText(data: { name: string; category: string; sourceUrl: string; 
     `Категорія: ${data.category}`,
     `Умова / опис: ${data.description}`,
     `Джерело: ${source}`,
+  ].join("\n").slice(0, 900);
+}
+
+function correctionText(data: { skinId: string; name: string; category: string; sourceUrl: string; description: string }) {
+  return [
+    "Уточнення до скіна — MONOSKIN",
+    "",
+    `Скін: ${data.name} (${data.skinId})`,
+    `Категорія: ${data.category}`,
+    `Що виправити: ${data.description}`,
+    `Посилання: ${data.sourceUrl || "не змінювали"}`,
   ].join("\n").slice(0, 900);
 }
 
@@ -234,13 +252,13 @@ async function processReviewCallback(callback: TelegramCallback, chatId: number,
   if (!reviewId || (action !== "approve" && action !== "reject")) return;
   const review = await loadReview(reviewId, env);
   if (!review) {
-    await sendBotMessage(chatId, "Ця чернетка вже оброблена або термін її дії сплив.", env, startKeyboard());
+    await sendBotMessage(chatId, "Ця чернетка вже оброблена або термін її дії сплив.", env, startKeyboard(chatId, env));
     return;
   }
   if (action === "reject") {
     await clearReview(reviewId, env);
-    await sendBotMessage(review.editorChatId, "Чернетку не опубліковано. Уточни дані та створи нову — усе збережене фото можна надіслати повторно.", env, startKeyboard());
-    await sendBotMessage(chatId, "Чернетку відхилено. Редактор отримав повідомлення.", env, startKeyboard());
+    await sendBotMessage(review.editorChatId, "Чернетку не опубліковано. Уточни дані та створи нову — усе збережене фото можна надіслати повторно.", env, startKeyboard(review.editorChatId, env));
+    await sendBotMessage(chatId, "Чернетку відхилено. Редактор отримав повідомлення.", env, startKeyboard(chatId, env));
     return;
   }
   if (review.status === "publishing") {
@@ -253,8 +271,8 @@ async function processReviewCallback(callback: TelegramCallback, chatId: number,
   try {
     const skin = await publishDraft(review.draft, env);
     await clearReview(reviewId, env);
-    await sendBotMessage(review.editorChatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Сайт оновиться за кілька хвилин.`, env, startKeyboard());
-    await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Редактор отримав повідомлення.`, env, startKeyboard());
+    await sendBotMessage(review.editorChatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Сайт оновиться за кілька хвилин.`, env, startKeyboard(review.editorChatId, env));
+    await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> опубліковано. Редактор отримав повідомлення.`, env, startKeyboard(chatId, env));
   } catch (error) {
     review.status = "pending";
     await saveReview(reviewId, review, env);
@@ -329,6 +347,7 @@ async function publishDraft(draft: BotDraft, env: Env) {
     isVisaOnly: false,
     isAdultOnly: false,
     featured: false,
+    availabilityHistory: initialAvailabilityHistory(fields.status),
   };
   const nextCatalog = [record, ...records];
   const [commit] = await Promise.all([github<GitHubCommit>(`${base}/git/commits/${ref.object.sha}`, env)]);
@@ -368,8 +387,49 @@ async function recentSkins(env: Env) {
     .slice(0, 6);
 }
 
-function startKeyboard() {
-  return inlineKeyboard([[{ text: "Додати скін", callback_data: "skin:new" }, { text: "Мої останні додані", callback_data: "skin:recent" }]]);
+async function catalogAndDrafts(env: Env) {
+  const repository = env.GITHUB_REPOSITORY || `${OWNER}/${REPO}`;
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) throw new Error("Некоректна назва GitHub-репозиторію у налаштуваннях Worker.");
+  const branch = env.GITHUB_BRANCH || BRANCH;
+  const base = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const [catalogFile, draftsFile] = await Promise.all([
+    github<GitHubContent>(`${base}/contents/data/skins.json?ref=${encodeURIComponent(branch)}`, env),
+    github<GitHubContent>(`${base}/contents/data/drafts.json?ref=${encodeURIComponent(branch)}`, env),
+  ]);
+  return { records: JSON.parse(base64ToText(catalogFile.content)) as Skin[], drafts: JSON.parse(base64ToText(draftsFile.content)) as Skin[] };
+}
+
+async function sendDraftSummary(chatId: number, env: Env) {
+  const { drafts } = await catalogAndDrafts(env);
+  if (!drafts.length) { await sendBotMessage(chatId, "У репозиторії немає чернеток.", env, startKeyboard(chatId, env)); return; }
+  const lines = drafts.slice(0, 12).map((skin) => `• <b>${escapeHtml(skin.name)}</b> · ${escapeHtml(categoryOfBot(skin))}`);
+  await sendBotMessage(chatId, `<b>Чернетки (${drafts.length})</b>\n\n${lines.join("\n")}${drafts.length > 12 ? "\n\nПоказано перші 12." : ""}\n\nВідкрий адмінку, щоб перевірити й опублікувати вибрані.`, env, startKeyboard(chatId, env));
+}
+
+function categoryOfBot(skin: Skin) {
+  if (skin.status === "Недоступний") return "Недоступні";
+  if (skin.method === "Донат на банку") return "Донат на банку";
+  if (skin.method === "Підписка Base") return "Підписка";
+  if (skin.method === "Доступні всім") return "Доступні всім";
+  return "Безкоштовно";
+}
+
+async function sendBrokenLinkSummary(chatId: number, env: Env) {
+  const { records } = await catalogAndDrafts(env);
+  const broken = records.filter((skin) => skin.sourceUrl && skin.linkCheck && !skin.linkCheck.ok);
+  if (!broken.length) { await sendBotMessage(chatId, "✓ За останньою перевіркою проблемних URL немає.", env, startKeyboard(chatId, env)); return; }
+  const lines = broken.slice(0, 12).map((skin) => `• <a href="https://monoskin.pages.dev/skin/${encodeURIComponent(skin.id)}/">${escapeHtml(skin.name)}</a> · HTTP ${skin.linkCheck?.status || "—"}`);
+  await sendBotMessage(chatId, `<b>Проблемні URL (${broken.length})</b>\n\n${lines.join("\n")}${broken.length > 12 ? "\n\nПоказано перші 12." : ""}\n\nВідкрий адмінку, щоб оновити або вимкнути посилання.`, env, startKeyboard(chatId, env));
+}
+
+function startKeyboard(chatId?: number, env?: Env) {
+  const owner = env && isOwner(chatId, env);
+  return inlineKeyboard([
+    [{ text: "Додати скін", callback_data: "skin:new" }, { text: "Моя чернетка", callback_data: "skin:current" }],
+    [{ text: "Останні додані", callback_data: "skin:recent" }, ...(owner ? [{ text: "Чернетки", callback_data: "skin:drafts" }] : [])],
+    ...(owner ? [[{ text: "Проблемні URL", callback_data: "skin:broken-links" }]] : []),
+  ]);
 }
 
 async function startDraft(chatId: number, env: Env) {
@@ -382,18 +442,18 @@ async function processMessage(message: TelegramMessage, env: Env) {
   const chatId = message.chat.id;
   const text = message.text?.trim() || "";
   if (text === "/start" || text === "/add") {
-    await sendBotMessage(chatId, "Привіт. Я допоможу швидко додати скін у MONOSKIN.", env, startKeyboard());
+    await sendBotMessage(chatId, "Привіт. Я допоможу швидко додати скін у MONOSKIN.", env, startKeyboard(chatId, env));
     return;
   }
   if (text === "/cancel") {
     await clearDraft(chatId, env);
-    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard());
+    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard(chatId, env));
     return;
   }
 
   const draft = await loadDraft(chatId, env);
   if (!draft) {
-    await sendBotMessage(chatId, "Натисни «Додати скін», щоб почати.", env, startKeyboard());
+    await sendBotMessage(chatId, "Натисни «Додати скін», щоб почати.", env, startKeyboard(chatId, env));
     return;
   }
   if (message.photo?.length) {
@@ -404,6 +464,10 @@ async function processMessage(message: TelegramMessage, env: Env) {
     const photo = message.photo[message.photo.length - 1];
     if (photo.file_size && photo.file_size > MAX_BOT_PHOTO_BYTES) {
       await sendBotMessage(chatId, "Це фото більше 8 МБ. Надішли меншу версію.", env);
+      return;
+    }
+    if (photo.width < 480 || photo.height < 280) {
+      await sendBotMessage(chatId, `Фото замале (${photo.width} × ${photo.height} px). Надішли щонайменше 480 × 280 px.`, env);
       return;
     }
     if (draft.photos.some((item) => item.file_unique_id === photo.file_unique_id)) {
@@ -476,29 +540,47 @@ async function processCallback(callback: TelegramCallback, env: Env) {
     await startDraft(chatId, env);
     return;
   }
+  if (data === "skin:current") {
+    const current = await loadDraft(chatId, env);
+    if (!current) { await sendBotMessage(chatId, "Активної чернетки немає. Натисни «Додати скін», щоб почати.", env, startKeyboard(chatId, env)); return; }
+    await sendBotMessage(chatId, `<b>Твоя активна чернетка</b>\n\n${previewText(current, !isOwner(chatId, env))}\n\nПовернись до останнього повідомлення бота, щоб продовжити з поточного кроку.`, env, inlineKeyboard([[{ text: "Скасувати", callback_data: "skin:cancel" }, { text: "Почати нову", callback_data: "skin:new" }]]));
+    return;
+  }
+  if (data === "skin:drafts") {
+    if (!isOwner(chatId, env)) return;
+    try { await sendDraftSummary(chatId, env); }
+    catch (error) { await sendBotMessage(chatId, `Не вдалося завантажити чернетки: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, startKeyboard(chatId, env)); }
+    return;
+  }
+  if (data === "skin:broken-links") {
+    if (!isOwner(chatId, env)) return;
+    try { await sendBrokenLinkSummary(chatId, env); }
+    catch (error) { await sendBotMessage(chatId, `Не вдалося перевірити звіт URL: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, startKeyboard(chatId, env)); }
+    return;
+  }
   if (data === "skin:recent") {
     try {
       const records = await recentSkins(env);
-      if (!records.length) { await sendBotMessage(chatId, "Каталог поки порожній.", env, startKeyboard()); return; }
+      if (!records.length) { await sendBotMessage(chatId, "Каталог поки порожній.", env, startKeyboard(chatId, env)); return; }
       await sendBotMessage(chatId, "<b>Останні додані скіни</b>", env);
       for (const skin of records) {
-        const url = `https://xott69.github.io/monoskin/?skin=${encodeURIComponent(skin.id)}`;
+        const url = `https://monoskin.pages.dev/skin/${encodeURIComponent(skin.id)}/`;
         await sendBotMessage(chatId, `• <a href="${url}">${escapeHtml(skin.name)}</a>\n${escapeHtml(skin.addedAt.slice(0, 10))}`, env);
       }
-      await sendBotMessage(chatId, "Що хочеш зробити далі?", env, startKeyboard());
+      await sendBotMessage(chatId, "Що хочеш зробити далі?", env, startKeyboard(chatId, env));
     } catch (error) {
-      await sendBotMessage(chatId, `Не вдалося завантажити каталог: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, startKeyboard());
+      await sendBotMessage(chatId, `Не вдалося завантажити каталог: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, startKeyboard(chatId, env));
     }
     return;
   }
   if (data === "skin:cancel") {
     await clearDraft(chatId, env);
-    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard());
+    await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard(chatId, env));
     return;
   }
   const draft = await loadDraft(chatId, env);
   if (!draft) {
-    await sendBotMessage(chatId, "Чернетка вже завершилась. Почни нову.", env, startKeyboard());
+    await sendBotMessage(chatId, "Чернетка вже завершилась. Почни нову.", env, startKeyboard(chatId, env));
     return;
   }
   if (data === "skin:add-photo") {
@@ -542,7 +624,7 @@ async function processCallback(callback: TelegramCallback, env: Env) {
       try {
         await sendReview(chatId, draft, env);
         await clearDraft(chatId, env);
-        await sendBotMessage(chatId, "✓ Чернетку та всі фото надіслано власнику каталогу. Напишемо сюди після рішення.", env, startKeyboard());
+        await sendBotMessage(chatId, "✓ Чернетку та всі фото надіслано власнику каталогу. Напишемо сюди після рішення.", env, startKeyboard(chatId, env));
       } catch (error) {
         await sendBotMessage(chatId, `Не вдалося надіслати чернетку: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: "skin:publish" }, { text: "Скасувати", callback_data: "skin:cancel" }]]));
       }
@@ -554,7 +636,7 @@ async function processCallback(callback: TelegramCallback, env: Env) {
     try {
       const skin = await publishDraft(draft, env);
       await clearDraft(chatId, env);
-      await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> додано. GitHub Pages оновить сайт за кілька хвилин.`, env, startKeyboard());
+      await sendBotMessage(chatId, `✓ <b>${escapeHtml(skin.name)}</b> додано. GitHub Pages оновить сайт за кілька хвилин.`, env, startKeyboard(chatId, env));
     } catch (error) {
       draft.step = "preview";
       await saveDraft(chatId, draft, env);
@@ -592,21 +674,28 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
   const category = field(form, "category", 40);
   const description = field(form, "description", 800);
   const sourceUrl = field(form, "sourceUrl", 500);
+  const kind = field(form, "kind", 20);
+  const skinId = field(form, "skinId", 160);
   const turnstileToken = field(form, "turnstileToken", 4096);
   const photo = form.get("photo");
   const validCategories = new Set(["Безкоштовно", "Доступні всім", "Донат на банку", "Підписка", "Недоступні"]);
-  if (!name || !description || !validCategories.has(category)) return json({ error: "Заповни назву, категорію та опис." }, 400, headers);
+  const correction = kind === "correction";
+  if (!name || !description || !validCategories.has(category) || (correction && !skinId)) return json({ error: "Заповни назву, категорію та опис." }, 400, headers);
   if (!isHttpsUrl(sourceUrl)) return json({ error: "Посилання має бути коректним URL." }, 400, headers);
-  if (!(photo instanceof File) || !photo.size || photo.size > MAX_PHOTO_BYTES || !ALLOWED_IMAGE_TYPES.has(photo.type)) return json({ error: "Додай PNG, JPG або WebP до 8 МБ." }, 400, headers);
+  if (!correction && (!(photo instanceof File) || !photo.size)) return json({ error: "Додай PNG, JPG або WebP до 8 МБ." }, 400, headers);
+  if (photo instanceof File && photo.size && (photo.size > MAX_PHOTO_BYTES || !ALLOWED_IMAGE_TYPES.has(photo.type))) return json({ error: "Додай PNG, JPG або WebP до 8 МБ." }, 400, headers);
   if (!turnstileToken) return json({ error: "Підтвердь, що ти не робот." }, 400, headers);
   try {
     const verification = await verifyTurnstile(turnstileToken, request, env);
     if (!verification.success || !isAllowedTurnstileHostname(verification.hostname, env)) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
-    const photoPayload = new FormData();
-    photoPayload.set("chat_id", env.TELEGRAM_CHAT_ID);
-    photoPayload.set("photo", photo, photo.name || "monoskin-upload");
-    photoPayload.set("caption", messageText({ name, category, description, sourceUrl }));
-    await telegram("sendPhoto", photoPayload, env);
+    const text = correction ? correctionText({ skinId, name, category, description, sourceUrl }) : messageText({ name, category, description, sourceUrl });
+    if (photo instanceof File && photo.size) {
+      const photoPayload = new FormData();
+      photoPayload.set("chat_id", env.TELEGRAM_CHAT_ID);
+      photoPayload.set("photo", photo, photo.name || "monoskin-upload");
+      photoPayload.set("caption", text);
+      await telegram("sendPhoto", photoPayload, env);
+    } else await sendBotMessage(Number(env.TELEGRAM_CHAT_ID), text, env);
     return json({ ok: true }, 200, headers);
   } catch (error) {
     console.error("Submission delivery failed", error);
@@ -653,6 +742,91 @@ async function handleLinkCheck(request: Request, env: Env): Promise<Response> {
   if (!links.length) return json({ error: "Немає посилань для перевірки." }, 400, headers);
   const results = await Promise.all(links.map(async (item) => ({ id: item.id!, ...await inspectLink(item.url!) })));
   return Response.json({ results }, { headers: { ...headers, "Cache-Control": "no-store" } });
+}
+
+const linkMonitorStateKey = "link-monitor:state";
+const linkMonitorLastCompletedKey = "link-monitor:last-completed";
+const linkMonitorIntervalMs = 7 * 24 * 60 * 60 * 1000;
+const linkMonitorBatchSize = 25;
+
+async function loadCatalogForWorker(env: Env) {
+  const repository = env.GITHUB_REPOSITORY || `${OWNER}/${REPO}`;
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) throw new Error("Некоректна назва GitHub-репозиторію.");
+  const branch = env.GITHUB_BRANCH || BRANCH;
+  const base = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const [catalogFile, ref] = await Promise.all([
+    github<GitHubContent>(`${base}/contents/data/skins.json?ref=${encodeURIComponent(branch)}`, env),
+    github<GitHubRef>(`${base}/git/ref/heads/${encodeURIComponent(branch)}`, env),
+  ]);
+  return { base, branch, records: JSON.parse(base64ToText(catalogFile.content)) as Skin[], ref };
+}
+
+async function commitCatalogChecks(records: Skin[], env: Env) {
+  const { base, branch, ref } = await loadCatalogForWorker(env);
+  const current = await github<GitHubCommit>(`${base}/git/commits/${ref.object.sha}`, env);
+  const blob = await github<GitHubBlob>(`${base}/git/blobs`, env, { method: "POST", body: JSON.stringify({ content: textToBase64(`${JSON.stringify(records, null, 2)}\n`), encoding: "base64" }) });
+  const tree = await github<GitHubTree>(`${base}/git/trees`, env, { method: "POST", body: JSON.stringify({ base_tree: current.tree.sha, tree: [{ path: "data/skins.json", mode: "100644", type: "blob", sha: blob.sha }] }) });
+  const commit = await github<GitHubCreatedCommit>(`${base}/git/commits`, env, { method: "POST", body: JSON.stringify({ message: "Щотижнева перевірка посилань", tree: tree.sha, parents: [ref.object.sha] }) });
+  await github(`${base}/git/refs/heads/${encodeURIComponent(branch)}`, env, { method: "PATCH", body: JSON.stringify({ sha: commit.sha, force: false }) });
+}
+
+async function runWeeklyLinkMonitor(env: Env) {
+  let state = await env.BOT_SESSIONS.get<LinkMonitorState>(linkMonitorStateKey, "json");
+  if (!state) {
+    const lastCompleted = Number(await env.BOT_SESSIONS.get(linkMonitorLastCompletedKey) || 0);
+    if (Date.now() - lastCompleted < linkMonitorIntervalMs) return;
+    const { records } = await loadCatalogForWorker(env);
+    state = { ids: records.filter((skin) => Boolean(skin.sourceUrl)).map((skin) => skin.id), cursor: 0, results: [], startedAt: new Date().toISOString() };
+    if (!state.ids.length) { await env.BOT_SESSIONS.put(linkMonitorLastCompletedKey, String(Date.now())); return; }
+  }
+
+  const { records } = await loadCatalogForWorker(env);
+  const currentById = new Map(records.map((skin) => [skin.id, skin]));
+  const batchIds = state.ids.slice(state.cursor, state.cursor + linkMonitorBatchSize);
+  const checkedAt = new Date().toISOString();
+  const batch = await Promise.all(batchIds.map(async (id): Promise<LinkCheckResult | null> => {
+    const skin = currentById.get(id);
+    if (!skin?.sourceUrl) return null;
+    return { id, ...await inspectLink(skin.sourceUrl), checkedAt };
+  }));
+  const updates = new Map(batch.filter((item): item is LinkCheckResult => Boolean(item)).map((item) => [item.id, item]));
+  const resultMap = new Map(state.results.map((item) => [item.id, item]));
+  updates.forEach((result, id) => resultMap.set(id, result));
+  state = { ...state, cursor: state.cursor + batchIds.length, results: [...resultMap.values()] };
+  if (state.cursor < state.ids.length) {
+    await env.BOT_SESSIONS.put(linkMonitorStateKey, JSON.stringify(state), { expirationTtl: 60 * 60 * 12 });
+    return;
+  }
+
+  const checks = new Map(state.results.map((item) => [item.id, item]));
+  let changed = false;
+  const nextRecords = records.map((skin) => {
+    const check = checks.get(skin.id);
+    if (!check) return skin;
+    const nextCheck = { checkedAt: check.checkedAt, status: check.status, finalUrl: check.finalUrl, ok: check.ok };
+    // Record the current check as well: the admin panel then shows that every
+    // URL was actually checked this week, even when its response did not change.
+    if (
+      skin.linkCheck?.status !== nextCheck.status
+      || skin.linkCheck?.finalUrl !== nextCheck.finalUrl
+      || skin.linkCheck?.ok !== nextCheck.ok
+      || skin.linkCheck?.checkedAt?.slice(0, 10) !== nextCheck.checkedAt.slice(0, 10)
+    ) changed = true;
+    return { ...skin, linkCheck: nextCheck };
+  });
+  if (changed) await commitCatalogChecks(nextRecords, env);
+  await env.BOT_SESSIONS.delete(linkMonitorStateKey);
+  await env.BOT_SESSIONS.put(linkMonitorLastCompletedKey, String(Date.now()));
+  const broken = state.results.filter((item) => !item.ok);
+  const brokenNames = broken.slice(0, 8)
+    .map((item) => currentById.get(item.id)?.name)
+    .filter((name): name is string => Boolean(name))
+    .map(escapeHtml);
+  const report = broken.length
+    ? `<b>Щотижнева перевірка URL</b>\n\nПеревірено: ${state.results.length}\nПроблемних: ${broken.length}\n\n${brokenNames.map((name) => `• ${name}`).join("\n")}${broken.length > brokenNames.length ? "\n…" : ""}\n\nВідкрий «Проблемні URL» у боті або адмінці.`
+    : `<b>Щотижнева перевірка URL</b>\n\n✓ Перевірено ${state.results.length} посилань. Проблем не знайдено.`;
+  await sendBotMessage(Number(env.TELEGRAM_CHAT_ID), report, env, startKeyboard(Number(env.TELEGRAM_CHAT_ID), env));
 }
 
 async function publishScheduledDrafts(env: Env) {
@@ -728,6 +902,11 @@ export default {
     return new Response("Not found", { status: 404 });
   },
   async scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext) {
-    ctx.waitUntil(publishScheduledDrafts(env).catch((error) => console.error("Scheduled publication failed", error)));
+    ctx.waitUntil((async () => {
+      try { await publishScheduledDrafts(env); }
+      catch (error) { console.error("Scheduled publication failed", error); }
+      try { await runWeeklyLinkMonitor(env); }
+      catch (error) { console.error("Weekly link monitor failed", error); }
+    })());
   },
 } satisfies ExportedHandler<Env>;

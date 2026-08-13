@@ -21,6 +21,7 @@ type Status = "Доступний" | "Недоступний";
 type DisplayMethod = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка";
 type Category = "Усі" | DisplayMethod | "Недоступні";
 type Theme = "dark" | "light";
+type AvailabilityEvent = { date: string; status: Status; reason?: string };
 type Skin = {
   id: string;
   name: string;
@@ -37,6 +38,7 @@ type Skin = {
   featured?: boolean;
   lastVerifiedAt?: string;
   unavailableReason?: string;
+  availabilityHistory?: AvailabilityEvent[];
 };
 type Sort = "newest" | "oldest" | "name" | "price";
 
@@ -67,6 +69,29 @@ function formatDate(value: string) {
 function formatFileSize(bytes: number) {
   if (bytes < 1024 * 1024) return `${Math.ceil(bytes / 1024)} КБ`;
   return `${(bytes / (1024 * 1024)).toLocaleString("uk-UA", { maximumFractionDigits: 1 })} МБ`;
+}
+
+async function assessCardImage(file: File): Promise<{ ok: false; message: string } | { ok: true; width: number; height: number; note: string }> {
+  const objectUrl = URL.createObjectURL(file);
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new window.Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("Не вдалося прочитати зображення."));
+      element.src = objectUrl;
+    });
+    if (image.width < 480 || image.height < 280) return { ok: false, message: "Зображення замале. Потрібно щонайменше 480 × 280 px." };
+    const ratio = image.width / image.height;
+    const note = ratio < 1.35 || ratio > 1.9 ? "Нестандартні пропорції: у каталозі зображення буде показано повністю, без обрізання." : "Формат картки підходить.";
+    return { ok: true, width: image.width, height: image.height, note };
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
+function availabilityEvents(skin: Skin): AvailabilityEvent[] {
+  if (skin.availabilityHistory?.length) return [...skin.availabilityHistory].sort((left, right) => +new Date(right.date) - +new Date(left.date));
+  return [{ date: skin.status === "Недоступний" ? skin.lastVerifiedAt || skin.addedAt : skin.addedAt, status: skin.status, reason: skin.status === "Недоступний" ? skin.unavailableReason : undefined }];
 }
 
 function imageFromClipboard(items: DataTransferItemList) {
@@ -167,6 +192,8 @@ export default function Home() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
   const [suggestionPhoto, setSuggestionPhoto] = useState<File | null>(null);
+  const [suggestionPhotoNote, setSuggestionPhotoNote] = useState("");
+  const [reportedSkin, setReportedSkin] = useState<Skin | null>(null);
   const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number; matches?: Array<{ skin: Skin; similarity: number }> }>({ state: "idle" });
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
@@ -215,14 +242,37 @@ export default function Home() {
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(themePreferenceKey) as Theme | null;
     const preferredTheme: Theme = "dark";
-    const skinId = new URLSearchParams(window.location.search).get("skin");
+    const parameters = new URLSearchParams(window.location.search);
+    const skinId = parameters.get("skin");
+    const reportId = parameters.get("report");
     const skin = skinId ? skins.find((item) => item.id === skinId) : null;
+    const report = reportId ? skins.find((item) => item.id === reportId) : null;
     const frame = window.requestAnimationFrame(() => {
       setTheme(storedTheme === "light" || storedTheme === "dark" ? storedTheme : preferredTheme);
       if (skin) { setSelected(skin); setSelectedImageIndex(0); }
+      if (report) { setReportedSkin(report); document.getElementById("suggest")?.scrollIntoView({ behavior: "smooth" }); }
     });
     return () => window.cancelAnimationFrame(frame);
   }, []);
+
+  const chooseSuggestionPhoto = async (file: File | null) => {
+    if (!file) { setSuggestionPhoto(null); setSuggestionPhotoNote(""); return; }
+    try {
+      const assessment = await assessCardImage(file);
+      if (!assessment.ok) { setSuggestionPhoto(null); setSuggestionPhotoNote(assessment.message); setSubmissionState("error"); setSubmissionMessage(assessment.message); return; }
+      setSuggestionPhoto(file);
+      setSuggestionPhotoNote(`${assessment.width} × ${assessment.height} px · ${assessment.note}`);
+      setSubmissionState("idle");
+    } catch {
+      setSuggestionPhoto(null); setSuggestionPhotoNote("Не вдалося прочитати зображення.");
+    }
+  };
+
+  const startCorrection = (skin: Skin) => {
+    setSelected(null);
+    setReportedSkin(skin);
+    window.setTimeout(() => document.getElementById("suggest")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+  };
 
   useEffect(() => {
     window.localStorage.setItem(themePreferenceKey, theme);
@@ -329,19 +379,22 @@ export default function Home() {
 
     const form = event.currentTarget;
     const payload = new FormData(form);
+    const isCorrection = Boolean(reportedSkin);
     const photo = suggestionPhoto ?? payload.get("photo");
-    if (!(photo instanceof File) || !photo.size) {
+    if (!isCorrection && (!(photo instanceof File) || !photo.size)) {
       setSubmissionState("error");
       setSubmissionMessage("Додай зображення скіна.");
       return;
     }
-    if (photo.size > 8 * 1024 * 1024) {
+    if (photo instanceof File && photo.size > 8 * 1024 * 1024) {
       setSubmissionState("error");
       setSubmissionMessage("Фото має бути меншим за 8 МБ.");
       return;
     }
 
-    payload.set("photo", photo);
+    if (photo instanceof File && photo.size) payload.set("photo", photo);
+    payload.set("kind", isCorrection ? "correction" : "suggestion");
+    if (reportedSkin) payload.set("skinId", reportedSkin.id);
     payload.set("turnstileToken", turnstileToken.current);
     setSubmissionState("sending");
     setSubmissionMessage("");
@@ -351,10 +404,12 @@ export default function Home() {
       if (!response.ok) throw new Error(result.error || "Не вдалося надіслати форму.");
       form.reset();
       setSuggestionPhoto(null);
+      setSuggestionPhotoNote("");
+      setReportedSkin(null);
       turnstileToken.current = "";
       window.turnstile?.reset(turnstileWidgetId.current);
       setSubmissionState("success");
-      setSubmissionMessage("Дякуємо! Заявку разом із фото вже передано на перевірку.");
+      setSubmissionMessage(isCorrection ? "Дякуємо! Уточнення передано на перевірку." : "Дякуємо! Заявку разом із фото вже передано на перевірку.");
     } catch (error) {
       setSubmissionState("error");
       setSubmissionMessage(error instanceof Error ? error.message : "Не вдалося надіслати форму.");
@@ -448,12 +503,13 @@ export default function Home() {
           <p>Надішли назву, коротку умову та зображення. Ми перевіримо інформацію й додамо скін до каталогу.</p>
           <small>Не додавай персональні дані, банківські реквізити чи приватні посилання. Фото й текст заявки надсилаються в Telegram для модерації.</small>
         </div>
-        <form className="suggestion-form" onSubmit={submitSuggestion} onPaste={async (event) => { const directImage = imageFromClipboard(event.clipboardData.items); if (directImage) { event.preventDefault(); setSuggestionPhoto(directImage); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) setSuggestionPhoto(systemImage); }}>
-          <label>Назва скіна<input name="name" required maxLength={90} placeholder="Наприклад, mono котик" /></label>
-          <label>Категорія<select name="category" required defaultValue=""><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
-          <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} placeholder="https://…" /></label>
-          <label className="form-full">Що відомо про отримання<textarea name="description" required maxLength={800} rows={4} placeholder="Коли та як можна було або можна отримати цей скін" /></label>
-          <label className="form-full file-field" tabIndex={0}><span>Зображення скіна</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required onChange={(event) => setSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
+        <form key={reportedSkin?.id ?? "new-suggestion"} className="suggestion-form" onSubmit={submitSuggestion} onPaste={async (event) => { const directImage = imageFromClipboard(event.clipboardData.items); if (directImage) { event.preventDefault(); void chooseSuggestionPhoto(directImage); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void chooseSuggestionPhoto(systemImage); }}>
+          {reportedSkin && <div className="correction-context form-full"><span>Уточнення для</span><strong>{reportedSkin.name}</strong><button type="button" onClick={() => setReportedSkin(null)}>Скасувати</button></div>}
+          <label>Назва скіна<input name="name" required maxLength={90} defaultValue={reportedSkin?.name} placeholder="Наприклад, mono котик" /></label>
+          <label>Категорія<select name="category" required defaultValue={reportedSkin ? categoryOf(reportedSkin) : ""}><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
+          <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} defaultValue={reportedSkin?.sourceUrl} placeholder="https://…" /></label>
+          <label className="form-full">{reportedSkin ? "Що саме потрібно виправити" : "Що відомо про отримання"}<textarea name="description" required maxLength={800} rows={4} defaultValue={reportedSkin ? "" : undefined} placeholder={reportedSkin ? "Опиши неточність: умову, посилання, доступність або іншу деталь" : "Коли та як можна було або можна отримати цей скін"} /></label>
+          <label className="form-full file-field" tabIndex={0}><span>{reportedSkin ? "Нове зображення (необов’язково)" : "Зображення скіна"}</span><input name="photo" type="file" accept="image/png,image/jpeg,image/webp" required={!reportedSkin} onChange={(event) => void chooseSuggestionPhoto(event.target.files?.[0] ?? null)} />{suggestionPhoto ? <span className="file-selected" role="status"><b aria-hidden="true">✓</b><i>{suggestionPhoto.name || "Вставлене зображення"}</i><small>{formatFileSize(suggestionPhoto.size)}</small><em>{suggestionPhotoNote}</em></span> : <><strong>Обрати фото</strong><small>PNG, JPG або WebP · від 480 × 280 px · до 8 МБ · або встав Ctrl/Cmd + V</small></>}</label>
           <div className="turnstile-slot form-full" ref={turnstileSlot} />
           {turnstileSiteKey && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onLoad={renderTurnstile} />}
           {submissionState !== "idle" && <p className={`submission-message ${submissionState}`} role="status">{submissionMessage}</p>}
@@ -471,7 +527,8 @@ export default function Home() {
             <h2 id="details-title">{selected.name}</h2>
             <div className="detail-meta"><span>{displayMethod(selected)}</span><span>{money(selected.minimumValue, selected.method)}</span>{selected.lastVerifiedAt && <span title="Дата останньої перевірки умови">Перевірено {formatDate(selected.lastVerifiedAt)}</span>}{selected.isVisaOnly && <span title="Скін доступний лише для карток Visa">Лише Visa</span>}{selected.isAdultOnly && <span title="Скін доступний лише повнолітнім">18+</span>}</div>
             <div className="condition"><span>Умова отримання</span><p>{selected.status === "Недоступний" ? selected.unavailableReason ? `Видачу скіна завершено: ${selected.unavailableReason}` : "Видачу скіна завершено. Наразі отримати його неможливо." : selected.description || `Спосіб отримання: ${selected.method.toLowerCase()}.`}</p></div>
-            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}{isSecureUrl(selected.sourceUrl) && <button className={`direct-link copy-link ${copiedSkinId === selected.id ? "copied" : ""}`} type="button" onClick={() => void copySkinLink(selected)}>{copiedSkinId === selected.id ? "Посилання скопійовано ✓" : "Скопіювати посилання отримання"}</button>}</div>
+            <div className="availability-history"><span>Історія доступності</span>{availabilityEvents(selected).map((event, index) => <p key={`${event.date}-${index}`}><b>{event.status}</b> · {formatDate(event.date)}{event.reason ? ` — ${event.reason}` : ""}</p>)}</div>
+            <div className="detail-actions">{selected.status !== "Доступний" ? <span className="disabled-button">Скін більше недоступний</span> : selected.method === "Доступні всім" ? <span className="disabled-button">Скін видається автоматично</span> : isSecureUrl(selected.sourceUrl) ? <><button className="primary-button detail-button" type="button" onClick={() => setShowQr(true)}>Отримати скін <span>→</span></button><a className="direct-link" href={selected.sourceUrl} target="_blank" rel="noreferrer">Перейти за посиланням ↗</a></> : <span className="disabled-button">Посилання недоступне</span>}{isSecureUrl(selected.sourceUrl) && <button className={`direct-link copy-link ${copiedSkinId === selected.id ? "copied" : ""}`} type="button" onClick={() => void copySkinLink(selected)}>{copiedSkinId === selected.id ? "Посилання скопійовано ✓" : "Скопіювати посилання отримання"}</button>}<button className="direct-link report-link" type="button" onClick={() => startCorrection(selected)}>Повідомити про неточність</button></div>
           </div>
           <div className="detail-art"><Image src={sitePath(skinImages(selected)[selectedImageIndex] ?? selected.image)} alt={`Скін ${selected.name}`} fill sizes="(max-width: 850px) 100vw, 470px" priority />{skinImages(selected).length > 1 && <div className="detail-gallery" aria-label="Варіанти скіна">{skinImages(selected).map((image, index) => <button type="button" key={image} className={selectedImageIndex === index ? "active" : ""} aria-label={`Показати варіант ${index + 1}`} onClick={() => setSelectedImageIndex(index)}><Image src={sitePath(image)} alt="" fill sizes="72px" /></button>)}</div>}</div>
         </section>

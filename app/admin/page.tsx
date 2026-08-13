@@ -7,7 +7,8 @@ type Method = "Безкоштовний" | "За дію" | "Доступні в�
 type Status = "Доступний" | "Недоступний";
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
 type LinkCheck = { checkedAt: string; status: number; finalUrl: string; ok: boolean };
-type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; addedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string; unavailableReason?: string; publishAt?: string; linkCheck?: LinkCheck };
+type AvailabilityEvent = { date: string; status: Status; reason?: string };
+type Skin = { id: string; name: string; method: Method; status: Status; minimumValue: number; addedAt: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured?: boolean; lastVerifiedAt?: string; unavailableReason?: string; availabilityHistory?: AvailabilityEvent[]; publishAt?: string; linkCheck?: LinkCheck };
 type FormValues = { id: string; name: string; category: Category; minimumValue: string; lastVerifiedAt: string; publishAt: string; unavailableReason: string; description: string; sourceUrl: string; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean };
 type ContentFile = { content: string };
 type Editor = { skin: Skin; draft: boolean };
@@ -49,6 +50,14 @@ function needsVerification(skin: Skin) {
   if (!skin.lastVerifiedAt) return true;
   const date = new Date(`${skin.lastVerifiedAt}T00:00:00`);
   return Number.isNaN(+date) || Date.now() - +date >= verificationWindowDays * 24 * 60 * 60 * 1000;
+}
+
+function withAvailabilityHistory(previous: Skin | undefined, next: Skin): Skin {
+  const current = previous?.availabilityHistory?.length ? [...previous.availabilityHistory] : previous ? [{ date: previous.addedAt, status: previous.status, ...(previous.status === "Недоступний" && previous.unavailableReason ? { reason: previous.unavailableReason } : {}) }] : [];
+  const last = current.at(-1);
+  const reason = next.status === "Недоступний" ? next.unavailableReason : undefined;
+  if (!last || last.status !== next.status || last.reason !== reason) current.push({ date: new Date().toISOString(), status: next.status, ...(reason ? { reason } : {}) });
+  return { ...next, availabilityHistory: current };
 }
 
 function normalizedName(value: string) {
@@ -96,6 +105,14 @@ async function imageFromSystemClipboard() {
     }
   } catch { /* Standard paste remains available when permission is denied. */ }
   return null;
+}
+
+async function validateCardImage(file: File) {
+  const bitmap = await createImageBitmap(file);
+  const { width, height } = bitmap;
+  bitmap.close();
+  if (width < 480 || height < 280) throw new Error(`«${file.name}» замале (${width} × ${height} px). Потрібно щонайменше 480 × 280 px.`);
+  return { width, height, unusualRatio: width / height < 1.35 || width / height > 1.9 };
 }
 
 async function github<T>(path: string, token: string, init: RequestInit = {}) {
@@ -308,12 +325,17 @@ export default function AdminPage() {
     if (!selected.length) { if (!append) clearSelectedPhotos(); return; }
     if (selected.some((file) => !allowedImageTypes.has(file.type) || file.size > maxImageBytes)) { setError("Додай PNG, JPG або WebP до 4 МБ кожне."); return; }
     if ((append ? photos.length : 0) + selected.length > maxImagesPerSkin) { setError(`Для одного скіна можна додати до ${maxImagesPerSkin} фото.`); return; }
-    const prepared = await Promise.all(selected.map(optimizeImage));
-    const hashes = await Promise.all(prepared.map(fileHash));
-    const nextPhotos = append ? [...photos, ...prepared] : prepared;
-    const nextPreviews = append ? [...previews, ...prepared.map((file) => URL.createObjectURL(file))] : prepared.map((file) => URL.createObjectURL(file));
-    if (!append) previews.forEach((preview) => URL.revokeObjectURL(preview));
-    setError(""); setPhotos(nextPhotos); setPreviews(nextPreviews); setPhotoHashes(append ? [...photoHashes, ...hashes] : hashes);
+    try {
+      const assessments = await Promise.all(selected.map(validateCardImage));
+      const prepared = await Promise.all(selected.map(optimizeImage));
+      const hashes = await Promise.all(prepared.map(fileHash));
+      const nextPhotos = append ? [...photos, ...prepared] : prepared;
+      const nextPreviews = append ? [...previews, ...prepared.map((file) => URL.createObjectURL(file))] : prepared.map((file) => URL.createObjectURL(file));
+      if (!append) previews.forEach((preview) => URL.revokeObjectURL(preview));
+      const unusual = assessments.filter((item) => item.unusualRatio).length;
+      setError(""); setPhotos(nextPhotos); setPreviews(nextPreviews); setPhotoHashes(append ? [...photoHashes, ...hashes] : hashes);
+      setNotice(unusual ? "Фото збережено. Деякі мають нестандартні пропорції — у каталозі їх буде показано без обрізання." : `Фото перевірено: ${assessments.map((item) => `${item.width} × ${item.height}`).join(", ")} px.`);
+    } catch (caught) { setError(caught instanceof Error ? caught.message : "Не вдалося перевірити фото."); }
   };
 
   const reorderChosenPhoto = (index: number, direction: -1 | 1) => {
@@ -400,7 +422,7 @@ export default function AdminPage() {
       const existingImages = existingImageOrder.length ? existingImageOrder : editing?.skin.images?.length ? editing.skin.images : editing?.skin.image ? [editing.skin.image] : [];
       const images = photos.length ? photos.map((photo, index) => `skin/${id}-${index + 1}-${photoHashes[index]?.slice(0, 8) || Date.now()}.${photo.name.split(".").pop()?.toLowerCase() || "png"}`) : existingImages;
       const image = images[0] || "";
-      const record = recordFromForm(image, images, photos.length ? photoHashes : editing?.skin.imageHashes ?? [], editing?.skin.addedAt ?? new Date().toISOString());
+      const record = withAvailabilityHistory(editing?.skin, recordFromForm(image, images, photos.length ? photoHashes : editing?.skin.imageHashes ?? [], editing?.skin.addedAt ?? new Date().toISOString()));
       const adjustedRecords = record.featured && !asDraft ? records.map((skin) => ({ ...skin, featured: false })) : records;
       const adjustedDrafts = record.featured && asDraft ? drafts.map((skin) => ({ ...skin, featured: false })) : drafts;
       let nextRecords = adjustedRecords;
@@ -475,7 +497,7 @@ export default function AdminPage() {
       const nextRecords = records.map((skin) => {
         if (!selectedIds.has(skin.id)) return skin;
         if (action === "verify") return { ...skin, lastVerifiedAt: today };
-        return { ...skin, ...categoryFields(bulkCategory), minimumValue: bulkCategory === "Донат на банку" ? skin.minimumValue : 0 };
+        return withAvailabilityHistory(skin, { ...skin, ...categoryFields(bulkCategory), minimumValue: bulkCategory === "Донат на банку" ? skin.minimumValue : 0 });
       });
       const message = action === "verify" ? `Перевірити ${selected.length} скінів` : `Змінити категорію для ${selected.length} скінів`;
       await commit(message, nextRecords, drafts, []);
