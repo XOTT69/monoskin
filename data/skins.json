@@ -1235,16 +1235,22 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "description": "",
+    "addedAt": "2026-08-06T00:16:16+03:00",
+    "lastVerifiedAt": "2026-08-09",
+    "description": "Видається виключно працівникам unit travel",
     "sourceUrl": "",
     "image": "skin/unit-travel.png",
+    "imageHashes": [
+      "1ccd9dcd7d1562a75e385ac7df213467dab9ad095e60a093092d7722dcd18660"
+    ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:16:16+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "1ccd9dcd7d1562a75e385ac7df213467dab9ad095e60a093092d7722dcd18660"
+    "availabilityHistory": [
+      {
+        "date": "2026-08-06T00:16:16+03:00",
+        "status": "Недоступний"
+      }
     ]
   },
   {
