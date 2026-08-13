@@ -2783,25 +2783,30 @@
   {
     "id": "50uah",
     "name": "50 Гривень",
-    "method": "За дію",
-    "status": "Доступний",
-    "minimumValue": 135,
-    "description": "Скін картки monobank × Живчик з номіналом 50 грн, створений у межах колаборації до виходу напою Живчик x mono 2.0 з лавандою. Скін надається за покупку продукту в market by mono та є частиною промокампанії разом з унікальним стікерпаком і предметами для аватара, що активуються через QR-код на банці",
-    "sourceUrl": "https://monomarket.ua/products/Zivcik-x-mono-Abluko-Lavanda-6x330-ml-837966",
-    "image": "skin/50uah.png",
-    "isVisaOnly": false,
-    "isAdultOnly": false,
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
     "addedAt": "2026-08-01T18:25:50+03:00",
     "lastVerifiedAt": "2026-08-09",
+    "description": "Скін картки monobank × Живчик з номіналом 50 грн, створений у межах колаборації до виходу напою Живчик x mono 2.0 з лавандою. Скін надається за покупку продукту в market by mono та є частиною промокампанії разом з унікальним стікерпаком і предметами для аватара, що активуються через QR-код на банці",
+    "sourceUrl": "",
+    "image": "skin/50uah.png",
     "imageHashes": [
       "25202d01316112cc65d5499659ca012f39188d56222e1f74cef57c2e3e9e88b4"
     ],
-    "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
-      "status": 403,
-      "finalUrl": "https://monomarket.ua/products/Zivcik-x-mono-Abluko-Lavanda-6x330-ml-837966",
-      "ok": false
-    }
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-01T18:25:50+03:00",
+        "status": "Доступний"
+      },
+      {
+        "date": "2026-08-13T17:39:42.077Z",
+        "status": "Недоступний"
+      }
+    ]
   },
   {
     "id": "100uah",
