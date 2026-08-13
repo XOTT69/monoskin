@@ -21,7 +21,6 @@ type Method = "Безкоштовний" | "За дію" | "Доступні в�
 type Status = "Доступний" | "Недоступний";
 type DisplayMethod = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка";
 type Category = "Усі" | DisplayMethod | "Недоступні";
-type Collection = "Усі" | "Нові" | "Котики" | "Благодійні" | "Base";
 type Theme = "dark" | "light";
 type AvailabilityEvent = { date: string; status: Status; reason?: string };
 type Skin = {
@@ -53,7 +52,6 @@ const visualHashHeight = 12;
 const themePreferenceKey = "monoskin-theme-preference";
 const catalogBatchSize = 40;
 const favouriteStorageKey = "monoskin-favourites";
-const collections: Collection[] = ["Усі", "Нові", "Котики", "Благодійні", "Base"];
 type ImageCrop = { x: number; y: number; width: number; height: number };
 const photoSearchCrops = [
   { x: 0, y: 0, width: 1, height: 1 },
@@ -183,15 +181,6 @@ function categoryOf(skin: Skin): Exclude<Category, "Усі"> {
   return skin.status === "Недоступний" ? "Недоступні" : displayMethod(skin);
 }
 
-function matchesCollection(skin: Skin, collection: Collection) {
-  if (collection === "Усі") return true;
-  if (collection === "Base") return skin.method === "Підписка Base";
-  if (collection === "Благодійні") return skin.method === "Донат на банку" || skin.method === "Підписка Base";
-  const text = `${skin.name} ${skin.description}`.toLocaleLowerCase("uk");
-  if (collection === "Котики") return /(кот|киц|кис|cat|meow)/.test(text);
-  return Date.now() - +new Date(skin.addedAt) < 45 * 24 * 60 * 60 * 1000;
-}
-
 function verifiedLabel(skin: Skin) {
   if (!skin.lastVerifiedAt) return "Ще не перевірено";
   const days = Math.max(0, Math.floor((Date.now() - +new Date(`${skin.lastVerifiedAt}T00:00:00`)) / 86_400_000));
@@ -204,12 +193,10 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
-  const [collection, setCollection] = useState<Collection>("Усі");
   const [onlyLinked, setOnlyLinked] = useState(false);
   const [favouritesOnly, setFavouritesOnly] = useState(false);
   const [favourites, setFavourites] = useState<Set<string>>(() => new Set());
   const [favouritesReady, setFavouritesReady] = useState(false);
-  const [quickPreview, setQuickPreview] = useState<Skin | null>(null);
   const [sort, setSort] = useState<Sort>("newest");
   const [visibleCount, setVisibleCount] = useState(catalogBatchSize);
   const [selected, setSelected] = useState<Skin | null>(null);
@@ -253,7 +240,6 @@ export default function Home() {
       const searchable = `${skin.name} ${skin.method} ${skin.status} ${skin.description}`.toLocaleLowerCase("uk");
       return searchable.includes(query.toLocaleLowerCase("uk"))
         && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter)
-        && matchesCollection(skin, collection)
         && (!onlyLinked || (skin.status === "Доступний" && isSecureUrl(skin.sourceUrl)))
         && (!favouritesOnly || favourites.has(skin.id));
     })
@@ -263,13 +249,13 @@ export default function Home() {
       if (sort === "name") return left.name.localeCompare(right.name, "uk");
       if (sort === "price") return left.minimumValue - right.minimumValue;
       return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
-    }), [categoryFilter, collection, favourites, favouritesOnly, onlyLinked, query, sort]);
+    }), [categoryFilter, favourites, favouritesOnly, onlyLinked, query, sort]);
   const visibleSkins = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setVisibleCount(catalogBatchSize));
     return () => window.cancelAnimationFrame(frame);
-  }, [categoryFilter, collection, favouritesOnly, onlyLinked, query, sort]);
+  }, [categoryFilter, favouritesOnly, onlyLinked, query, sort]);
 
   useEffect(() => {
     try {
@@ -541,7 +527,7 @@ export default function Home() {
   });
 
   const resetCatalogFilters = () => {
-    setQuery(""); setCategoryFilter("Усі"); setCollection("Усі"); setOnlyLinked(false); setFavouritesOnly(false);
+    setQuery(""); setCategoryFilter("Усі"); setOnlyLinked(false); setFavouritesOnly(false);
   };
 
   const scrollToCatalog = () => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -580,9 +566,7 @@ export default function Home() {
             <label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label>
             <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Нещодавно додані</option><option value="oldest">Додані раніше</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label>
           </div>
-          <div className="collection-row" aria-label="Добірки каталогу">{collections.map((item) => <button type="button" className={collection === item ? "active" : ""} key={item} onClick={() => setCollection(item)}>{item}</button>)}</div>
-          <div className="filters category-filters" aria-label="Категорії каталогу">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}</div>
-          <div className="catalog-toggles"><button type="button" className={onlyLinked ? "active" : ""} onClick={() => setOnlyLinked((current) => !current)}>↗ Є посилання</button><button type="button" className={favouritesOnly ? "active" : ""} onClick={() => setFavouritesOnly((current) => !current)}>♥ Обране {favourites.size ? `(${favourites.size})` : ""}</button>{(query || categoryFilter !== "Усі" || collection !== "Усі" || onlyLinked || favouritesOnly) && <button type="button" className="reset-filters" onClick={resetCatalogFilters}>Скинути</button>}</div>
+          <div className="filters category-filters" aria-label="Категорії та швидкі фільтри">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}<span className="filter-divider" aria-hidden="true" /><button type="button" className={onlyLinked ? "active" : ""} onClick={() => setOnlyLinked((current) => !current)}>↗ Є посилання</button><button type="button" className={favouritesOnly ? "active" : ""} onClick={() => setFavouritesOnly((current) => !current)}>♥ Обране {favourites.size ? `(${favourites.size})` : ""}</button>{(query || categoryFilter !== "Усі" || onlyLinked || favouritesOnly) && <button type="button" className="reset-filters" onClick={resetCatalogFilters}>Скинути</button>}</div>
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
             {visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}
             {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) openSkin(visualSearch.skin); }}>Відкрити скін →</button></>}
@@ -595,7 +579,7 @@ export default function Home() {
         <details className="status-guide"><summary>Як читати каталог</summary><div><span><b>Безкоштовно</b> — скін отримується за дію або спеціальним посиланням.</span><span><b>Доступні всім</b> — банк видає дизайн автоматично.</span><span><b>Донат на банку</b> — потрібна сума вказана на картці.</span><span><b>Підписка</b> — дизайн доступний у Base.</span><span><b>Недоступні</b> — збережені для історії.</span></div></details>
 
         <div className="skin-grid" aria-live="polite">
-          {visibleSkins.map((skin) => <article className="skin-card" key={skin.id} onMouseEnter={() => setQuickPreview(skin)} onMouseLeave={() => setQuickPreview((current) => current?.id === skin.id ? null : current)}>
+          {visibleSkins.map((skin) => <article className="skin-card" key={skin.id}>
             <button className="skin-card-open" onClick={() => openSkin(skin)} aria-label={`Деталі: ${skin.name}`}>
               <div className="skin-visual"><Image src={skinImage(skin)} alt="" fill sizes="(max-width: 600px) 50vw, (max-width: 1200px) 25vw, 220px" />{skin.status === "Недоступний" && <span className="unavailable-mark">Недоступний</span>}<span className="open-mark" aria-hidden="true">↗</span>{skinImages(skin).length > 1 && <span className="gallery-count">+{skinImages(skin).length - 1}</span>}{(skin.isVisaOnly || skin.isAdultOnly) && <span className="card-flags">{skin.isVisaOnly && "Visa"}{skin.isAdultOnly && "18+"}</span>}</div>
               <div className="skin-info"><div><h3>{skin.name}</h3><p>{categoryOf(skin)} · {verifiedLabel(skin)}</p></div><span className="price">{money(skin.minimumValue, skin.method)}</span></div>
@@ -605,7 +589,6 @@ export default function Home() {
         </div>
         {filtered.length > visibleSkins.length && <div className="catalog-load-more" ref={catalogSentinel} aria-live="polite">Показано {visibleSkins.length} з {filtered.length} скінів · підвантажуємо далі…</div>}
         {filtered.length === 0 && <div className="empty"><strong>{favouritesOnly ? "В обраному поки порожньо" : "Нічого не знайдено"}</strong><p>{favouritesOnly ? "Натисни ♡ на будь-якому скіні, щоб зберегти його тут." : "Спробуй інший запит, пошук за фото або запропонуй скін, якого ще немає."}</p><div><button type="button" onClick={resetCatalogFilters}>Скинути фільтри</button><button type="button" onClick={scrollToSuggestion}>Запропонувати скін</button></div></div>}
-        {quickPreview && <aside className="quick-preview" aria-hidden="true"><Image src={skinImage(quickPreview)} alt="" fill sizes="220px" /><div><b>{quickPreview.name}</b><span>{quickPreview.description || `Спосіб отримання: ${displayMethod(quickPreview)}.`}</span><small>Натисни, щоб відкрити деталі</small></div></aside>}
       </section>
 
       <section className="suggestion container" id="suggest" ref={suggestionSection} aria-labelledby="suggest-title">
