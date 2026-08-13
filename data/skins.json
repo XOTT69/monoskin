@@ -1,5 +1,28 @@
 [
   {
+    "id": "413-okremyy-polk-syl-bezpilotnykh-system-reyd",
+    "name": "413 ОКРЕМИЙ ПОЛК СИЛ БЕЗПІЛОТНИХ СИСТЕМ «РЕЙД»",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-13T22:37:36.009Z",
+    "description": "За підписку від 75 ₴/міс",
+    "sourceUrl": "",
+    "image": "skin/413-okremyy-polk-syl-bezpilotnykh-system-reyd-1-4492dc9e.webp",
+    "imageHashes": [
+      "4492dc9ec3f25bfa29b275cab2be0e140b3b34713252fdc49b13678defdcebae"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-13T22:37:36.010Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "vid-bryhady-khartiya",
     "name": "Від Бригади \"Хартія\"",
     "method": "Донат на банку",
