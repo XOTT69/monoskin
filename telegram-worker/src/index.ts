@@ -19,6 +19,7 @@ type ReviewRequest = { draft: BotDraft; editorChatId: number; submittedAt: strin
 type AvailabilityEvent = { date: string; status: "Доступний" | "Недоступний"; reason?: string };
 type LinkCheckResult = { id: string; status: number; finalUrl: string; ok: boolean; checkedAt: string };
 type LinkMonitorState = { ids: string[]; cursor: number; results: LinkCheckResult[]; startedAt: string };
+type PublicSubmission = { id: string; status: "received"; kind: "suggestion" | "correction"; createdAt: string; name: string };
 type EditorAccessEnv = Env & { TELEGRAM_EDITOR_CHAT_IDS?: string };
 type Skin = { id: string; name: string; method: "Безкоштовний" | "Доступні всім" | "Донат на банку" | "Підписка Base"; status: "Доступний" | "Недоступний"; minimumValue: number; addedAt: string; lastVerifiedAt?: string; description: string; sourceUrl: string; image: string; images?: string[]; imageHashes?: string[]; isVisaOnly: boolean; isAdultOnly: boolean; featured: boolean; unavailableReason?: string; availabilityHistory?: AvailabilityEvent[]; publishAt?: string; linkCheck?: { checkedAt: string; status: number; finalUrl: string; ok: boolean } };
 type GitHubContent = { content: string; sha: string };
@@ -140,7 +141,7 @@ async function answerCallback(id: string, env: Env, text?: string) {
   return telegram("answerCallbackQuery", { callback_query_id: id, text }, env);
 }
 
-function messageText(data: { name: string; category: string; sourceUrl: string; description: string }) {
+function messageText(data: { name: string; category: string; sourceUrl: string; description: string; trackingId?: string }) {
   const source = data.sourceUrl || "не додано";
   return [
     "Нова пропозиція скіна — MONOSKIN",
@@ -149,10 +150,11 @@ function messageText(data: { name: string; category: string; sourceUrl: string; 
     `Категорія: ${data.category}`,
     `Умова / опис: ${data.description}`,
     `Джерело: ${source}`,
+    data.trackingId ? `Номер заявки: ${data.trackingId}` : "",
   ].join("\n").slice(0, 900);
 }
 
-function correctionText(data: { skinId: string; name: string; category: string; sourceUrl: string; description: string }) {
+function correctionText(data: { skinId: string; name: string; category: string; sourceUrl: string; description: string; trackingId?: string }) {
   return [
     "Уточнення до скіна — MONOSKIN",
     "",
@@ -160,6 +162,7 @@ function correctionText(data: { skinId: string; name: string; category: string; 
     `Категорія: ${data.category}`,
     `Що виправити: ${data.description}`,
     `Посилання: ${data.sourceUrl || "не змінювали"}`,
+    data.trackingId ? `Номер заявки: ${data.trackingId}` : "",
   ].join("\n").slice(0, 900);
 }
 
@@ -688,7 +691,8 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
   try {
     const verification = await verifyTurnstile(turnstileToken, request, env);
     if (!verification.success || !isAllowedTurnstileHostname(verification.hostname, env)) return json({ error: "Перевірку безпеки не пройдено. Спробуй ще раз." }, 403, headers);
-    const text = correction ? correctionText({ skinId, name, category, description, sourceUrl }) : messageText({ name, category, description, sourceUrl });
+    const trackingId = crypto.randomUUID().slice(0, 8).toUpperCase();
+    const text = correction ? correctionText({ skinId, name, category, description, sourceUrl, trackingId }) : messageText({ name, category, description, sourceUrl, trackingId });
     if (photo instanceof File && photo.size) {
       const photoPayload = new FormData();
       photoPayload.set("chat_id", env.TELEGRAM_CHAT_ID);
@@ -696,11 +700,24 @@ async function handleSubmission(request: Request, env: Env): Promise<Response> {
       photoPayload.set("caption", text);
       await telegram("sendPhoto", photoPayload, env);
     } else await sendBotMessage(Number(env.TELEGRAM_CHAT_ID), text, env);
-    return json({ ok: true }, 200, headers);
+    const submission: PublicSubmission = { id: trackingId, status: "received", kind: correction ? "correction" : "suggestion", createdAt: new Date().toISOString(), name };
+    await env.BOT_SESSIONS.put(`submission:${trackingId}`, JSON.stringify(submission), { expirationTtl: 60 * 60 * 24 * 30 });
+    return json({ ok: true, trackingId }, 200, headers);
   } catch (error) {
     console.error("Submission delivery failed", error);
     return json({ error: "Не вдалося передати заявку. Спробуй пізніше." }, 502, headers);
   }
+}
+
+async function handleSubmissionStatus(request: Request, env: Env): Promise<Response> {
+  const origin = request.headers.get("Origin");
+  const headers = corsHeaders(origin, env);
+  if (!isAllowedOrigin(origin, env) || request.method !== "GET") return json({ error: "Not found" }, 404, headers);
+  const id = new URL(request.url).searchParams.get("id")?.trim().toUpperCase() || "";
+  if (!/^[A-Z0-9-]{8,36}$/.test(id)) return json({ error: "Некоректний номер заявки." }, 400, headers);
+  const submission = await env.BOT_SESSIONS.get<PublicSubmission>(`submission:${id}`, "json");
+  if (!submission) return json({ error: "Заявку не знайдено або строк відстеження завершився." }, 404, headers);
+  return Response.json({ id: submission.id, status: submission.status, createdAt: submission.createdAt, kind: submission.kind }, { headers: { ...headers, "Cache-Control": "no-store" } });
 }
 
 function safeExternalUrl(value: string) {
@@ -898,6 +915,7 @@ export default {
       }
     }
     if (url.pathname === "/submit") return handleSubmission(request, env);
+    if (url.pathname === "/submission-status") return handleSubmissionStatus(request, env);
     if (url.pathname === "/admin/check-links") return handleLinkCheck(request, env);
     return new Response("Not found", { status: 404 });
   },

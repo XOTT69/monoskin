@@ -47,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <body>
+        <a className="skip-link" href="#catalog">Перейти до каталогу</a>
         {children}
         {cloudflareAnalyticsToken && <Script
           defer

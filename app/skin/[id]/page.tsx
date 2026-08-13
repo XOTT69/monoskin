@@ -47,7 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${skin.name} · MONOSKIN`,
     description: skin.description,
-    openGraph: { images: [sitePath(skin.images?.[0] || skin.image)] },
+    openGraph: {
+      title: `${skin.name} · MONOSKIN`,
+      description: `${displayMethod(skin)} · ${money(skin)}. ${skin.description}`.slice(0, 220),
+      url: sitePath(`/skin/${skin.id}/`),
+      images: [{ url: sitePath(skin.images?.[0] || skin.image), alt: `Скін ${skin.name}` }],
+    },
+    twitter: { card: "summary_large_image", images: [sitePath(skin.images?.[0] || skin.image)] },
   };
 }
 

@@ -64,6 +64,14 @@ function normalizedName(value: string) {
   return value.toLocaleLowerCase("uk").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 }
 
+function nameSimilarity(left: string, right: string) {
+  const leftTerms = new Set(normalizedName(left).split(" ").filter((term) => term.length > 2));
+  const rightTerms = new Set(normalizedName(right).split(" ").filter((term) => term.length > 2));
+  if (!leftTerms.size || !rightTerms.size) return 0;
+  const shared = [...leftTerms].filter((term) => rightTerms.has(term)).length;
+  return shared / Math.min(leftTerms.size, rightTerms.size);
+}
+
 function toBase64(value: string) {
   const bytes = new TextEncoder().encode(value);
   return btoa(Array.from(bytes, (byte) => String.fromCharCode(byte)).join(""));
@@ -235,14 +243,25 @@ export default function AdminPage() {
     needsVerification: records.filter(needsVerification).length,
     brokenLinks: records.filter((skin) => Boolean(skin.sourceUrl && skin.linkCheck && !skin.linkCheck.ok)).length,
     uncheckedLinks: records.filter((skin) => Boolean(skin.sourceUrl && !skin.linkCheck)).length,
+    galleries: records.filter((skin) => (skin.images?.length ?? 1) > 1).length,
+    withoutDetails: records.filter((skin) => !skin.description.trim() || !skin.image).length,
   }), [records]);
+  const editorialQueue = useMemo(() => records.flatMap((skin) => {
+    const reasons: string[] = [];
+    if (needsVerification(skin)) reasons.push("потрібна перевірка");
+    if (skin.sourceUrl && skin.linkCheck && !skin.linkCheck.ok) reasons.push("проблемний URL");
+    if (!skin.description.trim()) reasons.push("немає умови");
+    if (!skin.image) reasons.push("немає фото");
+    if ((categoryOf(skin) === "Донат на банку" || categoryOf(skin) === "Підписка") && !skin.sourceUrl) reasons.push("немає посилання");
+    return reasons.length ? [{ skin, reasons }] : [];
+  }).sort((left, right) => right.reasons.length - left.reasons.length || +new Date(right.skin.addedAt) - +new Date(left.skin.addedAt)), [records]);
   const sortedDrafts = useMemo(() => [...drafts].sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt)), [drafts]);
   const selectedVisibleIds = useMemo(() => visibleRecords.filter((skin) => selectedIds.has(skin.id)).map((skin) => skin.id), [selectedIds, visibleRecords]);
   const possibleDuplicates = useMemo(() => {
     const name = normalizedName(form.name);
     const sourceUrl = form.sourceUrl.trim();
     if (name.length < 4 && !sourceUrl) return [];
-    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && ((name.length >= 4 && (normalizedName(skin.name).includes(name) || name.includes(normalizedName(skin.name)))) || Boolean(sourceUrl && skin.sourceUrl === sourceUrl))).slice(0, 3);
+    return [...records, ...drafts].filter((skin) => skin.id !== editing?.skin.id && ((name.length >= 4 && (normalizedName(skin.name).includes(name) || name.includes(normalizedName(skin.name)) || nameSimilarity(skin.name, form.name) >= .66)) || Boolean(sourceUrl && skin.sourceUrl === sourceUrl))).slice(0, 3);
   }, [drafts, editing?.skin, form.name, form.sourceUrl, records]);
   const duplicatePhotoNames = useMemo(() => {
     if (!photoHashes.length) return [];
@@ -650,7 +669,8 @@ export default function AdminPage() {
   if (!token) return <main className="admin-page"><header className="admin-header"><a className="brand" href={sitePath("/")}><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><span>Адмінка</span></header><section className="login-card"><p className="eyebrow"><span /> Тільки для редактора каталогу</p><h1>Керуй скінами<br /><em>без коду.</em></h1><div className="admin-error"><strong>Підключи GitHub token із доступом лише до цього репозиторію.</strong><p>Створи fine-grained token для <code>XOTT69/monoskin</code> з дозволом <b>Contents: Read and write</b>. Токен зберігається лише до закриття вкладки; не використовуй його на чужому пристрої.</p></div><label className="token-field">GitHub token<input type="password" value={tokenDraft} onChange={(event) => setTokenDraft(event.target.value)} placeholder="github_pat_…" autoComplete="off" /></label><button className="primary-button" onClick={connect} disabled={busy}>{busy ? "Підключаю…" : "Підключити GitHub"}</button>{error && <p className="form-error">{error}</p>}</section></main>;
 
   return <main className="admin-page"><header className="admin-header"><a className="brand" href={sitePath("/")}><span className="brand-mark">m</span> mono<span className="brand-light">skin</span></a><div><span>{login || owner}</span><button onClick={signOut}>Вийти</button></div></header><section className="admin-shell"><div className="admin-heading"><div><p className="eyebrow"><span /> Редактор каталогу</p><h1>{editing ? editing.draft ? "Перевірити чернетку" : "Редагувати скін" : "Додати скін"}</h1></div><p>{records.length} скінів · {drafts.length} чернеток</p></div>
-    <section className="admin-dashboard" aria-label="Стан каталогу"><button type="button" onClick={() => applyDashboardFilter({})}><strong>{records.length}</strong><span>Усього скінів</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Усі" })}><strong>{dashboard.available}</strong><span>Доступні</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Недоступні" })}><strong>{dashboard.unavailable}</strong><span>Недоступні</span></button><button type="button" onClick={() => applyDashboardFilter({ verification: "needs-verification" })}><strong>{dashboard.needsVerification}</strong><span>Потрібно перевірити</span></button><button type="button" onClick={() => applyDashboardFilter({ links: "unchecked" })}><strong>{dashboard.uncheckedLinks}</strong><span>URL не перевірено</span></button><button className={dashboard.brokenLinks ? "attention" : ""} type="button" onClick={() => applyDashboardFilter({ links: "broken" })}><strong>{dashboard.brokenLinks}</strong><span>Проблемні URL</span></button></section>
+    <section className="admin-dashboard" aria-label="Стан каталогу"><button type="button" onClick={() => applyDashboardFilter({})}><strong>{records.length}</strong><span>Усього скінів</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Усі" })}><strong>{dashboard.available}</strong><span>Доступні</span></button><button type="button" onClick={() => applyDashboardFilter({ category: "Недоступні" })}><strong>{dashboard.unavailable}</strong><span>Недоступні</span></button><button type="button" onClick={() => applyDashboardFilter({ verification: "needs-verification" })}><strong>{dashboard.needsVerification}</strong><span>Потрібно перевірити</span></button><button type="button" onClick={() => applyDashboardFilter({ links: "unchecked" })}><strong>{dashboard.uncheckedLinks}</strong><span>URL не перевірено</span></button><button className={dashboard.brokenLinks ? "attention" : ""} type="button" onClick={() => applyDashboardFilter({ links: "broken" })}><strong>{dashboard.brokenLinks}</strong><span>Проблемні URL</span></button><button type="button" onClick={() => setAdminQuery("")}><strong>{dashboard.galleries}</strong><span>Скінів із галереєю</span></button><button className={dashboard.withoutDetails ? "attention" : ""} type="button" onClick={() => { setAdminQuery(""); document.getElementById("editorial-queue-title")?.scrollIntoView({ behavior: "smooth" }); }}><strong>{dashboard.withoutDetails}</strong><span>Без повних даних</span></button></section>
+    <section className="editorial-queue" aria-labelledby="editorial-queue-title"><div><p className="eyebrow"><span /> Контроль якості</p><h2 id="editorial-queue-title">Черга редактора <small>{editorialQueue.length}</small></h2><p>Скіни, яким потрібна увага. Заявки від відвідувачів і редакторів надходять у Telegram.</p></div><div>{editorialQueue.length ? editorialQueue.slice(0, 8).map(({ skin, reasons }) => <button type="button" key={skin.id} onClick={() => edit(skin)}><span className="admin-thumb" style={{ backgroundImage: `url('${sitePath(skin.image)}')` }} /><span><b>{skin.name}</b><small>{reasons.join(" · ")}</small></span><strong>Редагувати →</strong></button>) : <p className="queue-clear">✓ У каталозі немає критичних задач.</p>}</div>{editorialQueue.length > 8 && <button type="button" className="direct-link" onClick={() => { applyDashboardFilter({ verification: "needs-verification" }); }}>Відкрити всі задачі</button>}</section>
     {notice && <p className="form-notice">{notice}</p>}{error && <p className="form-error">{error}</p>}
     {savePreview && <section className="save-preview" role="dialog" aria-label="Підтвердження змін"><strong>Перевір зміни перед збереженням</strong><ul>{savePreview.changes.map((change) => <li key={change}>{change}</li>)}</ul><div><button className="primary-button" type="button" disabled={busy} onClick={() => { const asDraft = savePreview.asDraft; setSavePreview(null); void save(asDraft); }}>{savePreview.asDraft ? "Підтвердити чернетку" : "Підтвердити збереження"}</button><button className="secondary-button" type="button" onClick={() => setSavePreview(null)}>Повернутися до редагування</button></div></section>}
     <form className="skin-form" onSubmit={(event) => { event.preventDefault(); requestSave(false); }} onPaste={async (event) => { const direct = imageFromClipboard(event.clipboardData.items); if (direct) { event.preventDefault(); void setChosenPhotos([direct], true); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void setChosenPhotos([systemImage], true); }}>
