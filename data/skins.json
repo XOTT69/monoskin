@@ -15,7 +15,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5PEYzkmTen?fbclid=IwY2xjawL-ooBleHRuA2FlbQIxMQABHinYXRAQW2o9c9HjbvaIAZG_1NcpgKKPtLZcHTTDxbv-wT5NsSV7_zoRSKc2_aem_ogg0nCtupZ5xMcESGHGZQA",
+      "ok": true
+    }
   },
   {
     "id": "tsytaty-kota-kozhnoho-dnya-nova",
@@ -105,7 +111,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/41jF7um9Pvo385",
+      "ok": true
+    }
   },
   {
     "id": "fk-shakhtar-kh-3-oshb",
@@ -142,7 +154,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "30f34fa5a8537d85c8b18807e1608fd726f4f9ccf2ac09fd6e66161dcf3eac2b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2vfsR8cEz5",
+      "ok": true
+    }
   },
   {
     "id": "ukrayinska-pravda-2",
@@ -160,7 +178,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "7d4264f2be015c4f6dde7b51f720567027d2c70eb1452e8f25dbefd830b523dc"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4Bh5tHu2Cm",
+      "ok": true
+    }
   },
   {
     "id": "43-oab",
@@ -178,7 +202,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "8f4bde3192e25fe41af3ef58e9d1ad108281730630dc2c03a250adb217f2eddb"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3dsYXsBrqk",
+      "ok": true
+    }
   },
   {
     "id": "bf-serhiya-prytuly-shchelepy",
@@ -196,7 +226,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "9e0ccfc08f7a72a9ab07b2f405fb368cbcbbdac10e497ad0460938390a298a6b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/Rmhzf7Ktw",
+      "ok": true
+    }
   },
   {
     "id": "levy-na-dzhypi",
@@ -232,7 +268,13 @@
     "lastVerifiedAt": "2026-08-10",
     "imageHashes": [
       "7ddb33de246c37391778a40ecf5d6c6d0c24fd1c3dddcac7c5d261012fee7444"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/81Ko9pjSnh",
+      "ok": true
+    }
   },
   {
     "id": "ghostik-x-mono",
@@ -286,7 +328,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "9003e674011c783bd5ee00be36a5d352189a91524d1712eb19324147bc81f5c1"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/7VuHWj7Eyx",
+      "ok": true
+    }
   },
   {
     "id": "maincast-kh-cs2",
@@ -322,7 +370,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "92314b460a35617670cf0bcbd8d8167f258380cd9122ff6dab94c92054e1ae3a"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5bWiubVkfc",
+      "ok": true
+    }
   },
   {
     "id": "skin-vasylya-baydaka",
@@ -341,7 +395,13 @@
     "imageHashes": [
       "3bc139339e8326ce750982bfb3d2368363df523ad7798b933bacea6672af2a4f"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4eRV1T1YrK",
+      "ok": true
+    }
   },
   {
     "id": "ukrayinska-pravda",
@@ -359,7 +419,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "f3c1c441dea741637dd5d5511dca774621c456527756e8df0615d6879a752043"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/dyt7PRkxH",
+      "ok": true
+    }
   },
   {
     "id": "atlas-weekend-2024",
@@ -414,7 +480,13 @@
     "imageHashes": [
       "61df1e7fd56f2b5d80837a6ffecfa1561eabb63d7036b324ca6123d4527dbedc"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5P67kMYNen",
+      "ok": true
+    }
   },
   {
     "id": "hur",
@@ -432,7 +504,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "f73d9c0524ec011598d282c224bddb279994b129f5ea987bcca6fdb37e23e33b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2Z2G9sPcZi",
+      "ok": true
+    }
   },
   {
     "id": "2-internatsionalnyy-lehion-ou",
@@ -468,7 +546,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "91b5acf664109347abad51a4451087bf0215484e8cd36102dd06d56837b7da33"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6bSxfpqfyu",
+      "ok": true
+    }
   },
   {
     "id": "yalynka-2-0",
@@ -505,7 +589,13 @@
     "imageHashes": [
       "c47dca1d0dca0758915d538479a94769bf3ee1cc6db469703d70ecea6c90d4f7"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3sL7WymGcE",
+      "ok": true
+    }
   },
   {
     "id": "morskyy-biy",
@@ -524,7 +614,13 @@
     "imageHashes": [
       "9e1cb4bebc1f45c26a0353e9b7f89e317fa58f6d3f4750495196650d2ceeb197"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/7K3pYkweXt",
+      "ok": true
+    }
   },
   {
     "id": "kotyky-azovu",
@@ -542,7 +638,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "64c87da7f8c16cc12264331d2d2f2c7fad51f3ead530b03c2fe1bb04d854e084"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/A6ExTgYxLa",
+      "ok": true
+    }
   },
   {
     "id": "armiya-droniv",
@@ -560,7 +662,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "5f3886dc42329b1a6f16f6128439afa4d287d04f2b01a38ec51108bec3c244d9"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5jzfqZ4id4",
+      "ok": true
+    }
   },
   {
     "id": "vovky-da-vinchi",
@@ -579,7 +687,13 @@
     "imageHashes": [
       "bf006fa5593f94097343d4e48289c7db20e580a45f2df8716c8dd5fc7ddcb63e"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/8gt5Mp4sfL",
+      "ok": true
+    }
   },
   {
     "id": "azov-one-kh-maincast",
@@ -598,7 +712,13 @@
     "imageHashes": [
       "632967ac07ab3fe9f429de916b3a206a117321504691efae8b96929e255dcbbb"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3NCDrBNjCV",
+      "ok": true
+    }
   },
   {
     "id": "yanholy-azovu",
@@ -634,7 +754,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "e21fca0e0585540f629f6b24e9c9cda0f658a9ea26a68700aa03f68bfa54d340"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6VywWVQoi4",
+      "ok": true
+    }
   },
   {
     "id": "zhovta-forma-zbirnoyi-ukrayiny",
@@ -652,7 +778,13 @@
     "featured": false,
     "imageHashes": [
       "06827666cfd3101626f088417aa756a799d5a4a2fc7ce8ab7f5d38bdcaf1d8d6"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6Rc2E4tTLD",
+      "ok": true
+    }
   },
   {
     "id": "vichnyy-dvyhun",
@@ -670,7 +802,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "3d95a382404964e8a25495c31c3480aa311420fc789af78d4b33c91c00001516"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/5CdXavd1JW8LGS",
+      "ok": true
+    }
   },
   {
     "id": "mehamozok",
@@ -688,7 +826,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "a27c5021170ee20b03cee6ebc7f7de07ebafd183f0b4df928b9b85c07089b582"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/4BNdbJzTRyhZK4",
+      "ok": true
+    }
   },
   {
     "id": "lego",
@@ -706,7 +850,13 @@
     "featured": false,
     "imageHashes": [
       "c8ed38182b3b940c173677bbd1e19767726661938c06017e3fd85726990765a2"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/GHdagn4dtcwc2",
+      "ok": true
+    }
   },
   {
     "id": "nindzya",
@@ -724,7 +874,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "9092dbbf4daebadf6e34e0d0e8446ca81866bab42d26558fb6201a4e57eaeaba"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/Q9htum6m2TdGi",
+      "ok": true
+    }
   },
   {
     "id": "spantelychenyy",
@@ -742,7 +898,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "770bf5aeecc9773a41ee3a68832b346cc0ea77cf46df937a366085395009e51d"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/ADzpFTxRAg2XHd",
+      "ok": true
+    }
   },
   {
     "id": "basketbolist",
@@ -760,7 +922,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "9bd2c4dd304fa78b7d72db4bdae2e6b40ab729225aac8f2a55fc82c03a662b9f"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/7pt7ACajtx8GDA",
+      "ok": true
+    }
   },
   {
     "id": "nonkonformist",
@@ -778,7 +946,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "0fdfec857396a9f660377d8e5f4a7984c3d343201c2110005e934bb0f67efb75"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/A3tUmdF6Py8VG9",
+      "ok": true
+    }
   },
   {
     "id": "strymer-twitch",
@@ -796,7 +970,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "a7a19de9054095580c0183b6fa0591c464ab6ef80f6b79943bf814a67e205683"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/6WRBqMpmd2rtUy",
+      "ok": true
+    }
   },
   {
     "id": "pustytysya-bereha",
@@ -814,7 +994,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "00d69e87b14b49629a1a255137040312ec5ca8c50f17f1a976ff7f963dacddc3"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/9aPjmFLMc21mNi",
+      "ok": true
+    }
   },
   {
     "id": "skin-kolo",
@@ -832,7 +1018,13 @@
     "addedAt": "2026-08-06T01:42:47+03:00",
     "imageHashes": [
       "a1d3122fbd55f11acb78080d1850df667c1871fda9676a73b94f805963044bc8"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
+      "ok": true
+    }
   },
   {
     "id": "klimanutyy",
@@ -850,7 +1042,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "7f877d1a3bafb72767845a29b299b01c05ec8f66648fabac252325d52d9dbc5d"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6saXm571hL",
+      "ok": true
+    }
   },
   {
     "id": "fond-serhiya-prytuly",
@@ -873,7 +1071,13 @@
     "imageHashes": [
       "c9a647507997cb366f157ed8d554219c23c4606fce920150a40e57c1822026fe",
       "204db342558676cea38c59d82b4ef29a84304a653b415c4756dd21efa776d041"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2AwsVyDJ6Q",
+      "ok": true
+    }
   },
   {
     "id": "fond-povernys-zhyvym",
@@ -891,7 +1095,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "65996cd4c10174333be9941c7965995b4d40c4eab699b20aa15e98ee25f976c9"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4Dyucs5PBU",
+      "ok": true
+    }
   },
   {
     "id": "8-den-narodzhennya-mono",
@@ -927,7 +1137,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "4c98f2aa422131a82910663be3e277d5e3793c2611395043a59e0b03cffecf13"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/89eRpMCUpn",
+      "ok": true
+    }
   },
   {
     "id": "skin-uanimals-ta-ukrposhty",
@@ -945,7 +1161,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "b7ff52988638e99751f05a76de33b57c53fc95ab90317733443f10e0d87c5cd0"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3E4KYm3Un5",
+      "ok": true
+    }
   },
   {
     "id": "ghostik",
@@ -963,7 +1185,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "13dd9f2824f1b4def0bbff8f4b77c760ccd34aac5b50d74323942fa28cdb0b98"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/56iFmHwsHL",
+      "ok": true
+    }
   },
   {
     "id": "unit-travel",
@@ -1089,7 +1317,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "2d202dbd6614f5442c448aaf3454e62f67f50d46bde9b0a613d62cb0481da818"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785963428236",
@@ -1179,7 +1413,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "d7984e68dafdcaae401f80f6532eba5ce6fa7e91af0fe6d7e5e27e7e7ddab759"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/nashebachennia",
+      "ok": true
+    }
   },
   {
     "id": "505",
@@ -1197,7 +1437,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "dcaa163c7c6061fce759d6d5fa8d51205eaf3fed30c737708775b77c890c2082"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4aDXGeyHKi",
+      "ok": true
+    }
   },
   {
     "id": "1",
@@ -1215,7 +1461,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "27ca06f59c10af4932e8714d62513795fd38735cbe9bd70a6170d052a9fd592a"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2aB4ckTXgp",
+      "ok": true
+    }
   },
   {
     "id": "12",
@@ -1233,7 +1485,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "c030147367c8c283d859171200d390c11f1ce596b8a82f1b50910ad1b03c8a2e"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6NRXAcLbXs",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785944792766",
@@ -1251,7 +1509,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "e1f9e97634e9bf0fa6fcfafe47c897fb90018de999147652181e238374de002c"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3VcrE6HNKU",
+      "ok": true
+    }
   },
   {
     "id": "ghostik-largo",
@@ -1287,7 +1551,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "dadd05f744b879e2d520dc639d655158bd9b3cb89c69fd9ad6a9c06945ac6d92"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/7r7v7wVLJv",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785943082076",
@@ -1305,7 +1575,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "be1aa01511e91fd3ddac35367e3dadc10d1f07b6dc266b9378e2fe8013012720"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/8QSgsttWUk",
+      "ok": true
+    }
   },
   {
     "id": "3",
@@ -1323,7 +1599,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "525f650cabba3de6c28fcbf529bd57cf376d7eac34dd69e164c322f26117be09"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2cJvZE5w3f",
+      "ok": true
+    }
   },
   {
     "id": "otoy",
@@ -1359,7 +1641,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "1a2dd71607942e3bb802dc3dd92f82617bc260700f6a79f6e3182f76c6317d44"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3w8JTb7xhE",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785941419187",
@@ -1377,7 +1665,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "5164e59d3a1cb413275ee7c117dc8c3cee8c8d5571d909ebffa1197e32e280bb"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3LeVTKkqKj",
+      "ok": true
+    }
   },
   {
     "id": "20-2",
@@ -1521,7 +1815,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "16d2df61df844fd7cc6e3ac06bafd118ba8bd9eb846d8eb8d421e4c5db3602e7"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785936054797",
@@ -1539,7 +1839,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "d1b57475902071ea77d1e23ad80dea74bd2a116b5348c85107e5e619e5cf62d6"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA",
+      "ok": true
+    }
   },
   {
     "id": "kraken",
@@ -1562,7 +1868,13 @@
     "imageHashes": [
       "4dd6ca99f358a4fde4335bfa8ec7595a94de77f8502da0baaf1a00d03d512ee9",
       "ff67f8e57d284e217f467d1ad52cb97181b0cebda397ba6ae51b0638a8d1694d"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/kraken",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785934784953",
@@ -1580,7 +1892,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "1b22ecc2d020cae4dbdfa529241900c43719ec0a42413467b5dd86d36d54bd54"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785934549915",
@@ -1598,7 +1916,13 @@
     "addedAt": "2026-08-05T15:55:52+03:00",
     "imageHashes": [
       "9f00a8a2a81ae98d5d16f6f83226fbc64cc59251f8749dc06fe11b07d0d4a6b2"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/4kY1gWoR91PxRp",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785934107317",
@@ -1623,7 +1947,13 @@
       "97b436fdd8f43fe7479b8fd4d7c8437d3166243bc692cd71f7d3d5df28b53089",
       "65d9d3aaceed78a0d7e769ac11c00972438dda12c48147f5ed7c88ee9e08d959",
       "b8e691429a4d836b9e487a391a755adb11ddb59369361d5d8d605923bdf3c878"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/cba",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785933479988",
@@ -1641,7 +1971,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "cd7946ee3eb3d6eed05a35f902fd84359a3eafd4e50f67a91e782fde25908055"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ",
+      "ok": true
+    }
   },
   {
     "id": "faine-misto",
@@ -1659,7 +1995,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "016c790599fd4073e61af849b205a7e70bc5a74e53d5dcc1a4b56f4b972f759b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2WAAauzPf2",
+      "ok": true
+    }
   },
   {
     "id": "swu-heroes-3",
@@ -1677,7 +2019,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "993b87813baf19405fed2988226028808a2f667a0e5bf09f1294a264036ca4cd"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/V8tfap88j",
+      "ok": true
+    }
   },
   {
     "id": "2-0",
@@ -1695,7 +2043,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "f18d037ee1678a77aec6e3b4aac7e512cb820b36a1bb6079a59cb5ab2e5306e8"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4p5njwQqiy",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785855840516",
@@ -1713,7 +2067,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "bdc29ad44ee8880b60c6b0eb167fb79a4e01b2281c7ab7897d9f0f2c03c16658"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/59CYfTCmkA",
+      "ok": true
+    }
   },
   {
     "id": "30",
@@ -1731,7 +2091,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "49a2bc20c6b47c98b1003356cb3b04ab449931eb663e5360bff46447e70ab592"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/AT5r6fW4Lx",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785855179107",
@@ -1749,7 +2115,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "2f679c7f94c548dfe855e61ae9f0d803e0f4f44d0e64ad7dd0077db34f9dcfa4"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/3XKSbcYfd2",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785853916464",
@@ -1767,7 +2139,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fec18ef159dec1075b1acc7b66c4b84cee0aa91d697e671251286318f70f7435"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/9kdgEDhnZH",
+      "ok": true
+    }
   },
   {
     "id": "skin-1785853726469",
@@ -1785,7 +2163,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "26e817a32ef9ba0541e915612ff06eade1cf71dbc9501ec6c57ae9767d7c8ecb"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/27ESgQt42X",
+      "ok": true
+    }
   },
   {
     "id": "gta-vi-gta-vi",
@@ -1840,7 +2224,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "23b1593b5d3d32bd79578e0c24138f0674dc0111c21dac50ef2482d61effd133"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6yLdfqtCXu",
+      "ok": true
+    }
   },
   {
     "id": "spilne",
@@ -1858,7 +2248,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "49681b99833b0b9d75b17a37be4dc249435e69372c87a29c2566fae7703b8263"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5RjDXQ2d9X",
+      "ok": true
+    }
   },
   {
     "id": "kurgan-agregat-ukhodysh",
@@ -1875,7 +2271,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "8081b4b21ebb48c76db101e359164e6f9b4d59e24570a282759a4731955f1b51"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/x9JRivrq9",
+      "ok": true
+    }
   },
   {
     "id": "flaminho-fp-5",
@@ -1892,7 +2294,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "901362e087e56cc35b6f0f2ad560b08382564f5c6ba192b477a868b44086c12a"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/4oq1pM492x5wDA",
+      "ok": true
+    }
   },
   {
     "id": "zbroia-fpv",
@@ -1909,7 +2317,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "173772c0254e5be19957172af7e7b6ed77920e683d68a6f7b7e93c433ad9c9f9"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/Cd6GHUukwSJACX",
+      "ok": true
+    }
   },
   {
     "id": "gunia",
@@ -1926,7 +2340,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "4baa687604c2c5c631d657a1988ed7527686b90b80f2586650df82f94ccab36f"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/AiwndUffxuVkSE",
+      "ok": true
+    }
   },
   {
     "id": "hroshi-vdoma",
@@ -1961,7 +2381,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "445be02383325edcf2e19de56d70c6a0c5ec1a3d7bea8b7d6231440ee13dc04b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/olenamandziuk",
+      "ok": true
+    }
   },
   {
     "id": "monitor-base",
@@ -1978,7 +2404,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "6239708f94a83de5108d89d725f787142b4dcbee75ef1975ad408c7478fa021b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/monitor",
+      "ok": true
+    }
   },
   {
     "id": "dota2-broodmother",
@@ -1995,7 +2427,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "94f7e2ddd8cac8030b5392745bbd67a2130ea2f498f3a005faf8d17c9431e6c3"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/gApNCgSF4",
+      "ok": true
+    }
   },
   {
     "id": "kharkiv-1",
@@ -2012,7 +2450,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "53f53db19c6bd64779b4e023d2ec65438016174d7e33ca7cbc393bba554fcf54"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/PV9ifVjreSVfL",
+      "ok": true
+    }
   },
   {
     "id": "kharkiv-2",
@@ -2029,7 +2473,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "9c957ad6027d33be93247fadf9dcf74af156ce1dbd9ddf2965abc450f98f2f0a"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/CMjaRThqZXFmq5",
+      "ok": true
+    }
   },
   {
     "id": "rivne",
@@ -2046,7 +2496,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "0ca08d9529ae6daee6e1bbb30b22ed5103e556b9d552f656c3b16834cba5411d"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/4DEGSopcs6oGvy",
+      "ok": true
+    }
   },
   {
     "id": "odesa-1",
@@ -2063,7 +2519,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "ef06cc16edc06d181f90afc18ff64beb33ef76c6ecfd91d2f16df9caa482268b"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/EpJ3ehQkXXbQ5n",
+      "ok": true
+    }
   },
   {
     "id": "odesa-2",
@@ -2080,7 +2542,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "00f7df7bd2ab9e1cc7ee65062e024501f20163c2d032df1dec324fe93ae168b1"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/BRwpEHw9FZsncq",
+      "ok": true
+    }
   },
   {
     "id": "sumy-velyki-sumy",
@@ -2097,7 +2565,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "517a079be179f4d0d1595238ad1550f367def4dbf4fb3ef09e600e14fdb931f0"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/7bZvMVXqymtfzz",
+      "ok": true
+    }
   },
   {
     "id": "dnipro-shaurma",
@@ -2114,7 +2588,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "adacfa68aec660d0e05e94f099e13d1256b553703678dbcc0265dd8d610c3950"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/65pcaUfzXM8Bv8",
+      "ok": true
+    }
   },
   {
     "id": "dnipro-sumka",
@@ -2131,7 +2611,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "14da43db9b6de9bb97ea7644bcb14fe80fc64b6b333ad297229c855ff0c4ae71"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/Q379Qwetfxpeo",
+      "ok": true
+    }
   },
   {
     "id": "dnipro-naberezhna",
@@ -2148,7 +2634,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "665c5100a2235e138badbb7f3717854533cbf8d7a3e999e6a286aefd177806bc"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/6VJz9UBaw3xT6i",
+      "ok": true
+    }
   },
   {
     "id": "luhansk-convert",
@@ -2165,7 +2657,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "cc1c65398101106696484378360cc972c1f919ecd7cd2e42fe41979d757e79c7"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/A9g38siFQBbUFi",
+      "ok": true
+    }
   },
   {
     "id": "vinnytsia-hrin",
@@ -2182,7 +2680,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fe358d1c9902f1df1459e27fd772e1cb58590b172c07acb2b973ba1da9bdce36"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/EAEek2NEafHWDu",
+      "ok": true
+    }
   },
   {
     "id": "lutsk-budynok-stina",
@@ -2199,7 +2703,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fca0c98bc6f73a9a207a7d428863fb733b27e044630c0310ecfe94711550f5bf"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/46YQrfL14TZi4X",
+      "ok": true
+    }
   },
   {
     "id": "mykolaiv-na-hvyli",
@@ -2216,7 +2726,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "ce2f8312e9bd1c50de2ee76f4924a06d0bf9630d4a6f10c99c01527e3019df74"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/YzUAdNDwz1y77",
+      "ok": true
+    }
   },
   {
     "id": "zhytomyr",
@@ -2233,7 +2749,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "ab585e9dea48a779bd589586c27da8389c2d0b18ca4b767c2a410ee1a99217b5"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/AiQjHEdNfYbH1v",
+      "ok": true
+    }
   },
   {
     "id": "200uah",
@@ -2250,7 +2772,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "2c640c51a59073ce795fa7c6822b30225632ee5d334bddf4c9d3ea6fe2c2b598"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/HE23tGWe8hXPQ",
+      "ok": true
+    }
   },
   {
     "id": "50uah",
@@ -2267,7 +2795,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "25202d01316112cc65d5499659ca012f39188d56222e1f74cef57c2e3e9e88b4"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 403,
+      "finalUrl": "https://monomarket.ua/products/Zivcik-x-mono-Abluko-Lavanda-6x330-ml-837966",
+      "ok": false
+    }
   },
   {
     "id": "100uah",
@@ -2284,7 +2818,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "dcbfba66f24f2ef3a0d790a85538661dafacabcbb0559ecbc33146c5e9f1f8be"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/DjpbdgNECipypg",
+      "ok": true
+    }
   },
   {
     "id": "love-school",
@@ -2301,7 +2841,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fefecc852db8ad99ff5f0e9806c9d71a9ac290e588d55d055e2e1e7843798a66"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/C3iVMSzbvF2peB",
+      "ok": true
+    }
   },
   {
     "id": "naruto-cat",
@@ -2318,7 +2864,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "46ebb0adcaa202d935c4f236c9e7da630a2b54c69e44d964c7d9252a3cdb5aa6"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/2xfZwzwPByLu77",
+      "ok": true
+    }
   },
   {
     "id": "minecraft-tnt-mnb",
@@ -2335,7 +2887,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "798421f90780894facf3fa39c364b82ecef3d9ca7a04740a7a643360d6a67607"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/3HNHhLRacc3MsZ",
+      "ok": true
+    }
   },
   {
     "id": "roblox-mono",
@@ -2352,7 +2910,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "8e25ef8cec4a2ee05ef0ee0a27049bf2c0b043ccf08b193c51566aa4a8769695"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/ENwqcZzaLqMP34",
+      "ok": true
+    }
   },
   {
     "id": "use-dobre",
@@ -2369,7 +2933,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "e6d62232d035a3a7858969027a6d4250aabfed6ee8b4070fe90518786a755f22"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/42bh87EDg8Y1pY",
+      "ok": true
+    }
   },
   {
     "id": "paket-ne-treba",
@@ -2386,7 +2956,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "d1b50239adc73ccf4e5bf2fb63aa1cf98527378ef6b4b87ed24824ee11188d2e"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/6tjm1ZRQUNw4ck",
+      "ok": true
+    }
   },
   {
     "id": "urban-cat-black",
@@ -2404,7 +2980,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "403505c7459a5ad499eda25b002c904b90e3acceb47eb97aac0a73ecbdafd532"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/E2TKqDSUY69ac6",
+      "ok": true
+    }
   },
   {
     "id": "urban-cat-white",
@@ -2421,7 +3003,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fd7cda29328336abcb9a08446c3002cfa7cd175f4c449288614f1078be9fb654"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/2svcYsGEZTVt7G",
+      "ok": true
+    }
   },
   {
     "id": "explosion-battle",
@@ -2438,7 +3026,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "110b1c34d0621540724deda73603c178502c6c50c966ec2de1b159b875516c9c"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/sHmRwGjTTzKpn",
+      "ok": true
+    }
   },
   {
     "id": "maincast-inferno",
@@ -2455,7 +3049,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "fd0510ac54fddbfcba7c05e944be7e136fffe3b436b6662f62dc00e55a015618"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/2H3ktBJ4wm",
+      "ok": true
+    }
   },
   {
     "id": "lemons",
@@ -2524,7 +3124,13 @@
     "imageHashes": [
       "0cb139f319c855996ef3cb3ef81e08457367fe57cace1f8be4bb9ab66b4b90a6"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/8SKXjqxJkQ",
+      "ok": true
+    }
   },
   {
     "id": "lebigovych-president",
@@ -2576,7 +3182,13 @@
     "imageHashes": [
       "0c988763f180a360725f274acb6110a2212e78b35be7c51abaeac80a36601298"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/ANGSjCM14e",
+      "ok": true
+    }
   },
   {
     "id": "maluk-pavutyna",
@@ -2612,7 +3224,13 @@
     "imageHashes": [
       "fb007086263716aacd938520b6c29b57158ee72403c3189fbbdd2bc80b78c98a"
     ],
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/5B7YNnG6nV",
+      "ok": true
+    }
   },
   {
     "id": "petrychenko",
@@ -2629,7 +3247,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "bf0c13b575697e300593e8206b86cab092bf326466fd12a888f96c89ad2ee415"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/petrychenko",
+      "ok": true
+    }
   },
   {
     "id": "vms",
@@ -2646,7 +3270,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "8b104af8842d5cfe3b4886b221ff99af8995e2ee02fbf7deacd90ee1785ffd39"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/6QU1jVsovmhkij",
+      "ok": true
+    }
   },
   {
     "id": "yanovych",
@@ -2663,7 +3293,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "c7636bea5534eacf6fd209f5cd197f741bf52a11d2dc286fbab8886c53b0ad25"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/7mmbKiRoH6DUHY",
+      "ok": true
+    }
   },
   {
     "id": "mono-career-vdng",
@@ -2680,7 +3316,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "00958f18727b8e27b04d2f30f80980c1a4636c2812af5f0c9210e477fff974b4"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/F9Bt2q8kq3tYA5",
+      "ok": true
+    }
   },
   {
     "id": "women-career-day",
@@ -2697,7 +3339,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "59e2102ca7dc09fb3692bcfd0a02b10fdabda9e88dffdb249c1876a23194d57f"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ds/9WHoYeYRCHPdT8",
+      "ok": true
+    }
   },
   {
     "id": "sternenko-rusoriz",
@@ -2720,7 +3368,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/rusoriz",
+      "ok": true
+    }
   },
   {
     "id": "sternenko-opora-spilnoty",
@@ -2743,7 +3397,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sternenkofund",
+      "ok": true
+    }
   },
   {
     "id": "azov-odna-hryvnia",
@@ -2760,7 +3420,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "6108a0ab3d4d4f75164800fe157c3a3789a73edd9ac25d990faea068bb1d0ebe"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/4d9XFu2pab",
+      "ok": true
+    }
   },
   {
     "id": "heraskevych-sholom-pamiati",
@@ -2794,7 +3460,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "828ad9903409b0afe94d1e14f25941828628730e59f78c3c7603c8821f35bdd4"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/smak",
+      "ok": true
+    }
   },
   {
     "id": "torontotv-pig-monument",
@@ -2811,7 +3483,13 @@
     "lastVerifiedAt": "2026-08-09",
     "imageHashes": [
       "e41ecda523acf8734a8c0a6f0ece62d68644a5adb644d1b7dc3fc475d48bb5a1"
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/torontotv",
+      "ok": true
+    }
   },
   {
     "id": "mono-7",
@@ -2846,7 +3524,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.037Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/strum",
+      "ok": true
+    }
   },
   {
     "id": "base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv",
@@ -2864,7 +3548,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.145Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/Em4d2p4Pu8w4EY",
+      "ok": true
+    }
   },
   {
     "id": "base-apostol-dmytro-karpenko",
@@ -2882,7 +3572,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.184Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/apostledmytro",
+      "ok": true
+    }
   },
   {
     "id": "base-lachen",
@@ -2900,7 +3596,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.366Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/lachen",
+      "ok": true
+    }
   },
   {
     "id": "base-did-shynobi-veteran-4-viiny-shynobi-na-pensii",
@@ -2923,7 +3625,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/8YS3SWXotttv5e",
+      "ok": true
+    }
   },
   {
     "id": "base-leb1ga",
@@ -2941,7 +3649,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.476Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/leb1ga",
+      "ok": true
+    }
   },
   {
     "id": "base-istoriya-bez-mifiv",
@@ -2959,7 +3673,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.509Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/istoriyabezmifiv",
+      "ok": true
+    }
   },
   {
     "id": "base-ghostik-2-skiny",
@@ -2982,7 +3702,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.613Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ghostik",
+      "ok": true
+    }
   },
   {
     "id": "base-hurtom-ta-vshchent-podkast-s-prytuly-ta-a-tymoshenka",
@@ -3000,7 +3726,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.660Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ppodcast",
+      "ok": true
+    }
   },
   {
     "id": "base-valentinopradagucci",
@@ -3018,7 +3750,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.715Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/7JuoNphXqvYJbb",
+      "ok": true
+    }
   },
   {
     "id": "base-mykhailo-smokovych",
@@ -3036,7 +3774,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.799Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/smokovych",
+      "ok": true
+    }
   },
   {
     "id": "base-mykhailo-krupin",
@@ -3054,7 +3798,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.846Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/89UUZoCBp8Dj4o",
+      "ok": true
+    }
   },
   {
     "id": "base-bromance-podcast",
@@ -3072,7 +3822,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.889Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/bromance",
+      "ok": true
+    }
   },
   {
     "id": "base-oldboi",
@@ -3090,7 +3846,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.927Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/oldboi",
+      "ok": true
+    }
   },
   {
     "id": "base-deepstateua",
@@ -3108,7 +3870,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.968Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/deepstateua",
+      "ok": true
+    }
   },
   {
     "id": "base-ukrai-ner",
@@ -3133,7 +3901,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.245Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ukrainer",
+      "ok": true
+    }
   },
   {
     "id": "base-zbroiovyi-lobist",
@@ -3151,7 +3925,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.282Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/Cwmhr5D7Uco65h",
+      "ok": true
+    }
   },
   {
     "id": "base-hollandets",
@@ -3169,7 +3949,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.319Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/6Nxv7zKiomi8By",
+      "ok": true
+    }
   },
   {
     "id": "base-blogmayster-strashne",
@@ -3187,7 +3973,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.357Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/blogmayster",
+      "ok": true
+    }
   },
   {
     "id": "base-ut-2-2-skiny",
@@ -3210,7 +4002,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/yt2",
+      "ok": true
+    }
   },
   {
     "id": "base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-",
@@ -3237,7 +4035,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.579Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/legionsupport",
+      "ok": true
+    }
   },
   {
     "id": "base-konsul-pro-ideolohiyu",
@@ -3260,7 +4064,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/cnsl",
+      "ok": true
+    }
   },
   {
     "id": "base-yevhen-pronin",
@@ -3283,7 +4093,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.747Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/pronin",
+      "ok": true
+    }
   },
   {
     "id": "base-ho-ukrdyzainarkhiv",
@@ -3301,7 +4117,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.775Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/Dg8vwA7wHZwTTR",
+      "ok": true
+    }
   },
   {
     "id": "base-alpha-centauri",
@@ -3324,7 +4146,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.895Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/theacentauri",
+      "ok": true
+    }
   },
   {
     "id": "base-pidtrymai-tretyu-shturmovu",
@@ -3349,7 +4177,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ab3support",
+      "ok": true
+    }
   },
   {
     "id": "base-islandiya",
@@ -3367,7 +4201,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.023Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/islndtv",
+      "ok": true
+    }
   },
   {
     "id": "base-thetremba",
@@ -3385,7 +4225,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.079Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/thetremba",
+      "ok": true
+    }
   },
   {
     "id": "base-blahodiinyi-fond-holosy-ditei",
@@ -3403,7 +4249,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.129Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/voicesofchildren",
+      "ok": true
+    }
   },
   {
     "id": "base-bohdan-k",
@@ -3421,7 +4273,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.255Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/AKQb3GjdneA1mw",
+      "ok": true
+    }
   },
   {
     "id": "base-tse-zh-bulo-vzhe",
@@ -3439,7 +4297,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.292Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/9DS27Cw2oRy66a",
+      "ok": true
+    }
   },
   {
     "id": "base-ostannii-kapitalist",
@@ -3464,7 +4328,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/2gkjik9WjTdxnr",
+      "ok": true
+    }
   },
   {
     "id": "base-promova",
@@ -3482,7 +4352,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.450Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/C5qeoGc5VQpuui",
+      "ok": true
+    }
   },
   {
     "id": "base-patronatna-sluzhba-yanholy",
@@ -3505,7 +4381,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ab3angels",
+      "ok": true
+    }
   },
   {
     "id": "base-bo-bf-1991",
@@ -3523,7 +4405,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.672Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/81NN2qov5Bc1aX",
+      "ok": true
+    }
   },
   {
     "id": "base-80-halytska-bryhada",
@@ -3541,7 +4429,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.707Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/8Kiv8o9AULv5aJ",
+      "ok": true
+    }
   },
   {
     "id": "base-kultpyva",
@@ -3559,7 +4453,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.741Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/73jciQWMRLGpbs",
+      "ok": true
+    }
   },
   {
     "id": "base-khimikdavid",
@@ -3582,7 +4482,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/DfMKh5mC4zumRy",
+      "ok": true
+    }
   },
   {
     "id": "base-loran",
@@ -3600,7 +4506,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.907Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/loran",
+      "ok": true
+    }
   },
   {
     "id": "base-ceh9",
@@ -3618,7 +4530,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.939Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ceh9",
+      "ok": true
+    }
   },
   {
     "id": "base-ua-phonk-community",
@@ -3636,7 +4554,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.976Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/DJ3vNDaoGJTyRm",
+      "ok": true
+    }
   },
   {
     "id": "base-tura-hvost",
@@ -3654,7 +4578,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.009Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/tura_hvost",
+      "ok": true
+    }
   },
   {
     "id": "base-veterany-kosmichnyh-viysk",
@@ -3672,7 +4602,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.037Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/De8g3ioyJG8xEQ",
+      "ok": true
+    }
   },
   {
     "id": "base-slidstvo-info",
@@ -3690,7 +4626,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.079Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/ExW3X51dcPV2z9",
+      "ok": true
+    }
   },
   {
     "id": "base-maksym-kilderov",
@@ -3713,7 +4655,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/kilderov",
+      "ok": true
+    }
   },
   {
     "id": "base-bf-blahodiinyi-fond-havkit",
@@ -3744,7 +4692,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/E7b62zaY1GeXuc",
+      "ok": true
+    }
   },
   {
     "id": "base-bihus-info",
@@ -3769,7 +4723,13 @@
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
-    "featured": false
+    "featured": false,
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/bihusinfo",
+      "ok": true
+    }
   },
   {
     "id": "base-molodizhnyi-natsionalistychnyi-konhres",
@@ -3787,7 +4747,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.761Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/mnk_support",
+      "ok": true
+    }
   },
   {
     "id": "base-dzyga-s-paw",
@@ -3805,7 +4771,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.940Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/EsU4ynih2p7jmD",
+      "ok": true
+    }
   },
   {
     "id": "base-andrii-h",
@@ -3823,7 +4795,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.996Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW",
+      "ok": true
+    }
   },
   {
     "id": "base-pzhytomyr",
@@ -3841,7 +4819,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:57.133Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/4jK74FuJaoieLf",
+      "ok": true
+    }
   },
   {
     "id": "azov-smilyvi-zavzhdy-mayut-ratsiyu",
@@ -3859,7 +4843,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.241Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/84Agye6YNA",
+      "ok": true
+    }
   },
   {
     "id": "ukrayinska-pravda-pu-pu-pu",
@@ -3877,7 +4867,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.243Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6853hYCfHk",
+      "ok": true
+    }
   },
   {
     "id": "tytanovi",
@@ -3895,7 +4891,13 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.248Z",
-    "lastVerifiedAt": "2026-08-10"
+    "lastVerifiedAt": "2026-08-10",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/43MomG4QG5",
+      "ok": true
+    }
   },
   {
     "id": "madcruiser",
@@ -3952,7 +4954,13 @@
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.257Z",
     "lastVerifiedAt": "2026-08-10",
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/9jfqcEk8Gg",
+      "ok": true
+    }
   },
   {
     "id": "ya-v-takiy-zao-ne-buv",
@@ -3971,7 +4979,13 @@
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.259Z",
     "lastVerifiedAt": "2026-08-10",
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/6sHyRFPo47",
+      "ok": true
+    }
   },
   {
     "id": "na-bronovanyy-avto-dlya-azovu",
@@ -3990,6 +5004,12 @@
     "featured": false,
     "addedAt": "2026-08-10T19:10:33.261Z",
     "lastVerifiedAt": "2026-08-10",
-    "unavailableReason": "Акція завершена."
+    "unavailableReason": "Акція завершена.",
+    "linkCheck": {
+      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "status": 200,
+      "finalUrl": "https://send.monobank.ua/jar/9Y1tYfFW6x",
+      "ok": true
+    }
   }
 ]
