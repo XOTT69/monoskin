@@ -12,6 +12,7 @@ declare global {
     turnstile?: {
       render: (container: HTMLElement, options: Record<string, unknown>) => string;
       reset: (widgetId?: string) => void;
+      remove: (widgetId: string) => void;
     };
   }
 }
@@ -207,6 +208,13 @@ export default function Home() {
   const catalogSentinel = useRef<HTMLDivElement>(null);
   const suggestionSection = useRef<HTMLElement>(null);
 
+  function discardTurnstile() {
+    const widgetId = turnstileWidgetId.current;
+    if (widgetId) window.turnstile?.remove(widgetId);
+    turnstileWidgetId.current = undefined;
+    turnstileToken.current = "";
+  }
+
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
     ?? skins.filter((skin) => skin.status === "Доступний").sort((a, b) => +new Date(b.addedAt) - +new Date(a.addedAt))[0]
@@ -290,7 +298,7 @@ export default function Home() {
 
   const startCorrection = (skin: Skin) => {
     setSelected(null);
-    setReportedSkin(skin);
+    changeSuggestionMode(skin);
     scrollToSuggestion();
   };
 
@@ -373,7 +381,7 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleQrKeys);
   }, [showQr]);
 
-  const renderTurnstile = () => {
+  function renderTurnstile() {
     if (!turnstileSiteKey || !turnstileSlot.current || !window.turnstile || turnstileWidgetId.current) return;
     turnstileWidgetId.current = window.turnstile.render(turnstileSlot.current, {
       sitekey: turnstileSiteKey,
@@ -382,7 +390,16 @@ export default function Home() {
       "expired-callback": () => { turnstileToken.current = ""; },
       "error-callback": () => { turnstileToken.current = ""; },
     });
-  };
+  }
+
+  function changeSuggestionMode(skin: Skin | null) {
+    // The form is remounted when switching between a suggestion and a
+    // correction. Remove the old widget first, then render a fresh one in its
+    // new container — calling reset here produces Turnstile's noisy warning.
+    discardTurnstile();
+    setReportedSkin(skin);
+    window.requestAnimationFrame(renderTurnstile);
+  }
 
   const submitSuggestion = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -425,9 +442,7 @@ export default function Home() {
       form.reset();
       setSuggestionPhoto(null);
       setSuggestionPhotoNote("");
-      setReportedSkin(null);
-      turnstileToken.current = "";
-      window.turnstile?.reset(turnstileWidgetId.current);
+      changeSuggestionMode(null);
       setSubmissionState("success");
       setSubmissionMessage(isCorrection ? "Дякуємо! Уточнення передано на перевірку." : "Дякуємо! Заявку разом із фото вже передано на перевірку.");
     } catch (error) {
@@ -524,7 +539,7 @@ export default function Home() {
           <small>Не додавай персональні дані, банківські реквізити чи приватні посилання. Фото й текст заявки надсилаються в Telegram для модерації.</small>
         </div>
         <form key={reportedSkin?.id ?? "new-suggestion"} className="suggestion-form" onSubmit={submitSuggestion} onPaste={async (event) => { const directImage = imageFromClipboard(event.clipboardData.items); if (directImage) { event.preventDefault(); void chooseSuggestionPhoto(directImage); return; } const systemImage = await imageFromSystemClipboard(); if (systemImage) void chooseSuggestionPhoto(systemImage); }}>
-          {reportedSkin && <div className="correction-context form-full"><span>Уточнення для</span><strong>{reportedSkin.name}</strong><button type="button" onClick={() => setReportedSkin(null)}>Скасувати</button></div>}
+          {reportedSkin && <div className="correction-context form-full"><span>Уточнення для</span><strong>{reportedSkin.name}</strong><button type="button" onClick={() => changeSuggestionMode(null)}>Скасувати</button></div>}
           <label>Назва скіна<input name="name" required maxLength={90} defaultValue={reportedSkin?.name} placeholder="Наприклад, mono котик" /></label>
           <label>Категорія<select name="category" required defaultValue={reportedSkin ? categoryOf(reportedSkin) : ""}><option value="" disabled>Обери категорію</option><option>Безкоштовно</option><option>Доступні всім</option><option>Донат на банку</option><option>Підписка</option><option>Недоступні</option></select></label>
           <label className="form-full">Посилання на умову або джерело <span>необов’язково</span><input name="sourceUrl" type="url" maxLength={500} defaultValue={reportedSkin?.sourceUrl} placeholder="https://…" /></label>
