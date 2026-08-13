@@ -1131,17 +1131,29 @@
     "name": "8 день народження mono",
     "method": "Безкоштовний",
     "status": "Недоступний",
-    "minimumValue": 88,
-    "description": "",
+    "minimumValue": 0,
+    "addedAt": "2026-08-06T01:10:26+03:00",
+    "lastVerifiedAt": "2026-08-09",
+    "unavailableReason": "Річниця минула)",
+    "description": "Видавався на 8 річницю monobank",
     "sourceUrl": "",
     "image": "skin/8-den-narodzhennya-mono.png",
+    "imageHashes": [
+      "9360a124edd2cb5bc04f0aa6d94ebce2bcfefe24c6fab3f847a12647147b680e"
+    ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T01:10:26+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "9360a124edd2cb5bc04f0aa6d94ebce2bcfefe24c6fab3f847a12647147b680e"
+    "availabilityHistory": [
+      {
+        "date": "2026-08-06T01:10:26+03:00",
+        "status": "Недоступний"
+      },
+      {
+        "date": "2026-08-13T22:42:30.673Z",
+        "status": "Недоступний",
+        "reason": "Річниця минула)"
+      }
     ]
   },
   {
