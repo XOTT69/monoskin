@@ -1259,16 +1259,22 @@
     "method": "Безкоштовний",
     "status": "Недоступний",
     "minimumValue": 0,
-    "description": "",
+    "addedAt": "2026-08-06T00:13:37+03:00",
+    "lastVerifiedAt": "2026-08-09",
+    "description": "Видається виключно працівникам kavitech",
     "sourceUrl": "",
     "image": "skin/kavitech.png",
+    "imageHashes": [
+      "be1bd56cc2763b2ac705327db473cd747f8c61f5f0475fa5efb583dbe99b8115"
+    ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "addedAt": "2026-08-06T00:13:37+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "imageHashes": [
-      "be1bd56cc2763b2ac705327db473cd747f8c61f5f0475fa5efb583dbe99b8115"
+    "availabilityHistory": [
+      {
+        "date": "2026-08-06T00:13:37+03:00",
+        "status": "Недоступний"
+      }
     ]
   },
   {
