@@ -195,6 +195,7 @@ export default function Home() {
   const [suggestionPhotoNote, setSuggestionPhotoNote] = useState("");
   const [reportedSkin, setReportedSkin] = useState<Skin | null>(null);
   const [visualSearch, setVisualSearch] = useState<{ state: "idle" | "searching" | "found" | "missing" | "error"; skin?: Skin; similarity?: number; matches?: Array<{ skin: Skin; similarity: number }> }>({ state: "idle" });
+  const [suggestionScrollRequested, setSuggestionScrollRequested] = useState(false);
   const closeButton = useRef<HTMLButtonElement>(null);
   const qrCloseButton = useRef<HTMLButtonElement>(null);
   const showQrRef = useRef(false);
@@ -204,6 +205,7 @@ export default function Home() {
   const turnstileToken = useRef("");
   const visualHashCache = useRef(new Map<string, Promise<number[][]>>());
   const catalogSentinel = useRef<HTMLDivElement>(null);
+  const suggestionSection = useRef<HTMLElement>(null);
 
   const activeCount = skins.filter((skin) => skin.status === "Доступний").length;
   const heroSkin = useMemo(() => skins.find((skin) => skin.featured)
@@ -239,6 +241,24 @@ export default function Home() {
     return () => observer.disconnect();
   }, [filtered.length, visibleCount]);
 
+  const scrollToSuggestion = () => {
+    // The catalog is lazy-loaded. Render it completely before measuring the
+    // section; otherwise the newly loaded cards push the form below the view.
+    setVisibleCount(filtered.length);
+    setSuggestionScrollRequested(true);
+  };
+
+  useEffect(() => {
+    if (!suggestionScrollRequested || visibleCount < filtered.length) return;
+    const frame = window.requestAnimationFrame(() => {
+      const target = suggestionSection.current;
+      if (!target) return;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 18, behavior: "smooth" });
+      setSuggestionScrollRequested(false);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [filtered.length, suggestionScrollRequested, visibleCount]);
+
   useEffect(() => {
     const storedTheme = window.localStorage.getItem(themePreferenceKey) as Theme | null;
     const preferredTheme: Theme = "dark";
@@ -250,7 +270,7 @@ export default function Home() {
     const frame = window.requestAnimationFrame(() => {
       setTheme(storedTheme === "light" || storedTheme === "dark" ? storedTheme : preferredTheme);
       if (skin) { setSelected(skin); setSelectedImageIndex(0); }
-      if (report) { setReportedSkin(report); document.getElementById("suggest")?.scrollIntoView({ behavior: "smooth" }); }
+      if (report) { setReportedSkin(report); setVisibleCount(skins.length); setSuggestionScrollRequested(true); }
     });
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -271,7 +291,7 @@ export default function Home() {
   const startCorrection = (skin: Skin) => {
     setSelected(null);
     setReportedSkin(skin);
-    window.setTimeout(() => document.getElementById("suggest")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+    scrollToSuggestion();
   };
 
   useEffect(() => {
@@ -455,7 +475,7 @@ export default function Home() {
       <section className="hero" id="top" style={{ backgroundImage: `linear-gradient(90deg, var(--black) 0%, color-mix(in srgb, var(--black) 93%, transparent) 35%, color-mix(in srgb, var(--black) 14%, transparent) 73%), url('${skinImage(heroSkin)}')` }}>
         <nav className="nav container" aria-label="Головна навігація">
           <a className="brand" href="#top" aria-label="MONOSKIN — на початок"><span className="brand-mark brand-avatar"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="27px" priority /></span><span>mono<span className="brand-light">skin</span></span></a>
-          <div className="nav-actions"><button type="button" className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest">Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
+          <div className="nav-actions"><button type="button" className="theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Увімкнути світлу тему" : "Увімкнути темну тему"}>{theme === "dark" ? "☼ Світла" : "◐ Темна"}</button><a className="nav-suggest" href="#suggest" onClick={(event) => { event.preventDefault(); scrollToSuggestion(); }}>Запропонувати скін</a><a className="nav-catalog" href="#catalog">Каталог <span>↓</span></a></div>
         </nav>
         <div className="hero-content container">
           <p className="eyebrow"><span /> Відкритий каталог скінів</p>
@@ -495,7 +515,7 @@ export default function Home() {
         {filtered.length === 0 && <div className="empty"><strong>Нічого не знайдено</strong><p>Спробуй інший запит або категорію.</p></div>}
       </section>
 
-      <section className="suggestion container" id="suggest" aria-labelledby="suggest-title">
+      <section className="suggestion container" id="suggest" ref={suggestionSection} aria-labelledby="suggest-title">
         <div className="suggestion-copy">
           <div className="suggestion-avatar" aria-hidden="true"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="92px" /></div>
           <p className="eyebrow"><span /> Доповнити каталог</p>
@@ -517,7 +537,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="container footer"><span className="brand"><span className="brand-mark brand-avatar"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="23px" /></span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest">Запропонувати скін</a></footer>
+      <footer className="container footer"><span className="brand"><span className="brand-mark brand-avatar"><Image src={sitePath("monoskin-avatar.png")} alt="" fill sizes="23px" /></span> mono<span className="brand-light">skin</span></span><span>Відкритий каталог · 2026</span><a href="#suggest" onClick={(event) => { event.preventDefault(); scrollToSuggestion(); }}>Запропонувати скін</a></footer>
 
       {selected && <div className="overlay" role="presentation" onMouseDown={() => setSelected(null)}>
         <section className="details" role="dialog" aria-modal="true" aria-labelledby="details-title" onMouseDown={(event) => event.stopPropagation()}>
