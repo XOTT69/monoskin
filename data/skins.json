@@ -1,5 +1,29 @@
 [
   {
+    "id": "notalka",
+    "name": "Ноталка",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-16T04:40:22.076Z",
+    "lastVerifiedAt": "2026-08-16",
+    "description": "За підписку від 200 ₴/міс",
+    "sourceUrl": "https://base.monobank.ua/notalka#subscriptions",
+    "image": "skin/notalka-1-b10f4ca1.webp",
+    "imageHashes": [
+      "b10f4ca1dadad551c79576da5a6af6da520011fa9a50b1df0a1627fd91678914"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-16T04:40:22.076Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "413-okremyy-polk-syl-bezpilotnykh-system-reyd",
     "name": "413 ОКРЕМИЙ ПОЛК СИЛ БЕЗПІЛОТНИХ СИСТЕМ «РЕЙД»",
     "method": "Підписка Base",
