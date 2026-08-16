@@ -1,5 +1,29 @@
 [
   {
+    "id": "olsior",
+    "name": "Olsior",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-16T04:43:28.249Z",
+    "lastVerifiedAt": "2026-08-16",
+    "description": "Підписка від 200 ₴/міс",
+    "sourceUrl": "https://base.monobank.ua/olsior#subscriptions",
+    "image": "skin/olsior-1-7164bba4.webp",
+    "imageHashes": [
+      "7164bba4970b9e192324905cec931db2cbe6c500f293b1108ac5053773ffad7f"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-16T04:43:28.250Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "notalka",
     "name": "Ноталка",
     "method": "Підписка Base",
