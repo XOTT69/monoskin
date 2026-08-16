@@ -4794,12 +4794,12 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
-    "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
-      "status": 200,
-      "finalUrl": "https://base.monobank.ua/E7b62zaY1GeXuc",
-      "ok": true
-    }
+    "availabilityHistory": [
+      {
+        "date": "2026-08-10T18:45:56.519Z",
+        "status": "Доступний"
+      }
+    ]
   },
   {
     "id": "base-bihus-info",
