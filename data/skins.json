@@ -4,14 +4,15 @@
     "name": "Olsior",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 200,
     "addedAt": "2026-08-16T04:43:28.249Z",
-    "lastVerifiedAt": "2026-08-16",
-    "description": "Підписка від 200 ₴/міс",
-    "sourceUrl": "https://base.monobank.ua/olsior#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Аніме любитель» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/AUmiQwYboffeC2",
     "image": "skin/olsior-1-7164bba4.webp",
     "imageHashes": [
-      "7164bba4970b9e192324905cec931db2cbe6c500f293b1108ac5053773ffad7f"
+      "7164bba4970b9e192324905cec931db2cbe6c500f293b1108ac5053773ffad7f",
+      "2bf364eae5cd33368b4596498bdf6e2889ba23859f2c66ea9653a7fd264b7a5b"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -21,6 +22,10 @@
         "date": "2026-08-16T04:43:28.250Z",
         "status": "Доступний"
       }
+    ],
+    "images": [
+      "skin/olsior-1-7164bba4.webp",
+      "skin/base-169-wallet_base_kitolsi_card_visa.png"
     ]
   },
   {
@@ -52,14 +57,15 @@
     "name": "413 ОКРЕМИЙ ПОЛК СИЛ БЕЗПІЛОТНИХ СИСТЕМ «РЕЙД»",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 75,
     "addedAt": "2026-08-13T22:37:36.009Z",
-    "lastVerifiedAt": "2026-08-14",
-    "description": "За підписку від 75 ₴/міс",
-    "sourceUrl": "https://base.monobank.ua/5Y7ENNpvTD7PMU",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Іскра» на Base. Мінімальна сума підписки — від 75 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/B6KiGGsieTFqRA",
     "image": "skin/413-okremyy-polk-syl-bezpilotnykh-system-reyd-1-4492dc9e.webp",
     "imageHashes": [
-      "4492dc9ec3f25bfa29b275cab2be0e140b3b34713252fdc49b13678defdcebae"
+      "4492dc9ec3f25bfa29b275cab2be0e140b3b34713252fdc49b13678defdcebae",
+      "efeaca267522899ae2628de621ff59c89317155ae99f13eafea8f219d4495b7e"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -69,6 +75,10 @@
         "date": "2026-08-13T22:37:36.010Z",
         "status": "Доступний"
       }
+    ],
+    "images": [
+      "skin/413-okremyy-polk-syl-bezpilotnykh-system-reyd-1-4492dc9e.webp",
+      "skin/base-180-wallet_base_skin_reyd_card_visa.png"
     ]
   },
   {
@@ -1901,23 +1911,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 55,
-    "description": "Мін: 55 грн/міс. Макс: 7000 грн/міс. 1 скін",
-    "sourceUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ#subscriptions",
+    "description": "Скін доступний у підписці «Хороший старт» на Base. Мінімальна сума підписки — від 55 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/ATWHSf7P4oCs7H",
     "image": "skin/skin-1785936525403.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T16:28:47+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "16d2df61df844fd7cc6e3ac06bafd118ba8bd9eb846d8eb8d421e4c5db3602e7"
+      "16d2df61df844fd7cc6e3ac06bafd118ba8bd9eb846d8eb8d421e4c5db3602e7",
+      "637db4f9377e5eee6d813e32e74b08a4398ddbbedfc9335b2bc6acc361dae950"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:45:24.626Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/skin-1785936525403.webp",
+      "skin/base-145-wallet_socialdrone_card_visa.png"
+    ]
   },
   {
     "id": "skin-1785936054797",
@@ -1925,23 +1940,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "description": "Мін: 10 грн/міс. Макс: 3000 грн/міс. 1 скін",
-    "sourceUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA#subscriptions",
+    "description": "Скін доступний у підписці «Друг» на Base. Мінімальна сума підписки — від 10 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2q5TCEC1LwfTHk",
     "image": "skin/skin-1785936054797.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T16:20:57+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "d1b57475902071ea77d1e23ad80dea74bd2a116b5348c85107e5e619e5cf62d6"
+      "d1b57475902071ea77d1e23ad80dea74bd2a116b5348c85107e5e619e5cf62d6",
+      "2ea2893b57a7df5430e57522baf9d0c4432c207ff64a77121ab71cc33ed30f4f"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/skin-1785936054797.webp",
+      "skin/base-157-wallet_base_orestm_card_visa.png"
+    ]
   },
   {
     "id": "kraken",
@@ -1949,21 +1969,25 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 2 скіна",
-    "sourceUrl": "https://base.monobank.ua/kraken#subscriptions",
+    "description": "Скін доступний у підписці «Дякуємо!» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/3dWhRuhv1JWBgB",
     "image": "skin/kraken.webp",
     "images": [
       "skin/kraken.webp",
-      "skin/kraken-2.webp"
+      "skin/kraken-2.webp",
+      "skin/base-155-wallet_base_kraken_card_visa.png",
+      "skin/base-147-wallet_base_krkn1_card_visa.png"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T16:06:56+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
       "4dd6ca99f358a4fde4335bfa8ec7595a94de77f8502da0baaf1a00d03d512ee9",
-      "ff67f8e57d284e217f467d1ad52cb97181b0cebda397ba6ae51b0638a8d1694d"
+      "ff67f8e57d284e217f467d1ad52cb97181b0cebda397ba6ae51b0638a8d1694d",
+      "f72e76088058a9fdbed75433e9dde650640bad81b733b8174a9a30289425b900",
+      "a0a5f2ef2ce7462ee62ab60262c53ecff13c349969adcc286945e4e2918d55dc"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
@@ -1978,23 +2002,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "description": "Мін: 50 грн/міс. Макс: 1000 грн/міс. 1 скін",
-    "sourceUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg#subscriptions",
+    "description": "Скін доступний у підписці «Бути поруч» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/AEhiwNg12W3Hg7",
     "image": "skin/skin-1785934784953.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T15:59:46+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "1b22ecc2d020cae4dbdfa529241900c43719ec0a42413467b5dd86d36d54bd54"
+      "1b22ecc2d020cae4dbdfa529241900c43719ec0a42413467b5dd86d36d54bd54",
+      "7e6e8118baf523522953687a3258c84c79ac4884f191ef1d3fcbfa9e37e10d51"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/skin-1785934784953.webp",
+      "skin/base-177-wallet_base_dmvk_card_visa.png"
+    ]
   },
   {
     "id": "skin-1785934549915",
@@ -2002,23 +2031,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "lastVerifiedAt": "2026-08-09",
-    "description": "Мін: 50 грн/міс. Макс: 5000 грн/міс. 1 скін",
-    "sourceUrl": "https://base.monobank.ua/4kY1gWoR91PxRp#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Друг» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BNgW9zh7iBf6hC",
     "image": "skin/skin-1785934549915.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T15:55:52+03:00",
     "imageHashes": [
-      "9f00a8a2a81ae98d5d16f6f83226fbc64cc59251f8749dc06fe11b07d0d4a6b2"
+      "9f00a8a2a81ae98d5d16f6f83226fbc64cc59251f8749dc06fe11b07d0d4a6b2",
+      "f7b128483038eb27e57b24c3d94f6cef135eb230b43f69e90b6a6664db9ea0fa"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/4kY1gWoR91PxRp",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/skin-1785934549915.png",
+      "skin/base-178-wallet_base_future_card_visa.png"
+    ]
   },
   {
     "id": "skin-1785934107317",
@@ -2026,14 +2060,17 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 500,
-    "lastVerifiedAt": "2026-08-09",
-    "description": "Мін: 500 грн/міс. Макс 99 999 грн/міс. Отримує 3 скіни",
-    "sourceUrl": "https://base.monobank.ua/cba#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Дякую» на Base. Мінімальна сума підписки — від 500 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4amNiLCN7gaF1C",
     "image": "skin/skin-1785934107317.png",
     "images": [
       "skin/skin-1785934107317.png",
       "skin/skin-1785934107317-2.webp",
-      "skin/skin-1785934107317-3.png"
+      "skin/skin-1785934107317-3.png",
+      "skin/base-170-wallet_base_cba3_card_visa.png",
+      "skin/base-168-wallet_base_bcba2_card_visa.png",
+      "skin/base-167-wallet_base_cba_card_visa.png"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -2042,7 +2079,10 @@
     "imageHashes": [
       "97b436fdd8f43fe7479b8fd4d7c8437d3166243bc692cd71f7d3d5df28b53089",
       "65d9d3aaceed78a0d7e769ac11c00972438dda12c48147f5ed7c88ee9e08d959",
-      "b8e691429a4d836b9e487a391a755adb11ddb59369361d5d8d605923bdf3c878"
+      "b8e691429a4d836b9e487a391a755adb11ddb59369361d5d8d605923bdf3c878",
+      "c3460e286436c8c1cb696fd5493d84cd7b40f528dbfc127541c906600ae70e19",
+      "ab038b874688332e9c953f11174cd657c409bbf7b80a67833a1626570544949c",
+      "c3f75b75d0c435b7356bd6666216f62b4e5d5a408764269bf8c3c1526da6617f"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
@@ -2057,23 +2097,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "description": "Мін: 300 грн/міс. Макс: 29 900 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ#subscriptions",
+    "description": "Скін доступний у підписці «SUPPORTER» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/92S1b4HSg2D2Ci",
     "image": "skin/skin-1785933479988.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-05T15:38:02+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "cd7946ee3eb3d6eed05a35f902fd84359a3eafd4e50f67a91e782fde25908055"
+      "cd7946ee3eb3d6eed05a35f902fd84359a3eafd4e50f67a91e782fde25908055",
+      "9440018cd05f9d7b77767dcd194d83bc9692c956a2d877ef5e5b18947f28034a"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/skin-1785933479988.webp",
+      "skin/base-153-wallet_base_prytula1_card_visa.png"
+    ]
   },
   {
     "id": "faine-misto",
@@ -2467,23 +2512,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 99,
-    "description": "Скін «Муза Русофобії» — дизайн картки monobank для підписників монобази Олени Мандзюк. За основу взято класичне полотно із жінкою, що читає в саду, поверх якого накладені рожеві піксельні блоки у вигляді вишиванкового орнаменту.\n\nСкін став доступним 9 червня 2026 року й надається за підписку від 99 грн на місяць",
-    "sourceUrl": "https://base.monobank.ua/olenamandziuk",
+    "description": "Скін доступний у підписці «Донат-підтримка» на Base. Мінімальна сума підписки — від 99 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/ANEDwR4GQ5hno6",
     "image": "skin/olenamandziuk.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-03T22:43:58+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "445be02383325edcf2e19de56d70c6a0c5ec1a3d7bea8b7d6231440ee13dc04b"
+      "445be02383325edcf2e19de56d70c6a0c5ec1a3d7bea8b7d6231440ee13dc04b",
+      "9895d631d815a2ec1d21909450e1c131d1bdbfaa633963457b94197e24799bbd"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/olenamandziuk",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/olenamandziuk.png",
+      "skin/base-193-wallet_base_bmndz_card_visa.png"
+    ]
   },
   {
     "id": "monitor-base",
@@ -2491,22 +2541,27 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін «Локаційно чисто» — спеціальний дизайн картки monobank для користувачів, які підтримують діяльність monitor через щомісячну підписку.\n\nТака собі афірмація на відсутність тривог ;)",
-    "sourceUrl": "https://base.monobank.ua/monitor",
+    "description": "Скін доступний у підписці «Як-52» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/5LNZyBLmsGCnqp",
     "image": "skin/monitor-base.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "6239708f94a83de5108d89d725f787142b4dcbee75ef1975ad408c7478fa021b"
+      "6239708f94a83de5108d89d725f787142b4dcbee75ef1975ad408c7478fa021b",
+      "c95fe9cbb72d9873a5c7ff0a2e9affdea27e60f9d6ad4d2bdbce2b83f85a0851"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T16:50:24.924Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/monitor",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/monitor-base.webp",
+      "skin/base-24-wallet_base_monitor_card_visa.png"
+    ]
   },
   {
     "id": "dota2-broodmother",
@@ -3339,13 +3394,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін «Не можна бомжам довіряти навіть мінімальне лаве» — спеціальний дизайн картки monobank для користувачів, які підтримують меморіал Павла Петриченка. \n\n Цей дизайн – про Пашине почуття гумору і ще один спосіб підтримати важливу справу 💥\n\nВсі кошти з цієї підписки підуть на RUSORIZ Сергія Стерненка.",
-    "sourceUrl": "https://base.monobank.ua/petrychenko",
+    "description": "Скін доступний у підписці «лаве на RUSORIZ» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/5ksVUmVi46gcmm",
     "image": "skin/petrychenko.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
       "bf0c13b575697e300593e8206b86cab092bf326466fd12a888f96c89ad2ee415"
     ],
@@ -3354,7 +3409,10 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/petrychenko",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/petrychenko.png"
+    ]
   },
   {
     "id": "vms",
@@ -3453,19 +3511,21 @@
     "name": "Русоріз",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 50,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "description": "Скін картки monobank, з’явився у лютому 2025 року, коли «Русоріз» Сергія Стерненка став першим збором, для якого monobank увімкнув можливість оформити щомісячну підписку на Base. Фонд закуповує FPV-дрони та сучасні засоби ураження для Збройних сил України.\n\nДизайн з фірмовою емблемою фонду отримують усі, хто оформив підписку від 50 грн на монобазу фонду\n50 ₴/міс - 1 скін\n29 999 ₴/міс - 2 скіна",
-    "sourceUrl": "https://base.monobank.ua/rusoriz",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Базовий русоріз» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/D8S1XKUKn6bqBX",
     "image": "skin/sternenko-rusoriz-1-9aaae92a.png",
     "images": [
       "skin/sternenko-rusoriz-1-9aaae92a.png",
-      "skin/sternenko-rusoriz-2-144d1be0.webp"
+      "skin/sternenko-rusoriz-2-144d1be0.webp",
+      "skin/base-58-wallet_base_rusoriz_card_visa.png"
     ],
     "imageHashes": [
       "9aaae92ae8e5ce4b77aaa333bffc38ff3772b6d9c5037bbbfa5e42e686d99f83",
-      "144d1be0090fa58efacae89f941115b58d7175df47ebafe2d633bdeaf893991e"
+      "144d1be0090fa58efacae89f941115b58d7175df47ebafe2d633bdeaf893991e",
+      "00af1153b42717b3a428ae4dc024c6942081b2de03354f085895b4416b022689"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -3482,19 +3542,21 @@
     "name": "Опора Спільноти",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 10,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
-    "description": "Скін найвищого рівня підписки монобази Стерненка «Опора Спільноти», доступний з лютого 2025 року після запуску підписок на Base в monobank. Темніший варіант дизайну відзначає найщедріших підписників збору «Русоріз», кошти якого спрямовуються на закупівлю FPV-дронів для ЗСУ.\n\nСкін надається тим, хто оформив підписку від 10 грн на монобазу фонду\n10 ₴/міс - 1 скін\n1000 ₴/міс - 2 скіна",
-    "sourceUrl": "https://base.monobank.ua/sternenkofund",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Вітаємо у Спільноті!» на Base. Мінімальна сума підписки — від 10 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/XgAqUC4ifBtGL",
     "image": "skin/sternenko-opora-spilnoty-1-b841a2de.png",
     "images": [
       "skin/sternenko-opora-spilnoty-1-b841a2de.png",
-      "skin/sternenko-opora-spilnoty-2-5b8eb677.png"
+      "skin/sternenko-opora-spilnoty-2-5b8eb677.png",
+      "skin/base-196-wallet_base_ssoperb1_card_visa.png"
     ],
     "imageHashes": [
       "b841a2ded6828fa92d366f463cc29699f7dcd31ad40cdfe9f06af619e3833e25",
-      "5b8eb677a3fc6c2389ce3b6f995b3ef742c76f938c78f680459743d655a60d35"
+      "5b8eb677a3fc6c2389ce3b6f995b3ef742c76f938c78f680459743d655a60d35",
+      "8dbe79b80c60e2f0b3930a117c355a90435d5d3d2f9959db4c5f5779fdb2fb58"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -3552,22 +3614,27 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 148,
-    "description": "Скін картки monobank для підписників телеграм-групи Smak — гумористичного українського медіа. На дизайні сіра юрба гномів затуляє собі очі та роти в дусі трьох мудрих мавп — «нічого не бачу, нічого не чую, нічого не скажу», — і лише один, кольоровий, дивиться на глядача. Він у каструлі з логотипом Smak, надітій поверх ковпака: відсилка до Майдану, коли через заборону шоломів на мітинги виходили в каструлях і друшляках.\n\nСкін надається підписникам монобази Smak за підписку від 148 грн на місяць",
-    "sourceUrl": "https://base.monobank.ua/smak",
+    "description": "Скін доступний у підписці «Непоганий прогрів на» на Base. Мінімальна сума підписки — від 148 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6oxVqFURKKGWLr",
     "image": "skin/smak-gnomes.webp",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
-      "828ad9903409b0afe94d1e14f25941828628730e59f78c3c7603c8821f35bdd4"
+      "828ad9903409b0afe94d1e14f25941828628730e59f78c3c7603c8821f35bdd4",
+      "208b620be763fb6891d8cb5d9c0c7987bbbc89a7af3c57525facc99587fc693f"
     ],
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/smak",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/smak-gnomes.webp",
+      "skin/base-76-wallet_base_smak_card_visa.png"
+    ]
   },
   {
     "id": "torontotv-pig-monument",
@@ -3575,13 +3642,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "description": "Скін картки monobank «Пам’ятник свині» для підписників монобази українського сатиричного медіа «Телебачення Торонто». Підписники, які донатять від 300 грн щомісяця, отримують цей скін, а ті, хто оформив рівень підписки «Олександра» від 666 грн, додатково потрапляють у закритий патронський чат каналу",
-    "sourceUrl": "https://base.monobank.ua/torontotv",
+    "description": "Скін доступний у підписці «АНАТОЛІЙ» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/E4gzW9VmxBcfKW",
     "image": "skin/torontotv-pig-monument.png",
     "isVisaOnly": false,
     "isAdultOnly": false,
     "addedAt": "2026-08-01T18:25:50+03:00",
-    "lastVerifiedAt": "2026-08-09",
+    "lastVerifiedAt": "2026-08-17",
     "imageHashes": [
       "e41ecda523acf8734a8c0a6f0ece62d68644a5adb644d1b7dc3fc475d48bb5a1"
     ],
@@ -3590,7 +3657,10 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/torontotv",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/torontotv-pig-monument.png"
+    ]
   },
   {
     "id": "mono-7",
@@ -3615,23 +3685,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «СТРУМ - ПІДПИСКА БЕЗПЕРЕБІЙНОГО ЖИВЛЕННЯ 12-ОЇ БРИГАДИ СПЕЦІАЛЬНОГО ПРИЗНАЧЕННЯ «АЗОВ»» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/strum#subscriptions",
+    "description": "Скін доступний у підписці «НА ЗВʼЯЗКУ» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BFe5jdXAMdv4yG",
     "image": "skin/base-strum-pidpyska-bezperebiinoho-zhyvlennya-12-oyi-bryhady-.jpg",
     "imageHashes": [
-      "6a9257eeeea818213785a0be4da3139a02ad0adc03cae3fffd5d6b5e33c67650"
+      "6a9257eeeea818213785a0be4da3139a02ad0adc03cae3fffd5d6b5e33c67650",
+      "dfefa0a3775c640842a8a8ff2fa8e900084260feb574021a2acc40e31af24248"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.037Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/strum",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-strum-pidpyska-bezperebiinoho-zhyvlennya-12-oyi-bryhady-.jpg",
+      "skin/base-161-wallet_base_strum_card_visa.png"
+    ]
   },
   {
     "id": "base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv",
@@ -3639,23 +3714,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «АЗОВ.Супровід - це лікування і реабілітація бійців» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/Em4d2p4Pu8w4EY#subscriptions",
+    "description": "Скін доступний у підписці «ЕВАКУАЦІЯ» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4Bf56QyxEumBfb",
     "image": "skin/base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv.jpg",
     "imageHashes": [
-      "2907f4f1c6b297cba9ebc99f52be0a782611923133743b44972fc077ff8f86be"
+      "2907f4f1c6b297cba9ebc99f52be0a782611923133743b44972fc077ff8f86be",
+      "bbdd7b3ba496638d8924cad2868b02ad8b2017356eacea99dd055c3d4b9bdc36"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.145Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/Em4d2p4Pu8w4EY",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv.jpg",
+      "skin/base-172-wallet_base_asupport_card_visa.png"
+    ]
   },
   {
     "id": "base-apostol-dmytro-karpenko",
@@ -3663,23 +3743,28 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «АПОСТОЛ Дмитро Карпенко» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/apostledmytro#subscriptions",
+    "description": "Скін доступний у підписці «Збираю орка!» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/EyrT1ZXorN88H8",
     "image": "skin/base-apostol-dmytro-karpenko.jpg",
     "imageHashes": [
-      "428ebd681e42215693e07c63ca2fe438a6a2ba310c9d90c1e6f97fd50e4c4956"
+      "428ebd681e42215693e07c63ca2fe438a6a2ba310c9d90c1e6f97fd50e4c4956",
+      "8c44260f3f442cba71593be6553064e0be112b94be832690a5c50983c568ecf7"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.184Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/apostledmytro",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-apostol-dmytro-karpenko.jpg",
+      "skin/base-95-wallet_base_apostle_card_visa.png"
+    ]
   },
   {
     "id": "base-lachen",
@@ -3687,8 +3772,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 166,
-    "description": "Скін доступний у підписці «Лачен» у monobaza. Мінімальна сума підписки — від 166 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/lachen#subscriptions",
+    "description": "Скін доступний у підписці «Потужна підтримка» на Base. Мінімальна сума підписки — від 166 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2pgPaqJ8jHFM4E",
     "image": "skin/base-lachen.png",
     "imageHashes": [
       "3b8841b6ebf7eafca9bb8f0414083c4e6150a99a13508c684fcf57c72705e800"
@@ -3697,13 +3782,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.366Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/lachen",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-lachen.png"
+    ]
   },
   {
     "id": "base-did-shynobi-veteran-4-viiny-shynobi-na-pensii",
@@ -3740,8 +3828,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 199,
-    "description": "Скін доступний у підписці «Leb1ga» у monobaza. Мінімальна сума підписки — від 199 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/leb1ga#subscriptions",
+    "description": "Скін доступний у підписці «Бидло Початківець» на Base. Мінімальна сума підписки — від 199 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7zLAudZW1jt9av",
     "image": "skin/base-leb1ga.png",
     "imageHashes": [
       "d0b9f31c7cfb3e83d69fa0c9f03a3bac8e4cf33b6448ddd81ea57fcaa49da844"
@@ -3750,13 +3838,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.476Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/leb1ga",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-leb1ga.png"
+    ]
   },
   {
     "id": "base-istoriya-bez-mifiv",
@@ -3764,8 +3855,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "description": "Скін доступний у підписці «Історія Без Міфів» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/istoriyabezmifiv#subscriptions",
+    "description": "Скін доступний у підписці «Леся Українка» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7b187SPRgkKpi5",
     "image": "skin/base-istoriya-bez-mifiv.png",
     "imageHashes": [
       "cfcb9aaf96992215126a170f6e0d6cf121b800d29d6b7e3f3fad666aaa5024de"
@@ -3774,13 +3865,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.509Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/istoriyabezmifiv",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-istoriya-bez-mifiv.png"
+    ]
   },
   {
     "id": "base-ghostik-2-skiny",
@@ -3788,12 +3882,13 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «Ghostik: 2 скіни.» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/ghostik#subscriptions",
+    "description": "Скін доступний у підписці «Новенький» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8sAPoKT5AnAw1g",
     "image": "skin/base-ghostik-2-skiny.png",
     "images": [
       "skin/base-ghostik-2-skiny.png",
-      "skin/base-ghostik-2-skiny-2.webp"
+      "skin/base-ghostik-2-skiny-2.webp",
+      "skin/base-83-wallet_base_ghostik2_card_visa.png"
     ],
     "imageHashes": [
       "309b15fe5a80e6b87d56791c3a900953cbd7d0ee192cacbaa124b4f6c886ef91",
@@ -3803,7 +3898,7 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.613Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
@@ -3817,8 +3912,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "description": "Скін доступний у підписці «Гуртом та Вщент - подкаст С. Притули та А. Тимошенка» у monobaza. Мінімальна сума підписки — від 300 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/ppodcast#subscriptions",
+    "description": "Скін доступний у підписці «Дякуємо!» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2878gC4NH3WCtt",
     "image": "skin/base-hurtom-ta-vshchent-podkast-s-prytuly-ta-a-tymoshenka.png",
     "imageHashes": [
       "2adb7f72a90f7001265e635918c25f5a7de0925e9a05aea0290a7eb5fc8e5127"
@@ -3827,13 +3922,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.660Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ppodcast",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-hurtom-ta-vshchent-podkast-s-prytuly-ta-a-tymoshenka.png"
+    ]
   },
   {
     "id": "base-valentinopradagucci",
@@ -3841,8 +3939,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 169,
-    "description": "Скін доступний у підписці «valentinopradagucci» у monobaza. Мінімальна сума підписки — від 169 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/7JuoNphXqvYJbb#subscriptions",
+    "description": "Скін доступний у підписці «Regular» на Base. Мінімальна сума підписки — від 169 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/DDUMrAdeTsW7Lw",
     "image": "skin/base-valentinopradagucci.webp",
     "imageHashes": [
       "e1d80a4c398ae569bc264f6e730ded6d0533294fee95b78d0c20849a923a6eab"
@@ -3851,13 +3949,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.715Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/7JuoNphXqvYJbb",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-valentinopradagucci.webp",
+      "skin/base-70-wallet_base_valentynm_card_visa.png"
+    ]
   },
   {
     "id": "base-mykhailo-smokovych",
@@ -3865,8 +3967,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 70,
-    "description": "Скін доступний у підписці «Михайло Смокович» у monobaza. Мінімальна сума підписки — від 70 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/smokovych#subscriptions",
+    "description": "Скін доступний у підписці «Просто Дякую!!!» на Base. Мінімальна сума підписки — від 70 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/81Hg3G3oizxzJV",
     "image": "skin/base-mykhailo-smokovych.webp",
     "imageHashes": [
       "01684e2186aafc6c40c01177b79b6cbbe3945d165942ecc998f358739b9f6cea"
@@ -3875,13 +3977,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.799Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/smokovych",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-mykhailo-smokovych.webp",
+      "skin/base-179-wallet_base_smok_card_visa.png"
+    ]
   },
   {
     "id": "base-mykhailo-krupin",
@@ -3889,8 +3995,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 25000,
-    "description": "Скін доступний у підписці «Михайло Крупін» у monobaza. Мінімальна сума підписки — від 25 000 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/89UUZoCBp8Dj4o#subscriptions",
+    "description": "Скін доступний у підписці «Корпоратив Крупіна» на Base. Мінімальна сума підписки — від 25000 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/ARFxn4cgGmgwsU",
     "image": "skin/base-mykhailo-krupin.png",
     "imageHashes": [
       "2811106a4c93d15c6c902c3ed2687c28f9ad6f1bd08d439d55f6f3c8ac7f968b"
@@ -3899,13 +4005,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.846Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:00:27.288Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/89UUZoCBp8Dj4o",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-mykhailo-krupin.png"
+    ]
   },
   {
     "id": "base-bromance-podcast",
@@ -3913,8 +4022,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 444,
-    "description": "Скін доступний у підписці «Bromance podcast» у monobaza. Мінімальна сума підписки — від 444 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/bromance#subscriptions",
+    "description": "Скін доступний у підписці «Друг/Подруга» на Base. Мінімальна сума підписки — від 444 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6eXCcm3RfrW2uQ",
     "image": "skin/base-bromance-podcast.png",
     "imageHashes": [
       "a4ae7e577389963b81e479ec76ae1bade8945420ba5edd48f0f2cab9d4bb7a1a"
@@ -3923,13 +4032,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.889Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/bromance",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-bromance-podcast.png"
+    ]
   },
   {
     "id": "base-oldboi",
@@ -3937,8 +4049,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «OLDboi» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/oldboi#subscriptions",
+    "description": "Скін доступний у підписці «Бротрон» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/AwegzVvPqb4etn",
     "image": "skin/base-oldboi.png",
     "imageHashes": [
       "dc8b91dd1510523f70781182cce1308563843c547cda0bc58c827a08a83e638b"
@@ -3947,13 +4059,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.927Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/oldboi",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-oldboi.png"
+    ]
   },
   {
     "id": "base-deepstateua",
@@ -3961,8 +4076,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 500,
-    "description": "Скін доступний у підписці «DeepStateUA» у monobaza. Мінімальна сума підписки — від 500 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/deepstateua#subscriptions",
+    "description": "Скін доступний у підписці «Сканер» на Base. Мінімальна сума підписки — від 500 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8rcp1WoDupov2X",
     "image": "skin/base-deepstateua.png",
     "imageHashes": [
       "4068be0057d19f4eb638f6918581c872b8200d79bf2a3d19268b036473530edd"
@@ -3971,13 +4086,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.968Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/deepstateua",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-deepstateua.png"
+    ]
   },
   {
     "id": "base-ukrai-ner",
@@ -3985,13 +4103,16 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «Ukraïner» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/ukrainer#subscriptions",
+    "description": "Скін доступний у підписці «Спостерігач» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/uwiH5Eg1wSX2T",
     "image": "skin/base-ukrai-ner.webp",
     "images": [
       "skin/base-ukrai-ner.webp",
       "skin/base-ukrai-ner-2.webp",
-      "skin/base-ukrai-ner-3.webp"
+      "skin/base-ukrai-ner-3.webp",
+      "skin/base-201-wallet_base_bukrainer3_card_visa.png",
+      "skin/base-154-wallet_base_ukrainer2_card_visa.png",
+      "skin/base-66-wallet_base_ukrainer1_card_visa.png"
     ],
     "imageHashes": [
       "eb636a5169cf627f089815182e0e2a582ea0059d8099d62f3c88bab55a067c03",
@@ -4002,7 +4123,7 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.245Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
@@ -4016,8 +4137,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «ЗБРОЙОВИЙ ЛОБІСТ» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/Cwmhr5D7Uco65h#subscriptions",
+    "description": "Скін доступний у підписці «Лобіст-початківець» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8BeEKYJgrg9L3f",
     "image": "skin/base-zbroiovyi-lobist.png",
     "imageHashes": [
       "5222e047360a15bc55916d6f88b7b45e53f3f686de8a24ed31f7c3b3bb9d0a09"
@@ -4026,13 +4147,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.282Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/Cwmhr5D7Uco65h",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-zbroiovyi-lobist.png"
+    ]
   },
   {
     "id": "base-hollandets",
@@ -4040,8 +4164,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 500,
-    "description": "Скін доступний у підписці «Голландець 💨⛵️» у monobaza. Мінімальна сума підписки — від 500 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/6Nxv7zKiomi8By#subscriptions",
+    "description": "Скін доступний у підписці «Базова підтримка» на Base. Мінімальна сума підписки — від 500 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4U27GTNedmuxt5",
     "image": "skin/base-hollandets.png",
     "imageHashes": [
       "1e85f81c7ad03db14de5b49ad3955f7874e1cb9f1eec6e7c1001973eba63dcce"
@@ -4050,13 +4174,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.319Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/6Nxv7zKiomi8By",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-hollandets.png"
+    ]
   },
   {
     "id": "base-blogmayster-strashne",
@@ -4064,8 +4191,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "description": "Скін доступний у підписці «BLOGMAYSTER | СТРАШНЕ» у monobaza. Мінімальна сума підписки — від 10 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/blogmayster#subscriptions",
+    "description": "Скін доступний у підписці «Бромайстр» на Base. Мінімальна сума підписки — від 10 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7y3ZQCYgh3MXKW",
     "image": "skin/base-blogmayster-strashne.png",
     "imageHashes": [
       "e4d4a6922989c796af2e724be8205caa8d11a0c2378f1b246260ba232c50d0ea"
@@ -4074,13 +4201,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.357Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/blogmayster",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-blogmayster-strashne.png"
+    ]
   },
   {
     "id": "base-ut-2-2-skiny",
@@ -4117,14 +4247,15 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 200,
-    "description": "Скін доступний у підписці «БФ \"БФ\" ЛЕГІОН САППОРТ\" - Оф. БФ Міжнародного Легіону ГУР МО України: 4 скіни» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/legionsupport#subscriptions",
+    "description": "Скін доступний у підписці «Legion Shield» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/W9MzDxvfsNZLY",
     "image": "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.webp",
     "images": [
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-.webp",
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--2.png",
       "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--3.png",
-      "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--4.png"
+      "skin/base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo--4.png",
+      "skin/base-139-wallet_base_legion_card_visa.png"
     ],
     "imageHashes": [
       "9b8cf4c51dd8a42eacc1060bde934080cd2f66549406b5990f090a60182e0997",
@@ -4136,7 +4267,7 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.579Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
@@ -4149,11 +4280,11 @@
     "name": "Консул про ідеологіюꑭ",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 99,
     "addedAt": "2026-08-10T18:45:54.681Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «Консул про ідеологіюꑭ» у monobaza. Мінімальна сума підписки — від 99 грн/міс.\n99 грн/міс. - 1 скін\n299 грн/міс. - 2 скіни",
-    "sourceUrl": "https://base.monobank.ua/cnsl#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Прихильник.» на Base. Мінімальна сума підписки — від 99 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7s9ZTKeBPmhSuT",
     "image": "skin/base-konsul-pro-ideolohiyu.png",
     "images": [
       "skin/base-konsul-pro-ideolohiyu.png",
@@ -4208,8 +4339,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "description": "Скін доступний у підписці «ГО \"УКРДИЗАЙНАРХІВ\"» у monobaza. Мінімальна сума підписки — від 300 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/Dg8vwA7wHZwTTR#subscriptions",
+    "description": "Скін доступний у підписці «Допомагач» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/F7t5cWiPfhTsoc",
     "image": "skin/base-ho-ukrdyzainarkhiv.png",
     "imageHashes": [
       "a7d2195348b40043ec48f2a6f61f32df80c903ffa963e123ac0679941f951e14"
@@ -4218,13 +4349,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.775Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/Dg8vwA7wHZwTTR",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-ho-ukrdyzainarkhiv.png"
+    ]
   },
   {
     "id": "base-alpha-centauri",
@@ -4232,12 +4366,14 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «Alpha Centauri» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/theacentauri#subscriptions",
+    "description": "Скін доступний у підписці «Козак» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/24DBYdhgXfVt23",
     "image": "skin/base-alpha-centauri.webp",
     "images": [
       "skin/base-alpha-centauri.webp",
-      "skin/base-alpha-centauri-2.webp"
+      "skin/base-alpha-centauri-2.webp",
+      "skin/base-184-wallet_base_eartemis_card_visa.png",
+      "skin/base-148-wallet_base_alpha_card_visa.png"
     ],
     "imageHashes": [
       "93cd4c32bceaaf19a1da66c6a2537600688c7d2bc41928ec2aa4dfce05c17b7e",
@@ -4247,7 +4383,7 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:54.895Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
@@ -4260,21 +4396,27 @@
     "name": "Підтримай Третю штурмову",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 100,
     "addedAt": "2026-08-10T18:45:54.988Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скіни доступні у підписці «Підтримай Третю штурмову» у monobaza. Мінімальна сума підписки — від 100 грн/міс. за 3 скіни",
-    "sourceUrl": "https://base.monobank.ua/ab3support#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Мотив» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4JWiJEKWLNqL6Z",
     "image": "skin/base-pidtrymai-tretyu-shturmovu-1-88a04fec.png",
     "images": [
       "skin/base-pidtrymai-tretyu-shturmovu-1-88a04fec.png",
       "skin/base-pidtrymai-tretyu-shturmovu-2-682a140b.png",
-      "skin/base-pidtrymai-tretyu-shturmovu-3-43531e41.webp"
+      "skin/base-pidtrymai-tretyu-shturmovu-3-43531e41.webp",
+      "skin/base-203-wallet_base_b3sector_card_visa.png",
+      "skin/base-74-wallet_base_o3b_card_visa.png",
+      "skin/base-42-wallet_base_azov_card_visa.png"
     ],
     "imageHashes": [
       "88a04fec16f6c128cf4d15e74f5eac1f2bf219408ce1b5b826a0629eb229968d",
       "682a140bac2abcf8bf4734b91918ccb16201f58e7c054f95a3a1065790d538cf",
-      "43531e41d9faa3f802632d3afdbbb327e4b13239110a1612e368cacd586aeb08"
+      "43531e41d9faa3f802632d3afdbbb327e4b13239110a1612e368cacd586aeb08",
+      "437ded151db503bc3ce9f5c115340e3e0fdd3638802b29e3afbdfe4a83cfa6d7",
+      "5f269d9c963220293e31bf88eaa062a6f6bfe40edbf12236ef5fc2b90c1283e4",
+      "aca968a949d8279e91503f7ef5247b0a311dd4880584de1d980190cd36e37c1f"
     ],
     "isVisaOnly": false,
     "isAdultOnly": false,
@@ -4292,8 +4434,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 200,
-    "description": "Скін доступний у підписці «Ісландія» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/islndtv#subscriptions",
+    "description": "Скін доступний у підписці «Вітаємо в сім'ї❤️» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7owWrXUchU9i8",
     "image": "skin/base-islandiya.png",
     "imageHashes": [
       "88de5d8a5ca9a41c64f124b6bde913d71342d7523fc2d1d85020f7a4263fa518"
@@ -4302,13 +4444,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.023Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/islndtv",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-islandiya.png"
+    ]
   },
   {
     "id": "base-thetremba",
@@ -4316,8 +4461,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 250,
-    "description": "Скін доступний у підписці «thetremba» у monobaza. Мінімальна сума підписки — від 250 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/thetremba#subscriptions",
+    "description": "Скін доступний у підписці «Кузен» на Base. Мінімальна сума підписки — від 250 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/CHLspSRB4m59kM",
     "image": "skin/base-thetremba.webp",
     "imageHashes": [
       "cf252b5121e8e29632237b89d259435e76892e9f4d15fd2b73dd8ca20ee97610"
@@ -4326,13 +4471,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.079Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/thetremba",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-thetremba.webp",
+      "skin/base-165-wallet_base_trmb_card_visa.png"
+    ]
   },
   {
     "id": "base-blahodiinyi-fond-holosy-ditei",
@@ -4340,8 +4489,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "description": "Скін доступний у підписці «Благодійний фонд «Голоси дітей»» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/voicesofchildren#subscriptions",
+    "description": "Скін доступний у підписці «Посильна участь» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2MDBfjdr4h8Zda",
     "image": "skin/base-blahodiinyi-fond-holosy-ditei.webp",
     "imageHashes": [
       "953b832b98dbda8c9b7b51365ff841c8021ec8981a7470d294f1f31c471cd530"
@@ -4350,13 +4499,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.129Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/voicesofchildren",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-blahodiinyi-fond-holosy-ditei.webp",
+      "skin/base-160-wallet_base_bfchildv_card_visa.png"
+    ]
   },
   {
     "id": "base-bohdan-k",
@@ -4364,8 +4517,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 50,
-    "description": "Скін доступний у підписці «Богдан К.» у monobaza. Мінімальна сума підписки — від 50 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/AKQb3GjdneA1mw#subscriptions",
+    "description": "Скін доступний у підписці «пан\\пані солдат » на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/88kLX21QtEh32o",
     "image": "skin/base-bohdan-k.webp",
     "imageHashes": [
       "8068a6c3644ab894a071b75c9a345fc443c6f71d5f4bfacee4633edcc2311333"
@@ -4374,13 +4527,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.255Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/AKQb3GjdneA1mw",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-bohdan-k.webp",
+      "skin/base-90-wallet_base_bkrotevich1_card_visa.png"
+    ]
   },
   {
     "id": "base-tse-zh-bulo-vzhe",
@@ -4388,8 +4545,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 99,
-    "description": "Скін доступний у підписці «Це ж було вже» у monobaza. Мінімальна сума підписки — від 99 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/9DS27Cw2oRy66a#subscriptions",
+    "description": "Скін доступний у підписці «Пінта» на Base. Мінімальна сума підписки — від 99 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8UFoQKJpnMeZ2R",
     "image": "skin/base-tse-zh-bulo-vzhe.png",
     "imageHashes": [
       "2ea58806ddf5ccca5baff0ddab4a8b86b6c4af358c283556114249be06185a0d"
@@ -4398,13 +4555,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.292Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/9DS27Cw2oRy66a",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-tse-zh-bulo-vzhe.png"
+    ]
   },
   {
     "id": "base-ostannii-kapitalist",
@@ -4443,8 +4603,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 200,
-    "description": "Скін доступний у підписці «PROМОВА» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/C5qeoGc5VQpuui#subscriptions",
+    "description": "Скін доступний у підписці «Два голоси» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/ZoWyuStzpjMed",
     "image": "skin/base-promova.png",
     "imageHashes": [
       "088f51d4d5b10629ed329b4295e21a629c6355a02de68288802590f5ead8d37c"
@@ -4453,28 +4613,33 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.450Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/C5qeoGc5VQpuui",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-promova.png"
+    ]
   },
   {
     "id": "base-patronatna-sluzhba-yanholy",
     "name": "ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 150,
     "addedAt": "2026-08-10T18:45:55.561Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «ПАТРОНАТНА СЛУЖБА \"ЯНГОЛИ\"» у monobaza. Мінімальна сума підписки — від 150 грн/міс (1 скін), 3 000 ₴/міс (2 скіна)",
-    "sourceUrl": "https://base.monobank.ua/ab3angels#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Любчик» на Base. Мінімальна сума підписки — від 150 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4bUjssG4F8L9b2",
     "image": "skin/base-patronatna-sluzhba-yanholy.webp",
     "images": [
       "skin/base-patronatna-sluzhba-yanholy.webp",
-      "skin/base-patronatna-sluzhba-yanholy-2.webp"
+      "skin/base-patronatna-sluzhba-yanholy-2.webp",
+      "skin/base-111-wallet_base_yangoli2_card_visa.png",
+      "skin/base-110-wallet_base_yangoli_card_visa.png"
     ],
     "imageHashes": [
       "e42d3443aa6c75f8e2135af4a4054bfca0f14ec6e66817fc78a82077efa5ea59",
@@ -4496,8 +4661,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 250,
-    "description": "Скін доступний у підписці «БО \"БФ \"1991\"» у monobaza. Мінімальна сума підписки — від 250 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/81NN2qov5Bc1aX#subscriptions",
+    "description": "Скін доступний у підписці «колєга 1991 » на Base. Мінімальна сума підписки — від 250 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4e9aYgGYfdXSVw",
     "image": "skin/base-bo-bf-1991.webp",
     "imageHashes": [
       "70770505c8ae19568d58244217021bb2d2459268de1267e0a85b3dffe14ddf0f"
@@ -4506,13 +4671,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.672Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/81NN2qov5Bc1aX",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-bo-bf-1991.webp",
+      "skin/base-151-wallet_base_1991fund_card_visa.png"
+    ]
   },
   {
     "id": "base-80-halytska-bryhada",
@@ -4520,8 +4689,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 80,
-    "description": "Скін доступний у підписці «80 Галицька бригада» у monobaza. Мінімальна сума підписки — від 80 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/8Kiv8o9AULv5aJ#subscriptions",
+    "description": "Скін доступний у підписці «Добродій» на Base. Мінімальна сума підписки — від 80 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/A1tWRkqYQFPPyv",
     "image": "skin/base-80-halytska-bryhada.png",
     "imageHashes": [
       "68e921fee46fbc67a53afc5a8df9f5c5cc34d9cee006db57e16519ff115b7f41"
@@ -4530,13 +4699,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.707Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/8Kiv8o9AULv5aJ",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-80-halytska-bryhada.png"
+    ]
   },
   {
     "id": "base-kultpyva",
@@ -4544,8 +4716,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «КультПива» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/73jciQWMRLGpbs#subscriptions",
+    "description": "Скін доступний у підписці «Німецька класика» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/AXPopxiRXtSKux",
     "image": "skin/base-kultpyva.png",
     "imageHashes": [
       "36314ebea353da7434ddd5b6492473f6a570ff117f5c9de6bc4f46f00ea77c8e"
@@ -4554,28 +4726,32 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.741Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:05:24.721Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/73jciQWMRLGpbs",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-kultpyva.png"
+    ]
   },
   {
     "id": "base-khimikdavid",
     "name": "Khimikdavid",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 50,
     "addedAt": "2026-08-10T18:45:55.862Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «Khimikdavid» у monobaza. Мінімальна сума підписки — від 50 грн/міс (1 скін), від 200 грн/міс (2 скіна)",
-    "sourceUrl": "https://base.monobank.ua/DfMKh5mC4zumRy#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Десь бачив» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/148zhT8joapNQX",
     "image": "skin/base-khimikdavid.webp",
     "images": [
       "skin/base-khimikdavid.webp",
-      "skin/base-khimikdavid-2.png"
+      "skin/base-khimikdavid-2.png",
+      "skin/base-72-wallet_base_khimik2_card_visa.png"
     ],
     "imageHashes": [
       "c56f5a4bcb061115292be7e0737c126e4566cd12f7e39b56d0bb79a7a30241ad",
@@ -4597,8 +4773,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «Loran» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/loran#subscriptions",
+    "description": "Скін доступний у підписці «Саб» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/9YjNNneVVzyciZ",
     "image": "skin/base-loran.png",
     "imageHashes": [
       "a0a99c2fc079fd975cbf8e821c912237a2be3f85a8e3cca5c3d882255218b69c"
@@ -4607,13 +4783,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.907Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/loran",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-loran.png"
+    ]
   },
   {
     "id": "base-ceh9",
@@ -4621,8 +4800,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 49,
-    "description": "Скін доступний у підписці «ceh9» у monobaza. Мінімальна сума підписки — від 49 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/ceh9#subscriptions",
+    "description": "Скін доступний у підписці «Власник мегакарти» на Base. Мінімальна сума підписки — від 49 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/9uFK5WWYy28oDY",
     "image": "skin/base-ceh9.png",
     "imageHashes": [
       "2620f7e01bd1a8797db8210ebfb21ce2ec76c265ba070222410e099ae8ddc52a"
@@ -4631,13 +4810,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.939Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ceh9",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-ceh9.png"
+    ]
   },
   {
     "id": "base-ua-phonk-community",
@@ -4645,8 +4827,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «UA PHONK COMMUNITY» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/DJ3vNDaoGJTyRm#subscriptions",
+    "description": "Скін доступний у підписці «Phonk Starter» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2LbLpgX4QTyTQU",
     "image": "skin/base-ua-phonk-community.png",
     "imageHashes": [
       "a9aebb3cb7a5b19d79f1569a04cd2f81755faf37f326128ea83a98504403ac54"
@@ -4655,13 +4837,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:55.976Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/DJ3vNDaoGJTyRm",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-ua-phonk-community.png"
+    ]
   },
   {
     "id": "base-tura-hvost",
@@ -4669,8 +4854,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 199,
-    "description": "Скін доступний у підписці «tura_hvost» у monobaza. Мінімальна сума підписки — від 199 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/tura_hvost#subscriptions",
+    "description": "Скін доступний у підписці «Потужна підтримка !» на Base. Мінімальна сума підписки — від 199 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/AkJz1BfZjBhuKh",
     "image": "skin/base-tura-hvost.png",
     "imageHashes": [
       "be02735f3adcd8ed1ecaefe1bf61c7a79490ec55acfad78f505c29b8b29a17da"
@@ -4679,13 +4864,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.009Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/tura_hvost",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-tura-hvost.png"
+    ]
   },
   {
     "id": "base-veterany-kosmichnyh-viysk",
@@ -4693,8 +4881,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 111,
-    "description": "Скін доступний у підписці «Veterany Kosmichnyh Viysk» у monobaza. Мінімальна сума підписки — від 111 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/De8g3ioyJG8xEQ#subscriptions",
+    "description": "Скін доступний у підписці «Клуб \"111\"» на Base. Мінімальна сума підписки — від 111 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/5gGJKT5F4SbdME",
     "image": "skin/base-veterany-kosmichnyh-viysk.png",
     "imageHashes": [
       "8718274bb786cd01281fc08e5ba9a91ba851cdc500df921fd76f6d8d4d7b70ae"
@@ -4703,13 +4891,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.037Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/De8g3ioyJG8xEQ",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-veterany-kosmichnyh-viysk.png"
+    ]
   },
   {
     "id": "base-slidstvo-info",
@@ -4717,8 +4908,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 100,
-    "description": "Скін доступний у підписці «Слідство.Інфо» у monobaza. Мінімальна сума підписки — від 100 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/ExW3X51dcPV2z9#subscriptions",
+    "description": "Скін доступний у підписці «На нашу роботу» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7LBNkgn88Lm5kg",
     "image": "skin/base-slidstvo-info.png",
     "imageHashes": [
       "936e03618d47bacebb11318305cd5d7442d859ce39b916cc53e6c785ce2f84d4"
@@ -4727,28 +4918,33 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.079Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ExW3X51dcPV2z9",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-slidstvo-info.png"
+    ]
   },
   {
     "id": "base-maksym-kilderov",
     "name": "Максим Кільдеров",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 66,
     "addedAt": "2026-08-10T18:45:56.239Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «Максим Кільдеров» у monobaza. Мінімальна сума підписки — від 99 грн/міс\n66 грн/міс. - 1 скін\n99 грн/міс. - 2 скіни",
-    "sourceUrl": "https://base.monobank.ua/kilderov#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «La Fabriq Картка» на Base. Мінімальна сума підписки — від 66 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/DhCCpd3A3CERuU",
     "image": "skin/base-maksym-kilderov.webp",
     "images": [
       "skin/base-maksym-kilderov.webp",
-      "skin/base-maksym-kilderov-2.webp"
+      "skin/base-maksym-kilderov-2.webp",
+      "skin/base-79-wallet_base_kilderov2_card_visa.png",
+      "skin/base-78-wallet_base_kilderov1_card_visa.png"
     ],
     "imageHashes": [
       "3eaf1e8ca315498bc3d76c2a9f3d2399d5d83132849573785638b99819036c28",
@@ -4769,11 +4965,11 @@
     "name": "БФ \"Благодійний фонд \"ГАВКІТ\"",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 50,
     "addedAt": "2026-08-10T18:45:56.519Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «БФ \"Благодійний фонд \"ГАВКІТ\"» у monobaza. Мінімальна сума підписки — від 50 грн/міс.\n50 грн/міс - 1 скін\n60 грн/міс - 2 скіни\n100 грн/міс - 3 скіни\n150 грн/міс - 4 скіни\n170 грн/міс - 5 скінів\n500 грн/міс - 6 скінів",
-    "sourceUrl": "https://base.monobank.ua/E7b62zaY1GeXuc#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «#ПотребуюПростору» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/9UXnKpBEaDJUH9",
     "image": "skin/base-bf-blahodiinyi-fond-havkit.webp",
     "images": [
       "skin/base-bf-blahodiinyi-fond-havkit.webp",
@@ -4781,7 +4977,8 @@
       "skin/base-bf-blahodiinyi-fond-havkit-3.png",
       "skin/base-bf-blahodiinyi-fond-havkit-4.webp",
       "skin/base-bf-blahodiinyi-fond-havkit-5.png",
-      "skin/base-bf-blahodiinyi-fond-havkit-6.png"
+      "skin/base-bf-blahodiinyi-fond-havkit-6.png",
+      "skin/base-143-wallet_base_gvkt2_card_visa.png"
     ],
     "imageHashes": [
       "2a8f232134cebb141604d3650136ab0bb296723943d765149656233d6fb525ff",
@@ -4806,16 +5003,19 @@
     "name": "Bihus.Info",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 0,
+    "minimumValue": 100,
     "addedAt": "2026-08-10T18:45:56.677Z",
-    "lastVerifiedAt": "2026-08-10",
-    "description": "Скін доступний у підписці «Bihus.Info» у monobaza. Мінімальна сума підписки — від 100 грн/міс (1 скін), від 250 грн/міс (2 скіни), від 500 грн/міс (3 скіни)",
-    "sourceUrl": "https://base.monobank.ua/bihusinfo#subscriptions",
+    "lastVerifiedAt": "2026-08-17",
+    "description": "Скін доступний у підписці «Кіт відповідальний» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BXMhKzbqtE243y",
     "image": "skin/base-bihus-info.webp",
     "images": [
       "skin/base-bihus-info.webp",
       "skin/base-bihus-info-2.webp",
-      "skin/base-bihus-info-3.webp"
+      "skin/base-bihus-info-3.webp",
+      "skin/base-118-wallet_base_bihus3_card_visa.png",
+      "skin/base-105-wallet_base_bihus2_card_visa.png",
+      "skin/base-96-wallet_base_bihusdsm_card_visa.png"
     ],
     "imageHashes": [
       "d98b9da0f1caa340035b33b8be8123ef17fc7511d2f7ab2292164dd20729170d",
@@ -4838,8 +5038,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 200,
-    "description": "Скін доступний у підписці «Молодіжний Націоналістичний Конгрес» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/mnk_support#subscriptions",
+    "description": "Скін доступний у підписці «МНКівці у війську» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/aTJ4ywa4SKkXx",
     "image": "skin/base-molodizhnyi-natsionalistychnyi-konhres.webp",
     "imageHashes": [
       "7c38f27476441bfd9c1953ebbbadf0cc1c24b614f8fd55b2a2c9a55bf81b75eb"
@@ -4848,13 +5048,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.761Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/mnk_support",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-molodizhnyi-natsionalistychnyi-konhres.webp",
+      "skin/base-94-wallet_base_studorg_card_visa.png"
+    ]
   },
   {
     "id": "base-dzyga-s-paw",
@@ -4862,8 +5066,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 200,
-    "description": "Скін доступний у підписці «Dzyga's Paw» у monobaza. Мінімальна сума підписки — від 200 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/EsU4ynih2p7jmD#subscriptions",
+    "description": "Скін доступний у підписці «A treat for Dzyga» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4PenpsLMjBRCRt",
     "image": "skin/base-dzyga-s-paw.webp",
     "imageHashes": [
       "7d961d0fc1b07a209220e57e383fe8f68e7b2ba941e7640e53e6203b846f6ce4"
@@ -4872,13 +5076,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.940Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/EsU4ynih2p7jmD",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-dzyga-s-paw.webp",
+      "skin/base-115-wallet_base_lapkadzygy_card_visa.png"
+    ]
   },
   {
     "id": "base-andrii-h",
@@ -4886,8 +5094,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 300,
-    "description": "Скін доступний у підписці «Андрій Г.» у monobaza. Мінімальна сума підписки — від 300 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW#subscriptions",
+    "description": "Скін доступний у підписці «NO WAY BACK» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/KaCWKSDZg3g5E",
     "image": "skin/base-andrii-h.webp",
     "imageHashes": [
       "32d30a35f648ebda2291275e6e559640927dc01a4ec53ef6646743c3a3b9f65b"
@@ -4896,13 +5104,17 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:56.996Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-andrii-h.webp",
+      "skin/base-126-wallet_base_gavr_card_visa.png"
+    ]
   },
   {
     "id": "base-pzhytomyr",
@@ -4910,8 +5122,8 @@
     "method": "Підписка Base",
     "status": "Доступний",
     "minimumValue": 10,
-    "description": "Скін доступний у підписці «Pzhytomyr» у monobaza. Мінімальна сума підписки — від 10 грн/міс.",
-    "sourceUrl": "https://base.monobank.ua/4jK74FuJaoieLf#subscriptions",
+    "description": "Скін доступний у підписці «Скін за підписку» на Base. Мінімальна сума підписки — від 10 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/2qy3o7zD6mTGQA",
     "image": "skin/base-pzhytomyr.png",
     "imageHashes": [
       "703b908bd85eb300cc69d5e712d96ff34fe1f21da36110bc6b413d0738e2a8a8"
@@ -4920,13 +5132,16 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:57.133Z",
-    "lastVerifiedAt": "2026-08-10",
+    "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
       "checkedAt": "2026-08-13T17:10:23.917Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/4jK74FuJaoieLf",
       "ok": true
-    }
+    },
+    "images": [
+      "skin/base-pzhytomyr.png"
+    ]
   },
   {
     "id": "azov-smilyvi-zavzhdy-mayut-ratsiyu",
@@ -5112,5 +5327,547 @@
       "finalUrl": "https://send.monobank.ua/jar/9Y1tYfFW6x",
       "ok": true
     }
+  },
+  {
+    "id": "base-202",
+    "name": "Radio NV",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Гість студії» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8Lcerc6qAxHrQE",
+    "image": "skin/base-202-wallet_base_bradionv_card_visa.png",
+    "images": [
+      "skin/base-202-wallet_base_bradionv_card_visa.png"
+    ],
+    "imageHashes": [
+      "3faad04212d17d4b40ad1f06be1c3d814dd15313b55e58028a5c5fca25b68569"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-200",
+    "name": "ГО \"ПОПУЛЯРНА ІСТОРІЯ\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 259,
+    "description": "Скін доступний у підписці «Чумак» на Base. Мінімальна сума підписки — від 259 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8gLC8kcmAmEF9Y",
+    "image": "skin/base-200-wallet_base_bwas1_card_visa.png",
+    "images": [
+      "skin/base-200-wallet_base_bwas1_card_visa.png"
+    ],
+    "imageHashes": [
+      "d5cc610a45e6fb4cc32205771e017ea691753dcedeeef068ffade5afaf3cf03f"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-199",
+    "name": "Kholodnyi Yar Family",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «ПЕРШИЙ КРОК» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BDomdLZJQaTkDA",
+    "image": "skin/base-199-wallet_base_bKholodYar_card_visa.png",
+    "images": [
+      "skin/base-199-wallet_base_bKholodYar_card_visa.png"
+    ],
+    "imageHashes": [
+      "17bc39e3ea06da9d280fa469192cdc7fa02731e2b68936818e698bae21bf388f"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-197",
+    "name": "Опора Спільноти — Справжній союзник!",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 1000,
+    "description": "Скін доступний у підписці «Справжній союзник!» на Base. Мінімальна сума підписки — від 1000 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4tMR1jkZaRUctv",
+    "image": "skin/base-197-wallet_base_ssoperb2_card_visa.png",
+    "images": [
+      "skin/base-197-wallet_base_ssoperb2_card_visa.png"
+    ],
+    "imageHashes": [
+      "f8e23af0b9e397ea98f3d75ae441baa322f2bfaaaf6bc46e73800a15b5849550"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-188",
+    "name": "Skevich_",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 150,
+    "description": "Скін доступний у підписці «Камінчик» на Base. Мінімальна сума підписки — від 150 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/CXnVJpV3TzFsw4",
+    "image": "skin/base-188-wallet_base_skevich_card_visa.png",
+    "images": [
+      "skin/base-188-wallet_base_skevich_card_visa.png"
+    ],
+    "imageHashes": [
+      "550c168acae80abdc5b18e047e89b2b6b461467b5829df1b2b78cb63eba35638"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-185",
+    "name": "БО \"БФ \"ПУМА ФУНДЕЙШН\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 99,
+    "description": "Скін доступний у підписці «Рекрут» на Base. Мінімальна сума підписки — від 99 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6ReH1bs6KAHumQ",
+    "image": "skin/base-185-wallet_base_b150rbat_card_visa.png",
+    "images": [
+      "skin/base-185-wallet_base_b150rbat_card_visa.png"
+    ],
+    "imageHashes": [
+      "c4057defffc9224704bdc9aba2ae41982aa3d54bf0ad36046d67b97ee5dbdb7d"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-183",
+    "name": "МБФ \"7-Й КОРПУС ДЕСАНТНО-ШТУРМОВИХ ВІЙСЬК\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 77,
+    "description": "Скін доступний у підписці «Друг 7-го корпусу» на Base. Мінімальна сума підписки — від 77 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/5FP3DLo5NL2t1c",
+    "image": "skin/base-183-wallet_base_7corp_card_visa.png",
+    "images": [
+      "skin/base-183-wallet_base_7corp_card_visa.png"
+    ],
+    "imageHashes": [
+      "e1ca0e04a090e98fc6f99cc491cdd30c44952d328841479b1ac2bbdb2b18db90"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-181",
+    "name": "Ziferblat",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Класична зефірка» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BEPRrhuPs8CBdY",
+    "image": "skin/base-181-wallet_base_zefir_card_visa.png",
+    "images": [
+      "skin/base-181-wallet_base_zefir_card_visa.png"
+    ],
+    "imageHashes": [
+      "44856efd6577724ad70c0f412d8cffe26210d0d9454e74037362cb9531286712"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-176",
+    "name": "Благодійна організація \"Благодійний фонд \"СУПЕРЛЮДИ\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Super-підписник» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BL7uKSQqJ99ZDh",
+    "image": "skin/base-176-wallet_base_sh_card_visa.png",
+    "images": [
+      "skin/base-176-wallet_base_sh_card_visa.png"
+    ],
+    "imageHashes": [
+      "fc8f88b61e21740f5bdcd26c4e7ed65c258145e997885ba9a45eade61becb4a4"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-174",
+    "name": "Кріс",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Дякую, чат!» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/7FGvbFixajD2Mw",
+    "image": "skin/base-174-wallet_base_krisevent_card_visa.png",
+    "images": [
+      "skin/base-174-wallet_base_krisevent_card_visa.png"
+    ],
+    "imageHashes": [
+      "753a29c4e1cec82270c9c266f6d103f0047cb0e98b43080aa6a562a6eab85b91"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-166",
+    "name": "YouTube українською",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "description": "Скін доступний у підписці «Промінь Натхнення» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/CRCvxpkiDKBL2d",
+    "image": "skin/base-166-wallet_base_gtbt_card_visa.png",
+    "images": [
+      "skin/base-166-wallet_base_gtbt_card_visa.png",
+      "skin/base-106-wallet_base_uampz_card_visa.png"
+    ],
+    "imageHashes": [
+      "b966f375418c97f50fa76bdfb3fa90cff870eaa523eeb02c99bd7a9f727fa387",
+      "de6e75cfdda9981572728d2b86cc85434673e8224f196d72b20e24a2dcd27ec4"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-140",
+    "name": "\"Хижаки висот\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "description": "Скін доступний у підписці «Лунь степовий» на Base. Мінімальна сума підписки — від 300 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6TvkByosScc8uo",
+    "image": "skin/base-140-wallet_jarhlk_card.png",
+    "images": [
+      "skin/base-140-wallet_jarhlk_card.png"
+    ],
+    "imageHashes": [
+      "940551baa03a750317bea169c9b861bcdd299b7676e4f8c1c61678623d05f8e0"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-124",
+    "name": "Олеся М.",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "description": "Скін доступний у підписці «Мислитель» на Base. Мінімальна сума підписки — від 200 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/9WiP2dLy9dSwc3",
+    "image": "skin/base-124-wallet_base_econom_card_visa.png",
+    "images": [
+      "skin/base-124-wallet_base_econom_card_visa.png"
+    ],
+    "imageHashes": [
+      "d3bade69b64731289dd07e3acb0ae90b3c54da204296be68f9c9b644b0fd438b"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-119",
+    "name": "UkrainianGeek",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "description": "Скін доступний у підписці «😄ВЕСЕЛИЙ ГІК😄» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6C3VRAQjev1pn5",
+    "image": "skin/base-119-wallet_base_uageek_card_visa.png",
+    "images": [
+      "skin/base-119-wallet_base_uageek_card_visa.png"
+    ],
+    "imageHashes": [
+      "a547898e19a5683bfce70b90aeff4413a960ef86750c446a003e43dfc27f4415"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-114",
+    "name": "Ніка Карузо",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Команда Карузо» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/3EHd1mNu7KSJmU",
+    "image": "skin/base-114-wallet_base_karuso_card_visa.png",
+    "images": [
+      "skin/base-114-wallet_base_karuso_card_visa.png"
+    ],
+    "imageHashes": [
+      "4af05eef1be7b50fb9b57f07e151830533d7453714cf1b5207d52bfff539fea3"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-87",
+    "name": "ven4oss",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 400,
+    "description": "Скін доступний у підписці «Дядєло» на Base. Мінімальна сума підписки — від 400 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/E3vxrEzPfVyCpz",
+    "image": "skin/base-87-wallet_basevenya_card_visa.png",
+    "images": [
+      "skin/base-87-wallet_basevenya_card_visa.png"
+    ],
+    "imageHashes": [
+      "f8b1b1daf936ad522aafe28d7603fd02903837a773388838920f53a61221fd4a"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-60",
+    "name": "БФ \"СПІЛЬНОТА СТЕРНЕНКА\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 29999,
+    "description": "Скін доступний у підписці «Багато дохлих росіян» на Base. Мінімальна сума підписки — від 29999 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/A4gXfSTwHw35SM",
+    "image": "skin/base-60-wallet_rusoriz2_card_visa.png",
+    "images": [
+      "skin/base-60-wallet_rusoriz2_card_visa.png"
+    ],
+    "imageHashes": [
+      "87589c010f70b3a53fdc7a842c65af10e6f902d9a4feb44efd0a5c2e34eb9bfe"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-39",
+    "name": "Сергій Нагорний",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 50,
+    "description": "Скін доступний у підписці «Рівень 1» на Base. Мінімальна сума підписки — від 50 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/Bfiw6UE8F4ZJ4C",
+    "image": "skin/base-39-wallet_base_driver_card_visa.png",
+    "images": [
+      "skin/base-39-wallet_base_driver_card_visa.png"
+    ],
+    "imageHashes": [
+      "d5d484b2cddc7594f5b081a6161a52195a0e5ec092c49fcabc557f39333f5101"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-30",
+    "name": "White Dog",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Підписка» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/8yNE2MV8VW3zyb",
+    "image": "skin/base-30-wallet_base_pes_card_visa.png",
+    "images": [
+      "skin/base-30-wallet_base_pes_card_visa.png"
+    ],
+    "imageHashes": [
+      "5e7fc8c2c35c032ef1c5ff4f3722a41e128fe4a82ae5191b18516440b208b57e"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
+    "id": "base-2",
+    "name": "MokRec",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "description": "Скін доступний у підписці «Валєра норм!» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/6mNWaxag3gGX2A",
+    "image": "skin/base-2-wallet_card_mokrec_visa.png",
+    "images": [
+      "skin/base-2-wallet_card_mokrec_visa.png"
+    ],
+    "imageHashes": [
+      "52179bee93d65172db312487c6db5a94ed1216eb8a7e6fda48228e94b71c3216"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "addedAt": "2026-08-17T00:00:00.000Z",
+    "lastVerifiedAt": "2026-08-17",
+    "availabilityHistory": [
+      {
+        "date": "2026-08-17T00:00:00.000Z",
+        "status": "Доступний"
+      }
+    ]
   }
 ]
