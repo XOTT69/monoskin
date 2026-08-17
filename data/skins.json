@@ -5853,11 +5853,13 @@
     "minimumValue": 29999,
     "description": "Скін доступний у підписці «Багато дохлих росіян» на Base. Мінімальна сума підписки — від 29999 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/sp/A4gXfSTwHw35SM",
-    "image": "skin/base-60-wallet_rusoriz2_card_visa.png",
+    "image": "skin/base-58-wallet_base_rusoriz_card_visa.png",
     "images": [
+      "skin/base-58-wallet_base_rusoriz_card_visa.png",
       "skin/base-60-wallet_rusoriz2_card_visa.png"
     ],
     "imageHashes": [
+      "00af1153b42717b3a428ae4dc024c6942081b2de03354f085895b4416b022689",
       "87589c010f70b3a53fdc7a842c65af10e6f902d9a4feb44efd0a5c2e34eb9bfe"
     ],
     "isVisaOnly": false,
