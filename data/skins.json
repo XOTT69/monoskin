@@ -26,7 +26,8 @@
     "images": [
       "skin/olsior-1-7164bba4.webp",
       "skin/base-169-wallet_base_kitolsi_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "notalka",
@@ -79,7 +80,8 @@
     "images": [
       "skin/413-okremyy-polk-syl-bezpilotnykh-system-reyd-1-4492dc9e.webp",
       "skin/base-180-wallet_base_skin_reyd_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "vid-bryhady-khartiya",
@@ -1932,7 +1934,8 @@
     "images": [
       "skin/skin-1785936525403.webp",
       "skin/base-145-wallet_socialdrone_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "skin-1785936054797",
@@ -1961,7 +1964,8 @@
     "images": [
       "skin/skin-1785936054797.webp",
       "skin/base-157-wallet_base_orestm_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "kraken",
@@ -1994,7 +1998,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/kraken",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "skin-1785934784953",
@@ -2023,7 +2028,8 @@
     "images": [
       "skin/skin-1785934784953.webp",
       "skin/base-177-wallet_base_dmvk_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "skin-1785934549915",
@@ -2052,7 +2058,8 @@
     "images": [
       "skin/skin-1785934549915.png",
       "skin/base-178-wallet_base_future_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "skin-1785934107317",
@@ -2089,7 +2096,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/cba",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "skin-1785933479988",
@@ -2118,7 +2126,8 @@
     "images": [
       "skin/skin-1785933479988.webp",
       "skin/base-153-wallet_base_prytula1_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "faine-misto",
@@ -2533,7 +2542,8 @@
     "images": [
       "skin/olenamandziuk.png",
       "skin/base-193-wallet_base_bmndz_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "monitor-base",
@@ -2561,7 +2571,8 @@
     "images": [
       "skin/monitor-base.webp",
       "skin/base-24-wallet_base_monitor_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "dota2-broodmother",
@@ -3412,7 +3423,8 @@
     },
     "images": [
       "skin/petrychenko.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "vms",
@@ -3535,7 +3547,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/rusoriz",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "sternenko-opora-spilnoty",
@@ -3566,7 +3579,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/sternenkofund",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "azov-odna-hryvnia",
@@ -3634,7 +3648,8 @@
     "images": [
       "skin/smak-gnomes.webp",
       "skin/base-76-wallet_base_smak_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "torontotv-pig-monument",
@@ -3660,7 +3675,8 @@
     },
     "images": [
       "skin/torontotv-pig-monument.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "mono-7",
@@ -3706,7 +3722,8 @@
     "images": [
       "skin/base-strum-pidpyska-bezperebiinoho-zhyvlennya-12-oyi-bryhady-.jpg",
       "skin/base-161-wallet_base_strum_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv",
@@ -3735,7 +3752,8 @@
     "images": [
       "skin/base-azov-suprovid-tse-likuvannya-i-reabilitatsiya-biitsiv.jpg",
       "skin/base-172-wallet_base_asupport_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-apostol-dmytro-karpenko",
@@ -3764,7 +3782,8 @@
     "images": [
       "skin/base-apostol-dmytro-karpenko.jpg",
       "skin/base-95-wallet_base_apostle_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-lachen",
@@ -3791,7 +3810,8 @@
     },
     "images": [
       "skin/base-lachen.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-did-shynobi-veteran-4-viiny-shynobi-na-pensii",
@@ -3820,7 +3840,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/8YS3SWXotttv5e",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-leb1ga",
@@ -3847,7 +3868,8 @@
     },
     "images": [
       "skin/base-leb1ga.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-istoriya-bez-mifiv",
@@ -3874,7 +3896,8 @@
     },
     "images": [
       "skin/base-istoriya-bez-mifiv.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ghostik-2-skiny",
@@ -3904,7 +3927,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ghostik",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-hurtom-ta-vshchent-podkast-s-prytuly-ta-a-tymoshenka",
@@ -3931,7 +3955,8 @@
     },
     "images": [
       "skin/base-hurtom-ta-vshchent-podkast-s-prytuly-ta-a-tymoshenka.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-valentinopradagucci",
@@ -3959,7 +3984,8 @@
     "images": [
       "skin/base-valentinopradagucci.webp",
       "skin/base-70-wallet_base_valentynm_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-mykhailo-smokovych",
@@ -3987,7 +4013,8 @@
     "images": [
       "skin/base-mykhailo-smokovych.webp",
       "skin/base-179-wallet_base_smok_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-mykhailo-krupin",
@@ -4014,7 +4041,8 @@
     },
     "images": [
       "skin/base-mykhailo-krupin.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-bromance-podcast",
@@ -4041,7 +4069,8 @@
     },
     "images": [
       "skin/base-bromance-podcast.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-oldboi",
@@ -4068,7 +4097,8 @@
     },
     "images": [
       "skin/base-oldboi.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-deepstateua",
@@ -4095,7 +4125,8 @@
     },
     "images": [
       "skin/base-deepstateua.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ukrai-ner",
@@ -4129,7 +4160,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ukrainer",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "base-zbroiovyi-lobist",
@@ -4156,7 +4188,8 @@
     },
     "images": [
       "skin/base-zbroiovyi-lobist.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-hollandets",
@@ -4183,7 +4216,8 @@
     },
     "images": [
       "skin/base-hollandets.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-blogmayster-strashne",
@@ -4210,7 +4244,8 @@
     },
     "images": [
       "skin/base-blogmayster-strashne.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ut-2-2-skiny",
@@ -4239,7 +4274,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/yt2",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-bf-bf-lehion-sapport-of-bf-mizhnarodnoho-lehionu-hur-mo-",
@@ -4273,7 +4309,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/legionsupport",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "base-konsul-pro-ideolohiyu",
@@ -4302,7 +4339,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/cnsl",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-yevhen-pronin",
@@ -4331,7 +4369,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/pronin",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ho-ukrdyzainarkhiv",
@@ -4358,7 +4397,8 @@
     },
     "images": [
       "skin/base-ho-ukrdyzainarkhiv.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-alpha-centauri",
@@ -4389,7 +4429,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/theacentauri",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-pidtrymai-tretyu-shturmovu",
@@ -4426,7 +4467,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ab3support",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-islandiya",
@@ -4453,7 +4495,8 @@
     },
     "images": [
       "skin/base-islandiya.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-thetremba",
@@ -4481,7 +4524,8 @@
     "images": [
       "skin/base-thetremba.webp",
       "skin/base-165-wallet_base_trmb_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-blahodiinyi-fond-holosy-ditei",
@@ -4509,7 +4553,8 @@
     "images": [
       "skin/base-blahodiinyi-fond-holosy-ditei.webp",
       "skin/base-160-wallet_base_bfchildv_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-bohdan-k",
@@ -4537,7 +4582,8 @@
     "images": [
       "skin/base-bohdan-k.webp",
       "skin/base-90-wallet_base_bkrotevich1_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-tse-zh-bulo-vzhe",
@@ -4564,7 +4610,8 @@
     },
     "images": [
       "skin/base-tse-zh-bulo-vzhe.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ostannii-kapitalist",
@@ -4595,7 +4642,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/2gkjik9WjTdxnr",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-promova",
@@ -4622,7 +4670,8 @@
     },
     "images": [
       "skin/base-promova.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-patronatna-sluzhba-yanholy",
@@ -4653,7 +4702,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ab3angels",
       "ok": true
-    }
+    },
+    "baseAccountType": "fund"
   },
   {
     "id": "base-bo-bf-1991",
@@ -4681,7 +4731,8 @@
     "images": [
       "skin/base-bo-bf-1991.webp",
       "skin/base-151-wallet_base_1991fund_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-80-halytska-bryhada",
@@ -4708,7 +4759,8 @@
     },
     "images": [
       "skin/base-80-halytska-bryhada.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-kultpyva",
@@ -4735,7 +4787,8 @@
     },
     "images": [
       "skin/base-kultpyva.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-khimikdavid",
@@ -4765,7 +4818,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/DfMKh5mC4zumRy",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-loran",
@@ -4792,7 +4846,8 @@
     },
     "images": [
       "skin/base-loran.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ceh9",
@@ -4819,7 +4874,8 @@
     },
     "images": [
       "skin/base-ceh9.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-ua-phonk-community",
@@ -4846,7 +4902,8 @@
     },
     "images": [
       "skin/base-ua-phonk-community.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-tura-hvost",
@@ -4873,7 +4930,8 @@
     },
     "images": [
       "skin/base-tura-hvost.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-veterany-kosmichnyh-viysk",
@@ -4900,7 +4958,8 @@
     },
     "images": [
       "skin/base-veterany-kosmichnyh-viysk.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-slidstvo-info",
@@ -4927,7 +4986,8 @@
     },
     "images": [
       "skin/base-slidstvo-info.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-maksym-kilderov",
@@ -4958,7 +5018,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/kilderov",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-bf-blahodiinyi-fond-havkit",
@@ -4996,7 +5057,8 @@
         "date": "2026-08-10T18:45:56.519Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-bihus-info",
@@ -5030,7 +5092,8 @@
       "status": 200,
       "finalUrl": "https://base.monobank.ua/bihusinfo",
       "ok": true
-    }
+    },
+    "baseAccountType": "creator"
   },
   {
     "id": "base-molodizhnyi-natsionalistychnyi-konhres",
@@ -5058,7 +5121,8 @@
     "images": [
       "skin/base-molodizhnyi-natsionalistychnyi-konhres.webp",
       "skin/base-94-wallet_base_studorg_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-dzyga-s-paw",
@@ -5086,7 +5150,8 @@
     "images": [
       "skin/base-dzyga-s-paw.webp",
       "skin/base-115-wallet_base_lapkadzygy_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-andrii-h",
@@ -5114,7 +5179,8 @@
     "images": [
       "skin/base-andrii-h.webp",
       "skin/base-126-wallet_base_gavr_card_visa.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-pzhytomyr",
@@ -5141,7 +5207,8 @@
     },
     "images": [
       "skin/base-pzhytomyr.png"
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "azov-smilyvi-zavzhdy-mayut-ratsiyu",
@@ -5353,7 +5420,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-200",
@@ -5380,7 +5448,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-199",
@@ -5407,7 +5476,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-197",
@@ -5434,7 +5504,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-188",
@@ -5461,7 +5532,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-185",
@@ -5488,7 +5560,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-183",
@@ -5515,7 +5588,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-181",
@@ -5542,7 +5616,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-176",
@@ -5569,7 +5644,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-174",
@@ -5596,7 +5672,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-166",
@@ -5625,7 +5702,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-140",
@@ -5652,7 +5730,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-124",
@@ -5679,7 +5758,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-119",
@@ -5706,7 +5786,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-114",
@@ -5733,7 +5814,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-87",
@@ -5760,7 +5842,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-60",
@@ -5787,7 +5870,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "fund"
   },
   {
     "id": "base-39",
@@ -5814,7 +5898,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-30",
@@ -5841,7 +5926,8 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "baseAccountType": "creator"
   },
   {
     "id": "base-2",
@@ -5861,6 +5947,7 @@
     "isVisaOnly": false,
     "isAdultOnly": false,
     "featured": false,
+    "baseAccountType": "creator",
     "addedAt": "2026-08-17T00:00:00.000Z",
     "lastVerifiedAt": "2026-08-17",
     "availabilityHistory": [

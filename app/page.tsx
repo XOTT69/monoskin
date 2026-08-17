@@ -22,6 +22,8 @@ type Status = "Доступний" | "Недоступний";
 type DisplayMethod = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка";
 type Category = "Усі" | DisplayMethod | "Недоступні";
 type Theme = "dark" | "light";
+type BaseAccountType = "creator" | "fund";
+type BaseFilter = "all" | BaseAccountType;
 type AvailabilityEvent = { date: string; status: Status; reason?: string };
 type Skin = {
   id: string;
@@ -37,6 +39,7 @@ type Skin = {
   isVisaOnly: boolean;
   isAdultOnly: boolean;
   featured?: boolean;
+  baseAccountType?: BaseAccountType;
   lastVerifiedAt?: string;
   unavailableReason?: string;
   availabilityHistory?: AvailabilityEvent[];
@@ -193,6 +196,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState<Theme>("dark");
   const [categoryFilter, setCategoryFilter] = useState<Category>("Усі");
+  const [baseFilter, setBaseFilter] = useState<BaseFilter>("all");
   const [onlyLinked, setOnlyLinked] = useState(false);
   const [favouritesOnly, setFavouritesOnly] = useState(false);
   const [favourites, setFavourites] = useState<Set<string>>(() => new Set());
@@ -240,6 +244,7 @@ export default function Home() {
       const searchable = `${skin.name} ${skin.method} ${skin.status} ${skin.description}`.toLocaleLowerCase("uk");
       return searchable.includes(query.toLocaleLowerCase("uk"))
         && (categoryFilter === "Усі" || categoryOf(skin) === categoryFilter)
+        && (categoryFilter !== "Підписка" || baseFilter === "all" || skin.baseAccountType === baseFilter)
         && (!onlyLinked || (skin.status === "Доступний" && isSecureUrl(skin.sourceUrl)))
         && (!favouritesOnly || favourites.has(skin.id));
     })
@@ -249,13 +254,13 @@ export default function Home() {
       if (sort === "name") return left.name.localeCompare(right.name, "uk");
       if (sort === "price") return left.minimumValue - right.minimumValue;
       return sort === "oldest" ? +new Date(left.addedAt) - +new Date(right.addedAt) : +new Date(right.addedAt) - +new Date(left.addedAt);
-    }), [categoryFilter, favourites, favouritesOnly, onlyLinked, query, sort]);
+    }), [baseFilter, categoryFilter, favourites, favouritesOnly, onlyLinked, query, sort]);
   const visibleSkins = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => setVisibleCount(catalogBatchSize));
     return () => window.cancelAnimationFrame(frame);
-  }, [categoryFilter, favouritesOnly, onlyLinked, query, sort]);
+  }, [baseFilter, categoryFilter, favouritesOnly, onlyLinked, query, sort]);
 
   useEffect(() => {
     try {
@@ -527,7 +532,7 @@ export default function Home() {
   });
 
   const resetCatalogFilters = () => {
-    setQuery(""); setCategoryFilter("Усі"); setOnlyLinked(false); setFavouritesOnly(false);
+    setQuery(""); setCategoryFilter("Усі"); setBaseFilter("all"); setOnlyLinked(false); setFavouritesOnly(false);
   };
 
   const scrollToCatalog = () => document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -566,7 +571,8 @@ export default function Home() {
             <label className="image-search" tabIndex={0} onPaste={(event) => { const file = imageFromClipboard(event.clipboardData.items); if (file) { event.preventDefault(); void findSkinByImage(file); } }}><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => void findSkinByImage(event.target.files?.[0] ?? null)} /><span aria-hidden="true">▧</span>{visualSearch.state === "searching" ? "Шукаємо…" : "Знайти за фото"}</label>
             <label className="sort"><span>Сортування</span><select value={sort} onChange={(event) => setSort(event.target.value as Sort)}><option value="newest">Нещодавно додані</option><option value="oldest">Додані раніше</option><option value="name">За назвою</option><option value="price">За сумою</option></select></label>
           </div>
-          <div className="filters category-filters" aria-label="Категорії та швидкі фільтри">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => setCategoryFilter(item)}>{item}</button>)}<span className="filter-divider" aria-hidden="true" /><button type="button" className={onlyLinked ? "active" : ""} onClick={() => setOnlyLinked((current) => !current)}>↗ Є посилання</button><button type="button" className={favouritesOnly ? "active" : ""} onClick={() => setFavouritesOnly((current) => !current)}>♥ Обране {favourites.size ? `(${favourites.size})` : ""}</button>{(query || categoryFilter !== "Усі" || onlyLinked || favouritesOnly) && <button type="button" className="reset-filters" onClick={resetCatalogFilters}>Скинути</button>}</div>
+          <div className="filters category-filters" aria-label="Категорії та швидкі фільтри">{categories.map((item) => <button type="button" className={categoryFilter === item ? "active" : ""} key={item} onClick={() => { setCategoryFilter(item); if (item !== "Підписка") setBaseFilter("all"); }}>{item}</button>)}<span className="filter-divider" aria-hidden="true" /><button type="button" className={onlyLinked ? "active" : ""} onClick={() => setOnlyLinked((current) => !current)}>↗ Є посилання</button><button type="button" className={favouritesOnly ? "active" : ""} onClick={() => setFavouritesOnly((current) => !current)}>♥ Обране {favourites.size ? `(${favourites.size})` : ""}</button>{(query || categoryFilter !== "Усі" || baseFilter !== "all" || onlyLinked || favouritesOnly) && <button type="button" className="reset-filters" onClick={resetCatalogFilters}>Скинути</button>}</div>
+          {categoryFilter === "Підписка" && <div className="base-subfilters" aria-label="Фільтр підписок Base"><span>У Base</span><button type="button" className={baseFilter === "all" ? "active" : ""} onClick={() => setBaseFilter("all")}>Усі</button><button type="button" className={baseFilter === "creator" ? "active" : ""} onClick={() => setBaseFilter("creator")}>Креатори</button><button type="button" className={baseFilter === "fund" ? "active" : ""} onClick={() => setBaseFilter("fund")}>Фонди</button></div>}
           {visualSearch.state !== "idle" && <div className={`image-search-result ${visualSearch.state}`} role="status">
             {visualSearch.state === "searching" && "Порівнюємо зображення з каталогом…"}
             {visualSearch.state === "found" && <><span>Найближчий збіг: <b>{visualSearch.skin?.name}</b></span><button type="button" onClick={() => { if (visualSearch.skin) openSkin(visualSearch.skin); }}>Відкрити скін →</button></>}
