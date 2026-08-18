@@ -15,6 +15,10 @@ type TelegramUpdate = { message?: TelegramMessage; callback_query?: TelegramCall
 type Category = "Безкоштовно" | "Доступні всім" | "Донат на банку" | "Підписка" | "Недоступні";
 type BotStep = "photos" | "name" | "category" | "minimum" | "description" | "source" | "preview" | "publishing";
 type BotDraft = { step: BotStep; photos: TelegramPhoto[]; name?: string; category?: Category; minimumValue?: number; description?: string; sourceUrl?: string };
+type ManageStep = "browse" | "search" | "edit-text" | "photos" | "delete-confirm";
+type ManageField = "name" | "description" | "sourceUrl" | "minimumValue";
+type ManagePhotoMode = "append" | "replace";
+type ManageSession = { step: ManageStep; ids: string[]; page: number; selectedId?: string; field?: ManageField; photoMode?: ManagePhotoMode; photos?: TelegramPhoto[] };
 type ReviewRequest = { draft: BotDraft; editorChatId: number; submittedAt: string; status: "pending" | "publishing" };
 type AvailabilityEvent = { date: string; status: "Доступний" | "Недоступний"; reason?: string };
 type LinkCheckResult = { id: string; status: number; finalUrl: string; ok: boolean; checkedAt: string };
@@ -184,6 +188,22 @@ async function clearDraft(chatId: number, env: Env) {
   await env.BOT_SESSIONS.delete(`draft:${chatId}`);
 }
 
+function manageKey(chatId: number) {
+  return `manage:${chatId}`;
+}
+
+async function loadManage(chatId: number, env: Env) {
+  return env.BOT_SESSIONS.get<ManageSession>(manageKey(chatId), "json");
+}
+
+async function saveManage(chatId: number, session: ManageSession, env: Env) {
+  await env.BOT_SESSIONS.put(manageKey(chatId), JSON.stringify(session), { expirationTtl: 60 * 60 });
+}
+
+async function clearManage(chatId: number, env: Env) {
+  await env.BOT_SESSIONS.delete(manageKey(chatId));
+}
+
 function isOwner(chatId: number | undefined, env: Env) {
   return String(chatId ?? "") === env.TELEGRAM_CHAT_ID;
 }
@@ -313,6 +333,51 @@ async function github<T>(path: string, env: Env, init: RequestInit = {}) {
   return body as T;
 }
 
+type PendingImage = { path: string; bytes: Uint8Array };
+
+async function mutateCatalog(
+  env: Env,
+  message: string,
+  mutate: (records: Skin[]) => Skin[],
+  pendingImages: PendingImage[] = [],
+) {
+  const repository = env.GITHUB_REPOSITORY || `${OWNER}/${REPO}`;
+  const [owner, repo] = repository.split("/");
+  if (!owner || !repo) throw new Error("Некоректна назва GitHub-репозиторію у налаштуваннях Worker.");
+  const branch = env.GITHUB_BRANCH || BRANCH;
+  const base = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+  const [catalogFile, ref] = await Promise.all([
+    github<GitHubContent>(`${base}/contents/data/skins.json?ref=${encodeURIComponent(branch)}`, env),
+    github<GitHubRef>(`${base}/git/ref/heads/${encodeURIComponent(branch)}`, env),
+  ]);
+  const records = JSON.parse(base64ToText(catalogFile.content)) as Skin[];
+  const nextRecords = mutate(records);
+  const current = await github<GitHubCommit>(`${base}/git/commits/${ref.object.sha}`, env);
+  const blobs = await Promise.all([
+    github<GitHubBlob>(`${base}/git/blobs`, env, { method: "POST", body: JSON.stringify({ content: textToBase64(`${JSON.stringify(nextRecords, null, 2)}\n`), encoding: "base64" }) }),
+    ...pendingImages.map((file) => github<GitHubBlob>(`${base}/git/blobs`, env, { method: "POST", body: JSON.stringify({ content: bytesToBase64(file.bytes), encoding: "base64" }) })),
+  ]);
+  const tree = await github<GitHubTree>(`${base}/git/trees`, env, {
+    method: "POST",
+    body: JSON.stringify({
+      base_tree: current.tree.sha,
+      tree: [
+        { path: "data/skins.json", mode: "100644", type: "blob", sha: blobs[0].sha },
+        ...pendingImages.map((file, index) => ({ path: `public/${file.path}`, mode: "100644", type: "blob", sha: blobs[index + 1].sha })),
+      ],
+    }),
+  });
+  const created = await github<GitHubCreatedCommit>(`${base}/git/commits`, env, {
+    method: "POST",
+    body: JSON.stringify({ message, tree: tree.sha, parents: [ref.object.sha] }),
+  });
+  await github(`${base}/git/refs/heads/${encodeURIComponent(branch)}`, env, {
+    method: "PATCH",
+    body: JSON.stringify({ sha: created.sha, force: false }),
+  });
+  return nextRecords;
+}
+
 async function publishDraft(draft: BotDraft, env: Env) {
   if (!draft.name || !draft.category || !draft.description || !draft.photos.length) throw new Error("Чернетка неповна. Почни додавання заново.");
   const sourceUrl = draft.sourceUrl || "";
@@ -418,6 +483,116 @@ function categoryOfBot(skin: Skin) {
   return "Безкоштовно";
 }
 
+const MANAGE_PAGE_SIZE = 6;
+
+function skinImages(skin: Skin) {
+  return skin.images?.length ? skin.images : [skin.image];
+}
+
+function shortButtonLabel(value: string) {
+  return value.length > 34 ? `${value.slice(0, 31)}…` : value;
+}
+
+async function showManageList(chatId: number, env: Env, ids?: string[], page = 0, heading = "Усі скіни") {
+  const { records } = await loadCatalogForWorker(env);
+  const availableIds = ids ?? records
+    .slice()
+    .sort((left, right) => +new Date(right.addedAt) - +new Date(left.addedAt))
+    .map((skin) => skin.id);
+  const byId = new Map(records.map((skin) => [skin.id, skin]));
+  const matchingIds = availableIds.filter((id) => byId.has(id));
+  if (!matchingIds.length) {
+    await clearManage(chatId, env);
+    await sendBotMessage(chatId, "За цим запитом скінів не знайдено.", env, startKeyboard(chatId, env));
+    return;
+  }
+  const pageCount = Math.ceil(matchingIds.length / MANAGE_PAGE_SIZE);
+  const safePage = Math.max(0, Math.min(page, pageCount - 1));
+  const visibleIds = matchingIds.slice(safePage * MANAGE_PAGE_SIZE, (safePage + 1) * MANAGE_PAGE_SIZE);
+  await saveManage(chatId, { step: "browse", ids: matchingIds, page: safePage }, env);
+  const buttons = visibleIds.map((id, index) => {
+    const skin = byId.get(id)!;
+    return [{ text: shortButtonLabel(`${categoryOfBot(skin)} · ${skin.name}`), callback_data: `manage:pick:${index}` }];
+  });
+  buttons.push([
+    { text: "←", callback_data: "manage:prev" },
+    { text: `${safePage + 1}/${pageCount}`, callback_data: "manage:refresh" },
+    { text: "→", callback_data: "manage:next" },
+  ]);
+  buttons.push([{ text: "🔎 Знайти скін", callback_data: "manage:search" }, { text: "↻ Оновити", callback_data: "manage:refresh" }]);
+  buttons.push([{ text: "← До меню", callback_data: "manage:close" }]);
+  await sendBotMessage(chatId, `<b>${escapeHtml(heading)}</b> · ${matchingIds.length}\n\nОбери скін для редагування.`, env, inlineKeyboard(buttons));
+}
+
+async function selectedManagedSkin(chatId: number, env: Env) {
+  const session = await loadManage(chatId, env);
+  if (!session?.selectedId) return { session, skin: undefined };
+  const { records } = await loadCatalogForWorker(env);
+  return { session, skin: records.find((record) => record.id === session.selectedId) };
+}
+
+function managedSkinText(skin: Skin) {
+  const source = skin.sourceUrl ? escapeHtml(skin.sourceUrl) : "немає";
+  return [
+    `<b>${escapeHtml(skin.name)}</b>`,
+    `<code>${escapeHtml(skin.id)}</code>`,
+    "",
+    `<b>Категорія:</b> ${escapeHtml(categoryOfBot(skin))}`,
+    skin.method === "Донат на банку" ? `<b>Мінімум:</b> ${skin.minimumValue || 0} грн` : "",
+    `<b>Статус:</b> ${escapeHtml(skin.status)}`,
+    `<b>Фото:</b> ${skinImages(skin).length}`,
+    `<b>Посилання:</b> ${source}`,
+    "",
+    `<b>Умова:</b> ${escapeHtml(skin.description || "—")}`,
+  ].filter(Boolean).join("\n");
+}
+
+async function showManageSkin(chatId: number, env: Env) {
+  const { session, skin } = await selectedManagedSkin(chatId, env);
+  if (!session || !skin) {
+    await sendBotMessage(chatId, "Скін уже змінено або видалено. Відкрий список ще раз.", env, startKeyboard(chatId, env));
+    return;
+  }
+  const imageUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${env.GITHUB_BRANCH || BRANCH}/public/${skin.image}`;
+  try {
+    await telegram("sendPhoto", { chat_id: chatId, photo: imageUrl, caption: managedSkinText(skin).slice(0, 1000), parse_mode: "HTML" }, env);
+  } catch {
+    await sendBotMessage(chatId, managedSkinText(skin), env);
+  }
+  await sendBotMessage(chatId, "Що змінити?", env, inlineKeyboard([
+    [{ text: "Назву", callback_data: "manage:edit:name" }, { text: "Умову", callback_data: "manage:edit:description" }],
+    [{ text: "Посилання", callback_data: "manage:edit:sourceUrl" }, { text: "Суму", callback_data: "manage:edit:minimumValue" }],
+    [{ text: "Категорію", callback_data: "manage:category" }, { text: "Фото", callback_data: "manage:photos" }],
+    [{ text: "🗑 Видалити скін", callback_data: "manage:delete" }],
+    [{ text: "← До списку", callback_data: "manage:back" }],
+  ]));
+}
+
+async function updateManagedSkin(id: string, env: Env, message: string, update: (skin: Skin) => Skin, pendingImages: PendingImage[] = []) {
+  const records = await mutateCatalog(env, message, (current) => {
+    let found = false;
+    const next = current.map((skin) => {
+      if (skin.id !== id) return skin;
+      found = true;
+      return update(skin);
+    });
+    if (!found) throw new Error("Скін уже видалено з каталогу.");
+    return next;
+  }, pendingImages);
+  const skin = records.find((record) => record.id === id);
+  if (!skin) throw new Error("Скін уже видалено з каталогу.");
+  return skin;
+}
+
+function categoryButtons() {
+  return inlineKeyboard([
+    [{ text: "Безкоштовно", callback_data: "manage:category:free" }, { text: "Доступні всім", callback_data: "manage:category:all" }],
+    [{ text: "Донат на банку", callback_data: "manage:category:donation" }, { text: "Підписка Base", callback_data: "manage:category:base" }],
+    [{ text: "Недоступні", callback_data: "manage:category:unavailable" }],
+    [{ text: "Скасувати", callback_data: "manage:details" }],
+  ]);
+}
+
 async function sendBrokenLinkSummary(chatId: number, env: Env) {
   const { records } = await catalogAndDrafts(env);
   const broken = records.filter((skin) => skin.sourceUrl && skin.linkCheck && !skin.linkCheck.ok);
@@ -431,6 +606,7 @@ function startKeyboard(chatId?: number, env?: Env) {
   return inlineKeyboard([
     [{ text: "Додати скін", callback_data: "skin:new" }, { text: "Моя чернетка", callback_data: "skin:current" }],
     [{ text: "Останні додані", callback_data: "skin:recent" }, ...(owner ? [{ text: "Чернетки", callback_data: "skin:drafts" }] : [])],
+    ...(owner ? [[{ text: "Керувати скінами", callback_data: "manage:open" }]] : []),
     ...(owner ? [[{ text: "Проблемні URL", callback_data: "skin:broken-links" }]] : []),
   ]);
 }
@@ -441,6 +617,83 @@ async function startDraft(chatId: number, env: Env) {
   await sendBotMessage(chatId, "<b>Новий скін</b>\n\n" + photoPrompt(0), env, inlineKeyboard([[{ text: "Скасувати", callback_data: "skin:cancel" }]]));
 }
 
+async function startManage(chatId: number, env: Env) {
+  await clearDraft(chatId, env);
+  await showManageList(chatId, env);
+}
+
+async function processManageMessage(message: TelegramMessage, session: ManageSession, env: Env) {
+  const chatId = message.chat.id;
+  const text = message.text?.trim() || "";
+  if (session.step === "photos" && message.photo?.length) {
+    const photo = message.photo[message.photo.length - 1];
+    const current = session.photos ?? [];
+      const limit = MAX_IMAGES_PER_SKIN;
+    if (photo.file_size && photo.file_size > MAX_BOT_PHOTO_BYTES) {
+      await sendBotMessage(chatId, "Це фото більше 8 МБ. Надішли меншу версію.", env);
+      return;
+    }
+    if (photo.width < 480 || photo.height < 280) {
+      await sendBotMessage(chatId, `Фото замале (${photo.width} × ${photo.height} px). Надішли щонайменше 480 × 280 px.`, env);
+      return;
+    }
+    if (current.some((item) => item.file_unique_id === photo.file_unique_id)) {
+      await sendBotMessage(chatId, "Це фото вже додано.", env);
+      return;
+    }
+    if (current.length >= limit) {
+      await sendBotMessage(chatId, `Можна додати до ${limit} фото за раз. Натисни «Зберегти фото».`, env);
+      return;
+    }
+    session.photos = [...current, photo];
+    await saveManage(chatId, session, env);
+    await sendBotMessage(chatId, `✓ Фото додано (${session.photos.length}/${limit}).`, env, inlineKeyboard([
+      [{ text: "Ще одне фото", callback_data: "manage:photos-more" }, { text: "Зберегти фото", callback_data: "manage:photos-done" }],
+      [{ text: "Скасувати", callback_data: "manage:details" }],
+    ]));
+    return;
+  }
+  if (!text) return;
+  if (session.step === "search") {
+    const query = text.toLocaleLowerCase("uk").slice(0, 90);
+    const { records } = await loadCatalogForWorker(env);
+    const ids = records
+      .filter((skin) => `${skin.name} ${skin.id} ${skin.description} ${skin.method}`.toLocaleLowerCase("uk").includes(query))
+      .sort((left, right) => +new Date(right.addedAt) - +new Date(left.addedAt))
+      .map((skin) => skin.id);
+    await showManageList(chatId, env, ids, 0, `Результати: «${text.slice(0, 50)}»`);
+    return;
+  }
+  if (session.step !== "edit-text" || !session.selectedId || !session.field) return;
+  const field = session.field;
+  let value: string | number = text;
+  if (field === "name") {
+    value = text.slice(0, 90);
+    if (!value) { await sendBotMessage(chatId, "Назва не може бути порожньою.", env); return; }
+  }
+  if (field === "description") {
+    value = text.slice(0, 900);
+    if (!value) { await sendBotMessage(chatId, "Умова не може бути порожньою.", env); return; }
+  }
+  if (field === "sourceUrl") {
+    value = text === "-" ? "" : text.slice(0, 500);
+    if (!isHttpsUrl(String(value))) { await sendBotMessage(chatId, "Надішли https-посилання або «-», щоб прибрати його.", env); return; }
+  }
+  if (field === "minimumValue") {
+    const amount = Number(text.replace(/[^0-9.,]/g, "").replace(",", "."));
+    if (!Number.isFinite(amount) || amount < 0 || amount > 1_000_000) { await sendBotMessage(chatId, "Вкажи суму числом від 0 до 1 000 000.", env); return; }
+    value = amount;
+  }
+  try {
+    await updateManagedSkin(session.selectedId, env, `Оновити скін через Telegram: ${field}`, (skin) => ({ ...skin, [field]: value, lastVerifiedAt: today() }));
+    await saveManage(chatId, { ...session, step: "browse", field: undefined }, env);
+    await sendBotMessage(chatId, "✓ Зміни збережено. Сайт оновиться за кілька хвилин.", env);
+    await showManageSkin(chatId, env);
+  } catch (error) {
+    await sendBotMessage(chatId, `Не вдалося зберегти: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: "manage:retry-text" }, { text: "Скасувати", callback_data: "manage:details" }]]));
+  }
+}
+
 async function processMessage(message: TelegramMessage, env: Env) {
   const chatId = message.chat.id;
   const text = message.text?.trim() || "";
@@ -448,12 +701,26 @@ async function processMessage(message: TelegramMessage, env: Env) {
     await sendBotMessage(chatId, "Привіт. Я допоможу швидко додати скін у MONOSKIN.", env, startKeyboard(chatId, env));
     return;
   }
+  if (text === "/manage") {
+    if (!isOwner(chatId, env)) {
+      await sendBotMessage(chatId, "Керування каталогом доступне лише власнику MONOSKIN.", env, startKeyboard(chatId, env));
+      return;
+    }
+    await startManage(chatId, env);
+    return;
+  }
   if (text === "/cancel") {
     await clearDraft(chatId, env);
+    await clearManage(chatId, env);
     await sendBotMessage(chatId, "Чернетку скасовано.", env, startKeyboard(chatId, env));
     return;
   }
 
+  const management = isOwner(chatId, env) ? await loadManage(chatId, env) : undefined;
+  if (management) {
+    await processManageMessage(message, management, env);
+    return;
+  }
   const draft = await loadDraft(chatId, env);
   if (!draft) {
     await sendBotMessage(chatId, "Натисни «Додати скін», щоб почати.", env, startKeyboard(chatId, env));
@@ -537,6 +804,144 @@ async function processCallback(callback: TelegramCallback, env: Env) {
   if (data.startsWith("review:")) {
     if (!isOwner(callback.from.id, env)) return;
     await processReviewCallback(callback, chatId, env);
+    return;
+  }
+  if (data.startsWith("manage:")) {
+    if (!isOwner(callback.from.id, env)) return;
+    if (data === "manage:open") { await startManage(chatId, env); return; }
+    if (data === "manage:close") { await clearManage(chatId, env); await sendBotMessage(chatId, "Керування каталогом закрито.", env, startKeyboard(chatId, env)); return; }
+    const session = await loadManage(chatId, env);
+    if (!session) { await startManage(chatId, env); return; }
+    if (data === "manage:refresh") { await showManageList(chatId, env, session.ids, session.page); return; }
+    if (data === "manage:prev" || data === "manage:next") {
+      await showManageList(chatId, env, session.ids, session.page + (data === "manage:next" ? 1 : -1));
+      return;
+    }
+    if (data.startsWith("manage:pick:")) {
+      const index = Number(data.slice("manage:pick:".length));
+      const id = session.ids[session.page * MANAGE_PAGE_SIZE + index];
+      if (!id) { await showManageList(chatId, env, session.ids, session.page); return; }
+      await saveManage(chatId, { ...session, step: "browse", selectedId: id }, env);
+      await showManageSkin(chatId, env);
+      return;
+    }
+    if (data === "manage:back") { await showManageList(chatId, env, session.ids, session.page); return; }
+    if (data === "manage:details") { await saveManage(chatId, { ...session, step: "browse", field: undefined, photoMode: undefined, photos: undefined }, env); await showManageSkin(chatId, env); return; }
+    if (data === "manage:search") {
+      await saveManage(chatId, { ...session, step: "search", selectedId: undefined, field: undefined }, env);
+      await sendBotMessage(chatId, "Надішли назву, тему або ID скіна для пошуку.", env, inlineKeyboard([[{ text: "Скасувати", callback_data: "manage:back" }]]));
+      return;
+    }
+    if (data.startsWith("manage:edit:")) {
+      const field = data.slice("manage:edit:".length) as ManageField;
+      if (!session.selectedId || !["name", "description", "sourceUrl", "minimumValue"].includes(field)) return;
+      const prompts: Record<ManageField, string> = {
+        name: "Надішли нову назву скіна.",
+        description: "Надішли нову умову або опис.",
+        sourceUrl: "Надішли нове https-посилання або «-», щоб прибрати його.",
+        minimumValue: "Надішли суму в гривнях. Для безкоштовних скинь 0.",
+      };
+      await saveManage(chatId, { ...session, step: "edit-text", field }, env);
+      await sendBotMessage(chatId, prompts[field], env, inlineKeyboard([[{ text: "Скасувати", callback_data: "manage:details" }]]));
+      return;
+    }
+    if (data === "manage:retry-text") {
+      if (!session.field) return;
+      const labels: Record<ManageField, string> = { name: "назву", description: "умову", sourceUrl: "https-посилання або «-»", minimumValue: "суму в гривнях" };
+      await sendBotMessage(chatId, `Надішли ${labels[session.field]}.`, env);
+      return;
+    }
+    if (data === "manage:category") { await sendBotMessage(chatId, "Обери нову категорію.", env, categoryButtons()); return; }
+    if (data.startsWith("manage:category:")) {
+      if (!session.selectedId) return;
+      const categories: Record<string, Category> = { free: "Безкоштовно", all: "Доступні всім", donation: "Донат на банку", base: "Підписка", unavailable: "Недоступні" };
+      const category = categories[data.slice("manage:category:".length)];
+      if (!category) return;
+      try {
+        await updateManagedSkin(session.selectedId, env, `Змінити категорію через Telegram`, (skin) => {
+          const fields = categoryFields(category);
+          const statusChanged = skin.status !== fields.status;
+          return {
+            ...skin,
+            ...fields,
+            minimumValue: fields.method === "Донат на банку" ? skin.minimumValue : 0,
+            lastVerifiedAt: today(),
+            ...(statusChanged ? { availabilityHistory: [...(skin.availabilityHistory ?? []), ...initialAvailabilityHistory(fields.status)] } : {}),
+          };
+        });
+        if (category === "Донат на банку") {
+          await saveManage(chatId, { ...session, step: "edit-text", field: "minimumValue" }, env);
+          await sendBotMessage(chatId, "✓ Категорію змінено. Тепер надішли мінімальну суму донату в гривнях.", env);
+        } else {
+          await saveManage(chatId, { ...session, step: "browse", field: undefined }, env);
+          await sendBotMessage(chatId, "✓ Категорію змінено. Сайт оновиться за кілька хвилин.", env);
+          await showManageSkin(chatId, env);
+        }
+      } catch (error) {
+        await sendBotMessage(chatId, `Не вдалося зберегти: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, categoryButtons());
+      }
+      return;
+    }
+    if (data === "manage:photos") {
+      await sendBotMessage(chatId, "Як оновити галерею? Старі файли безпечно лишаться в репозиторії, але не показуватимуться на сайті.", env, inlineKeyboard([
+        [{ text: "Додати фото", callback_data: "manage:photos:append" }, { text: "Замінити всі фото", callback_data: "manage:photos:replace" }],
+        [{ text: "Скасувати", callback_data: "manage:details" }],
+      ]));
+      return;
+    }
+    if (data === "manage:photos:append" || data === "manage:photos:replace") {
+      if (!session.selectedId) return;
+      await saveManage(chatId, { ...session, step: "photos", photoMode: data.endsWith("append") ? "append" : "replace", photos: [] }, env);
+      await sendBotMessage(chatId, data.endsWith("append") ? "Надішли фото, яке треба додати до галереї." : "Надішли нове перше фото. Можна додати до 6 фото перед збереженням.", env, inlineKeyboard([[{ text: "Скасувати", callback_data: "manage:details" }]]));
+      return;
+    }
+    if (data === "manage:photos-more") { await sendBotMessage(chatId, "Надішли ще одне фото.", env); return; }
+    if (data === "manage:photos-done") {
+      if (!session.selectedId || session.step !== "photos" || !session.photos?.length || !session.photoMode) return;
+      const { skin } = await selectedManagedSkin(chatId, env);
+      if (!skin) { await sendBotMessage(chatId, "Скін не знайдено. Відкрий каталог ще раз.", env, startKeyboard(chatId, env)); return; }
+      const currentImages = skinImages(skin);
+      if (session.photoMode === "append" && currentImages.length + session.photos.length > MAX_IMAGES_PER_SKIN) {
+        await sendBotMessage(chatId, `У картці вже ${currentImages.length} фото. Разом можна максимум ${MAX_IMAGES_PER_SKIN}.`, env, inlineKeyboard([[{ text: "Замінити всі фото", callback_data: "manage:photos:replace" }, { text: "Скасувати", callback_data: "manage:details" }]]));
+        return;
+      }
+      try {
+        const downloaded = await Promise.all(session.photos.map((photo) => fetchTelegramPhoto(photo, env)));
+        const stamp = Date.now();
+        const addedPaths = downloaded.map((file, index) => `skin/${skin.id}-telegram-${stamp}-${index + 1}.${file.extension}`);
+        const nextImages = session.photoMode === "replace" ? addedPaths : [...currentImages, ...addedPaths];
+        const nextHashes = session.photoMode === "replace"
+          ? await Promise.all(downloaded.map((file) => sha256(file.bytes)))
+          : [...(skin.imageHashes ?? []), ...await Promise.all(downloaded.map((file) => sha256(file.bytes)))];
+        await updateManagedSkin(skin.id, env, `Оновити фото скіна через Telegram: ${skin.name}`, (current) => ({ ...current, image: nextImages[0], images: nextImages, imageHashes: nextHashes, lastVerifiedAt: today() }), downloaded.map((file, index) => ({ path: addedPaths[index], bytes: file.bytes })));
+        await saveManage(chatId, { ...session, step: "browse", photos: undefined, photoMode: undefined }, env);
+        await sendBotMessage(chatId, "✓ Фото збережено. Сайт оновиться за кілька хвилин.", env);
+        await showManageSkin(chatId, env);
+      } catch (error) {
+        await sendBotMessage(chatId, `Не вдалося зберегти фото: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: "manage:photos-done" }, { text: "Скасувати", callback_data: "manage:details" }]]));
+      }
+      return;
+    }
+    if (data === "manage:delete") {
+      if (!session.selectedId) return;
+      await saveManage(chatId, { ...session, step: "delete-confirm" }, env);
+      await sendBotMessage(chatId, "Точно вилучити цей скін з каталогу? Фото залишаться в історії GitHub, але з сайту скін зникне.", env, inlineKeyboard([[{ text: "Так, вилучити", callback_data: "manage:delete-confirm" }, { text: "Скасувати", callback_data: "manage:details" }]]));
+      return;
+    }
+    if (data === "manage:delete-confirm") {
+      if (!session.selectedId || session.step !== "delete-confirm") return;
+      try {
+        const { records } = await loadCatalogForWorker(env);
+        const skin = records.find((record) => record.id === session.selectedId);
+        if (!skin) throw new Error("Скін уже вилучено.");
+        await mutateCatalog(env, `Вилучити скін через Telegram: ${skin.name}`, (current) => current.filter((record) => record.id !== skin.id));
+        await clearManage(chatId, env);
+        await sendBotMessage(chatId, `✓ «${escapeHtml(skin.name)}» вилучено. Сайт оновиться за кілька хвилин.`, env, startKeyboard(chatId, env));
+      } catch (error) {
+        await sendBotMessage(chatId, `Не вдалося вилучити: ${escapeHtml(error instanceof Error ? error.message : "невідома помилка")}`, env, inlineKeyboard([[{ text: "Спробувати ще раз", callback_data: "manage:delete-confirm" }, { text: "Скасувати", callback_data: "manage:details" }]]));
+      }
+      return;
+    }
     return;
   }
   if (data === "skin:new") {
