@@ -27,7 +27,13 @@
       "skin/olsior-1-7164bba4.webp",
       "skin/base-169-wallet_base_kitolsi_card_visa.png"
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T17:35:44.695Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/AUmiQwYboffeC2",
+      "ok": true
+    }
   },
   {
     "id": "notalka",
@@ -51,7 +57,13 @@
         "date": "2026-08-16T04:40:22.076Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-20T17:35:44.695Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/notalka",
+      "ok": true
+    }
   },
   {
     "id": "413-okremyy-polk-syl-bezpilotnykh-system-reyd",
@@ -81,7 +93,13 @@
       "skin/413-okremyy-polk-syl-bezpilotnykh-system-reyd-1-4492dc9e.webp",
       "skin/base-180-wallet_base_skin_reyd_card_visa.png"
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T17:35:44.695Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/B6KiGGsieTFqRA",
+      "ok": true
+    }
   },
   {
     "id": "vid-bryhady-khartiya",
@@ -101,7 +119,7 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5PEYzkmTen?fbclid=IwY2xjawL-ooBleHRuA2FlbQIxMQABHinYXRAQW2o9c9HjbvaIAZG_1NcpgKKPtLZcHTTDxbv-wT5NsSV7_zoRSKc2_aem_ogg0nCtupZ5xMcESGHGZQA",
       "ok": true
@@ -197,7 +215,7 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/41jF7um9Pvo385",
       "ok": true
@@ -240,7 +258,7 @@
       "30f34fa5a8537d85c8b18807e1608fd726f4f9ccf2ac09fd6e66161dcf3eac2b"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2vfsR8cEz5",
       "ok": true
@@ -264,7 +282,7 @@
       "7d4264f2be015c4f6dde7b51f720567027d2c70eb1452e8f25dbefd830b523dc"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4Bh5tHu2Cm",
       "ok": true
@@ -288,7 +306,7 @@
       "8f4bde3192e25fe41af3ef58e9d1ad108281730630dc2c03a250adb217f2eddb"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3dsYXsBrqk",
       "ok": true
@@ -312,7 +330,7 @@
       "9e0ccfc08f7a72a9ab07b2f405fb368cbcbbdac10e497ad0460938390a298a6b"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/Rmhzf7Ktw",
       "ok": true
@@ -354,7 +372,7 @@
       "7ddb33de246c37391778a40ecf5d6c6d0c24fd1c3dddcac7c5d261012fee7444"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/81Ko9pjSnh",
       "ok": true
@@ -414,7 +432,7 @@
       "9003e674011c783bd5ee00be36a5d352189a91524d1712eb19324147bc81f5c1"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/7VuHWj7Eyx",
       "ok": true
@@ -456,7 +474,7 @@
       "92314b460a35617670cf0bcbd8d8167f258380cd9122ff6dab94c92054e1ae3a"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5bWiubVkfc",
       "ok": true
@@ -481,7 +499,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4eRV1T1YrK",
       "ok": true
@@ -505,7 +523,7 @@
       "f3c1c441dea741637dd5d5511dca774621c456527756e8df0615d6879a752043"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/dyt7PRkxH",
       "ok": true
@@ -566,7 +584,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5P67kMYNen",
       "ok": true
@@ -590,7 +608,7 @@
       "f73d9c0524ec011598d282c224bddb279994b129f5ea987bcca6fdb37e23e33b"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2Z2G9sPcZi",
       "ok": true
@@ -632,7 +650,7 @@
       "91b5acf664109347abad51a4451087bf0215484e8cd36102dd06d56837b7da33"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6bSxfpqfyu",
       "ok": true
@@ -675,7 +693,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3sL7WymGcE",
       "ok": true
@@ -700,7 +718,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/7K3pYkweXt",
       "ok": true
@@ -724,7 +742,7 @@
       "64c87da7f8c16cc12264331d2d2f2c7fad51f3ead530b03c2fe1bb04d854e084"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/A6ExTgYxLa",
       "ok": true
@@ -748,7 +766,7 @@
       "5f3886dc42329b1a6f16f6128439afa4d287d04f2b01a38ec51108bec3c244d9"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5jzfqZ4id4",
       "ok": true
@@ -773,7 +791,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/8gt5Mp4sfL",
       "ok": true
@@ -798,7 +816,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3NCDrBNjCV",
       "ok": true
@@ -840,7 +858,7 @@
       "e21fca0e0585540f629f6b24e9c9cda0f658a9ea26a68700aa03f68bfa54d340"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6VywWVQoi4",
       "ok": true
@@ -864,7 +882,7 @@
       "06827666cfd3101626f088417aa756a799d5a4a2fc7ce8ab7f5d38bdcaf1d8d6"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:35:44.695Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6Rc2E4tTLD",
       "ok": true
@@ -888,7 +906,7 @@
       "3d95a382404964e8a25495c31c3480aa311420fc789af78d4b33c91c00001516"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/5CdXavd1JW8LGS",
       "ok": true
@@ -912,7 +930,7 @@
       "a27c5021170ee20b03cee6ebc7f7de07ebafd183f0b4df928b9b85c07089b582"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/4BNdbJzTRyhZK4",
       "ok": true
@@ -936,7 +954,7 @@
       "c8ed38182b3b940c173677bbd1e19767726661938c06017e3fd85726990765a2"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:40:25.490Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/GHdagn4dtcwc2",
       "ok": true
@@ -960,7 +978,7 @@
       "9092dbbf4daebadf6e34e0d0e8446ca81866bab42d26558fb6201a4e57eaeaba"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/Q9htum6m2TdGi",
       "ok": true
@@ -984,7 +1002,7 @@
       "770bf5aeecc9773a41ee3a68832b346cc0ea77cf46df937a366085395009e51d"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/ADzpFTxRAg2XHd",
       "ok": true
@@ -1008,7 +1026,7 @@
       "9bd2c4dd304fa78b7d72db4bdae2e6b40ab729225aac8f2a55fc82c03a662b9f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/7pt7ACajtx8GDA",
       "ok": true
@@ -1032,7 +1050,7 @@
       "0fdfec857396a9f660377d8e5f4a7984c3d343201c2110005e934bb0f67efb75"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/A3tUmdF6Py8VG9",
       "ok": true
@@ -1056,7 +1074,7 @@
       "a7a19de9054095580c0183b6fa0591c464ab6ef80f6b79943bf814a67e205683"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/6WRBqMpmd2rtUy",
       "ok": true
@@ -1080,7 +1098,7 @@
       "00d69e87b14b49629a1a255137040312ec5ca8c50f17f1a976ff7f963dacddc3"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/9aPjmFLMc21mNi",
       "ok": true
@@ -1104,7 +1122,7 @@
       "a1d3122fbd55f11acb78080d1850df667c1871fda9676a73b94f805963044bc8"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2cmk5diKkQ",
       "ok": true
@@ -1128,7 +1146,7 @@
       "7f877d1a3bafb72767845a29b299b01c05ec8f66648fabac252325d52d9dbc5d"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6saXm571hL",
       "ok": true
@@ -1157,7 +1175,7 @@
       "204db342558676cea38c59d82b4ef29a84304a653b415c4756dd21efa776d041"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2AwsVyDJ6Q",
       "ok": true
@@ -1181,7 +1199,7 @@
       "65996cd4c10174333be9941c7965995b4d40c4eab699b20aa15e98ee25f976c9"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4Dyucs5PBU",
       "ok": true
@@ -1235,7 +1253,7 @@
       "4c98f2aa422131a82910663be3e277d5e3793c2611395043a59e0b03cffecf13"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/89eRpMCUpn",
       "ok": true
@@ -1259,7 +1277,7 @@
       "b7ff52988638e99751f05a76de33b57c53fc95ab90317733443f10e0d87c5cd0"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3E4KYm3Un5",
       "ok": true
@@ -1283,7 +1301,7 @@
       "13dd9f2824f1b4def0bbff8f4b77c760ccd34aac5b50d74323942fa28cdb0b98"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/56iFmHwsHL",
       "ok": true
@@ -1427,7 +1445,7 @@
       "2d202dbd6614f5442c448aaf3454e62f67f50d46bde9b0a613d62cb0481da818"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/81sXX2JLPR9tyE",
       "ok": true
@@ -1523,7 +1541,7 @@
       "d7984e68dafdcaae401f80f6532eba5ce6fa7e91af0fe6d7e5e27e7e7ddab759"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/nashebachennia",
       "ok": true
@@ -1547,7 +1565,7 @@
       "dcaa163c7c6061fce759d6d5fa8d51205eaf3fed30c737708775b77c890c2082"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4aDXGeyHKi",
       "ok": true
@@ -1571,7 +1589,7 @@
       "27ca06f59c10af4932e8714d62513795fd38735cbe9bd70a6170d052a9fd592a"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2aB4ckTXgp",
       "ok": true
@@ -1595,7 +1613,7 @@
       "c030147367c8c283d859171200d390c11f1ce596b8a82f1b50910ad1b03c8a2e"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6NRXAcLbXs",
       "ok": true
@@ -1619,7 +1637,7 @@
       "e1f9e97634e9bf0fa6fcfafe47c897fb90018de999147652181e238374de002c"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3VcrE6HNKU",
       "ok": true
@@ -1661,7 +1679,7 @@
       "dadd05f744b879e2d520dc639d655158bd9b3cb89c69fd9ad6a9c06945ac6d92"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/7r7v7wVLJv",
       "ok": true
@@ -1685,7 +1703,7 @@
       "be1aa01511e91fd3ddac35367e3dadc10d1f07b6dc266b9378e2fe8013012720"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/8QSgsttWUk",
       "ok": true
@@ -1709,7 +1727,7 @@
       "525f650cabba3de6c28fcbf529bd57cf376d7eac34dd69e164c322f26117be09"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:40:42.767Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2cJvZE5w3f",
       "ok": true
@@ -1751,7 +1769,7 @@
       "1a2dd71607942e3bb802dc3dd92f82617bc260700f6a79f6e3182f76c6317d44"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3w8JTb7xhE",
       "ok": true
@@ -1775,7 +1793,7 @@
       "5164e59d3a1cb413275ee7c117dc8c3cee8c8d5571d909ebffa1197e32e280bb"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3LeVTKkqKj",
       "ok": true
@@ -1926,9 +1944,9 @@
       "637db4f9377e5eee6d813e32e74b08a4398ddbbedfc9335b2bc6acc361dae950"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:45:24.626Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/2acDg9giqGBwvw?utm_content=link_in_bio&fbclid=PAdGRleAOeay5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafsTIPrGIlqqxI_byZ-c-ZO7keheaK9ha8Ev_FOvm21E5_bfp53zYBSrA8ryg_aem_36xBIcl0oPjTVtJJxh4ZMQ",
+      "finalUrl": "https://base.monobank.ua/sp/ATWHSf7P4oCs7H",
       "ok": true
     },
     "images": [
@@ -1956,9 +1974,9 @@
       "2ea2893b57a7df5430e57522baf9d0c4432c207ff64a77121ab71cc33ed30f4f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/orest.murii?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn23iI2Q18963PWYYe-Jy5cSjVP74yNj3ZDbWDAw10FmHQW4kT2zDL-UpH6KQ_aem_X7Vdf7HDR521bbb-XsaTmA",
+      "finalUrl": "https://base.monobank.ua/sp/2q5TCEC1LwfTHk",
       "ok": true
     },
     "images": [
@@ -1994,9 +2012,9 @@
       "a0a5f2ef2ce7462ee62ab60262c53ecff13c349969adcc286945e4e2918d55dc"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/kraken",
+      "finalUrl": "https://base.monobank.ua/sp/3dWhRuhv1JWBgB",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -2020,9 +2038,9 @@
       "7e6e8118baf523522953687a3258c84c79ac4884f191ef1d3fcbfa9e37e10d51"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/6HGHvGnYhDHrHX?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnZGuvR5opfrmawdXaXpqi-JSgR_WIVSoTHIJ2ROfzME6Y2qu30SieHpmQa5o_aem_p3Kx1IrGrUOZEDUHHpDWUg",
+      "finalUrl": "https://base.monobank.ua/sp/AEhiwNg12W3Hg7",
       "ok": true
     },
     "images": [
@@ -2050,9 +2068,9 @@
       "f7b128483038eb27e57b24c3d94f6cef135eb230b43f69e90b6a6664db9ea0fa"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/4kY1gWoR91PxRp",
+      "finalUrl": "https://base.monobank.ua/sp/BNgW9zh7iBf6hC",
       "ok": true
     },
     "images": [
@@ -2092,9 +2110,9 @@
       "c3f75b75d0c435b7356bd6666216f62b4e5d5a408764269bf8c3c1526da6617f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/cba",
+      "finalUrl": "https://base.monobank.ua/sp/4amNiLCN7gaF1C",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -2118,9 +2136,9 @@
       "9440018cd05f9d7b77767dcd194d83bc9692c956a2d877ef5e5b18947f28034a"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/vprytul?utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnMminn5z3Enbs_nmPmWjMmz_oI6TkqsW1hG5W_ls51C-crnwWfTx9v6wOVTQ_aem_jYA6UHPF097cRxoJkLHdBQ",
+      "finalUrl": "https://base.monobank.ua/sp/92S1b4HSg2D2Ci",
       "ok": true
     },
     "images": [
@@ -2147,7 +2165,7 @@
       "016c790599fd4073e61af849b205a7e70bc5a74e53d5dcc1a4b56f4b972f759b"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2WAAauzPf2",
       "ok": true
@@ -2171,7 +2189,7 @@
       "993b87813baf19405fed2988226028808a2f667a0e5bf09f1294a264036ca4cd"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/V8tfap88j",
       "ok": true
@@ -2195,7 +2213,7 @@
       "f18d037ee1678a77aec6e3b4aac7e512cb820b36a1bb6079a59cb5ab2e5306e8"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4p5njwQqiy",
       "ok": true
@@ -2219,7 +2237,7 @@
       "bdc29ad44ee8880b60c6b0eb167fb79a4e01b2281c7ab7897d9f0f2c03c16658"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/59CYfTCmkA",
       "ok": true
@@ -2243,7 +2261,7 @@
       "49a2bc20c6b47c98b1003356cb3b04ab449931eb663e5360bff46447e70ab592"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/AT5r6fW4Lx",
       "ok": true
@@ -2267,7 +2285,7 @@
       "2f679c7f94c548dfe855e61ae9f0d803e0f4f44d0e64ad7dd0077db34f9dcfa4"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3XKSbcYfd2",
       "ok": true
@@ -2291,7 +2309,7 @@
       "fec18ef159dec1075b1acc7b66c4b84cee0aa91d697e671251286318f70f7435"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/9kdgEDhnZH",
       "ok": true
@@ -2315,7 +2333,7 @@
       "26e817a32ef9ba0541e915612ff06eade1cf71dbc9501ec6c57ae9767d7c8ecb"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/27ESgQt42X",
       "ok": true
@@ -2376,7 +2394,7 @@
       "23b1593b5d3d32bd79578e0c24138f0674dc0111c21dac50ef2482d61effd133"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6yLdfqtCXu",
       "ok": true
@@ -2400,7 +2418,7 @@
       "49681b99833b0b9d75b17a37be4dc249435e69372c87a29c2566fae7703b8263"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5RjDXQ2d9X",
       "ok": true
@@ -2423,7 +2441,7 @@
       "8081b4b21ebb48c76db101e359164e6f9b4d59e24570a282759a4731955f1b51"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/x9JRivrq9",
       "ok": true
@@ -2446,7 +2464,7 @@
       "901362e087e56cc35b6f0f2ad560b08382564f5c6ba192b477a868b44086c12a"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/4oq1pM492x5wDA",
       "ok": true
@@ -2469,7 +2487,7 @@
       "173772c0254e5be19957172af7e7b6ed77920e683d68a6f7b7e93c433ad9c9f9"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/Cd6GHUukwSJACX",
       "ok": true
@@ -2492,7 +2510,7 @@
       "4baa687604c2c5c631d657a1988ed7527686b90b80f2586650df82f94ccab36f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/AiwndUffxuVkSE",
       "ok": true
@@ -2534,9 +2552,9 @@
       "9895d631d815a2ec1d21909450e1c131d1bdbfaa633963457b94197e24799bbd"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/olenamandziuk",
+      "finalUrl": "https://base.monobank.ua/sp/ANEDwR4GQ5hno6",
       "ok": true
     },
     "images": [
@@ -2563,9 +2581,9 @@
       "c95fe9cbb72d9873a5c7ff0a2e9affdea27e60f9d6ad4d2bdbce2b83f85a0851"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:45:42.774Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/monitor",
+      "finalUrl": "https://base.monobank.ua/sp/5LNZyBLmsGCnqp",
       "ok": true
     },
     "images": [
@@ -2591,7 +2609,7 @@
       "94f7e2ddd8cac8030b5392745bbd67a2130ea2f498f3a005faf8d17c9431e6c3"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/gApNCgSF4",
       "ok": true
@@ -2614,7 +2632,7 @@
       "53f53db19c6bd64779b4e023d2ec65438016174d7e33ca7cbc393bba554fcf54"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/PV9ifVjreSVfL",
       "ok": true
@@ -2637,7 +2655,7 @@
       "9c957ad6027d33be93247fadf9dcf74af156ce1dbd9ddf2965abc450f98f2f0a"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:50:24.924Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/CMjaRThqZXFmq5",
       "ok": true
@@ -2660,7 +2678,7 @@
       "0ca08d9529ae6daee6e1bbb30b22ed5103e556b9d552f656c3b16834cba5411d"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/4DEGSopcs6oGvy",
       "ok": true
@@ -2683,7 +2701,7 @@
       "ef06cc16edc06d181f90afc18ff64beb33ef76c6ecfd91d2f16df9caa482268b"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/EpJ3ehQkXXbQ5n",
       "ok": true
@@ -2706,7 +2724,7 @@
       "00f7df7bd2ab9e1cc7ee65062e024501f20163c2d032df1dec324fe93ae168b1"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/BRwpEHw9FZsncq",
       "ok": true
@@ -2729,7 +2747,7 @@
       "517a079be179f4d0d1595238ad1550f367def4dbf4fb3ef09e600e14fdb931f0"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/7bZvMVXqymtfzz",
       "ok": true
@@ -2752,7 +2770,7 @@
       "adacfa68aec660d0e05e94f099e13d1256b553703678dbcc0265dd8d610c3950"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/65pcaUfzXM8Bv8",
       "ok": true
@@ -2775,7 +2793,7 @@
       "14da43db9b6de9bb97ea7644bcb14fe80fc64b6b333ad297229c855ff0c4ae71"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/Q379Qwetfxpeo",
       "ok": true
@@ -2798,7 +2816,7 @@
       "665c5100a2235e138badbb7f3717854533cbf8d7a3e999e6a286aefd177806bc"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/6VJz9UBaw3xT6i",
       "ok": true
@@ -2821,7 +2839,7 @@
       "cc1c65398101106696484378360cc972c1f919ecd7cd2e42fe41979d757e79c7"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/A9g38siFQBbUFi",
       "ok": true
@@ -2844,7 +2862,7 @@
       "fe358d1c9902f1df1459e27fd772e1cb58590b172c07acb2b973ba1da9bdce36"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/EAEek2NEafHWDu",
       "ok": true
@@ -2867,7 +2885,7 @@
       "fca0c98bc6f73a9a207a7d428863fb733b27e044630c0310ecfe94711550f5bf"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/46YQrfL14TZi4X",
       "ok": true
@@ -2890,7 +2908,7 @@
       "ce2f8312e9bd1c50de2ee76f4924a06d0bf9630d4a6f10c99c01527e3019df74"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/YzUAdNDwz1y77",
       "ok": true
@@ -2913,7 +2931,7 @@
       "ab585e9dea48a779bd589586c27da8389c2d0b18ca4b767c2a410ee1a99217b5"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/AiQjHEdNfYbH1v",
       "ok": true
@@ -2936,7 +2954,7 @@
       "2c640c51a59073ce795fa7c6822b30225632ee5d334bddf4c9d3ea6fe2c2b598"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/HE23tGWe8hXPQ",
       "ok": true
@@ -2987,7 +3005,7 @@
       "dcbfba66f24f2ef3a0d790a85538661dafacabcbb0559ecbc33146c5e9f1f8be"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/DjpbdgNECipypg",
       "ok": true
@@ -3010,7 +3028,7 @@
       "fefecc852db8ad99ff5f0e9806c9d71a9ac290e588d55d055e2e1e7843798a66"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/C3iVMSzbvF2peB",
       "ok": true
@@ -3033,7 +3051,7 @@
       "46ebb0adcaa202d935c4f236c9e7da630a2b54c69e44d964c7d9252a3cdb5aa6"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/2xfZwzwPByLu77",
       "ok": true
@@ -3056,7 +3074,7 @@
       "798421f90780894facf3fa39c364b82ecef3d9ca7a04740a7a643360d6a67607"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/3HNHhLRacc3MsZ",
       "ok": true
@@ -3079,7 +3097,7 @@
       "8e25ef8cec4a2ee05ef0ee0a27049bf2c0b043ccf08b193c51566aa4a8769695"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/ENwqcZzaLqMP34",
       "ok": true
@@ -3102,7 +3120,7 @@
       "e6d62232d035a3a7858969027a6d4250aabfed6ee8b4070fe90518786a755f22"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/42bh87EDg8Y1pY",
       "ok": true
@@ -3125,7 +3143,7 @@
       "d1b50239adc73ccf4e5bf2fb63aa1cf98527378ef6b4b87ed24824ee11188d2e"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/6tjm1ZRQUNw4ck",
       "ok": true
@@ -3149,7 +3167,7 @@
       "403505c7459a5ad499eda25b002c904b90e3acceb47eb97aac0a73ecbdafd532"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/E2TKqDSUY69ac6",
       "ok": true
@@ -3172,7 +3190,7 @@
       "fd7cda29328336abcb9a08446c3002cfa7cd175f4c449288614f1078be9fb654"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:50:43.354Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/2svcYsGEZTVt7G",
       "ok": true
@@ -3195,7 +3213,7 @@
       "110b1c34d0621540724deda73603c178502c6c50c966ec2de1b159b875516c9c"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/sHmRwGjTTzKpn",
       "ok": true
@@ -3218,7 +3236,7 @@
       "fd0510ac54fddbfcba7c05e944be7e136fffe3b436b6662f62dc00e55a015618"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T16:55:25.023Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/2H3ktBJ4wm",
       "ok": true
@@ -3293,7 +3311,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/8SKXjqxJkQ",
       "ok": true
@@ -3351,7 +3369,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/ANGSjCM14e",
       "ok": true
@@ -3393,7 +3411,7 @@
     ],
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/5B7YNnG6nV",
       "ok": true
@@ -3416,9 +3434,9 @@
       "bf0c13b575697e300593e8206b86cab092bf326466fd12a888f96c89ad2ee415"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/petrychenko",
+      "finalUrl": "https://base.monobank.ua/sp/5ksVUmVi46gcmm",
       "ok": true
     },
     "images": [
@@ -3443,7 +3461,7 @@
       "8b104af8842d5cfe3b4886b221ff99af8995e2ee02fbf7deacd90ee1785ffd39"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/6QU1jVsovmhkij",
       "ok": true
@@ -3466,7 +3484,7 @@
       "c7636bea5534eacf6fd209f5cd197f741bf52a11d2dc286fbab8886c53b0ad25"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/7mmbKiRoH6DUHY",
       "ok": true
@@ -3489,7 +3507,7 @@
       "00958f18727b8e27b04d2f30f80980c1a4636c2812af5f0c9210e477fff974b4"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/F9Bt2q8kq3tYA5",
       "ok": true
@@ -3512,7 +3530,7 @@
       "59e2102ca7dc09fb3692bcfd0a02b10fdabda9e88dffdb249c1876a23194d57f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/ds/9WHoYeYRCHPdT8",
       "ok": true
@@ -3543,9 +3561,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/rusoriz",
+      "finalUrl": "https://base.monobank.ua/sp/D8S1XKUKn6bqBX",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -3575,9 +3593,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/sternenkofund",
+      "finalUrl": "https://base.monobank.ua/sp/XgAqUC4ifBtGL",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -3599,7 +3617,7 @@
       "6108a0ab3d4d4f75164800fe157c3a3789a73edd9ac25d990faea068bb1d0ebe"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/4d9XFu2pab",
       "ok": true
@@ -3640,9 +3658,9 @@
       "208b620be763fb6891d8cb5d9c0c7987bbbc89a7af3c57525facc99587fc693f"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/smak",
+      "finalUrl": "https://base.monobank.ua/sp/6oxVqFURKKGWLr",
       "ok": true
     },
     "images": [
@@ -3668,9 +3686,9 @@
       "e41ecda523acf8734a8c0a6f0ece62d68644a5adb644d1b7dc3fc475d48bb5a1"
     ],
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/torontotv",
+      "finalUrl": "https://base.monobank.ua/sp/E4gzW9VmxBcfKW",
       "ok": true
     },
     "images": [
@@ -3714,9 +3732,9 @@
     "addedAt": "2026-08-10T18:45:53.037Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/strum",
+      "finalUrl": "https://base.monobank.ua/sp/BFe5jdXAMdv4yG",
       "ok": true
     },
     "images": [
@@ -3744,9 +3762,9 @@
     "addedAt": "2026-08-10T18:45:53.145Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/Em4d2p4Pu8w4EY",
+      "finalUrl": "https://base.monobank.ua/sp/4Bf56QyxEumBfb",
       "ok": true
     },
     "images": [
@@ -3774,9 +3792,9 @@
     "addedAt": "2026-08-10T18:45:53.184Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/apostledmytro",
+      "finalUrl": "https://base.monobank.ua/sp/EyrT1ZXorN88H8",
       "ok": true
     },
     "images": [
@@ -3803,9 +3821,9 @@
     "addedAt": "2026-08-10T18:45:53.366Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/lachen",
+      "finalUrl": "https://base.monobank.ua/sp/2pgPaqJ8jHFM4E",
       "ok": true
     },
     "images": [
@@ -3836,7 +3854,7 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/8YS3SWXotttv5e",
       "ok": true
@@ -3861,9 +3879,9 @@
     "addedAt": "2026-08-10T18:45:53.476Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/leb1ga",
+      "finalUrl": "https://base.monobank.ua/sp/7zLAudZW1jt9av",
       "ok": true
     },
     "images": [
@@ -3889,9 +3907,9 @@
     "addedAt": "2026-08-10T18:45:53.509Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/istoriyabezmifiv",
+      "finalUrl": "https://base.monobank.ua/sp/7b187SPRgkKpi5",
       "ok": true
     },
     "images": [
@@ -3923,9 +3941,9 @@
     "addedAt": "2026-08-10T18:45:53.613Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ghostik",
+      "finalUrl": "https://base.monobank.ua/sp/8sAPoKT5AnAw1g",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -3948,9 +3966,9 @@
     "addedAt": "2026-08-10T18:45:53.660Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ppodcast",
+      "finalUrl": "https://base.monobank.ua/sp/2878gC4NH3WCtt",
       "ok": true
     },
     "images": [
@@ -3976,9 +3994,9 @@
     "addedAt": "2026-08-10T18:45:53.715Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T17:55:42.982Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/7JuoNphXqvYJbb",
+      "finalUrl": "https://base.monobank.ua/sp/DDUMrAdeTsW7Lw",
       "ok": true
     },
     "images": [
@@ -4005,9 +4023,9 @@
     "addedAt": "2026-08-10T18:45:53.799Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/smokovych",
+      "finalUrl": "https://base.monobank.ua/sp/81Hg3G3oizxzJV",
       "ok": true
     },
     "images": [
@@ -4034,9 +4052,9 @@
     "addedAt": "2026-08-10T18:45:53.846Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:00:27.288Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/89UUZoCBp8Dj4o",
+      "finalUrl": "https://base.monobank.ua/sp/ARFxn4cgGmgwsU",
       "ok": true
     },
     "images": [
@@ -4062,9 +4080,9 @@
     "addedAt": "2026-08-10T18:45:53.889Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/bromance",
+      "finalUrl": "https://base.monobank.ua/sp/6eXCcm3RfrW2uQ",
       "ok": true
     },
     "images": [
@@ -4090,9 +4108,9 @@
     "addedAt": "2026-08-10T18:45:53.927Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/oldboi",
+      "finalUrl": "https://base.monobank.ua/sp/AwegzVvPqb4etn",
       "ok": true
     },
     "images": [
@@ -4118,9 +4136,9 @@
     "addedAt": "2026-08-10T18:45:53.968Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/deepstateua",
+      "finalUrl": "https://base.monobank.ua/sp/8rcp1WoDupov2X",
       "ok": true
     },
     "images": [
@@ -4156,9 +4174,9 @@
     "addedAt": "2026-08-10T18:45:54.245Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ukrainer",
+      "finalUrl": "https://base.monobank.ua/sp/uwiH5Eg1wSX2T",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -4181,9 +4199,9 @@
     "addedAt": "2026-08-10T18:45:54.282Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/Cwmhr5D7Uco65h",
+      "finalUrl": "https://base.monobank.ua/sp/8BeEKYJgrg9L3f",
       "ok": true
     },
     "images": [
@@ -4209,9 +4227,9 @@
     "addedAt": "2026-08-10T18:45:54.319Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/6Nxv7zKiomi8By",
+      "finalUrl": "https://base.monobank.ua/sp/4U27GTNedmuxt5",
       "ok": true
     },
     "images": [
@@ -4237,9 +4255,9 @@
     "addedAt": "2026-08-10T18:45:54.357Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/blogmayster",
+      "finalUrl": "https://base.monobank.ua/sp/7y3ZQCYgh3MXKW",
       "ok": true
     },
     "images": [
@@ -4270,7 +4288,7 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/yt2",
       "ok": true
@@ -4305,9 +4323,9 @@
     "addedAt": "2026-08-10T18:45:54.579Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/legionsupport",
+      "finalUrl": "https://base.monobank.ua/sp/W9MzDxvfsNZLY",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -4335,9 +4353,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/cnsl",
+      "finalUrl": "https://base.monobank.ua/sp/7s9ZTKeBPmhSuT",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -4365,7 +4383,7 @@
     "addedAt": "2026-08-10T18:45:54.747Z",
     "lastVerifiedAt": "2026-08-10",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/pronin",
       "ok": true
@@ -4390,9 +4408,9 @@
     "addedAt": "2026-08-10T18:45:54.775Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/Dg8vwA7wHZwTTR",
+      "finalUrl": "https://base.monobank.ua/sp/F7t5cWiPfhTsoc",
       "ok": true
     },
     "images": [
@@ -4425,9 +4443,9 @@
     "addedAt": "2026-08-10T18:45:54.895Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/theacentauri",
+      "finalUrl": "https://base.monobank.ua/sp/24DBYdhgXfVt23",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -4463,9 +4481,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ab3support",
+      "finalUrl": "https://base.monobank.ua/sp/4JWiJEKWLNqL6Z",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -4488,9 +4506,9 @@
     "addedAt": "2026-08-10T18:45:55.023Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/islndtv",
+      "finalUrl": "https://base.monobank.ua/sp/7owWrXUchU9i8",
       "ok": true
     },
     "images": [
@@ -4516,9 +4534,9 @@
     "addedAt": "2026-08-10T18:45:55.079Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/thetremba",
+      "finalUrl": "https://base.monobank.ua/sp/CHLspSRB4m59kM",
       "ok": true
     },
     "images": [
@@ -4545,9 +4563,9 @@
     "addedAt": "2026-08-10T18:45:55.129Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/voicesofchildren",
+      "finalUrl": "https://base.monobank.ua/sp/2MDBfjdr4h8Zda",
       "ok": true
     },
     "images": [
@@ -4574,9 +4592,9 @@
     "addedAt": "2026-08-10T18:45:55.255Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/AKQb3GjdneA1mw",
+      "finalUrl": "https://base.monobank.ua/sp/88kLX21QtEh32o",
       "ok": true
     },
     "images": [
@@ -4603,9 +4621,9 @@
     "addedAt": "2026-08-10T18:45:55.292Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/9DS27Cw2oRy66a",
+      "finalUrl": "https://base.monobank.ua/sp/8UFoQKJpnMeZ2R",
       "ok": true
     },
     "images": [
@@ -4638,7 +4656,7 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
       "finalUrl": "https://base.monobank.ua/2gkjik9WjTdxnr",
       "ok": true
@@ -4663,9 +4681,9 @@
     "addedAt": "2026-08-10T18:45:55.450Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/C5qeoGc5VQpuui",
+      "finalUrl": "https://base.monobank.ua/sp/ZoWyuStzpjMed",
       "ok": true
     },
     "images": [
@@ -4698,9 +4716,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ab3angels",
+      "finalUrl": "https://base.monobank.ua/sp/4bUjssG4F8L9b2",
       "ok": true
     },
     "baseAccountType": "fund"
@@ -4723,9 +4741,9 @@
     "addedAt": "2026-08-10T18:45:55.672Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:00:43.206Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/81NN2qov5Bc1aX",
+      "finalUrl": "https://base.monobank.ua/sp/4e9aYgGYfdXSVw",
       "ok": true
     },
     "images": [
@@ -4752,9 +4770,9 @@
     "addedAt": "2026-08-10T18:45:55.707Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/8Kiv8o9AULv5aJ",
+      "finalUrl": "https://base.monobank.ua/sp/A1tWRkqYQFPPyv",
       "ok": true
     },
     "images": [
@@ -4780,9 +4798,9 @@
     "addedAt": "2026-08-10T18:45:55.741Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:05:24.721Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/73jciQWMRLGpbs",
+      "finalUrl": "https://base.monobank.ua/sp/AXPopxiRXtSKux",
       "ok": true
     },
     "images": [
@@ -4814,9 +4832,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/DfMKh5mC4zumRy",
+      "finalUrl": "https://base.monobank.ua/sp/148zhT8joapNQX",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -4839,9 +4857,9 @@
     "addedAt": "2026-08-10T18:45:55.907Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/loran",
+      "finalUrl": "https://base.monobank.ua/sp/9YjNNneVVzyciZ",
       "ok": true
     },
     "images": [
@@ -4867,9 +4885,9 @@
     "addedAt": "2026-08-10T18:45:55.939Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ceh9",
+      "finalUrl": "https://base.monobank.ua/sp/9uFK5WWYy28oDY",
       "ok": true
     },
     "images": [
@@ -4895,9 +4913,9 @@
     "addedAt": "2026-08-10T18:45:55.976Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/DJ3vNDaoGJTyRm",
+      "finalUrl": "https://base.monobank.ua/sp/2LbLpgX4QTyTQU",
       "ok": true
     },
     "images": [
@@ -4923,9 +4941,9 @@
     "addedAt": "2026-08-10T18:45:56.009Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/tura_hvost",
+      "finalUrl": "https://base.monobank.ua/sp/AkJz1BfZjBhuKh",
       "ok": true
     },
     "images": [
@@ -4951,9 +4969,9 @@
     "addedAt": "2026-08-10T18:45:56.037Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/De8g3ioyJG8xEQ",
+      "finalUrl": "https://base.monobank.ua/sp/5gGJKT5F4SbdME",
       "ok": true
     },
     "images": [
@@ -4979,9 +4997,9 @@
     "addedAt": "2026-08-10T18:45:56.079Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/ExW3X51dcPV2z9",
+      "finalUrl": "https://base.monobank.ua/sp/7LBNkgn88Lm5kg",
       "ok": true
     },
     "images": [
@@ -5014,9 +5032,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/kilderov",
+      "finalUrl": "https://base.monobank.ua/sp/DhCCpd3A3CERuU",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -5058,7 +5076,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:05:43.047Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/9UXnKpBEaDJUH9",
+      "ok": true
+    }
   },
   {
     "id": "base-bihus-info",
@@ -5088,9 +5112,9 @@
     "isAdultOnly": false,
     "featured": false,
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/bihusinfo",
+      "finalUrl": "https://base.monobank.ua/sp/BXMhKzbqtE243y",
       "ok": true
     },
     "baseAccountType": "creator"
@@ -5113,9 +5137,9 @@
     "addedAt": "2026-08-10T18:45:56.761Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/mnk_support",
+      "finalUrl": "https://base.monobank.ua/sp/aTJ4ywa4SKkXx",
       "ok": true
     },
     "images": [
@@ -5142,9 +5166,9 @@
     "addedAt": "2026-08-10T18:45:56.940Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/EsU4ynih2p7jmD",
+      "finalUrl": "https://base.monobank.ua/sp/4PenpsLMjBRCRt",
       "ok": true
     },
     "images": [
@@ -5171,9 +5195,9 @@
     "addedAt": "2026-08-10T18:45:56.996Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/5ZhRHc2VNknoMW",
+      "finalUrl": "https://base.monobank.ua/sp/KaCWKSDZg3g5E",
       "ok": true
     },
     "images": [
@@ -5200,9 +5224,9 @@
     "addedAt": "2026-08-10T18:45:57.133Z",
     "lastVerifiedAt": "2026-08-17",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
-      "finalUrl": "https://base.monobank.ua/4jK74FuJaoieLf",
+      "finalUrl": "https://base.monobank.ua/sp/2qy3o7zD6mTGQA",
       "ok": true
     },
     "images": [
@@ -5228,7 +5252,7 @@
     "addedAt": "2026-08-10T19:10:33.241Z",
     "lastVerifiedAt": "2026-08-10",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/84Agye6YNA",
       "ok": true
@@ -5252,7 +5276,7 @@
     "addedAt": "2026-08-10T19:10:33.243Z",
     "lastVerifiedAt": "2026-08-10",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6853hYCfHk",
       "ok": true
@@ -5276,7 +5300,7 @@
     "addedAt": "2026-08-10T19:10:33.248Z",
     "lastVerifiedAt": "2026-08-10",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/43MomG4QG5",
       "ok": true
@@ -5339,7 +5363,7 @@
     "lastVerifiedAt": "2026-08-10",
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/9jfqcEk8Gg",
       "ok": true
@@ -5364,7 +5388,7 @@
     "lastVerifiedAt": "2026-08-10",
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/6sHyRFPo47",
       "ok": true
@@ -5389,7 +5413,7 @@
     "lastVerifiedAt": "2026-08-10",
     "unavailableReason": "Акція завершена.",
     "linkCheck": {
-      "checkedAt": "2026-08-13T17:10:23.917Z",
+      "checkedAt": "2026-08-20T18:05:43.047Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/9Y1tYfFW6x",
       "ok": true
@@ -5421,7 +5445,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:05:43.047Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/8Lcerc6qAxHrQE",
+      "ok": true
+    }
   },
   {
     "id": "base-200",
@@ -5449,7 +5479,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:05:43.047Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/8gLC8kcmAmEF9Y",
+      "ok": true
+    }
   },
   {
     "id": "base-199",
@@ -5477,7 +5513,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:05:43.047Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/BDomdLZJQaTkDA",
+      "ok": true
+    }
   },
   {
     "id": "base-197",
@@ -5505,7 +5547,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/4tMR1jkZaRUctv",
+      "ok": true
+    }
   },
   {
     "id": "base-188",
@@ -5533,7 +5581,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/CXnVJpV3TzFsw4",
+      "ok": true
+    }
   },
   {
     "id": "base-185",
@@ -5561,7 +5615,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/6ReH1bs6KAHumQ",
+      "ok": true
+    }
   },
   {
     "id": "base-183",
@@ -5589,7 +5649,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/5FP3DLo5NL2t1c",
+      "ok": true
+    }
   },
   {
     "id": "base-181",
@@ -5617,7 +5683,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/BEPRrhuPs8CBdY",
+      "ok": true
+    }
   },
   {
     "id": "base-176",
@@ -5645,7 +5717,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/BL7uKSQqJ99ZDh",
+      "ok": true
+    }
   },
   {
     "id": "base-174",
@@ -5673,7 +5751,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/7FGvbFixajD2Mw",
+      "ok": true
+    }
   },
   {
     "id": "base-166",
@@ -5703,7 +5787,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/CRCvxpkiDKBL2d",
+      "ok": true
+    }
   },
   {
     "id": "base-140",
@@ -5731,7 +5821,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/6TvkByosScc8uo",
+      "ok": true
+    }
   },
   {
     "id": "base-124",
@@ -5759,7 +5855,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/9WiP2dLy9dSwc3",
+      "ok": true
+    }
   },
   {
     "id": "base-119",
@@ -5787,7 +5889,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/6C3VRAQjev1pn5",
+      "ok": true
+    }
   },
   {
     "id": "base-114",
@@ -5815,7 +5923,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/3EHd1mNu7KSJmU",
+      "ok": true
+    }
   },
   {
     "id": "base-87",
@@ -5843,7 +5957,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/E3vxrEzPfVyCpz",
+      "ok": true
+    }
   },
   {
     "id": "base-60",
@@ -5873,7 +5993,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "fund"
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/A4gXfSTwHw35SM",
+      "ok": true
+    }
   },
   {
     "id": "base-39",
@@ -5901,7 +6027,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/Bfiw6UE8F4ZJ4C",
+      "ok": true
+    }
   },
   {
     "id": "base-30",
@@ -5929,7 +6061,13 @@
         "status": "Доступний"
       }
     ],
-    "baseAccountType": "creator"
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/8yNE2MV8VW3zyb",
+      "ok": true
+    }
   },
   {
     "id": "base-2",
@@ -5957,6 +6095,12 @@
         "date": "2026-08-17T00:00:00.000Z",
         "status": "Доступний"
       }
-    ]
+    ],
+    "linkCheck": {
+      "checkedAt": "2026-08-20T18:10:43.383Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/6mNWaxag3gGX2A",
+      "ok": true
+    }
   }
 ]
