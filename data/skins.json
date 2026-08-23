@@ -1,5 +1,29 @@
 [
   {
+    "id": "prapor-nezalezhnosti-by-lnj",
+    "name": "Прапор Незалежності by LNJ",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "addedAt": "2026-08-23T16:43:07.710Z",
+    "lastVerifiedAt": "2026-08-23",
+    "description": "За донат від 300 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/3AFkmeioK3",
+    "image": "skin/prapor-nezalezhnosti-by-lnj-1-0b67e055.webp",
+    "imageHashes": [
+      "0b67e055cbee47faf6028cd3518c0d3cd07ee726db92a13d2ada59663c7fc170"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-23T16:43:07.710Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "olsior",
     "name": "Olsior",
     "method": "Підписка Base",
