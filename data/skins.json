@@ -1,5 +1,29 @@
 [
   {
+    "id": "z-dnem-nezalezhnosti-ukrayiny-skin-kolo",
+    "name": "З Днем Незалежності України 🇺🇦!  Скін KOLO",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 350,
+    "addedAt": "2026-08-24T12:36:10.819Z",
+    "lastVerifiedAt": "2026-08-24",
+    "description": "За донат на банку він 350 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/5mNCrZJrRF",
+    "image": "skin/z-dnem-nezalezhnosti-ukrayiny-skin-kolo-1-c172d150.png",
+    "imageHashes": [
+      "c172d150031d7fe33fd6dbb7ae50844932a3d04fe3793e459b70ca738ae2963b"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-24T12:36:10.819Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "prapor-nezalezhnosti-by-lnj",
     "name": "Прапор Незалежності by LNJ",
     "method": "Донат на банку",
