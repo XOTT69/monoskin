@@ -1,5 +1,29 @@
 [
   {
+    "id": "skin-mate-academy",
+    "name": "Скін Mate Academy",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-08-28T13:26:33.630Z",
+    "lastVerifiedAt": "2026-08-28",
+    "description": "За донат на банку від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/sFU1dMu4U",
+    "image": "skin/skin-mate-academy-1-dd1074ae.webp",
+    "imageHashes": [
+      "dd1074ae6177ef3796c27dffb2bdcdce014b81f78195b20ec60c1aff91749c34"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-28T13:26:33.631Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "1-y-okremyy-medychnyy-batalyon",
     "name": "1-й окремий медичний батальйон",
     "method": "Безкоштовний",
