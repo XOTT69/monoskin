@@ -1,5 +1,31 @@
 [
   {
+    "id": "1-y-okremyy-medychnyy-batalyon",
+    "name": "1-й окремий медичний батальйон",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "addedAt": "2026-08-28T13:24:42.832Z",
+    "lastVerifiedAt": "2026-08-28",
+    "unavailableReason": "Видаються за отримання заробітної плати в  1-му окремому медичному батальйоні",
+    "description": "За отримання Зарплати в 1-му окремому медичному батальйоні",
+    "sourceUrl": "",
+    "image": "skin/1-y-okremyy-medychnyy-batalyon-1-486914a2.png",
+    "imageHashes": [
+      "486914a252a7116fd44a1fd08dd8f00c4f885028bbb3887bf1d65c41d00af5bd"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-28T13:24:42.833Z",
+        "status": "Недоступний",
+        "reason": "Видаються за отримання заробітної плати в  1-му окремому медичному батальйоні"
+      }
+    ]
+  },
+  {
     "id": "z-dnem-nezalezhnosti-ukrayiny-skin-kolo",
     "name": "З Днем Незалежності України 🇺🇦!  Скін KOLO",
     "method": "Донат на банку",
