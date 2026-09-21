@@ -1,5 +1,29 @@
 [
   {
+    "id": "skin-misto-dobra",
+    "name": "Скін Місто Добра",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 300,
+    "addedAt": "2026-09-21T14:03:51.577Z",
+    "lastVerifiedAt": "2026-09-21",
+    "description": "За донат від 300 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/8ogyhdHcGQ",
+    "image": "skin/skin-misto-dobra-1-fc0696ca.png",
+    "imageHashes": [
+      "fc0696ca50f73fb7bd97786529d097308c18da872ff3db43c501ce920127a137"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-21T14:03:51.578Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "skin-mate-academy",
     "name": "Скін Mate Academy",
     "method": "Донат на банку",
