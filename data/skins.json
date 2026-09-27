@@ -1,5 +1,29 @@
 [
   {
+    "id": "it-arena",
+    "name": "IT Arena",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 1,
+    "addedAt": "2026-09-27T16:01:01.832Z",
+    "lastVerifiedAt": "2026-09-27",
+    "description": "За донат на будь-яку суму. Скін зʼявляється протягом 15-20 хв.",
+    "sourceUrl": "https://send.monobank.ua/jar/85FFRfowa2",
+    "image": "skin/it-arena.jpg",
+    "imageHashes": [
+      "19906e871edec766fc306a37a4a3ec4af2af3a210e83c9255738f354c219258a"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-27T16:01:01.832Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "skin-misto-dobra",
     "name": "Скін Місто Добра",
     "method": "Донат на банку",
