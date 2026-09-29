@@ -54,6 +54,142 @@
     }
   },
   {
+    "id": "base-210",
+    "name": "ГО \"МОТОХЕЛП\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "addedAt": "2026-09-15T13:08:37.220Z",
+    "lastVerifiedAt": "2026-09-29",
+    "description": "Скін доступний у підписці «Motohelp Brotherhood» на Base. Мінімальна сума підписки — від 500 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/75mgm8g7eX6wHV",
+    "image": "skin/base-210-wallet_base_bmhelp_card_visa.png",
+    "images": [
+      "skin/base-210-wallet_base_bmhelp_card_visa.png"
+    ],
+    "imageHashes": [
+      "473d4dfd56a62432b888e9743c292d5505545daae5507f378a9ec1d566a376f2"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-15T13:08:37.220Z",
+        "status": "Доступний"
+      }
+    ],
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-09-29T19:34:20.000Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/75mgm8g7eX6wHV",
+      "ok": true
+    }
+  },
+  {
+    "id": "base-209",
+    "name": "CUKR.CITY",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 500,
+    "addedAt": "2026-09-11T16:13:08.478Z",
+    "lastVerifiedAt": "2026-09-29",
+    "description": "Скін доступний у підписці «Учасник Клубу Цукру» на Base. Мінімальна сума підписки — від 500 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/BUzNq168UYM6h9",
+    "image": "skin/base-209-wallet_base_bcukr2_card_visa.png",
+    "images": [
+      "skin/base-209-wallet_base_bcukr2_card_visa.png"
+    ],
+    "imageHashes": [
+      "a9ca12e79a455789305f021de11353894af17e17b1f9a36589fb52e7d975a245"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-11T16:13:08.478Z",
+        "status": "Доступний"
+      }
+    ],
+    "baseAccountType": "creator",
+    "linkCheck": {
+      "checkedAt": "2026-09-29T19:34:20.000Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/BUzNq168UYM6h9",
+      "ok": true
+    }
+  },
+  {
+    "id": "base-208",
+    "name": "МАҐУРА",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 400,
+    "addedAt": "2026-09-11T15:25:20.279Z",
+    "lastVerifiedAt": "2026-09-29",
+    "description": "Скін доступний у підписці «BASE CAMP» на Base. Мінімальна сума підписки — від 400 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/DqjuYpTUtQAzQ8",
+    "image": "skin/base-208-wallet_base_bmagura_card_visa.png",
+    "images": [
+      "skin/base-208-wallet_base_bmagura_card_visa.png"
+    ],
+    "imageHashes": [
+      "4b7b621a076e5ebfdfe8056a2905220b3e4568b2956a5f81f7dbba1ed6917f86"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-11T15:25:20.279Z",
+        "status": "Доступний"
+      }
+    ],
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-09-29T19:34:20.000Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/DqjuYpTUtQAzQ8",
+      "ok": true
+    }
+  },
+  {
+    "id": "base-206",
+    "name": "Lotus Fund",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 116,
+    "addedAt": "2026-09-01T10:55:55.741Z",
+    "lastVerifiedAt": "2026-09-29",
+    "description": "Скін доступний у підписці «Зупинити кровотечу 🩸» на Base. Мінімальна сума підписки — від 116 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/4eoRNPu1b3qjR4",
+    "image": "skin/base-206-wallet_base_blotus_card_visa.png",
+    "images": [
+      "skin/base-206-wallet_base_blotus_card_visa.png"
+    ],
+    "imageHashes": [
+      "5a01d1ac79e62046ce5542ebeccc9eddc74e10291221ac06ab1612ebf2e5d208"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-09-01T10:55:55.741Z",
+        "status": "Доступний"
+      }
+    ],
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-09-29T19:34:20.000Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/4eoRNPu1b3qjR4",
+      "ok": true
+    }
+  },
+  {
     "id": "skin-mate-academy",
     "name": "Скін Mate Academy",
     "method": "Донат на банку",
@@ -170,6 +306,40 @@
       "checkedAt": "2026-09-24T20:45:25.814Z",
       "status": 200,
       "finalUrl": "https://send.monobank.ua/jar/3AFkmeioK3",
+      "ok": true
+    }
+  },
+  {
+    "id": "base-205",
+    "name": "БО \"ТВЕРДИНЯ\"",
+    "method": "Підписка Base",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-08-20T13:30:53.034Z",
+    "lastVerifiedAt": "2026-09-29",
+    "description": "Скін доступний у підписці «Еней» на Base. Мінімальна сума підписки — від 100 грн/міс.",
+    "sourceUrl": "https://base.monobank.ua/sp/56xUrZNMXJKgsK",
+    "image": "skin/base-205-wallet_base_btverdn_card_visa.png",
+    "images": [
+      "skin/base-205-wallet_base_btverdn_card_visa.png"
+    ],
+    "imageHashes": [
+      "33ff2de1709b15e9ce8e4e697924d5a1932c9c3088ea10cb7776c85e3622039b"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-08-20T13:30:53.034Z",
+        "status": "Доступний"
+      }
+    ],
+    "baseAccountType": "fund",
+    "linkCheck": {
+      "checkedAt": "2026-09-29T19:34:20.000Z",
+      "status": 200,
+      "finalUrl": "https://base.monobank.ua/sp/56xUrZNMXJKgsK",
       "ok": true
     }
   },
@@ -4241,8 +4411,8 @@
     "name": "Bromance podcast",
     "method": "Підписка Base",
     "status": "Доступний",
-    "minimumValue": 444,
-    "description": "Скін доступний у підписці «Друг/Подруга» на Base. Мінімальна сума підписки — від 444 грн/міс.",
+    "minimumValue": 488,
+    "description": "Скін доступний у підписці «Друг/Подруга» на Base. Мінімальна сума підписки — від 488 грн/міс.",
     "sourceUrl": "https://base.monobank.ua/sp/6eXCcm3RfrW2uQ",
     "image": "skin/base-bromance-podcast.png",
     "imageHashes": [
@@ -4252,7 +4422,7 @@
     "isAdultOnly": false,
     "featured": false,
     "addedAt": "2026-08-10T18:45:53.889Z",
-    "lastVerifiedAt": "2026-08-17",
+    "lastVerifiedAt": "2026-09-29",
     "linkCheck": {
       "checkedAt": "2026-09-24T21:10:27.614Z",
       "status": 200,
