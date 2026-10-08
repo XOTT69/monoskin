@@ -1,5 +1,29 @@
 [
   {
+    "id": "kryla-pomsty",
+    "name": "Крила помсти",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-10-08T18:42:31.693Z",
+    "lastVerifiedAt": "2026-10-08",
+    "description": "За донат на банку від 200 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/6XC5Fdts4z",
+    "image": "skin/kryla-pomsty-1-49fb5fd6.webp",
+    "imageHashes": [
+      "49fb5fd68bfa704c9195c70c68da16449afa4064e6958b2309a95d91dc7f7251"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-08T18:42:31.693Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "it-arena",
     "name": "IT Arena",
     "method": "Донат на банку",
