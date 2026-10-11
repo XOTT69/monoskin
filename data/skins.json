@@ -1,5 +1,28 @@
 [
   {
+    "id": "s-t-a-l-k-e-r-2",
+    "name": "S.T.A.L.K.E.R. 2.",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "addedAt": "2026-10-11T14:05:08.441Z",
+    "description": "Скін було розроблено на фоні виходу гри S.T.A.L.K.E.R. 2 , скін НЕ видавався Клієнтам і зараз НЕ є доступним для отримання.",
+    "sourceUrl": "",
+    "image": "skin/s-t-a-l-k-e-r-2-1-9d206e81.png",
+    "imageHashes": [
+      "9d206e815b9a23c23c61bffc6b2ee5b63080bdc9684d07ddff20751cf87170da"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-11T14:05:08.441Z",
+        "status": "Недоступний"
+      }
+    ]
+  },
+  {
     "id": "kryla-pomsty",
     "name": "Крила помсти",
     "method": "Донат на банку",
