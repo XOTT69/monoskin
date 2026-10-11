@@ -1,5 +1,30 @@
 [
   {
+    "id": "goiteens",
+    "name": "GoITeens",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "addedAt": "2026-10-11T14:09:09.008Z",
+    "unavailableReason": "скін видавався дітям за участь в IT-марафоні для дітей від GoITeens",
+    "description": "скін видавався дітям за участь в IT-марафоні для дітей від GoITeens",
+    "sourceUrl": "",
+    "image": "skin/goiteens-1-2ffeb0e1.png",
+    "imageHashes": [
+      "2ffeb0e1c3b05f9e6378cd3723ebb89e1b8c8e6463e7ea35b5b4a57f05231abb"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-11T14:09:09.008Z",
+        "status": "Недоступний",
+        "reason": "скін видавався дітям за участь в IT-марафоні для дітей від GoITeens"
+      }
+    ]
+  },
+  {
     "id": "s-t-a-l-k-e-r-2",
     "name": "S.T.A.L.K.E.R. 2.",
     "method": "Безкоштовний",
