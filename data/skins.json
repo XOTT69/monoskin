@@ -1,5 +1,31 @@
 [
   {
+    "id": "skin-dlya-studentiv-knu-im-tarasa-shevchenka",
+    "name": "Скін для студентів КНУ ім. Тараса Шевченка!",
+    "method": "Безкоштовний",
+    "status": "Недоступний",
+    "minimumValue": 0,
+    "addedAt": "2026-10-15T09:47:01.437Z",
+    "lastVerifiedAt": "2026-10-15",
+    "unavailableReason": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка",
+    "description": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка",
+    "sourceUrl": "",
+    "image": "skin/skin-dlya-studentiv-knu-im-tarasa-shevchenka-1-33c2323a.png",
+    "imageHashes": [
+      "33c2323ac32c616cc40bf9557f7260a5bd0dc4271b429143522f0802aa1bd864"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-15T09:47:01.437Z",
+        "status": "Недоступний",
+        "reason": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка"
+      }
+    ]
+  },
+  {
     "id": "goiteens",
     "name": "GoITeens",
     "method": "Безкоштовний",
