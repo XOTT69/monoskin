@@ -2,14 +2,13 @@
   {
     "id": "skin-dlya-studentiv-knu-im-tarasa-shevchenka",
     "name": "Скін для студентів КНУ ім. Тараса Шевченка!",
-    "method": "Безкоштовний",
-    "status": "Недоступний",
+    "method": "Доступні всім",
+    "status": "Доступний",
     "minimumValue": 0,
     "addedAt": "2026-10-15T09:47:01.437Z",
-    "lastVerifiedAt": "2026-10-15",
-    "unavailableReason": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка",
-    "description": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка",
-    "sourceUrl": "",
+    "lastVerifiedAt": "2026-10-24",
+    "description": "Отримати можна за посиланням",
+    "sourceUrl": "https://base.monobank.ua/ds/3APMnwFZDfxAff",
     "image": "skin/skin-dlya-studentiv-knu-im-tarasa-shevchenka-1-33c2323a.png",
     "imageHashes": [
       "33c2323ac32c616cc40bf9557f7260a5bd0dc4271b429143522f0802aa1bd864"
@@ -22,6 +21,10 @@
         "date": "2026-10-15T09:47:01.437Z",
         "status": "Недоступний",
         "reason": "Видається лише за отримання стипендії  в КНУ ім. Тараса Шевченка"
+      },
+      {
+        "date": "2026-10-24T18:28:23.433Z",
+        "status": "Доступний"
       }
     ]
   },
