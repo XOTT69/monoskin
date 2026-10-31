@@ -1,5 +1,29 @@
 [
   {
+    "id": "skin-113-obr-tro",
+    "name": "Скін 113 ОБР ТРО",
+    "method": "Безкоштовний",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-10-31T15:45:45.372Z",
+    "lastVerifiedAt": "2026-10-31",
+    "description": "За донат від 300 грн.",
+    "sourceUrl": "https://send.monobank.ua/jar/6DgA7bmCSB",
+    "image": "skin/skin-113-obr-tro-1-2e16fad1.png",
+    "imageHashes": [
+      "2e16fad17d433d9bfe61a412afdde992542dfa2e990a5394426e7f1030be2a23"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-31T15:45:45.372Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "skin-pidrozdilu-muramasa",
     "name": "Скін підрозділу MURAMASA",
     "method": "Донат на банку",
