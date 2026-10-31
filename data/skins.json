@@ -1,5 +1,29 @@
 [
   {
+    "id": "skin-pidrozdilu-muramasa",
+    "name": "Скін підрозділу MURAMASA",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 200,
+    "addedAt": "2026-10-31T15:43:57.935Z",
+    "lastVerifiedAt": "2026-10-31",
+    "description": "За донат від 200 грн.",
+    "sourceUrl": "https://send.monobank.ua/jar/9PYbQNQaGU",
+    "image": "skin/skin-pidrozdilu-muramasa-1-7eeaaf2c.webp",
+    "imageHashes": [
+      "7eeaaf2c9b586475dc206e56edfc3de49e57cdda1db25a5eb416e01fa0c5c69d"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-10-31T15:43:57.935Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "skin-dlya-studentiv-knu-im-tarasa-shevchenka",
     "name": "Скін для студентів КНУ ім. Тараса Шевченка!",
     "method": "Доступні всім",
