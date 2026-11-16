@@ -1,5 +1,29 @@
 [
   {
+    "id": "azov-tse-lyubov",
+    "name": "Азов це Любов",
+    "method": "Донат на банку",
+    "status": "Доступний",
+    "minimumValue": 100,
+    "addedAt": "2026-11-16T17:38:54.250Z",
+    "lastVerifiedAt": "2026-11-16",
+    "description": "За дона на банку від 100 грн",
+    "sourceUrl": "https://send.monobank.ua/jar/kTm2w1dWS",
+    "image": "skin/azov-tse-lyubov-1-175dc4c2.webp",
+    "imageHashes": [
+      "175dc4c2224f9753c5123a4a5bbb3d906af4cff7c0dac56fe67762b5ff00bc7a"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-11-16T17:38:54.250Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "skin-113-obr-tro",
     "name": "Скін 113 ОБР ТРО",
     "method": "Безкоштовний",
