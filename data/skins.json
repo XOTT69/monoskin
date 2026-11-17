@@ -1,5 +1,29 @@
 [
   {
+    "id": "skin-pokiynoho-krymskoho-mostu",
+    "name": "Скін покійного кримського мосту",
+    "method": "Доступні всім",
+    "status": "Доступний",
+    "minimumValue": 0,
+    "addedAt": "2026-11-17T12:05:19.612Z",
+    "lastVerifiedAt": "2026-11-17",
+    "description": "Як встановити?\n1. Тицяєте на картку в застосунку monobank\n2. Налаштування Google/Apple pay\n3. Скін для гаманця\n4. Перший розділ.",
+    "sourceUrl": "",
+    "image": "skin/skin-pokiynoho-krymskoho-mostu-1-5d59e9bf.webp",
+    "imageHashes": [
+      "5d59e9bfe5f6d5a001902e9c58a4421154f6f598f246cd39004dafacb37e9b41"
+    ],
+    "isVisaOnly": false,
+    "isAdultOnly": false,
+    "featured": false,
+    "availabilityHistory": [
+      {
+        "date": "2026-11-17T12:05:19.612Z",
+        "status": "Доступний"
+      }
+    ]
+  },
+  {
     "id": "azov-tse-lyubov",
     "name": "Азов це Любов",
     "method": "Донат на банку",
